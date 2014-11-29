@@ -1,11 +1,20 @@
 (ns bkeeping.core.handler
-  (:require [compojure.core :refer :all]
+  (:require [clojure.java.io :as io]
+            [compojure.core :refer :all]
             [compojure.route :as route]
-            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+            [compojure.handler :as handler]
+            [ring.util.response :as ring-resp]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
+
+  (GET "/" []
+
+       (-> (ring-resp/response (slurp (io/resource "public/index.html")))
+           (ring-resp/content-type "text/html")))
+
+  (route/files "/")
+  (route/resources "/")
   (route/not-found "Not Found"))
 
 (def app
-  (wrap-defaults app-routes site-defaults))
+  (handler/site app-routes))
