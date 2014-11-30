@@ -5,6 +5,8 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.2.2"]
                  [ring/ring-defaults "0.1.2"]
+
+                 ;; meant to override [clj-time "0.6.0"] in ring-core
                  [clj-time "0.8.0"]]
   :plugins [[lein-ring "0.8.13"]]
   :ring {:handler bkeeping.core.handler/app}
