@@ -3,6 +3,7 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [compojure.handler :as handler]
+            [ring.middleware.session :refer :all]
             [ring.util.response :as ring-resp]
             [clj-http.client :as client]
             [environ.core :refer [env]]
@@ -33,4 +34,6 @@
   (route/not-found "Not Found"))
 
 (def app
-  (handler/site app-routes))
+  (-> app-routes
+      (handler/site)
+      (wrap-session {:cookie-attrs {:max-age 3600}})))
