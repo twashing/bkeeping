@@ -1,15 +1,32 @@
-<html>
-    <body>
+<!DOCTYPE html>
 
-      <div id="signin">Signin</div>
-      <div id="signout">Signout</div>
+<html>
+
+  <head>
+
+    <!-- 1. Load webcomponents.min.js for polyfill support. -->
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+
+  </head>
+
+  <body fullbleed vertical layout >
+
+    <core-header-panel flex>
+      <core-toolbar>
+        <div>Hello World!</div>
+        <div tool id="signin">Signin</div>
+        <div tool id="signout">Signout</div>
+      </core-toolbar>
+    </core-header-panel>
+
+
 
       <!-- Ensuring users of IE can't use Compatibility Mode, as this will break Persona.
            (https://developer.mozilla.org/en-US/Persona/Quick_setup) -->
       <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-
       <script src="https://login.persona.org/include.js"></script>
-
       <script>
         var currentUser = 'twashing@gmail.com';
 
@@ -85,5 +102,7 @@
       <script type="text/javascript">goog.require("cljs.core");</script>
       <script type="text/javascript">goog.require("bkell.core");</script>
       -->
-    </body>
+
+  </body>
+
 </html>
