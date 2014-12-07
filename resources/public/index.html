@@ -4,20 +4,45 @@
 
   <head>
 
+    <script src="//use.typekit.net/zac5lnn.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
     <!-- 1. Load webcomponents.min.js for polyfill support. -->
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 
+    <style>
+      .header-logo {
+        font-size: 30px;
+      }
+      .header-text {
+        font-size: 16px;
+      }
+      #signin {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+      }
+    </style>
   </head>
 
-  <body fullbleed vertical layout >
+  <body fullbleed vertical layout>
 
     <core-header-panel flex>
-      <core-toolbar>
-        <div>Hello World!</div>
-        <div tool id="signin">Signin</div>
-        <div tool id="signout">Signout</div>
+      <core-toolbar layout>
+        <div class="tk-lust-script header-logo">bkeeping</div>
+        <div class="tk-open-sans header-text">Your solution to simple online bookkeeping</div>
+        <span flex>&nbsp;</span>
+        <div>
+          <div class="tk-open-sans header-text" id="signin">login</div>
+        </div>
+        <!-- <div class="tk-open-sans header-text" id="signout">logout</div>
+             -->
+
       </core-toolbar>
     </core-header-panel>
 
