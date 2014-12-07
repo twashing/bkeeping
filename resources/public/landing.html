@@ -6,7 +6,6 @@
     <script src="//use.typekit.net/zac5lnn.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
-    <!-- 1. Load webcomponents.min.js for polyfill support. -->
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
@@ -14,35 +13,8 @@
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
 
-    <style>
-      * {
-        font-family: "open-sans",sans-serif;
-      }
-      .header-logo {
-        font-size: 30px;
-      }
-      .header-text {
-        font-size: 16px;
-      }
-      #signin {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-justify-content: flex-end;
-        justify-content: flex-end;
-      }
-    </style>
-    <script>
-      function transitionAccounts() {
-        as = document.querySelector('#accounts');
-        as.selected += 1;
-      }
-      function transitionEntries() {
-        es = document.querySelector('#entries');
-        es.selected += 1;
-      }
-    </script>
+    <link rel="stylesheet" type="text/css" href="css/landing.css">
+    <script src="js/bkeeping.js"></script>
   </head>
 
   <body fullbleed vertical layout>

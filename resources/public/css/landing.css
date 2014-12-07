@@ -1,0 +1,17 @@
+* {
+    font-family: "open-sans",sans-serif;
+}
+.header-logo {
+    font-size: 30px;
+}
+.header-text {
+    font-size: 16px;
+}
+#signin , #signout {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}

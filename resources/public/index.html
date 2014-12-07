@@ -6,30 +6,11 @@
     <script src="//use.typekit.net/zac5lnn.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
-    <!-- 1. Load webcomponents.min.js for polyfill support. -->
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 
-    <style>
-      * {
-        font-family: "open-sans",sans-serif;
-      }
-      .header-logo {
-        font-size: 30px;
-      }
-      .header-text {
-        font-size: 16px;
-      }
-      #signin {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-justify-content: flex-end;
-        justify-content: flex-end;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/landing.css">
   </head>
 
   <body fullbleed vertical layout>
@@ -47,80 +28,11 @@
     </core-header-panel>
 
 
-
-      <!-- Ensuring users of IE can't use Compatibility Mode, as this will break Persona.
-           (https://developer.mozilla.org/en-US/Persona/Quick_setup) -->
-      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-      <script src="https://login.persona.org/include.js"></script>
-      <script>
-        var currentUser = 'twashing@gmail.com';
-
-        function simpleXhrSentinel(xhr) {
-          return function() {
-            if (xhr.readyState == 4) {
-              if (xhr.status == 200) {
-
-                // reload page to reflect new login state
-                console.log("XMLHttpRequest SUCCESS: " + xhr.status);
-                window.location.reload();
-              }
-              else {
-                console.log("XMLHttpRequest ERROR: " + xhr.status);
-                navigator.id.logout();
-              }
-            }
-          }
-        }
-
-        function verifyAssertion(assertion) {
-
-          // Your backend must return HTTP status code 200 to indicate successful
-          // verification of user's email address and it must arrange for the binding
-          // of currentUser to said address when the page is reloaded
-
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/verify-assertion", true);
-
-          // see http://www.openjs.com/articles/ajax_xmlhttp_using_post.php
-          var param = "assertion="+assertion;
-          xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-          xhr.setRequestHeader("Content-length", param.length);
-          xhr.setRequestHeader("Connection", "close");
-          xhr.send(param); // for verification by your backend
-
-          xhr.onreadystatechange = simpleXhrSentinel(xhr);
-        }
-
-        function signoutUser() {
-          // Your backend must return HTTP status code 200 to indicate successful
-          // sign out (usually the resetting of one or more session variables) and
-          // it must arrange for the binding of currentUser to 'null' when the page
-          // is reloaded
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", "/signout", true);
-          xhr.send(null);
-          xhr.onreadystatechange = simpleXhrSentinel(xhr);
-        }
-      </script>
-      <script>
-        var signinLink = document.getElementById('signin');
-        if (signinLink) {
-          signinLink.onclick = function() {
-
-            console.log("Signin CLICKED");
-            navigator.id.watch({ loggedInUser: currentUser, onlogin: verifyAssertion, onlogout: signoutUser });
-            navigator.id.request(); };
-        }
-
-        var signoutLink = document.getElementById('signout');
-        if (signoutLink) {
-          signoutLink.onclick = function() {
-
-            console.log("Signout CLICKED");
-            navigator.id.logout();
-          };
-        }
-      </script>
+    <!-- Ensuring users of IE can't use Compatibility Mode, as this will break Persona.
+         (https://developer.mozilla.org/en-US/Persona/Quick_setup) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="https://login.persona.org/include.js"></script>
+    <script src="js/bkeeping.js"></script>
 
       <!-- <script src="js/out/goog/base.js" type="text/javascript"></script>
       <script src="js/bkell.js" type="text/javascript"></script>
