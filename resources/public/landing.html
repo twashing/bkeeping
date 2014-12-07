@@ -11,6 +11,8 @@
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
 
     <style>
       * {
@@ -31,6 +33,16 @@
         justify-content: flex-end;
       }
     </style>
+    <script>
+      function transitionAccounts() {
+        as = document.querySelector('#accounts');
+        as.selected += 1;
+      }
+      function transitionEntries() {
+        es = document.querySelector('#entries');
+        es.selected += 1;
+      }
+    </script>
   </head>
 
   <body fullbleed vertical layout>
@@ -46,16 +58,29 @@
       </core-toolbar>
 
       <core-scaffold id="landing">
-
         <core-header-panel navigation flex mode="seamed">
           <core-toolbar>Accounts</core-toolbar>
-          <core-menu theme="core-light-theme">
-            <core-item icon="settings" label="item1"></core-item>
-            <core-item icon="settings" label="item2"></core-item>
-          </core-menu>
+          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="transitionAccounts();">
+            <section>
+              <div slide-from-right>master</div>
+            </section>
+            <section>
+              <div slide-from-right>detail</div>
+            </section>
+          </core-animated-pages>
         </core-header-panel>
-      <div tool>Entries</div>
-        <div>...</div>
+        <div tool>Entries</div>
+        <core-animated-pages id="entries" transitions="slide-from-right" onclick="transitionEntries();">
+            <section>
+              <div slide-from-right>master</div>
+            </section>
+            <section>
+              <div slide-from-right>detail</div>
+            </section>
+            <section>
+              <div slide-from-right>detail-part</div>
+            </section>
+          </core-animated-pages>
       </core-scaffold>
 
     </core-header-panel>
