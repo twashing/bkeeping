@@ -9,6 +9,9 @@
                  [clj-http "1.0.1"]
                  [environ "1.0.0"]
                  [cheshire "5.3.1"]
+                 [slingshot "0.12.1"]
+                 [com.taoensso/timbre "3.3.1"]
+                 [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
                  [clj-time "0.8.0"]]
