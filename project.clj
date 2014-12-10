@@ -4,11 +4,11 @@
   :min-lein-version "2.0.0"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [compojure "1.2.2"]
+                 [compojure "1.3.1"]
                  [ring/ring-defaults "0.1.2"]
                  [clj-http "1.0.1"]
                  [environ "1.0.0"]
-                 [cheshire "5.3.1"]
+                 [cheshire "5.4.0"]
                  [slingshot "0.12.1"]
                  [com.taoensso/timbre "3.3.1"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
