@@ -25614,27 +25614,20 @@ ajax.core.TRACE = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }();
-var bkeeping = {greet:function(a) {
-  return "Hello " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a);
-}};
-goog.exportSymbol("bkeeping.greet", bkeeping.greet);
-bkeeping.console_log = function(a) {
+var bkeeping = {console_log:function(a) {
   return console.log(a);
-};
-bkeeping.verifyAssertion = function(a) {
+}, verifyAssertion:function(a) {
   return bkeeping.console_log.call(null, "verifyAssertion CALLED / assertion[" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a) + "]");
-};
-bkeeping.signoutUser = function() {
+}, signoutUser:function() {
   return bkeeping.console_log.call(null, "signoutUser CALLED");
-};
-bkeeping.on_click_handler = function() {
+}, onClickHandler:function() {
   var a = navigator.id;
   bkeeping.console_log.call(null, "Signin CLICKED");
-  return a.watch(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), bkeeping.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), bkeeping.signoutUser], null)));
-};
-bkeeping.start = function() {
-  return goog.dom.getElement("signin").onclick = bkeeping.on_click_handler;
-};
+  a.watch(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), bkeeping.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), bkeeping.signoutUser], null)));
+  return a.request();
+}, start:function() {
+  return goog.dom.getElement("signin").onclick = bkeeping.onClickHandler;
+}};
 window.onload = bkeeping.start;
 
 //# sourceMappingURL=out.js.map

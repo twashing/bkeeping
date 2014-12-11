@@ -2,8 +2,6 @@
   (:require [ajax.core :refer [GET POST]]
             [goog.dom :as gdom]))
 
-(defn ^:export greet [n]
-  (str "Hello " n))
 
 (defn console-log [message]
   (.log js/console message))
@@ -14,7 +12,7 @@
 (defn signoutUser []
   (console-log "signoutUser CALLED"))
 
-(defn on-click-handler []
+(defn onClickHandler []
   (let [currentUser "twashing@gmail.com"
         navigatorId js/navigator.id]
 
@@ -22,10 +20,11 @@
     (.watch navigatorId
             (clj->js {:loggedInUser currentUser
                       :onlogin verifyAssertion
-                      :onlogout signoutUser}))))
+                      :onlogout signoutUser}))
+    (.request navigatorId)))
 
 (defn start []
   (let [signinLink (gdom/getElement "signin")]
-    (set! (.-onclick signinLink) on-click-handler)))
+    (set! (.-onclick signinLink) onClickHandler)))
 
 (set! (.-onload js/window) start)

@@ -36,7 +36,6 @@
                                    :output-to "resources/public/js/bkeeping.js"
                                    :output-dir "resources/public/js/out/"
                                    :source-map    "resources/public/js/out.js.map"
-                                   ;; :libs       ["https://login.persona.org/include.js"]
                                    :foreign-libs [{:file "https://login.persona.org/include.js"
                                                    :provides ["navigator"]}]
                                    :optimizations :simple
