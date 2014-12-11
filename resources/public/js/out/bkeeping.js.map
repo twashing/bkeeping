@@ -2,6 +2,12 @@
  "file":
  "/Users/timothyw/Projects/temp/bkeeping/resources/public/js/out/bkeeping.js",
  "sources":["bkeeping.cljs"],
- "lineCount":8,
- "mappings":";AAAA;;AAEA,iBAAA,mBAAA,pCAAeA,iCAAOC,GACpB,QAAA,qDAAcA",
- "names":["bkeeping/greet", "n"]}
+ "lineCount":24,
+ "mappings":
+ ";AAAA;;;;;;AAIA,iBAAA,mBAAA,pCAAeA,iCAAOC,GACpB,QAAA,qDAAcA;;;AAEhB,uBAAA,+BAAA,tDAAMC,6CAAaC,SACjB,OAAMC,YAAWD;;AAEnB,2BAAA,qCAAA,hEAAME,qDAAiBC,WACrB,OAACJ,+BAAY,CAAA,6FAAA,XAA2CI;;AAE1D,uBAAA,wBAAA,/CAAMC,+CACJ,sCAAA,/BAACL;;AAEH,iBAAA,kBAAA,nCAAMM,mCACJ,kBAAA,6HAAA,3IAAMC,uCACAC,aAAW,oBAAA,pBAACC,kCACZC,YAAUC,cACVC,cAAYC,aAEhB,4BAAA,rBAAM,AAAWL;oBAAjB,AACO,OAAC,+BAAA,/BAACR,2DACD,kBAAA,2CAAA,iFAAA,oFAAA,lOAAQY,kIACeL,uEACLJ,sFACCE;;;;AAE/B,AAAM,AAAUS,gBAAWR",
+ "names":
+ ["bkeeping/greet", "n", "bkeeping/console-log", "message",
+  "js/console", "bkeeping/verifyAssertion", "assertion",
+  "bkeeping/signoutUser", "bkeeping/start", "currentUser",
+  "signinLink", "goog.dom/getElement", "navigator", "js/navigator",
+  "navigatorId", "navigator/id", "js/window"]}

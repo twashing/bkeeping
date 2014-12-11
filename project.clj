@@ -13,6 +13,7 @@
                  [slingshot "0.12.1"]
                  [com.taoensso/timbre "3.3.1"]
                  [com.cemerick/piggieback "0.1.3"]
+                 [cljs-ajax "0.3.3"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
@@ -35,5 +36,8 @@
                                    :output-to "resources/public/js/bkeeping.js"
                                    :output-dir "resources/public/js/out/"
                                    :source-map    "resources/public/js/out.js.map"
-                                   :optimizations :none
+                                   ;; :libs       ["https://login.persona.org/include.js"]
+                                   :foreign-libs [{:file "https://login.persona.org/include.js"
+                                                   :provides ["navigator"]}]
+                                   :optimizations :simple
                                    :pretty-print true}}]})
