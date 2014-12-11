@@ -1,0 +1,7 @@
+{"version":3,
+ "file":
+ "/Users/timothyw/Projects/temp/bkeeping/resources/public/js/out/bkeeping2.js",
+ "sources":["bkeeping2.cljs"],
+ "lineCount":8,
+ "mappings":";AAAA;;AAEA,kBAAA,mBAAA,rCAAeA,kCAAOC,GACpB,QAAA,qDAAcA",
+ "names":["bkeeping2/greet", "n"]}
