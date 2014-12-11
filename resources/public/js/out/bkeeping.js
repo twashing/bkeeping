@@ -15,7 +15,7 @@ bkeeping.verifyAssertion = (function verifyAssertion(assertion){return bkeeping.
 bkeeping.signoutUser = (function signoutUser(){return bkeeping.console_log.call(null,"signoutUser CALLED");
 });
 bkeeping.on_click_handler = (function on_click_handler(){var currentUser = "twashing@gmail.com";var navigatorId = navigator.id;bkeeping.console_log.call(null,"Signin CLICKED");
-return navigatorId.watch(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"loggedInUser","loggedInUser",-239133008),currentUser,new cljs.core.Keyword(null,"onlogin","onlogin",-866049072),bkeeping.verifyAssertion,new cljs.core.Keyword(null,"onlogout","onlogout",2097570828),bkeeping.signoutUser], null));
+return navigatorId.watch(cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"loggedInUser","loggedInUser",-239133008),currentUser,new cljs.core.Keyword(null,"onlogin","onlogin",-866049072),bkeeping.verifyAssertion,new cljs.core.Keyword(null,"onlogout","onlogout",2097570828),bkeeping.signoutUser], null)));
 });
 bkeeping.start = (function start(){var signinLink = goog.dom.getElement("signin");return signinLink.onclick = bkeeping.on_click_handler;
 });

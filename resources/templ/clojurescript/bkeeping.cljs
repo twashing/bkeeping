@@ -20,9 +20,9 @@
 
     (console-log "Signin CLICKED")
     (.watch navigatorId
-            {:loggedInUser currentUser
-             :onlogin verifyAssertion
-             :onlogout signoutUser})))
+            (clj->js {:loggedInUser currentUser
+                      :onlogin verifyAssertion
+                      :onlogout signoutUser}))))
 
 (defn start []
   (let [signinLink (gdom/getElement "signin")]

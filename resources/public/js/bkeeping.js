@@ -25630,7 +25630,7 @@ bkeeping.signoutUser = function() {
 bkeeping.on_click_handler = function() {
   var a = navigator.id;
   bkeeping.console_log.call(null, "Signin CLICKED");
-  return a.watch(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), bkeeping.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), bkeeping.signoutUser], null));
+  return a.watch(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), bkeeping.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), bkeeping.signoutUser], null)));
 };
 bkeeping.start = function() {
   return goog.dom.getElement("signin").onclick = bkeeping.on_click_handler;
