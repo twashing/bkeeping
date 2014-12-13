@@ -14,6 +14,7 @@
                  [com.taoensso/timbre "3.3.1"]
                  [com.cemerick/piggieback "0.1.3"]
                  [cljs-ajax "0.3.3"]
+                 [noisesmith/groundhog "0.0.3"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
