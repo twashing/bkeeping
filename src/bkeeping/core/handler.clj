@@ -41,21 +41,13 @@
     (POST "/verify-assertion" [session :as req]
 
           (timbre/debug "verify-assertion CALLED / session [" session "] / req [" req "]")
-          (clojure.pprint/pprint req)
-          (clojure.pprint/pprint (type (:body req)))
-
           (let [audience (str (if (env :host) (env :host) "http://localhost")
                               ":3000")
                 body (read-string (slurp (:body req)))
                 assertion (:assertion body)
-
-                _ (timbre/debug (str "... assertion: " assertion))
-                _ (timbre/debug (str "... audience: " audience))
                 response (client/post "https://verifier.login.persona.org/verify"
                                       {:form-params {:assertion assertion
                                                      :audience audience}})
-
-                _ (timbre/debug (str "... response: " response))
                 parsed-body (chesr/parse-string (-> response :body))
                 response-status (parsed-body "status")
                 response-email (parsed-body "email")
@@ -64,15 +56,17 @@
             (timbre/debug "... sanity / response-body[" parsed-body
                           "] / response-status[" response-status
                           "] / response-email[" response-email "]")
+            (timbre/debug "... sanity / (str response) [" (str response) "]")
+
             (if (= "okay" response-status)
               (do
                 (add-user-ifnil response-email)
-                (-> (ring-resp/response (chesr/generate-string response))
-                    (ring-resp/content-type "application/json")
+                (-> (ring-resp/response (str response))
+                    (ring-resp/content-type "application/edn")
                     (assoc :session session)))
-              (-> (ring-resp/response (chesr/generate-string {:body {:status response-status}}))
+              (-> (ring-resp/response (str {:body {:status response-status}}))
                   (ring-resp/status 401)
-                  (ring-resp/content-type "application/json")))))
+                  (ring-resp/content-type "application/edn")))))
 
     (route/files "/")
     (route/resources "/")
