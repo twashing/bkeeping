@@ -10,6 +10,17 @@
 (defn console-log [message]
   (.log js/console message))
 
+
+(defn transitionAccounts []
+  (let [as (gdom/getElement "accounts")]
+    (set! (.-selected as)
+          (+ 1 (.-selected as)))))
+
+(defn transitionEntries []
+  (let [es (gdom/getElement "entries")]
+    (set! (.-selected es)
+          (+ 1 (.-selected es)))))
+
 (def ^:private meths
   {:get "GET"
    :put "PUT"
@@ -25,31 +36,15 @@
        (send url (meths method) (when data (pr-str data))
              #js {"Content-Type" "application/edn"}))))
 
-(defn simpleXhrSentinel [xhr]
-  (fn []
-    (if (= 4 (.-readyState xhr))
-      (if (= 200 (.-status xhr))
-        (console-log (str "XMLHttpRequest SUCCESS: " (.-status xhr)))
-        (console-log (str "XMLHttpRequest ERROR: " (.-status xhr)))))))
+(defn basicHandler [res]
 
-
-(defn verifyAssertion-XMLHttpRequest [assertion]
-
-  (console-log (str "verifyAssertion CALLED / assertion: " assertion))
-
-  (let [xml-http-request #(js/XMLHttpRequest.)
-        xhr (xml-http-request)
-        param  (str "assertion=" assertion)]
-
-    (.open xhr "POST" "/verify-assertion" true)
-
-    (.setRequestHeader xhr ("Content-type", "application/x-www-form-urlencoded"))
-    (.setRequestHeader xhr ("Content-length", (.length param)))
-    (.setRequestHeader xhr ("Connection", "close"))
-    (.send xhr param)
-
-    (set! (.-onreadystatechange xhr)
-          (simpleXhrSentinel xhr))))
+  (if (= 200 (:status res))
+    (do
+      (console-log (str "XMLHttpRequest SUCCESS: " res))
+      (.reload window.location))
+    (do
+      (console-log (str "XMLHttpRequest ERROR: " res))
+      (.logout navigator.id))))
 
 (defn verifyAssertion [assertion]
 
@@ -58,12 +53,16 @@
    {:method :post
     :url "/verify-assertion"
     :data {:assertion assertion}
-    :on-complete
-    (fn [res]
-      (console-log (str "server response:" res)))}))
+    :on-complete basicHandler}))
 
 (defn signoutUser []
-  (console-log "signoutUser CALLED"))
+  (console-log "signoutUser CALLED")
+
+  (edn-xhr
+   {:method :get
+    :url "/signout"
+    :on-complete basicHandler}))
+
 
 (defn onClickHandler []
   (let [currentUser "twashing@gmail.com"

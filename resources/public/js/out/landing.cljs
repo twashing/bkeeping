@@ -1,5 +1,6 @@
-(ns bkeeping
-  (:require [goog.dom :as gdom]))
+(ns landing
+  (:require [goog.dom :as gdom]
+            [bkeeping :as bk]))
 
 
 (defn ^:export transitionAccounts []
@@ -16,7 +17,7 @@
   (let [currentUser "twashing@gmail.com"
         navigatorId js/navigator.id]
 
-    (console-log "Signout CLICKED")
+    (bk/console-log "Signout CLICKED")
     (.watch navigatorId
             (clj->js {:loggedInUser currentUser
                       :onlogin verifyAssertion

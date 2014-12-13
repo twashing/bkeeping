@@ -1,0 +1,20 @@
+// Compiled by ClojureScript 0.0-2371
+goog.provide('landing');
+goog.require('cljs.core');
+goog.require('bkeeping');
+goog.require('bkeeping');
+goog.require('goog.dom');
+goog.require('goog.dom');
+landing.transitionAccounts = (function transitionAccounts(){var as = goog.dom.getElement("accounts");return as.selected = ((1) + as.selected);
+});
+goog.exportSymbol('landing.transitionAccounts', landing.transitionAccounts);
+landing.transitionEntries = (function transitionEntries(){var es = goog.dom.getElement("entries");return es.selected = ((1) + es.selected);
+});
+goog.exportSymbol('landing.transitionEntries', landing.transitionEntries);
+landing.onClickHandler = (function onClickHandler(){var currentUser = "twashing@gmail.com";var navigatorId = navigator.id;bkeeping.console_log.call(null,"Signout CLICKED");
+navigatorId.watch(cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"loggedInUser","loggedInUser",-239133008),currentUser,new cljs.core.Keyword(null,"onlogin","onlogin",-866049072),landing.verifyAssertion,new cljs.core.Keyword(null,"onlogout","onlogout",2097570828),landing.signoutUser], null)));
+return navigatorId.request();
+});
+landing.start = (function start(){var signinLink = goog.dom.getElement("signout");return signinLink.onclick = landing.onClickHandler;
+});
+window.onload = landing.start;

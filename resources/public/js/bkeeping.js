@@ -21279,6 +21279,12 @@ cljs.reader.deregister_default_tag_parser_BANG_ = function() {
 };
 var bkeeping = {console_log:function(a) {
   return console.log(a);
+}, transitionAccounts:function() {
+  var a = goog.dom.getElement("accounts");
+  return a.selected = 1 + a.selected;
+}, transitionEntries:function() {
+  var a = goog.dom.getElement("entries");
+  return a.selected = 1 + a.selected;
 }};
 bkeeping.meths = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "get", "get", 1683182755), "GET", new cljs.core.Keyword(null, "put", "put", 1299772570), "PUT", new cljs.core.Keyword(null, "post", "post", 269697687), "POST", new cljs.core.Keyword(null, "delete", "delete", -1768633620), "DELETE"], null);
 bkeeping.edn_xhr = function(a) {
@@ -21290,33 +21296,21 @@ bkeeping.edn_xhr = function(a) {
   }(g, a, b, c, d, e, f));
   return g.send(e, bkeeping.meths.call(null, f), cljs.core.truth_(d) ? cljs.core.pr_str.call(null, d) : null, {"Content-Type":"application/edn"});
 };
-bkeeping.simpleXhrSentinel = function(a) {
-  return function() {
-    return cljs.core._EQ_.call(null, 4, a.readyState) ? cljs.core._EQ_.call(null, 200, a.status) ? bkeeping.console_log.call(null, "XMLHttpRequest SUCCESS: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.status)) : bkeeping.console_log.call(null, "XMLHttpRequest ERROR: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.status)) : null;
-  };
-};
-bkeeping.verifyAssertion_XMLHttpRequest = function(a) {
-  bkeeping.console_log.call(null, "verifyAssertion CALLED / assertion: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a));
-  var b = function() {
-    return new XMLHttpRequest;
-  }.call(null);
-  a = "assertion\x3d" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a);
-  b.open("POST", "/verify-assertion", !0);
-  b.setRequestHeader("Content-type".call(null, "application/x-www-form-urlencoded"));
-  b.setRequestHeader("Content-length".call(null, a.length()));
-  b.setRequestHeader("Connection".call(null, "close"));
-  b.send(a);
-  return b.onreadystatechange = bkeeping.simpleXhrSentinel.call(null, b);
+bkeeping.basicHandler = function(a) {
+  if (cljs.core._EQ_.call(null, 200, (new cljs.core.Keyword(null, "status", "status", -1997798413)).cljs$core$IFn$_invoke$arity$1(a))) {
+    return bkeeping.console_log.call(null, "XMLHttpRequest SUCCESS: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a)), window.location.reload();
+  }
+  bkeeping.console_log.call(null, "XMLHttpRequest ERROR: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a));
+  return navigator.id.logout();
 };
 bkeeping.verifyAssertion = function(a) {
   bkeeping.console_log.call(null, "verifyAssertion CALLED / assertion: " + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a));
   return bkeeping.edn_xhr.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "method", "method", 55703592), new cljs.core.Keyword(null, "post", "post", 269697687), new cljs.core.Keyword(null, "url", "url", 276297046), "/verify-assertion", new cljs.core.Keyword(null, "data", "data", -232669377), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "assertion", "assertion", -1645134882), a], null), new cljs.core.Keyword(null, "on-complete", "on-complete", 
-  -1531183971), function(a) {
-    return bkeeping.console_log.call(null, "server response:" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a));
-  }], null));
+  -1531183971), bkeeping.basicHandler], null));
 };
 bkeeping.signoutUser = function() {
-  return bkeeping.console_log.call(null, "signoutUser CALLED");
+  bkeeping.console_log.call(null, "signoutUser CALLED");
+  return bkeeping.edn_xhr.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "method", "method", 55703592), new cljs.core.Keyword(null, "get", "get", 1683182755), new cljs.core.Keyword(null, "url", "url", 276297046), "/signout", new cljs.core.Keyword(null, "on-complete", "on-complete", -1531183971), bkeeping.basicHandler], null));
 };
 bkeeping.onClickHandler = function() {
   var a = navigator.id;
@@ -21328,5 +21322,34 @@ bkeeping.start = function() {
   return goog.dom.getElement("signin").onclick = bkeeping.onClickHandler;
 };
 window.onload = bkeeping.start;
+var landing = {transitionAccounts:function() {
+  var a = goog.dom.getElement("accounts");
+  return a.selected = 1 + a.selected;
+}};
+goog.exportSymbol("landing.transitionAccounts", landing.transitionAccounts);
+landing.transitionEntries = function() {
+  var a = goog.dom.getElement("entries");
+  return a.selected = 1 + a.selected;
+};
+goog.exportSymbol("landing.transitionEntries", landing.transitionEntries);
+landing.onClickHandler = function() {
+  var a = navigator.id;
+  bkeeping.console_log.call(null, "Signout CLICKED");
+  a.watch(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), landing.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), landing.signoutUser], null)));
+  return a.request();
+};
+landing.start = function() {
+  return goog.dom.getElement("signout").onclick = landing.onClickHandler;
+};
+window.onload = landing.start;
+var index = {onClickHandler:function() {
+  var a = navigator.id;
+  bkeeping.console_log.call(null, "Signin CLICKED");
+  a.watch(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "loggedInUser", "loggedInUser", -239133008), "twashing@gmail.com", new cljs.core.Keyword(null, "onlogin", "onlogin", -866049072), bkeeping.verifyAssertion, new cljs.core.Keyword(null, "onlogout", "onlogout", 2097570828), bkeeping.signoutUser], null)));
+  return a.request();
+}, start:function() {
+  return goog.dom.getElement("signin").onclick = index.onClickHandler;
+}};
+window.onload = index.start;
 
 //# sourceMappingURL=out.js.map

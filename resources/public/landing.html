@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="//use.typekit.net/zac5lnn.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>'
+    <script>try{Typekit.load();}catch(e){}</script>
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
@@ -11,7 +11,18 @@
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
 
     <link rel="stylesheet" type="text/css" href="css/landing.css">
-    <script src="js/bkeeping.js"></script>
+    <!-- <script src="js/bkeeping.js"></script> -->
+
+    <!-- Ensuring users of IE can't use Compatibility Mode, as this will break Persona.
+         (https://developer.mozilla.org/en-US/Persona/Quick_setup) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="https://login.persona.org/include.js"></script>
+
+    <script src="js/out/goog/base.js" type="text/javascript"></script>
+    <script src="js/bkeeping.js" type="text/javascript"></script>
+    <script type="text/javascript">goog.require("landing");</script>
+
+
   </head>
 
   <body fullbleed vertical layout>
@@ -27,7 +38,7 @@
       <core-scaffold id="landing">
         <core-header-panel navigation flex mode="seamed">
           <core-toolbar>Accounts</core-toolbar>
-          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="transitionAccounts();">
+          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
             <section>
               <div slide-from-right>master</div>
             </section>
@@ -37,7 +48,7 @@
           </core-animated-pages>
         </core-header-panel>
         <div tool>Entries</div>
-        <core-animated-pages id="entries" transitions="slide-from-right" onclick="transitionEntries();">
+        <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
             <section>
               <div slide-from-right>master</div>
             </section>
