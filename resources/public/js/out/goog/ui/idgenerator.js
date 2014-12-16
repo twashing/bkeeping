@@ -1,4 +1,4 @@
-// Copyright 2014 Cognitect. All Rights Reserved.
+// Copyright 2008 The Closure Library Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,40 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.provide("com.cognitect.transit.delimiters");
-
-goog.scope(function() {
-
-var delimiters = com.cognitect.transit.delimiters;
-    
 /**
- * @const
- * @type {string}
+ * @fileoverview Generator for unique element IDs.
+ *
  */
-delimiters.ESC     = "~";
+
+goog.provide('goog.ui.IdGenerator');
+
+
 
 /**
- * @const
- * @type {string}
+ * Creates a new id generator.
+ * @constructor
+ * @final
  */
-delimiters.TAG     = "#";
+goog.ui.IdGenerator = function() {
+};
+goog.addSingletonGetter(goog.ui.IdGenerator);
+
 
 /**
- * @const
- * @type {string}
+ * Next unique ID to use
+ * @type {number}
+ * @private
  */
-delimiters.SUB     = "^";
+goog.ui.IdGenerator.prototype.nextId_ = 0;
+
 
 /**
- * @const
- * @type {string}
+ * Gets the next unique ID.
+ * @return {string} The next unique identifier.
  */
-delimiters.RES     = "`";
-
-/**
- * @const
- * @type {string}
- */
-delimiters.ESC_TAG = "~#";
-
-});
+goog.ui.IdGenerator.prototype.getNextUniqueId = function() {
+  return ':' + (this.nextId_++).toString(36);
+};

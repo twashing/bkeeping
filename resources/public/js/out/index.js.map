@@ -1,0 +1,12 @@
+{"version":3,
+ "file":
+ "/Users/timothyw/Projects/temp/bkeeping/resources/public/js/out/index.js",
+ "sources":["index.cljs"],
+ "lineCount":22,
+ "mappings":
+ ";AAAA;;;;;;;;;;;;AAUA,uBAAA,2BAAA,lDAAMA,kDACJ,kBAAA,oDAAA,lEAAMC,uCACAC,cAAYC,aAEhB,+BAAA,/BAACC;AACD,AAAQF,kBACA,+BAAA,2CAAA,iFAAA,oFAAA,/OAACG,+IAAuBJ,uEACLK,sFACCC;AAC5B,OAAUL;;AAEd,cAAA,kBAAA,hCAAMM,gCACJ,+CAAA,3CAAMC,aAAW,oBAAA,pBAACC,8BAChB,OAAM,AAAWD,qBAAYT;;AAEjC,AAAM,AAAUW,gBAAWH",
+ "names":
+ ["index/onClickHandler", "currentUser", "navigatorId",
+  "js/navigator.id", "bkeeping/console-log", "cljs.core/clj->js",
+  "bkeeping/verifyAssertion", "bkeeping/signoutUser", "index/start",
+  "signinLink", "goog.dom/getElement", "js/window"]}

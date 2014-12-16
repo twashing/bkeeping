@@ -18,3 +18,5 @@ return navigatorId.request();
 index.start = (function start(){var signinLink = goog.dom.getElement("signin");return signinLink.onclick = index.onClickHandler;
 });
 window.onload = index.start;
+
+//# sourceMappingURL=index.js.map

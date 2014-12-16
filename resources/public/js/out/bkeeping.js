@@ -43,3 +43,5 @@ return navigatorId.request();
 bkeeping.start = (function start(){var signinLink = goog.dom.getElement("signin");return signinLink.onclick = bkeeping.onClickHandler;
 });
 window.onload = bkeeping.start;
+
+//# sourceMappingURL=bkeeping.js.map
