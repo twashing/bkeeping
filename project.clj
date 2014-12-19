@@ -15,7 +15,8 @@
                  [com.cemerick/piggieback "0.1.3"]
                  [cljs-ajax "0.3.3"]
                  [noisesmith/groundhog "0.0.3"]
-                 [om "0.8.0-beta3"]
+                 ;; [om "0.8.0-beta3"]
+                 [freactive "0.1.0"]
                  [kioo "0.4.0"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 

@@ -17,58 +17,13 @@
          (https://developer.mozilla.org/en-US/Persona/Quick_setup) -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://login.persona.org/include.js"></script>
-    <script type='text/javascript' id='lt_ws' src='http://localhost:55629/socket.io/lighttable/ws.js'></script>
+    <!-- <script type='text/javascript' id='lt_ws' src='http://localhost:55629/socket.io/lighttable/ws.js'></script> -->
   </head>
 
   <body fullbleed vertical layout>
 
-    <core-header-panel flex>
-      <core-toolbar layout>
-        <div class="tk-lust-script header-logo">bkeeping</div>
-        <div class="tk-open-sans header-text">Your solution to simple online bookkeeping</div>
-        <span flex>&nbsp;</span>
-        <div class="tk-open-sans header-text" id="signout">logout</div>
-      </core-toolbar>
 
-      <core-scaffold id="landing">
-        <core-header-panel navigation flex mode="seamed">
-          <core-toolbar>Accounts</core-toolbar>
-          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
-            <section>
-                <div slide-from-right>
-                    <div id="accounts-pane">Accounts</div>
-                </div>
-            </section>
-            <section>
-              <div slide-from-right>
-                  <div id="account-detials-pane">Account Details</div>
-              </div>
-            </section>
-          </core-animated-pages>
-        </core-header-panel>
-        <div tool>Entries</div>
-        <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
-            <section>
-              <div slide-from-right>
-                  <div id="entries-pane">Entries</div>
-              </div>
-            </section>
-            <section>
-              <div slide-from-right>
-                  <div id="entry-details-pane">Entry Details</div>
-              </div>
-            </section>
-            <section>
-              <div slide-from-right>
-                  <div id="entry-details-part-pane">Entry Details Part</div>
-              </div>
-            </section>
-          </core-animated-pages>
-      </core-scaffold>
-
-    </core-header-panel>
-
-    <script src="http://fb.me/react-0.11.1.js"></script>
+    <!-- <script src="http://fb.me/react-0.11.1.js"></script> -->
     <script src="js/out/goog/base.js" type="text/javascript"></script>
     <script src="js/bkeeping.js" type="text/javascript"></script>
     <script type="text/javascript">goog.require("landing");</script>

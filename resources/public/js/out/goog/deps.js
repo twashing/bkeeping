@@ -51,4 +51,3 @@ goog.addDependency("net/xmlhttp.js", ['goog.net.DefaultXmlHttpFactory', 'goog.ne
 goog.addDependency("uri/utils.js", ['goog.uri.utils', 'goog.uri.utils.ComponentIndex', 'goog.uri.utils.QueryArray', 'goog.uri.utils.QueryValue', 'goog.uri.utils.StandardQueryParam'], ['goog.asserts', 'goog.string', 'goog.userAgent']);
 goog.addDependency("net/xhrio.js", ['goog.net.XhrIo', 'goog.net.XhrIo.ResponseType'], ['goog.Timer', 'goog.array', 'goog.debug.entryPointRegistry', 'goog.events.EventTarget', 'goog.json', 'goog.log', 'goog.net.ErrorCode', 'goog.net.EventType', 'goog.net.HttpStatus', 'goog.net.XmlHttp', 'goog.object', 'goog.string', 'goog.structs', 'goog.structs.Map', 'goog.uri.utils', 'goog.userAgent']);
 goog.addDependency("string/stringbuffer.js", ['goog.string.StringBuffer'], []);
-goog.addDependency("ui/idgenerator.js", ['goog.ui.IdGenerator'], []);

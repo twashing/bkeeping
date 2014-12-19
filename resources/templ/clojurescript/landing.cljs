@@ -1,8 +1,11 @@
 (ns landing
+  (:refer-clojure :exclude [atom])
   (:require [goog.dom :as gdom]
-            [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]
-            [bkeeping :as bk]))
+            [goog.string :as gstr]
+            [freactive.core :refer [atom cursor]]
+            [freactive.dom :as dom]
+            [bkeeping :as bk])
+  (:require-macros [freactive.macros :refer [rx]]))
 
 
 (enable-console-print!)
@@ -57,14 +60,47 @@
           (+ 1 (.-selected es)))))
 
 
-(om/root
-  (fn [app owner]
-    (reify om/IRender
-      (render [_]
-        (dom/h1 nil (:name app)))))
-  app-state
-  {:target (. js/document (getElementById "accounts-pane"))})
+(defn view []
+  [:core-header-panel { :flex true }
+   [:script {:src "bower_components/webcomponentsjs/webcomponents.min.js"}]
+   [:core-toolbar {:layout true}
+    [:div { :class "tk-lust-script header-logo" } "bkeeping"]
+    [:div { :class "tk-open-sans header-text" } "Your solution to simple online bookkeeping"]
+    [:span { :flex true } (gstr/unescapeEntities "&nbsp;")]
+    [:div { :class "tk-open-sans header-text" :id "signout" } "logout"]]
 
+   [:core-scaffold { :id "landing" }
+    [:core-header-panel { :mode "seamed" :navigation true :flex true }
+     [:core-toolbar "Accounts"]
+     [:core-animated-pages { :id "accounts" :transitions "slide-from-right" :onclick "landing.transitionAccounts();" }
+      [:section
+       [:div { :slide-from-right true }
+        [:div { :id "accounts-pane" } "Accounts"]
+        [:div { :id "app" } ]]]
+      [:section
+       [:div { :slide-from-right true }
+        [:div { :id "account-detials-pane" } "Account Details"]]]]]
+    [:div { :tool true } "Entries"]
+    [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntries();" }
+     [:section
+      [:div { :slide-from-right true }
+       [:div { :id "entries-pane" } "Entries"]]]
+     [:section
+      [:div { :slide-from-right true }
+       [:div { :id "entry-details-pane" } "Entry Details"]]]
+     [:section
+      [:div { :slide-from-right true }
+       [:div { :id "entry-details-part-pane" } "Entry Details Part"]]]]]])
+
+#_(defonce root
+  (dom/append-child! (.-body js/document)
+                     [:div#app]))
+#_(dom/mount! root (view))
+
+(dom/mount!
+ #_(.-body js/document)
+ (.querySelector js/document "body")
+ (view))
 
 (defn onClickHandler []
   (let [currentUser "twashing@gmail.com"
