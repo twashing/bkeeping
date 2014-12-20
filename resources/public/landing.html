@@ -21,41 +21,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://login.persona.org/include.js"></script>
 
-    <script  type="text/javascript">
-      //<![CDATA[
-      window.addEventListener('polymer-ready', function(e) {
-        body = document.querySelector('body');
-
-        /* var s1 = document.createElement('script');
-        s1.setAttribute('type', 'text/javascript');
-        s1.setAttribute('src', 'js/out/goog/base.js');
-        */
-
-        var s2 = document.createElement('script');
-        s2.setAttribute('type', 'text/javascript');
-        s2.setAttribute('src', 'js/bkeeping.js');
-
-        var s3 = document.createElement('script');
-        s3.setAttribute('type', 'text/javascript');
-        s3.appendChild(document.createTextNode("goog.require('landing');"))
-
-        /* body.appendChild(s1);
-        */
-        body.appendChild(s2);
-        body.appendChild(s3);
-      });
-      //]]>
-    </script>
-
   </head>
 
   <body fullbleed vertical layout>
-
     <script src="js/out/goog/base.js" type="text/javascript"></script>
-    <!-- <script src="js/out/goog/base.js" type="text/javascript"></script>
     <script src="js/bkeeping.js" type="text/javascript"></script>
     <script type="text/javascript">goog.require("landing");</script>
-    -->
-
   </body>
 </html>
