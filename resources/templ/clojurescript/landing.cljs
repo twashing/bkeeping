@@ -62,7 +62,6 @@
 
 (defn view []
   [:core-header-panel { :flex true }
-   [:script {:src "bower_components/webcomponentsjs/webcomponents.min.js"}]
    [:core-toolbar {:layout true}
     [:div { :class "tk-lust-script header-logo" } "bkeeping"]
     [:div { :class "tk-open-sans header-text" } "Your solution to simple online bookkeeping"]
@@ -92,13 +91,8 @@
       [:div { :slide-from-right true }
        [:div { :id "entry-details-part-pane" } "Entry Details Part"]]]]]])
 
-#_(defonce root
-  (dom/append-child! (.-body js/document)
-                     [:div#app]))
-#_(dom/mount! root (view))
 
 (dom/mount!
- #_(.-body js/document)
  (.querySelector js/document "body")
  (view))
 
