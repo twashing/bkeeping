@@ -4,26 +4,27 @@
   :min-lein-version "2.0.0"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2371"]
+                 [org.clojure/clojurescript "0.0-2505"]
                  [compojure "1.3.1"]
-                 [ring/ring-defaults "0.1.2"]
+                 [ring/ring-defaults "0.1.3"]
                  [clj-http "1.0.1"]
                  [environ "1.0.0"]
                  [cheshire "5.4.0"]
                  [slingshot "0.12.1"]
                  [com.taoensso/timbre "3.3.1"]
                  [com.cemerick/piggieback "0.1.3"]
-                 [cljs-ajax "0.3.3"]
-                 [noisesmith/groundhog "0.0.3"]
-                 ;; [om "0.8.0-beta3"]
+                 [figwheel "0.2.0-SNAPSHOT"]
+                 ;;[cljs-ajax "0.3.3"]
+                 [noisesmith/groundhog "0.0.4"]
                  [freactive "0.1.0"]
-                 [kioo "0.4.0"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
                  [clj-time "0.8.0"]]
 
-  :plugins [[lein-ring "0.8.13"]]
+  :plugins [[lein-ring "0.8.13"]
+            [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
+            [lein-figwheel "0.2.0-SNAPSHOT"]]
   :ring {:handler bkeeping.core.handler/app}
   :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]
