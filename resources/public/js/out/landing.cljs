@@ -84,16 +84,18 @@
       [:section
        [:div { :slide-from-right true }
         [:div { :id "accounts-pane" } "Accounts"]
-        [:div { :id "app" } ]]]
+        (map (fn [e] [:div (:name e)])
+             (-> @app-state :accounts))]]
       [:section
        [:div { :slide-from-right true }
         [:div { :id "account-detials-pane" } "Account Details"]]]]]
-    #_[:div { :tool true } "Entries"]
     [:div { :tool true } (rx (str (:name @app-state)))]
     [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntries();" }
      [:section
       [:div { :slide-from-right true }
-       [:div { :id "entries-pane" } "Entries"]]]
+       [:div { :id "entries-pane" } "Entries"]
+       (map (fn [e] [:div (str (:date e))])
+            (-> @app-state :journals first :entries))]]
      [:section
       [:div { :slide-from-right true }
        [:div { :id "entry-details-pane" } "Entry Details"]]]
