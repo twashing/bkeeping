@@ -61,7 +61,9 @@
 
 
 (defn view []
-  [:core-header-panel { :flex true }
+  [:core-header-panel {:flex true
+                       :on-mousemove (fn [e] (reset! app-state
+                                                    (assoc @app-state :name [(.-clientX e) (.-clientY e)])))}
    [:core-toolbar {:layout true}
     [:div { :class "tk-lust-script header-logo" } "bkeeping"]
     [:div { :class "tk-open-sans header-text" } "Your solution to simple online bookkeeping"]
@@ -79,7 +81,8 @@
       [:section
        [:div { :slide-from-right true }
         [:div { :id "account-detials-pane" } "Account Details"]]]]]
-    [:div { :tool true } "Entries"]
+    #_[:div { :tool true } "Entries"]
+    [:div { :tool true } (rx (str (:name @app-state)))]
     [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntries();" }
      [:section
       [:div { :slide-from-right true }
@@ -90,7 +93,6 @@
      [:section
       [:div { :slide-from-right true }
        [:div { :id "entry-details-part-pane" } "Entry Details Part"]]]]]])
-
 
 (dom/mount!
  (.querySelector js/document "body")
