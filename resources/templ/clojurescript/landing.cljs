@@ -62,6 +62,7 @@
 
 (defn view []
   [:core-header-panel {:flex true
+                       :fit true
                        :on-mousemove (fn [e] (reset! app-state
                                                     (assoc @app-state :name [(.-clientX e) (.-clientY e)])))}
    [:core-toolbar {:layout true}
@@ -70,7 +71,9 @@
     [:span { :flex true } (gstr/unescapeEntities "&nbsp;")]
     [:div { :class "tk-open-sans header-text" :id "signout" } "logout"]]
 
-   [:core-scaffold { :id "landing" }
+   [:core-scaffold {:id "landing"
+                    :drawerWidth "400px"
+                    :responsiveWidth "650px" }
     [:core-header-panel { :mode "seamed" :navigation true :flex true }
      [:core-toolbar "Accounts"]
      [:core-animated-pages { :id "accounts" :transitions "slide-from-right" :onclick "landing.transitionAccounts();" }

@@ -1,6 +1,9 @@
 * {
     font-family: "open-sans",sans-serif;
 }
+body {
+    zoom: 70%;
+}
 .header-logo {
     font-size: 30px;
 }
