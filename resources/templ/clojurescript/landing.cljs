@@ -84,7 +84,10 @@
       [:section
        [:div { :slide-from-right true }
         [:div { :id "accounts-pane" } "Accounts"]
-        (map (fn [e] [:div (:name e)])
+        (map (fn [e]
+               [:div {:horizontal true :layout true}
+                [:button {:class "delete-account-button"} (gstr/unescapeEntities "&nbsp;&nbsp;&nbsp;")]
+                [:div {:flex true} (:name e)]])
              (-> @app-state :accounts))]]
       [:section
        [:div { :slide-from-right true }
