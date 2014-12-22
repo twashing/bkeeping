@@ -12,8 +12,6 @@
 
 (enable-console-print!)
 
-(println "You can change this line an see the... fubar")
-
 (def app-state
   (atom {:name "main"
          :accounts #{{:name "cash"
@@ -85,8 +83,8 @@
        [:div { :slide-from-right true }
         [:div { :id "accounts-pane" } "Accounts"]
         (map (fn [e]
-               [:div {:horizontal true :layout true}
-                [:button {:class "delete-account-button"} (gstr/unescapeEntities "&nbsp;&nbsp;&nbsp;")]
+               [:div {:horizontal true :layout true :class "delete-account-row"}
+                [:paper-button {:noink true :raised true :class "delete-account-button"} ]
                 [:div {:flex true} (:name e)]])
              (-> @app-state :accounts))]]
       [:section

@@ -25,3 +25,15 @@ body {
 #accounts > section , #entries > section {
     padding: 8px;
 }
+.delete-account-row {
+    margin: 10px 0px;
+}
+.delete-account-button {
+    min-width: 1.5em;
+    height: 1.3em;
+    margin: 0px 10px 0px 0px;
+    // background-color: #ec514e;
+    // background-color: #994500;
+    // background-color: #C72015;
+    // background-color: #CF2f2f;
+}
