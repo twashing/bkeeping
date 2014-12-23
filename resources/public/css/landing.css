@@ -25,15 +25,30 @@ body {
 #accounts > section , #entries > section {
     padding: 8px;
 }
-.delete-account-row {
+.delete-account-row , .delete-entry-row {
     margin: 10px 0px;
 }
-.delete-account-button {
+.delete-account-row > div , .delete-entry-row > div {
+    padding: 0px 0px 3px 0px;
+    cursor: pointer;
+}
+.delete-account-row:hover {
+    background-color: #EEEEEE;
+}
+.delete-entry-row:hover {
+    background-color: #FFFFFF;
+}
+.delete-account-button , .delete-entry-button {
     min-width: 1.5em;
     height: 1.3em;
     margin: 0px 10px 0px 0px;
+    background-color: #FFFFFF;
     // background-color: #ec514e;
     // background-color: #994500;
     // background-color: #C72015;
     // background-color: #CF2f2f;
+}
+paper-button[pressed] {
+    // box-shadow: 0.01px 0.1px 0.1px 0;
+    // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.01);
 }

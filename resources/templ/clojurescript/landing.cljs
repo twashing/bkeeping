@@ -78,10 +78,9 @@
                     :responsiveWidth "650px" }
     [:core-header-panel { :mode "seamed" :navigation true :flex true }
      [:core-toolbar "Accounts"]
-     [:core-animated-pages { :id "accounts" :transitions "slide-from-right" :onclick "landing.transitionAccounts();" }
+     [:core-animated-pages { :id "accounts" :transitions "slide-from-right" #_:onclick #_"landing.transitionAccounts();" }
       [:section
        [:div { :slide-from-right true }
-        [:div { :id "accounts-pane" } "Accounts"]
         (map (fn [e]
                [:div {:horizontal true :layout true :class "delete-account-row"}
                 [:paper-button {:noink true :raised true :class "delete-account-button"} ]
@@ -94,8 +93,10 @@
     [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntries();" }
      [:section
       [:div { :slide-from-right true }
-       [:div { :id "entries-pane" } "Entries"]
-       (map (fn [e] [:div (str (:date e))])
+       (map (fn [e]
+              [:div {:horizontal true :layout true :class "delete-entry-row"}
+               [:paper-button {:noink true :raised true :class "delete-entry-button"} ]
+               [:div (str (:date e))]])
             (-> @app-state :journals first :entries))]]
      [:section
       [:div { :slide-from-right true }
