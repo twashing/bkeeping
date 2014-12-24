@@ -51,15 +51,20 @@
                                              :account "widgets"}]}}}}}))
 
 
-(defn ^:export transitionAccounts []
+(defn ^:export transitionAccounts [directionFn]
   (let [as (gdom/getElement "accounts")]
     (set! (.-selected as)
-          (+ 1 (.-selected as)))))
+          (directionFn 1 (.-selected as)))))
+(defn ^:export transitionAccountsForward []  (transitionAccounts +))
+(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
 
-(defn ^:export transitionEntries []
+
+(defn ^:export transitionEntries [directionFn]
   (let [es (gdom/getElement "entries")]
     (set! (.-selected es)
-          (+ 1 (.-selected es)))))
+          (directionFn 1 (.-selected es)))))
+(defn ^:export transitionEntriesForward []  (transitionEntries +))
+(defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
 (defn view []
@@ -78,22 +83,36 @@
                     :responsiveWidth "650px" }
     [:core-header-panel { :mode "seamed" :navigation true :flex true }
      [:core-toolbar "Accounts"]
-     [:core-animated-pages { :id "accounts" :transitions "slide-from-right" #_:onclick #_"landing.transitionAccounts();" }
+     [:core-animated-pages { :id "accounts" :transitions "slide-from-right" }
       [:section
        [:div { :slide-from-right true }
         (map (fn [e]
                [:div {:horizontal true :layout true :class "delete-account-row"}
                 [:paper-button {:noink true :raised true :class "delete-account-button"} ]
-                [:div {:flex true} (:name e)]])
+                [:div {:flex true :onclick "landing.transitionAccountsForward();"}
+                 (:name e)]])
              (-> @app-state :accounts))]]
       [:section
        [:div { :slide-from-right true }
-        [:div { :id "account-detials-pane" } "Account Details"]]]]]
+
+        [:div {:horizontal true :layout true}
+         [:paper-input {:label "Name"}]]
+        [:div {:horizontal true :layout true}
+         [:paper-dropdown-menu {:label "Type"}
+          [:paper-dropdown {:class "dropdown core-transition core-closed"}
+           [:core-menu {:class "menu"}
+            [:paper-item "Asset"]
+            [:paper-item "Liability"]
+            [:paper-item "Revenue"]
+            [:paper-item "Expense"]
+            [:paper-item "Capital"]]]]]
+        [:div  {:horizontal true :layout true}
+         [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "cancel"]
+         [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "save"]]]]]]
     [:div { :tool true } (rx (str (:name @app-state)))]
-    [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntries();" }
+    [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntriesForward();" }
      [:section
       [:div { :slide-from-right true }
-
        (map (fn [e]
               [:div {:horizontal true :layout true :class "delete-entry-row"}
                [:paper-button {:noink true :raised true :class "delete-entry-button"} ]
