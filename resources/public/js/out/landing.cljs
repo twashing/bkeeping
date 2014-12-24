@@ -54,7 +54,7 @@
 (defn ^:export transitionAccounts [directionFn]
   (let [as (gdom/getElement "accounts")]
     (set! (.-selected as)
-          (directionFn 1 (.-selected as)))))
+          (directionFn (.-selected as) 1))))
 (defn ^:export transitionAccountsForward []  (transitionAccounts +))
 (defn ^:export transitionAccountsBackward []  (transitionAccounts -))
 
@@ -62,7 +62,7 @@
 (defn ^:export transitionEntries [directionFn]
   (let [es (gdom/getElement "entries")]
     (set! (.-selected es)
-          (directionFn 1 (.-selected es)))))
+          (directionFn (.-selected es) 1))))
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
@@ -110,20 +110,49 @@
          [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "cancel"]
          [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "save"]]]]]]
     [:div { :tool true } (rx (str (:name @app-state)))]
-    [:core-animated-pages { :id "entries" :transitions "slide-from-right" :onclick "landing.transitionEntriesForward();" }
+    [:core-animated-pages { :id "entries" :transitions "slide-from-right" }
      [:section
       [:div { :slide-from-right true }
        (map (fn [e]
               [:div {:horizontal true :layout true :class "delete-entry-row"}
                [:paper-button {:noink true :raised true :class "delete-entry-button"} ]
-               [:div (str (:date e))]])
+               [:div { :onclick "landing.transitionEntriesForward();" } (str (:date e))]])
             (-> @app-state :journals first :entries))]]
      [:section
       [:div { :slide-from-right true }
-       [:div { :id "entry-details-pane" } "Entry Details"]]]
+       [:div {:horizontal true :layout true}
+        [:paper-input {:label "Date"}]]
+       [:div {:horizontal true :layout true}
+         [:paper-input {:label "Balance" :disabled true}]
+         [:paper-dropdown-menu {:label "Currency"}
+          [:paper-dropdown {:class "dropdown core-transition core-closed"}
+           [:core-menu {:class "menu"}
+            [:paper-item "CAD"]
+            [:paper-item "USD"]
+            [:paper-item "EUR"]]]]]
+       [:div {:horizontal true :layout true}
+        [:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]]
+       [:div  {:horizontal true :layout true}
+        [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "cancel"]
+        [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "save"]]]]
      [:section
       [:div { :slide-from-right true }
-       [:div { :id "entry-details-part-pane" } "Entry Details Part"]]]]]])
+       [:paper-dropdown-menu {:label "Type"}
+        [:paper-dropdown {:class "dropdown core-transition core-closed"}
+         [:core-menu {:class "menu"}
+          [:paper-item "Debit"]
+          [:paper-item "Credit"]]]]]
+      [:div { :slide-from-right true }
+       [:paper-dropdown-menu {:label "Account"}
+        [:paper-dropdown {:class "dropdown core-transition core-closed"}
+         [:core-menu {:class "menu"}
+          [:paper-item "Cash"]
+          [:paper-item "Inventory"]]]]]
+      [:div {:horizontal true :layout true}
+       [:paper-input {:label "Amount"}]]
+      [:div {:horizontal true :layout true}
+       [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "cancel"]
+       [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "save"]]]]]])
 
 (dom/mount!
  (.querySelector js/document "body")
