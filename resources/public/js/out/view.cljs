@@ -67,7 +67,22 @@
             [:paper-item "USD"]
             [:paper-item "EUR"]]]]]
        [:div {:horizontal true :layout true}
-        [:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]]
+        #_[:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]
+
+        #_[:sortable-table
+         [:sortable-column "debit"]
+         [:sortable-column "credit"]
+         [[100 ""]
+          ["" 100]]]
+
+        #_[:sortable-table {:columns (clj->js ["fruit","alice","bill","casey"])
+                          :data (clj->js [ "apple", 4, 10, 2])}]
+
+        [:sortable-table
+         (rx {:fruit "apple" :alice 4 :bill 10 :casey 2})]
+        ]
+
+
        [:div  {:horizontal true :layout true}
         [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "cancel"]
         [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "save"]]]]
