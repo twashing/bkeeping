@@ -28,9 +28,18 @@
 
     uresult))
 
+(defn start-weasel [ip]
+ (cemerick.piggieback/cljs-repl
+   :repl-env (weasel.repl.websocket/repl-env
+              :ip ip :port 9001)))
+
+(comment
+  (start-weasel "172.28.128.5"))
+
 (defn gen-app []
 
   (bkell/start)
+  (start-weasel "172.28.128.5")
   (defroutes app-routes
 
     (GET "/" []
