@@ -20,7 +20,9 @@
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
-                 [clj-time "0.8.0"]]
+                 [clj-time "0.8.0"]
+
+                 [weasel "0.4.2"]]
 
   :plugins [[lein-ring "0.8.13"]
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement

@@ -1,12 +1,13 @@
 {"version":3,
  "file":
- "/Users/timothyw/Projects/temp/bkeeping/resources/public/js/out/index.js",
+ "/home/twashing/Projects/bkeeping/resources/public/js/out/index.js",
  "sources":["index.cljs"],
- "lineCount":25,
+ "lineCount":27,
  "mappings":
- ";AAAA;;;;;;;;AAUA,uBAAA,vBAAMA;AAAN,AACE,kBAAA,dAAMC;IACAC,cAAYC;AADlB,AAGE,+BAAA,/BAACC;;AACD,AAAQF,kBACA,+BAAA,2CAAA,iFAAA,oFAAA,/OAACG,+IAAuBJ,uEACLK,sFACCC;;AAC5B,OAAUL;;AAEd,cAAA,dAAMM;AAAN,AACE,IAAMC,aAAW,oBAAA,pBAACC;AAAlB,AACE,OAAM,AAAWD,qBAAYT;;AAEjC,AAAM,AAAUW,gBAAWH",
+ ";AAAA;;;;;;;;;AAWA,8BAAA,9BAACA;AAGD,uBAAA,vBAAMC;AAAN,AACE,kBAAA,dAAMC;IACAC,cAAYC;AADlB,AAGE,+BAAA,/BAACC;;AACD,AAAQF,kBACA,+BAAA,2CAAA,iFAAA,oFAAA,/OAACG,+IAAuBJ,uEACLK,sFACCC;;AAC5B,OAAUL;;AAEd,cAAA,dAAMM;AAAN,AACE,IAAMC,aAAW,oBAAA,pBAACC;AAAlB,AACE,OAAM,AAAWD,qBAAYT;;AAEjC,AAAM,AAAUW,gBAAWH",
  "names":
- ["index/onClickHandler", "currentUser", "navigatorId",
-  "js/navigator.id", "bkeeping/console-log", "cljs.core/clj->js",
-  "bkeeping/verifyAssertion", "bkeeping/signoutUser", "index/start",
-  "signinLink", "goog.dom/getElement", "js/window"]}
+ ["weasel.repl/connect", "index/onClickHandler", "currentUser",
+  "navigatorId", "js/navigator.id", "bkeeping/console-log",
+  "cljs.core/clj->js", "bkeeping/verifyAssertion",
+  "bkeeping/signoutUser", "index/start", "signinLink",
+  "goog.dom/getElement", "js/window"]}

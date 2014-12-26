@@ -2,10 +2,14 @@
   (:require [cljs.reader :as reader]
             [goog.events :as events]
             [goog.dom :as gdom]
+            [weasel.repl :as ws-repl]
             [bkeeping :as bk])
   (:import [goog.net XhrIo]
            goog.net.EventType
            [goog.events EventType]))
+
+
+(ws-repl/connect "ws://172.28.128.5:9001")
 
 
 (defn onClickHandler []

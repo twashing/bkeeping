@@ -3,10 +3,12 @@ goog.provide('index');
 goog.require('cljs.core');
 goog.require('bkeeping');
 goog.require('goog.dom');
+goog.require('weasel.repl');
 goog.require('goog.events.EventType');
 goog.require('goog.events');
 goog.require('goog.net.XhrIo');
 goog.require('cljs.reader');
+weasel.repl.connect.call(null,"ws://172.28.128.5:9001");
 index.onClickHandler = (function onClickHandler(){
 var currentUser = "twashing@gmail.com";
 var navigatorId = navigator.id;

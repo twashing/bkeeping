@@ -2,6 +2,7 @@
   (:refer-clojure :exclude [atom])
   (:require [goog.dom :as gdom]
             [goog.string :as gstr]
+            [weasel.repl :as ws-repl]
             [freactive.core :refer [atom cursor]]
             [freactive.dom :as dom]
             [bkeeping :as bk]
@@ -12,6 +13,8 @@
 
 
 (enable-console-print!)
+
+(ws-repl/connect "ws://172.28.128.5:9001")
 
 (def app-state
   (atom {:name "main"
