@@ -3,17 +3,15 @@
   (:require [goog.dom :as gdom]
             [goog.string :as gstr]
             [weasel.repl :as ws-repl]
-            [freactive.core :refer [atom cursor]]
             [freactive.dom :as dom]
+            [freactive.core :refer [atom cursor]]
             [bkeeping :as bk]
             [view :as v]
-
             [figwheel.client :as fw])
   (:require-macros [freactive.macros :refer [rx]]))
 
 
 (enable-console-print!)
-
 
 (ws-repl/connect "ws://172.28.128.5:9001")
 
@@ -70,7 +68,6 @@
           (directionFn (.-selected es) 1))))
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
-
 
 (defn view []
   (v/generate-view app-state))

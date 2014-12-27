@@ -1,6 +1,6 @@
 {"version":3,
  "file":
- "/Users/timothyw/Projects/temp/bkeeping/resources/public/js/out/bkeeping.js",
+ "/home/twashing/Projects/bkeeping/resources/public/js/out/bkeeping.js",
  "sources":["bkeeping.cljs"],
  "lineCount":73,
  "mappings":
@@ -8,8 +8,8 @@
  "names":
  ["bkeeping/console-log", "message", "js/console",
   "bkeeping/transitionAccounts", "as", "goog.dom/getElement",
-  "bkeeping/transitionEntries", "es", "bkeeping/meths", "p__14068",
-  "map__14070", "cljs.core/seq?", "cljs.core/apply",
+  "bkeeping/transitionEntries", "es", "bkeeping/meths", "p__19276",
+  "map__19278", "cljs.core/seq?", "cljs.core/apply",
   "cljs.core/hash-map", "cljs.core/get", "bkeeping/edn-xhr", "method",
   "url", "data", "on-complete", "xhr", "goog/net.XhrIo",
   "goog.events/listen", "goog/net.EventType.COMPLETE", "e",

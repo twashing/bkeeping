@@ -34,7 +34,8 @@
               :ip ip :port 9001)))
 
 (comment
-  (start-weasel "172.28.128.5"))
+  (start-weasel "172.28.128.5")
+  )
 
 (defn gen-app []
 
