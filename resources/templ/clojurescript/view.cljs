@@ -1,6 +1,7 @@
 (ns view
   (:refer-clojure :exclude [atom])
-  (:require [goog.string :as gstr]
+  (:require [goog.dom :as gdom]
+            [goog.string :as gstr]
             [freactive.core :refer [atom cursor]]
             [freactive.experimental.items-view :as iview]
             [freactive.experimental.observable-collection :refer [observable-collection transact!]]
@@ -8,11 +9,26 @@
   (:require-macros [freactive.macros :refer [rx]]))
 
 
+(defn ^:export transitionAccounts [directionFn]
+  (let [as (gdom/getElement "accounts")]
+    (set! (.-selected as)
+          (directionFn (.-selected as) 1))))
+(defn ^:export transitionAccountsForward []  (transitionAccounts +))
+(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
+
+
+(defn ^:export transitionEntries [directionFn]
+  (let [es (gdom/getElement "entries")]
+    (set! (.-selected es)
+          (directionFn (.-selected es) 1))))
+(defn ^:export transitionEntriesForward []  (transitionEntries +))
+(defn ^:export transitionEntriesBackward []  (transitionEntries -))
+
 (defn render-account-list [app-state]
   (map (fn [e]
          [:div {:horizontal true :layout true :class "delete-account-row"}
           [:paper-button {:noink true :raised true :class "delete-account-button"} ]
-          [:div {:flex true :onclick "landing.transitionAccountsForward();"}
+          [:div {:flex true :on-click (fn [e] (transitionAccountsForward))}
            (:name e)]])
        (-> @app-state :accounts)) )
 
@@ -31,14 +47,14 @@
        [:paper-item "Expense"]
        [:paper-item "Capital"]]]]]
    [:div  {:horizontal true :layout true}
-    [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "cancel"]
-    [:paper-button {:noink true :raised true :onclick "landing.transitionAccountsBackward();"} "save"]]])
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "save"]]])
 
 (defn render-entries-list [app-state]
   (map (fn [e]
          [:div {:horizontal true :layout true :class "delete-entry-row"}
           [:paper-button {:noink true :raised true :class "delete-entry-button"} ]
-          [:div { :onclick "landing.transitionEntriesForward();" } (str (:date e))]])
+          [:div { :on-click (fn [e] (transitionEntriesForward)) } (str (:date e))]])
        (-> @app-state :journals first :entries)))
 
 (defn render-entry-detail []
@@ -55,7 +71,7 @@
        [:paper-item "EUR"]]]]]
    [:div {:horizontal true :layout true}
 
-    [:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]
+    [:paper-input {:label "Content" :on-click (fn [e] (transitionEntriesForward))}]
 
     #_[:sortable-table
        [:sortable-column "debit"]
@@ -69,8 +85,8 @@
     #_[:sortable-table
        (rx {:fruit "apple" :alice 4 :bill 10 :casey 2})]]
    [:div  {:horizontal true :layout true}
-    [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "cancel"]
-    [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "save"]]])
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "cancel"]
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "save"]]])
 
 (defn render-entry-detail-part []
   [:div { :slide-from-right true }
@@ -88,8 +104,8 @@
    [:div {:horizontal true :layout true}
     [:paper-input {:label "Amount"}]]
    [:div {:horizontal true :layout true}
-    [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "cancel"]
-    [:paper-button {:noink true :raised true :onclick "landing.transitionEntriesBackward();"} "save"]]])
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "cancel"]
+    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "save"]]])
 
 (defn generate-view [app-state]
   [:core-header-panel {:flex true

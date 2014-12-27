@@ -5,7 +5,6 @@
             [weasel.repl :as ws-repl]
             [freactive.dom :as dom]
             [freactive.core :refer [atom cursor]]
-
             [bkeeping :as bk]
             [view :as v]
             [figwheel.client :as fw])
@@ -54,21 +53,6 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
-
-(defn ^:export transitionAccounts [directionFn]
-  (let [as (gdom/getElement "accounts")]
-    (set! (.-selected as)
-          (directionFn (.-selected as) 1))))
-(defn ^:export transitionAccountsForward []  (transitionAccounts +))
-(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
-
-
-(defn ^:export transitionEntries [directionFn]
-  (let [es (gdom/getElement "entries")]
-    (set! (.-selected es)
-          (directionFn (.-selected es) 1))))
-(defn ^:export transitionEntriesForward []  (transitionEntries +))
-(defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 (defn view []
   (v/generate-view app-state))
