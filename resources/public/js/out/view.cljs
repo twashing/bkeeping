@@ -9,6 +9,10 @@
   (:require-macros [freactive.macros :refer [rx]]))
 
 
+(def adetails (atom {:name nil
+                     :type nil
+                     :counterWeight nil}))
+
 (defn ^:export transitionAccounts [directionFn]
   (let [as (gdom/getElement "accounts")]
     (set! (.-selected as)
@@ -28,9 +32,20 @@
   (map (fn [e]
          [:div {:horizontal true :layout true :class "delete-account-row"}
           [:paper-button {:noink true :raised true :class "delete-account-button"} ]
-          [:div {:flex true :on-click (fn [e] (transitionAccountsForward))}
+          [:div {:flex true :on-click (fn [ee] (transitionAccountsForward))}
            (:name e)]])
        (-> @app-state :accounts)) )
+
+#_(defn render-account-list [app-state]
+  (let [template-fn (fn [e]
+                      [:div {:horizontal true :layout true :class "delete-account-row"}
+                       [:paper-button {:noink true :raised true :class "delete-account-button"} ]
+                       [:div {:flex true :on-click (fn [ee] (transitionAccountsForward))}
+                        (:name e)]])
+        items (observable-collection (-> @app-state :accounts))
+        items-view (iview/items-view [:div] template-fn items)]
+    [:div
+     items-view]))
 
 (defn render-account-details []
   [:div { :slide-from-right true }
