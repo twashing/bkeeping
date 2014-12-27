@@ -9,10 +9,6 @@
   (:require-macros [freactive.macros :refer [rx]]))
 
 
-(def adetails (atom {:name nil
-                     :type nil
-                     :counterWeight nil}))
-
 (defn ^:export transitionAccounts [directionFn]
   (let [as (gdom/getElement "accounts")]
     (set! (.-selected as)
@@ -28,11 +24,18 @@
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
+(def adetails (atom {:name "fubar"
+                     :type nil
+                     :counterWeight nil}))
+
 (defn render-account-list [app-state]
   (map (fn [e]
          [:div {:horizontal true :layout true :class "delete-account-row"}
           [:paper-button {:noink true :raised true :class "delete-account-button"} ]
-          [:div {:flex true :on-click (fn [ee] (transitionAccountsForward))}
+          [:div {:flex true :on-click (fn [ee]
+                                        (do (bk/console-log (str ".. e[" e "] / ee[" ee "] " ))
+                                            (transitionAccountsForward)
+                                            (reset! adetails e)))}
            (:name e)]])
        (-> @app-state :accounts)) )
 
@@ -49,9 +52,8 @@
 
 (defn render-account-details []
   [:div { :slide-from-right true }
-
    [:div {:horizontal true :layout true}
-    [:paper-input {:label "Name"}]]
+    [:paper-input {:label "Name" :value (rx (str (:name @adetails)))}]]
    [:div {:horizontal true :layout true}
     [:paper-dropdown-menu {:label "Type"}
      [:paper-dropdown {:class "dropdown core-transition core-closed"}
