@@ -1,5 +1,6 @@
 (ns view
-  (:require [goog.string :as gstr])
+  (:require [goog.string :as gstr]
+            [freactive.experimental.items-view :as iview])
   (:require-macros [freactive.macros :refer [rx]]))
 
 
@@ -67,7 +68,8 @@
             [:paper-item "USD"]
             [:paper-item "EUR"]]]]]
        [:div {:horizontal true :layout true}
-        #_[:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]
+
+        [:paper-input {:label "Content" :onclick "landing.transitionEntriesForward();"}]
 
         #_[:sortable-table
          [:sortable-column "debit"]
@@ -78,8 +80,9 @@
         #_[:sortable-table {:columns (clj->js ["fruit","alice","bill","casey"])
                           :data (clj->js [ "apple", 4, 10, 2])}]
 
-        [:sortable-table
+        #_[:sortable-table
          (rx {:fruit "apple" :alice 4 :bill 10 :casey 2})]
+
         ]
 
 
