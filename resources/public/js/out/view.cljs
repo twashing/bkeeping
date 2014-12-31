@@ -109,7 +109,17 @@
   [:div { :slide-from-right true }
 
    [:div {:horizontal true :layout true}
-    [:paper-input {:label "Date"}]]
+    [:paper-input {:label "Date" :id "datepicker"}]
+    [:script "
+var picker = new Pikaday(
+    {
+        field: document.getElementById('datepicker'),
+        firstDay: 1,
+        minDate: new Date('2000-01-01'),
+        maxDate: new Date('2020-12-31'),
+        yearRange: [2000,2020]
+    });
+"]]
 
    [:div {:horizontal true :layout true}
     [:paper-input {:label "Balance" :disabled true}]
