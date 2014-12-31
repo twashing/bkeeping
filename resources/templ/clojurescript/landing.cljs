@@ -60,7 +60,6 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
-
 (defn view []
   (v/generate-view app-state))
 

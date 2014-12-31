@@ -47,21 +47,14 @@
     [:paper-input {:id "account-details-name" :label "Name" :value (rx (str (:name @adetails)))}]]
 
    [:div {:horizontal true :layout true}
-    [:paper-dropdown-menu {:id "account-details-type" :label "Type"}
-     [:paper-dropdown {:class "dropdown core-transition core-closed"}
+    [:paper-dropdown-menu {:label "Type"}
+     [:paper-dropdown {:class "dropdown"}
       [:core-menu {:class "menu"}
        [:paper-item "Asset"]
        [:paper-item "Liability"]
        [:paper-item "Revenue"]
        [:paper-item "Expense"]
        [:paper-item "Capital"]]]]]
-
-   [:div {:horizontal true :layout true}
-    [:paper-dropdown-menu {:label "Your favorite pastry"}
-     [:paper-dropdown {:class "dropdown"}
-      [:core-menu {:class "menu"}
-       [:paper-item "One"]
-       [:paper-item "Two"]]]]]
 
    [:div  {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
