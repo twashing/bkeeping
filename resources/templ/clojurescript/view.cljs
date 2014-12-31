@@ -28,6 +28,24 @@
                      :type nil
                      :counterWeight nil}))
 
+(def account-type-mappings {:expense :debit
+                            :revenue :credit
+                            :liability :credit
+                            :asset :debit
+                            :capital :credit})
+
+(defn- get-account-type-record [idx]
+  (let [account-type-values [ {:value :asset :name "Asset"}
+                              {:value :liability :name "Liability"}
+                              {:value :revenue :name "Revenue"}
+                              {:value :expense :name "Expense"}
+                              {:value :capital :name "Capital"}]]
+
+    (get account-type-values idx)))
+
+(defn get-account-type-value [idx]
+  (:value (get-account-type-record idx)))
+
 (defn render-account-list [app-state]
   (map (fn [e]
          [:div {:horizontal true :layout true :class "delete-account-row"}
@@ -40,7 +58,7 @@
        (-> @app-state :accounts)) )
 
 
-(defn render-account-details []
+(defn render-account-details [app-state]
   [:div { :slide-from-right true }
 
    [:div {:horizontal true :layout true}
@@ -59,11 +77,31 @@
    [:div  {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
     [:paper-button {:noink true :raised true :on-click (fn [e]
-                                                         (let [_ (transitionAccountsBackward)]
-                                                           (bk/console-log (str ":db/id[" (:db/id @adetails) "]"))
-                                                           (bk/console-log (.-value (gdom/getElement "account-details-name")))
-                                                           (bk/console-log (.-selected (gdom/getElement "account-details-type")))
+                                                         (let [_ (transitionAccountsBackward)
 
+                                                               db-id (:db/id @adetails)
+                                                               aname (.-value (gdom/getElement "account-details-name"))
+                                                               type-kw (get-account-type-value
+                                                                        (.-selected (gdom/getElement "account-details-type")))
+                                                               account-cw (type-kw account-type-mappings)
+                                                               ]
+
+                                                           (bk/console-log (str ":db/id[" db-id "]"))
+                                                           (bk/console-log (str ":name[" aname "]"))
+                                                           (bk/console-log (str ":type[" type-kw "]"))
+                                                           (bk/console-log (str ":type[" account-cw "]"))
+
+                                                           (swap! app-state (fn [e]
+                                                                              (assoc e
+                                                                                :accounts
+                                                                                (map (fn [ee]
+                                                                                       (if (= (:db/id ee) db-id)
+                                                                                         {:db/id db-id
+                                                                                          :name aname
+                                                                                          :type type-kw
+                                                                                          :counterWeight account-cw}
+                                                                                         ee))
+                                                                                     (:accounts @app-state)))))
                                                            ))} "save"]]])
 
 (defn render-entries-list [app-state]
@@ -144,7 +182,7 @@
        [:div { :slide-from-right true }
         (render-account-list app-state)]]
       [:section
-       (render-account-details)]]]
+       (render-account-details app-state)]]]
     [:div { :tool true } (rx (str (:name @app-state)))]
     [:core-animated-pages { :id "entries" :transitions "slide-from-right" }
      [:section
