@@ -121,7 +121,18 @@
        [:paper-item "EUR"]]]]]
 
    [:div {:horizontal true :layout true}
-    [:paper-input {:label "Content" :on-click (fn [e] (transitionEntriesForward))}]]
+    [:table {:class "pure-table"}
+     [:thead
+      [:tr
+       [:th "debit"]
+       [:th "credit"]]]
+     [:tbody
+      [:tr {:on-click (fn [e] (transitionEntriesForward))}
+       [:td "$ 1000"]
+       [:td (gstr/unescapeEntities "&nbsp;")]]
+      [:tr {:on-click (fn [e] (transitionEntriesForward))}
+       [:td (gstr/unescapeEntities "&nbsp;")]
+       [:td "$ 1000"]]]]]
 
    [:div {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "cancel"]
