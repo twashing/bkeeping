@@ -23,7 +23,7 @@
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
-(def adetails (atom {:db/id "fu"
+(def adetails (atom {:db/id nil
                      :name "fubar"
                      :type nil
                      :counterWeight nil}))
@@ -35,11 +35,11 @@
                             :capital :credit})
 
 (defn- get-account-type-record [idx]
-  (let [account-type-values [ {:value :asset :name "Asset"}
-                              {:value :liability :name "Liability"}
-                              {:value :revenue :name "Revenue"}
-                              {:value :expense :name "Expense"}
-                              {:value :capital :name "Capital"}]]
+  (let [account-type-values [{:value :asset :name "Asset"}
+                             {:value :liability :name "Liability"}
+                             {:value :revenue :name "Revenue"}
+                             {:value :expense :name "Expense"}
+                             {:value :capital :name "Capital"}]]
 
     (get account-type-values idx)))
 
@@ -51,12 +51,11 @@
          [:div {:horizontal true :layout true :class "delete-account-row"}
           [:paper-button {:noink true :raised true :class "delete-account-button"} ]
           [:div {:flex true :on-click (fn [ee]
-                                        (let [_ (bk/console-log (str "e[" e "] / ee[" ee "] " ))
-                                              _ (transitionAccountsForward)]
-                                          (reset! adetails e)))}
+                                        (do
+                                          (transitionAccountsForward)
+                                          (reset! adetails e)) )}
            (:name e)]])
        (-> @app-state :accounts)) )
-
 
 (defn render-account-details [app-state]
   [:div { :slide-from-right true }
@@ -77,20 +76,13 @@
    [:div  {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
     [:paper-button {:noink true :raised true :on-click (fn [e]
-                                                         (let [_ (transitionAccountsBackward)
-
-                                                               db-id (:db/id @adetails)
+                                                         (let [db-id (:db/id @adetails)
                                                                aname (.-value (gdom/getElement "account-details-name"))
                                                                type-kw (get-account-type-value
                                                                         (.-selected (gdom/getElement "account-details-type")))
-                                                               account-cw (type-kw account-type-mappings)
-                                                               ]
+                                                               account-cw (type-kw account-type-mappings)]
 
-                                                           (bk/console-log (str ":db/id[" db-id "]"))
-                                                           (bk/console-log (str ":name[" aname "]"))
-                                                           (bk/console-log (str ":type[" type-kw "]"))
-                                                           (bk/console-log (str ":type[" account-cw "]"))
-
+                                                           (transitionAccountsBackward)
                                                            (swap! app-state (fn [e]
                                                                               (assoc e
                                                                                 :accounts
@@ -102,7 +94,9 @@
                                                                                           :counterWeight account-cw}
                                                                                          ee))
                                                                                      (:accounts @app-state)))))
-                                                           ))} "save"]]])
+
+                                                           (bk/console-log (str "Updated app-state[" @app-state "]"))))}
+     "save"]]])
 
 (defn render-entries-list [app-state]
   (map (fn [e]
@@ -113,8 +107,10 @@
 
 (defn render-entry-detail []
   [:div { :slide-from-right true }
+
    [:div {:horizontal true :layout true}
     [:paper-input {:label "Date"}]]
+
    [:div {:horizontal true :layout true}
     [:paper-input {:label "Balance" :disabled true}]
     [:paper-dropdown-menu {:label "Currency"}
@@ -123,22 +119,11 @@
        [:paper-item "CAD"]
        [:paper-item "USD"]
        [:paper-item "EUR"]]]]]
+
    [:div {:horizontal true :layout true}
+    [:paper-input {:label "Content" :on-click (fn [e] (transitionEntriesForward))}]]
 
-    [:paper-input {:label "Content" :on-click (fn [e] (transitionEntriesForward))}]
-
-    #_[:sortable-table
-       [:sortable-column "debit"]
-       [:sortable-column "credit"]
-       [[100 ""]
-        ["" 100]]]
-
-    #_[:sortable-table {:columns (clj->js ["fruit","alice","bill","casey"])
-                        :data (clj->js [ "apple", 4, 10, 2])}]
-
-    #_[:sortable-table
-       (rx {:fruit "apple" :alice 4 :bill 10 :casey 2})]]
-   [:div  {:horizontal true :layout true}
+   [:div {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "cancel"]
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionEntriesBackward))} "save"]]])
 
@@ -180,7 +165,11 @@
      [:core-animated-pages { :id "accounts" :transitions "slide-from-right" }
       [:section
        [:div { :slide-from-right true }
-        (render-account-list app-state)]]
+        (do
+          (add-watch app-state nil
+                     (fn [_ atum old-state new-state]
+                       (render-account-list atum)))
+          (render-account-list app-state))]]
       [:section
        (render-account-details app-state)]]]
     [:div { :tool true } (rx (str (:name @app-state)))]
