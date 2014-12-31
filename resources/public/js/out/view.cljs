@@ -3,7 +3,6 @@
   (:require [goog.dom :as gdom]
             [goog.string :as gstr]
             [freactive.core :refer [atom cursor]]
-            [freactive.experimental.items-view :as iview]
             [bkeeping :as bk])
   (:require-macros [freactive.macros :refer [rx]]))
 

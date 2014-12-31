@@ -2,7 +2,6 @@
 goog.provide('view');
 goog.require('cljs.core');
 goog.require('bkeeping');
-goog.require('freactive.experimental.items_view');
 goog.require('freactive.core');
 goog.require('goog.string');
 goog.require('goog.dom');
