@@ -59,9 +59,5 @@ html /deep/ paper-dropdown-menu {
 html /deep/ core-menu {
     box-sizing: border-box;
     width: 170px;
+    overflow: hidden !important;
 }
-
-/*paper-dropdown {
-    outline: none;
-    display: none;
-}*/

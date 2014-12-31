@@ -48,8 +48,8 @@
 
    [:div {:horizontal true :layout true}
     [:paper-dropdown-menu {:label "Type"}
-     [:paper-dropdown {:class "dropdown"}
-      [:core-menu {:class "menu"}
+     [:paper-dropdown {:class "dropdown core-transition core-closed"}
+      [:core-menu {:id "account-details-type" :class "menu"}
        [:paper-item "Asset"]
        [:paper-item "Liability"]
        [:paper-item "Revenue"]
@@ -62,7 +62,7 @@
                                                          (let [_ (transitionAccountsBackward)]
                                                            (bk/console-log (str ":db/id[" (:db/id @adetails) "]"))
                                                            (bk/console-log (.-value (gdom/getElement "account-details-name")))
-                                                           (bk/console-log (.-value (gdom/getElement "account-details-type")))
+                                                           (bk/console-log (.-selected (gdom/getElement "account-details-type")))
 
                                                            ))} "save"]]])
 
