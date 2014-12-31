@@ -4,7 +4,6 @@
             [goog.string :as gstr]
             [freactive.core :refer [atom cursor]]
             [freactive.experimental.items-view :as iview]
-            [freactive.experimental.observable-collection :refer [observable-collection transact!]]
             [bkeeping :as bk])
   (:require-macros [freactive.macros :refer [rx]]))
 
@@ -24,7 +23,8 @@
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
-(def adetails (atom {:name "fubar"
+(def adetails (atom {:db/id "fu"
+                     :name "fubar"
                      :type nil
                      :counterWeight nil}))
 
@@ -33,29 +33,21 @@
          [:div {:horizontal true :layout true :class "delete-account-row"}
           [:paper-button {:noink true :raised true :class "delete-account-button"} ]
           [:div {:flex true :on-click (fn [ee]
-                                        (do (bk/console-log (str ".. e[" e "] / ee[" ee "] " ))
-                                            (transitionAccountsForward)
-                                            (reset! adetails e)))}
+                                        (let [_ (bk/console-log (str "e[" e "] / ee[" ee "] " ))
+                                              _ (transitionAccountsForward)]
+                                          (reset! adetails e)))}
            (:name e)]])
        (-> @app-state :accounts)) )
 
-#_(defn render-account-list [app-state]
-  (let [template-fn (fn [e]
-                      [:div {:horizontal true :layout true :class "delete-account-row"}
-                       [:paper-button {:noink true :raised true :class "delete-account-button"} ]
-                       [:div {:flex true :on-click (fn [ee] (transitionAccountsForward))}
-                        (:name e)]])
-        items (observable-collection (-> @app-state :accounts))
-        items-view (iview/items-view [:div] template-fn items)]
-    [:div
-     items-view]))
 
 (defn render-account-details []
   [:div { :slide-from-right true }
+
    [:div {:horizontal true :layout true}
-    [:paper-input {:label "Name" :value (rx (str (:name @adetails)))}]]
+    [:paper-input {:id "account-details-name" :label "Name" :value (rx (str (:name @adetails)))}]]
+
    [:div {:horizontal true :layout true}
-    [:paper-dropdown-menu {:label "Type"}
+    [:paper-dropdown-menu {:id "account-details-type" :label "Type"}
      [:paper-dropdown {:class "dropdown core-transition core-closed"}
       [:core-menu {:class "menu"}
        [:paper-item "Asset"]
@@ -63,9 +55,23 @@
        [:paper-item "Revenue"]
        [:paper-item "Expense"]
        [:paper-item "Capital"]]]]]
+
+   [:div {:horizontal true :layout true}
+    [:paper-dropdown-menu {:label "Your favorite pastry"}
+     [:paper-dropdown {:class "dropdown"}
+      [:core-menu {:class "menu"}
+       [:paper-item "One"]
+       [:paper-item "Two"]]]]]
+
    [:div  {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
-    [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "save"]]])
+    [:paper-button {:noink true :raised true :on-click (fn [e]
+                                                         (let [_ (transitionAccountsBackward)]
+                                                           (bk/console-log (str ":db/id[" (:db/id @adetails) "]"))
+                                                           (bk/console-log (.-value (gdom/getElement "account-details-name")))
+                                                           (bk/console-log (.-value (gdom/getElement "account-details-type")))
+
+                                                           ))} "save"]]])
 
 (defn render-entries-list [app-state]
   (map (fn [e]

@@ -14,6 +14,9 @@
             [slingshot.slingshot :refer [throw+ try+]]
             [taoensso.timbre :as timbre]
             [noisesmith.groundhog :as gh]
+            [cemerick.piggieback]
+            [weasel.repl.websocket]
+
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
 
@@ -33,14 +36,12 @@
    :repl-env (weasel.repl.websocket/repl-env
               :ip ip :port 9001)))
 
-(comment
-  (start-weasel "172.28.128.5")
-  )
-
 (defn gen-app []
 
   (bkell/start)
+
   (start-weasel "172.28.128.5")
+
   (defroutes app-routes
 
     (GET "/" []

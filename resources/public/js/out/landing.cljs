@@ -17,25 +17,32 @@
 
 (def app-state
   (atom {:name "main"
-         :accounts #{{:name "cash"
+         :accounts #{{:db/id "0"
+                      :name "cash"
                       :type :asset
                       :counterWeight :debit}
-                     {:name "debt"
+                     {:db/id "1"
+                      :name "debt"
                       :type :liability
                       :counterWeight :credit}
-                     {:name "revenue"
+                     {:db/id "2"
+                      :name "revenue"
                       :type :revenue
                       :counterWeight :credit}
-                     {:name "expense"
+                     {:db/id "3"
+                      :name "expense"
                       :type :expense
                       :counterWeight :debit}
-                     {:name "trade-creditor"
+                     {:db/id "4"
+                      :name "trade-creditor"
                       :type :expense
                       :counterWeight :debit}
-                     {:name "electricity"
+                     {:db/id "5"
+                      :name "electricity"
                       :type :asset
                       :counterWeight :debit}
-                     {:name "widgets"
+                     {:db/id "6"
+                      :name "widgets"
                       :type :asset
                       :counterWeight :debit}}
 

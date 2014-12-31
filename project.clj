@@ -27,7 +27,11 @@
   :plugins [[lein-ring "0.8.13"]
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
             [lein-figwheel "0.2.0-SNAPSHOT"]]
+
   :ring {:handler bkeeping.core.handler/app}
+
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+
   :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]
                    :resource-paths ["resources/public/"]}}

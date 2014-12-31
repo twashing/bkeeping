@@ -7,7 +7,7 @@ goog.addDependency("../freactive/dom.js", ['freactive.dom'], ['cljs.core', 'goog
 goog.addDependency("../freactive/experimental/dom.js", ['freactive.experimental.dom'], ['cljs.core', 'freactive.core']);
 goog.addDependency("../freactive/experimental/observable_collection.js", ['freactive.experimental.observable_collection'], ['cljs.core']);
 goog.addDependency("../freactive/experimental/items_view.js", ['freactive.experimental.items_view'], ['cljs.core', 'freactive.core', 'freactive.experimental.dom', 'freactive.experimental.observable_collection']);
-goog.addDependency("../view.js", ['view'], ['bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'freactive.experimental.items_view', 'freactive.core', 'freactive.experimental.observable_collection']);
+goog.addDependency("../view.js", ['view'], ['bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'freactive.experimental.items_view', 'freactive.core']);
 goog.addDependency("../clojure/browser/event.js", ['clojure.browser.event'], ['cljs.core', 'goog.events.EventTarget', 'goog.events.EventType', 'goog.events']);
 goog.addDependency("../clojure/browser/net.js", ['clojure.browser.net'], ['goog.net.xpc.CfgFields', 'goog.net.XhrIo', 'goog.json', 'goog.Uri', 'cljs.core', 'goog.net.EventType', 'goog.net.xpc.CrossPageChannel', 'clojure.browser.event']);
 goog.addDependency("../weasel/impls/websocket.js", ['weasel.impls.websocket'], ['cljs.core', 'clojure.browser.net', 'goog.net.WebSocket', 'clojure.browser.event']);
