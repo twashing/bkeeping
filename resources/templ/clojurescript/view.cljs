@@ -185,11 +185,7 @@ var picker = new Pikaday(
      [:core-animated-pages { :id "accounts" :transitions "slide-from-right" }
       [:section
        [:div { :slide-from-right true }
-        (do
-          (add-watch app-state nil
-                     (fn [_ atum old-state new-state]
-                       (render-account-list atum)))
-          (render-account-list app-state))]]
+        (render-account-list app-state)]]
       [:section
        (render-account-details app-state)]]]
     [:div { :tool true } (rx (str (:name @app-state)))]
