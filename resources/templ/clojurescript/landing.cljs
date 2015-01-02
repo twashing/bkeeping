@@ -78,8 +78,8 @@
   (reify
     om/IRender
     (render [_]
-      (.appendChild (.createElement js/document "div")
-                    (.createTextNode js/document "fubar"))
+
+      (dom/div nil (.createElement js/document "div"))
       #_(kom/div nil "fubar")
       #_(dom/div nil "hello"))))
 
