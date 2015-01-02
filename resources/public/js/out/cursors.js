@@ -2,8 +2,8 @@
 goog.provide('cursors');
 goog.require('cljs.core');
 
-cursors.ICursor = (function (){var obj20773 = {};
-return obj20773;
+cursors.ICursor = (function (){var obj20823 = {};
+return obj20823;
 })();
 
 cursors.path = (function path(cursor){
@@ -58,6 +58,32 @@ throw cljs.core.missing_protocol.call(null,"ICursor.state",cursor);
 }
 });
 
+cursors.parent = (function parent(cursor){
+if((function (){var and__12533__auto__ = cursor;
+if(and__12533__auto__){
+return cursor.cursors$ICursor$parent$arity$1;
+} else {
+return and__12533__auto__;
+}
+})()){
+return cursor.cursors$ICursor$parent$arity$1(cursor);
+} else {
+var x__13189__auto__ = (((cursor == null))?null:cursor);
+return (function (){var or__12545__auto__ = (cursors.parent[goog.typeOf(x__13189__auto__)]);
+if(or__12545__auto__){
+return or__12545__auto__;
+} else {
+var or__12545__auto____$1 = (cursors.parent["_"]);
+if(or__12545__auto____$1){
+return or__12545__auto____$1;
+} else {
+throw cljs.core.missing_protocol.call(null,"ICursor.parent",cursor);
+}
+}
+})().call(null,cursor);
+}
+});
+
 cursors.transact = (function transact(cursor,new_state){
 if((function (){var and__12533__auto__ = cursor;
 if(and__12533__auto__){
@@ -94,29 +120,35 @@ this.path = path;
 })
 cursors.MapCursor.prototype.cursors$ICursor$ = true;
 
-cursors.MapCursor.prototype.cursors$ICursor$path$arity$1 = (function (cursor){
+cursors.MapCursor.prototype.cursors$ICursor$path$arity$1 = (function (_){
 var self__ = this;
-var cursor__$1 = this;
+var ___$1 = this;
 return self__.path;
 });
 
-cursors.MapCursor.prototype.cursors$ICursor$state$arity$1 = (function (cursor){
+cursors.MapCursor.prototype.cursors$ICursor$state$arity$1 = (function (_){
 var self__ = this;
-var cursor__$1 = this;
+var ___$1 = this;
 return self__.state;
 });
 
-cursors.MapCursor.prototype.cursors$ICursor$transact$arity$2 = (function (cursor,new_state){
+cursors.MapCursor.prototype.cursors$ICursor$parent$arity$1 = (function (_){
 var self__ = this;
-var cursor__$1 = this;
-return cljs.core.swap_BANG_.call(null,self__.state,((function (cursor__$1){
+var ___$1 = this;
+return cursors.parent;
+});
+
+cursors.MapCursor.prototype.cursors$ICursor$transact$arity$2 = (function (_,new_state){
+var self__ = this;
+var ___$1 = this;
+return cljs.core.swap_BANG_.call(null,self__.state,((function (___$1){
 return (function (e){
-return cljs.core.update_in.call(null,e,self__.path,((function (cursor__$1){
-return (function (_){
+return cljs.core.update_in.call(null,e,self__.path,((function (___$1){
+return (function (___$2){
 return new_state;
-});})(cursor__$1))
+});})(___$1))
 );
-});})(cursor__$1))
+});})(___$1))
 );
 });
 
@@ -133,10 +165,14 @@ return (new cursors.MapCursor(state,path));
 });
 
 cursors.cursor = (function cursor(state,path){
+if(cljs.core._EQ_.call(null,cljs.core.type.call(null,state),cursors.MapCursor)){
+return (new cursors.MapCursor(state.state(),cljs.core.concat.call(null,state.path(),path)));
+} else {
 if(cljs.core.map_QMARK_.call(null,cljs.core.deref.call(null,state))){
 return (new cursors.MapCursor(state,path));
 } else {
 return null;
+}
 }
 });
 
