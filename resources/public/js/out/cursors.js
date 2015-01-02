@@ -2,8 +2,8 @@
 goog.provide('cursors');
 goog.require('cljs.core');
 
-cursors.ICursor = (function (){var obj20823 = {};
-return obj20823;
+cursors.ICursor = (function (){var obj20847 = {};
+return obj20847;
 })();
 
 cursors.path = (function path(cursor){
@@ -114,7 +114,8 @@ throw cljs.core.missing_protocol.call(null,"ICursor.transact",cursor);
 /**
 * @constructor
 */
-cursors.MapCursor = (function (state,path){
+cursors.MapCursor = (function (parent,state,path){
+this.parent = parent;
 this.state = state;
 this.path = path;
 })
@@ -135,7 +136,7 @@ return self__.state;
 cursors.MapCursor.prototype.cursors$ICursor$parent$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
-return cursors.parent;
+return self__.parent;
 });
 
 cursors.MapCursor.prototype.cursors$ICursor$transact$arity$2 = (function (_,new_state){
@@ -160,16 +161,16 @@ cursors.MapCursor.cljs$lang$ctorPrWriter = (function (this__13132__auto__,writer
 return cljs.core._write.call(null,writer__13133__auto__,"cursors/MapCursor");
 });
 
-cursors.__GT_MapCursor = (function __GT_MapCursor(state,path){
-return (new cursors.MapCursor(state,path));
+cursors.__GT_MapCursor = (function __GT_MapCursor(parent,state,path){
+return (new cursors.MapCursor(parent,state,path));
 });
 
 cursors.cursor = (function cursor(state,path){
 if(cljs.core._EQ_.call(null,cljs.core.type.call(null,state),cursors.MapCursor)){
-return (new cursors.MapCursor(state.state(),cljs.core.concat.call(null,state.path(),path)));
+return (new cursors.MapCursor(state,state.state(),cljs.core.concat.call(null,state.path(),path)));
 } else {
 if(cljs.core.map_QMARK_.call(null,cljs.core.deref.call(null,state))){
-return (new cursors.MapCursor(state,path));
+return (new cursors.MapCursor(null,state,path));
 } else {
 return null;
 }

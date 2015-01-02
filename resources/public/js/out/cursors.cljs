@@ -7,7 +7,7 @@
   (parent [cursor])
   (transact [cursor new-state]))
 
-(deftype MapCursor [state path]
+(deftype MapCursor [parent state path]
   ICursor
   (path [_] path)
   (state [_] state)
@@ -19,12 +19,15 @@
 
 (defn cursor [state path]
   (cond
-   (= (type state) cursors.MapCursor) (MapCursor. (.state state)
+   (= (type state) cursors.MapCursor) (MapCursor. state
+                                                  (.state state)
                                                   (concat (.path state) path))
-   (map? @state) (MapCursor. state path)))
+   (map? @state) (MapCursor. nil state path)))
+
 
 
 (comment
+
 
   (def state (atom {:a 1 :b {:c 3 :d {:e 5}}}))
 
@@ -42,6 +45,10 @@
   (def chained (cursor two [:foo]))
   (.state chained)
   (.path chained)
+  (.path (.parent chained))
   (.transact chained 111)
+
+  (.state (.parent chained))
+  (.state two)
 
   )
