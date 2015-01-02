@@ -37,9 +37,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://login.persona.org/include.js"></script>
 
+
+    <script src="http://pixelscommander.com/polygon/reactive-elements/example/components/x-tag-core/dist/x-tag-core.js"></script>
+    <script src="http://pixelscommander.com/polygon/reactive-elements/example/components/react/react.js"></script>
+    <script src="http://pixelscommander.com/polygon/reactive-elements/src/reactive-element.js"></script>
+    <script>
+      window.Components = {};
+
+      window.Components.CoreHeaderPanel = React.createClass({displayName: core-header-panel',
+          render: function() {
+              return React.DOM.div(null, "<my-reactive-element>", null,"</my-reactive-element>");
+          },
+      });
+
+      xtag.registerReact('core-header-panel', window.Components.CoreHeaderPanel);
+    </script>
+
   </head>
 
   <body fullbleed vertical layout>
+    <script src="http://fb.me/react-0.12.2.js"></script>
     <script src="js/out/goog/base.js" type="text/javascript"></script>
     <script src="js/bkeeping.js" type="text/javascript"></script>
     <script type="text/javascript">goog.require("landing");</script>

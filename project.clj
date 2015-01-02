@@ -14,15 +14,15 @@
                  [com.taoensso/timbre "3.3.1"]
                  [com.cemerick/piggieback "0.1.3"]
                  [figwheel "0.2.0-SNAPSHOT"]
-                 ;;[cljs-ajax "0.3.3"]
+                 [weasel "0.4.2"]
+
                  [noisesmith/groundhog "0.0.4"]
+                 [om "0.8.0-rc2"]
                  [freactive "0.1.0"]
                  [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
-                 [clj-time "0.8.0"]
-
-                 [weasel "0.4.2"]]
+                 [clj-time "0.8.0"]]
 
   :plugins [[lein-ring "0.8.13"]
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement

@@ -1,13 +1,19 @@
 (ns landing
-  (:refer-clojure :exclude [atom])
+  #_(:refer-clojure :exclude [atom])
   (:require [goog.dom :as gdom]
             [goog.string :as gstr]
+            [figwheel.client :as fw]
             [weasel.repl :as ws-repl]
-            [freactive.dom :as dom]
-            [freactive.core :refer [atom cursor]]
+
+            [om.core :as om :include-macros true]
+            [om.dom :as dom :include-macros true]
+
+            #_[freactive.dom :as dom]
+            #_[freactive.core :refer [atom cursor]]
+
             [bkeeping :as bk]
             [view :as v]
-            [figwheel.client :as fw])
+            [kom :include-macros true])
   (:require-macros [freactive.macros :refer [rx]]))
 
 
@@ -60,12 +66,27 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
-(defn view []
+#_(defn view []
   (v/generate-view app-state))
 
-(dom/mount!
+#_(dom/mount!
  (.querySelector js/document "body")
  (view))
+
+
+(defn view [app owner]
+  (reify
+    om/IRender
+    (render [_]
+      (.appendChild (.createElement js/document "div")
+                    (.createTextNode js/document "fubar"))
+      #_(kom/div nil "fubar")
+      #_(dom/div nil "hello"))))
+
+
+(om/root view app-state
+         {:target (.querySelector js/document "body")})
+
 
 (declare verifyAssertion)
 (declare signoutUser)
