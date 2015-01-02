@@ -7,6 +7,7 @@
             [freactive.core :refer [atom cursor]]
             [bkeeping :as bk]
             [view :as v]
+            [cursors :as cr]
             [figwheel.client :as fw])
   (:require-macros [freactive.macros :refer [rx]]))
 
@@ -59,6 +60,7 @@
                                             {:type :debit
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
+
 
 (defn view []
   (v/generate-view app-state))
