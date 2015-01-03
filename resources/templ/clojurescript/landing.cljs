@@ -5,16 +5,20 @@
             [weasel.repl :as ws-repl]
             [freactive.dom :as dom]
             [freactive.core :refer [atom cursor]]
+            [enfocus.core :as ef]
+            [enfocus.events :as events]
+            [enfocus.effects :as effects]
             [bkeeping :as bk]
             [view :as v]
-            [cursors :as cr]
+            [cursors.core :as crs]
             [figwheel.client :as fw])
-  (:require-macros [freactive.macros :refer [rx]]))
+  (:require-macros [freactive.macros :refer [rx]]
+                   [enfocus.macros :as em]))
 
 
 (enable-console-print!)
 
-(ws-repl/connect "ws://172.28.128.5:9001")
+#_(ws-repl/connect "ws://172.28.128.5:9001")
 
 (def app-state
   (atom {:name "main"
@@ -65,9 +69,18 @@
 (defn view []
   (v/generate-view app-state))
 
-(dom/mount!
+#_(dom/mount!
  (.querySelector js/document "body")
  (view))
+
+#_(ef/at js/document
+       ["body"] (ef/content "Hello enfocus!"))
+
+
+(em/deftemplate landing-template "/landing-body.html" [] )
+
+(ef/at js/document
+       ["body"] (ef/content (landing-template)))
 
 (declare verifyAssertion)
 (declare signoutUser)

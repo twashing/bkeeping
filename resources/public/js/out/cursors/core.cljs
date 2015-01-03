@@ -1,4 +1,4 @@
-(ns cursors)
+(ns cursors.core)
 
 
 (defprotocol ICursor
@@ -27,7 +27,6 @@
 
 
 (comment
-
 
   (def state (atom {:a 1 :b {:c 3 :d {:e 5}}}))
 
@@ -58,9 +57,6 @@
   (.transact nested 111)
 
 
-  ;; cursor changes of source changes
+  ;; cursor changes if source changes
   (.state (.parent nested))
-  (.state two)
-
-
-  )
+  (.state two))

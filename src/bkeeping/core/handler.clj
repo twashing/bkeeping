@@ -39,9 +39,7 @@
 (defn gen-app []
 
   (bkell/start)
-
   (start-weasel "172.28.128.5")
-
   (defroutes app-routes
 
     (GET "/" []
