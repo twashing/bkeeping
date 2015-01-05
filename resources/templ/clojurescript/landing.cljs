@@ -52,7 +52,8 @@
                       :counterWeight :debit}}
 
          :journals #{{:name "generalledger"
-                      :entries #{{:date #inst "2014-12-12T23:20:50.52Z"
+                      :entries #{{:db/id "7"
+                                  :date #inst "2014-12-12T23:20:50.52Z"
                                   :content [{:type :credit
                                              :amount 2600
                                              :account "trade-creditor"}
@@ -65,6 +66,14 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
+(def data-location-mapping {[:accounts] {:loc "#accounts-pane" :templ "/account-row.html" :fn 'render-account-list}
+                            [:accounts :db/id] {:loc "#accounts-details-pane" :templ "/account-details.html"}
+                            [:journals :entries] {:loc "#entries-pane" :templ "/entry-list.html"}
+                            [:journals :entries :db/id] {:loc "#entry-details-pane" :templ "/entry-details.html"}
+
+                            ;; has a nested path
+                            [:journals :entries :db/id [:content :db/id]] {:loc "#entry-details-part-pane"
+                                                                           :templ "/entry-details-part.html"}})
 
 (defn view []
   (v/generate-view app-state))
@@ -76,11 +85,57 @@
 #_(ef/at js/document
        ["body"] (ef/content "Hello enfocus!"))
 
+(em/deftemplate landing-template "/landing-body.html" []
+  ["core-header-panel"] (ef/append "&nbsp;"))
 
-(em/deftemplate landing-template "/landing-body.html" [] )
+(em/deftemplate accounts-template "/account-row.html" [account]
+  ["#delete-account-row > text-node"] (ef/append (:name account)))
 
-(ef/at js/document
-       ["body"] (ef/content (landing-template)))
+(em/deftemplate entries-template "/entry-row.html" [entry]
+  ["#delete-entry-row > text-node"] (ef/append (:name entry)))
+
+(defn render-account-list [accounts loc]
+  (doseq [ech accounts]
+    (ef/at js/document [loc] (ef/append (accounts-template ech))) ))
+
+(defn render-entry-list [entries loc]
+  (doseq [ech entries]
+    (ef/at js/document [loc] (ef/append (entries-template ech))) ))
+
+(defn render []
+  (ef/at js/document
+         ["body"] (ef/content (landing-template))))
+
+(render)
+(render-account-list (:accounts @app-state) "#accounts-pane")
+(render-entry-list (-> @app-state :journals first :entries) "#entries-pane")
+
+(defn ^:export render2 [path]
+
+  (let [pmapping (data-location-mapping path)
+        pdata (get-in @app-state path)
+        mfn (:fn pmapping)
+        mloc (:loc pmapping)
+        mtpl (:templ pmapping)]
+
+    #_(mfn mloc)
+
+    (render-account-list (:accounts @app-state) "#accounts-pane")))
+
+
+
+
+(defn ^:export one []
+  (ef/at js/document
+         ["#accounts-pane"] (ef/append (ef/html [:div "thing"]))))
+
+
+
+  ;; TODO - initial population of landing page
+
+  ;; TODO - changes with location creates, update, or deletes rows
+  ;;      - bind (data location + action) to location in the document
+
 
 (declare verifyAssertion)
 (declare signoutUser)

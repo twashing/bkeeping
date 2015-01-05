@@ -72,7 +72,7 @@
        [:paper-item "Expense"]
        [:paper-item "Capital"]]]]]
 
-   [:div  {:horizontal true :layout true}
+   [:div {:horizontal true :layout true}
     [:paper-button {:noink true :raised true :on-click (fn [e] (transitionAccountsBackward))} "cancel"]
     [:paper-button {:noink true :raised true :on-click (fn [e]
                                                          (let [db-id (:db/id @adetails)
