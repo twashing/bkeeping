@@ -75,15 +75,21 @@
                             [:journals :entries :db/id [:content :db/id]] {:loc "#entry-details-part-pane"
                                                                            :templ "/entry-details-part.html"}})
 
-(defn view []
-  (v/generate-view app-state))
+(defn ^:export transitionAccounts [directionFn]
+  (let [as (gdom/getElement "accounts")]
+    (set! (.-selected as)
+          (directionFn (.-selected as) 1))))
+(defn ^:export transitionAccountsForward []  (transitionAccounts +))
+(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
 
-#_(dom/mount!
- (.querySelector js/document "body")
- (view))
+(defn ^:export transitionEntries [directionFn]
+  (let [es (gdom/getElement "entries")]
+    (bk/console-log (str "entries[" es "] / directionFn[" directionFn "]"))
+    (set! (.-selected es)
+          (directionFn (.-selected es) 1))))
+(defn ^:export transitionEntriesForward []  (transitionEntries +))
+(defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
-#_(ef/at js/document
-       ["body"] (ef/content "Hello enfocus!"))
 
 (em/deftemplate landing-template "/landing-body.html" []
   ["core-header-panel"] (ef/append "&nbsp;"))
@@ -121,7 +127,6 @@
     #_(mfn mloc)
 
     (render-account-list (:accounts @app-state) "#accounts-pane")))
-
 
 
 

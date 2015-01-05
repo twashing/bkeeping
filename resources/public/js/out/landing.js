@@ -16,9 +16,34 @@ goog.require('enfocus.events');
 cljs.core.enable_console_print_BANG_.call(null);
 landing.app_state = freactive.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"name","name",1843675177),"main",new cljs.core.Keyword(null,"accounts","accounts",-935308676),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"6",new cljs.core.Keyword(null,"name","name",1843675177),"widgets",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"5",new cljs.core.Keyword(null,"name","name",1843675177),"electricity",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"0",new cljs.core.Keyword(null,"name","name",1843675177),"cash",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"2",new cljs.core.Keyword(null,"name","name",1843675177),"revenue",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"revenue","revenue",943993380),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"3",new cljs.core.Keyword(null,"name","name",1843675177),"expense",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"4",new cljs.core.Keyword(null,"name","name",1843675177),"trade-creditor",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"1",new cljs.core.Keyword(null,"name","name",1843675177),"debt",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"liability","liability",853006629),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null)], true),new cljs.core.Keyword(null,"journals","journals",-1915761091),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),"generalledger",new cljs.core.Keyword(null,"entries","entries",-86943161),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("db","id","db/id",-1388397098),"7",new cljs.core.Keyword(null,"date","date",-1463434462),new Date(1418426450520),new cljs.core.Keyword(null,"content","content",15833224),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"credit","credit",782856892),new cljs.core.Keyword(null,"amount","amount",364489504),(2600),new cljs.core.Keyword(null,"account","account",718006320),"trade-creditor"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1000),new cljs.core.Keyword(null,"account","account",718006320),"electricity"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1600),new cljs.core.Keyword(null,"account","account",718006320),"widgets"], null)], null)], null)], true)], null)], true)], null));
 landing.data_location_mapping = new cljs.core.PersistentArrayMap.fromArray([new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676)], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"loc","loc",-584284901),"#accounts-pane",new cljs.core.Keyword(null,"templ","templ",-543712204),"/account-row.html",new cljs.core.Keyword(null,"fn","fn",-1175266204),new cljs.core.Symbol(null,"render-account-list","render-account-list",294915555,null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676),new cljs.core.Keyword("db","id","db/id",-1388397098)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"loc","loc",-584284901),"#accounts-details-pane",new cljs.core.Keyword(null,"templ","templ",-543712204),"/account-details.html"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"loc","loc",-584284901),"#entries-pane",new cljs.core.Keyword(null,"templ","templ",-543712204),"/entry-list.html"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161),new cljs.core.Keyword("db","id","db/id",-1388397098)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"loc","loc",-584284901),"#entry-details-pane",new cljs.core.Keyword(null,"templ","templ",-543712204),"/entry-details.html"], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161),new cljs.core.Keyword("db","id","db/id",-1388397098),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"content","content",15833224),new cljs.core.Keyword("db","id","db/id",-1388397098)], null)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"loc","loc",-584284901),"#entry-details-part-pane",new cljs.core.Keyword(null,"templ","templ",-543712204),"/entry-details-part.html"], null)], true, false);
-landing.view = (function view__$1(){
-return view.generate_view.call(null,landing.app_state);
+landing.transitionAccounts = (function transitionAccounts(directionFn){
+var as = goog.dom.getElement("accounts");
+return as.selected = directionFn.call(null,as.selected,(1));
 });
+goog.exportSymbol('landing.transitionAccounts', landing.transitionAccounts);
+landing.transitionAccountsForward = (function transitionAccountsForward(){
+return landing.transitionAccounts.call(null,cljs.core._PLUS_);
+});
+goog.exportSymbol('landing.transitionAccountsForward', landing.transitionAccountsForward);
+landing.transitionAccountsBackward = (function transitionAccountsBackward(){
+return landing.transitionAccounts.call(null,cljs.core._);
+});
+goog.exportSymbol('landing.transitionAccountsBackward', landing.transitionAccountsBackward);
+landing.transitionEntries = (function transitionEntries(directionFn){
+var es = goog.dom.getElement("entries");
+bkeeping.console_log.call(null,[cljs.core.str("entries["),cljs.core.str(es),cljs.core.str("] / directionFn["),cljs.core.str(directionFn),cljs.core.str("]")].join(''));
+
+return es.selected = directionFn.call(null,es.selected,(1));
+});
+goog.exportSymbol('landing.transitionEntries', landing.transitionEntries);
+landing.transitionEntriesForward = (function transitionEntriesForward(){
+return landing.transitionEntries.call(null,cljs.core._PLUS_);
+});
+goog.exportSymbol('landing.transitionEntriesForward', landing.transitionEntriesForward);
+landing.transitionEntriesBackward = (function transitionEntriesBackward(){
+return landing.transitionEntries.call(null,cljs.core._);
+});
+goog.exportSymbol('landing.transitionEntriesBackward', landing.transitionEntriesBackward);
 enfocus.core.load_remote_dom.call(null,"/landing-body.html","remote/landing-body.html","en19551_");
 
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"remote/landing-body.html") == null)){
@@ -27,17 +52,17 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/la
 }
 
 landing.landing_template = (function landing_template(){
-var vec__20994 = (function (){
+var vec__21677 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/landing-body.html");
 }).call(null);
-var id_sym20991 = cljs.core.nth.call(null,vec__20994,(0),null);
-var pnod20992 = cljs.core.nth.call(null,vec__20994,(1),null);
-var pnod20992__$1 = enfocus.core.create_hidden_dom.call(null,pnod20992);
-enfocus.core.i_at.call(null,id_sym20991,pnod20992__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["core-header-panel"], null),enfocus.core.append.call(null,"&nbsp;"));
+var id_sym21674 = cljs.core.nth.call(null,vec__21677,(0),null);
+var pnod21675 = cljs.core.nth.call(null,vec__21677,(1),null);
+var pnod21675__$1 = enfocus.core.create_hidden_dom.call(null,pnod21675);
+enfocus.core.i_at.call(null,id_sym21674,pnod21675__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["core-header-panel"], null),enfocus.core.append.call(null,"&nbsp;"));
 
-enfocus.core.reset_ids.call(null,id_sym20991,pnod20992__$1);
+enfocus.core.reset_ids.call(null,id_sym21674,pnod21675__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod20992__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21675__$1);
 });
 enfocus.core.load_remote_dom.call(null,"/account-row.html","remote/account-row.html","en20594_");
 
@@ -47,17 +72,17 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/ac
 }
 
 landing.accounts_template = (function accounts_template(account){
-var vec__20998 = (function (){
+var vec__21681 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/account-row.html");
 }).call(null);
-var id_sym20995 = cljs.core.nth.call(null,vec__20998,(0),null);
-var pnod20996 = cljs.core.nth.call(null,vec__20998,(1),null);
-var pnod20996__$1 = enfocus.core.create_hidden_dom.call(null,pnod20996);
-enfocus.core.i_at.call(null,id_sym20995,pnod20996__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-account-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)));
+var id_sym21678 = cljs.core.nth.call(null,vec__21681,(0),null);
+var pnod21679 = cljs.core.nth.call(null,vec__21681,(1),null);
+var pnod21679__$1 = enfocus.core.create_hidden_dom.call(null,pnod21679);
+enfocus.core.i_at.call(null,id_sym21678,pnod21679__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-account-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)));
 
-enfocus.core.reset_ids.call(null,id_sym20995,pnod20996__$1);
+enfocus.core.reset_ids.call(null,id_sym21678,pnod21679__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod20996__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21679__$1);
 });
 enfocus.core.load_remote_dom.call(null,"/entry-row.html","remote/entry-row.html","en20790_");
 
@@ -67,64 +92,64 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/en
 }
 
 landing.entries_template = (function entries_template(entry){
-var vec__21002 = (function (){
+var vec__21685 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/entry-row.html");
 }).call(null);
-var id_sym20999 = cljs.core.nth.call(null,vec__21002,(0),null);
-var pnod21000 = cljs.core.nth.call(null,vec__21002,(1),null);
-var pnod21000__$1 = enfocus.core.create_hidden_dom.call(null,pnod21000);
-enfocus.core.i_at.call(null,id_sym20999,pnod21000__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-entry-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(entry)));
+var id_sym21682 = cljs.core.nth.call(null,vec__21685,(0),null);
+var pnod21683 = cljs.core.nth.call(null,vec__21685,(1),null);
+var pnod21683__$1 = enfocus.core.create_hidden_dom.call(null,pnod21683);
+enfocus.core.i_at.call(null,id_sym21682,pnod21683__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-entry-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(entry)));
 
-enfocus.core.reset_ids.call(null,id_sym20999,pnod21000__$1);
+enfocus.core.reset_ids.call(null,id_sym21682,pnod21683__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod21000__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21683__$1);
 });
 landing.render_account_list = (function render_account_list(accounts,loc){
-var seq__21007 = cljs.core.seq.call(null,accounts);
-var chunk__21008 = null;
-var count__21009 = (0);
-var i__21010 = (0);
+var seq__21690 = cljs.core.seq.call(null,accounts);
+var chunk__21691 = null;
+var count__21692 = (0);
+var i__21693 = (0);
 while(true){
-if((i__21010 < count__21009)){
-var ech = cljs.core._nth.call(null,chunk__21008,i__21010);
+if((i__21693 < count__21692)){
+var ech = cljs.core._nth.call(null,chunk__21691,i__21693);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
 
-var G__21011 = seq__21007;
-var G__21012 = chunk__21008;
-var G__21013 = count__21009;
-var G__21014 = (i__21010 + (1));
-seq__21007 = G__21011;
-chunk__21008 = G__21012;
-count__21009 = G__21013;
-i__21010 = G__21014;
+var G__21694 = seq__21690;
+var G__21695 = chunk__21691;
+var G__21696 = count__21692;
+var G__21697 = (i__21693 + (1));
+seq__21690 = G__21694;
+chunk__21691 = G__21695;
+count__21692 = G__21696;
+i__21693 = G__21697;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__21007);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__21690);
 if(temp__4126__auto__){
-var seq__21007__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__21007__$1)){
-var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21007__$1);
-var G__21015 = cljs.core.chunk_rest.call(null,seq__21007__$1);
-var G__21016 = c__13332__auto__;
-var G__21017 = cljs.core.count.call(null,c__13332__auto__);
-var G__21018 = (0);
-seq__21007 = G__21015;
-chunk__21008 = G__21016;
-count__21009 = G__21017;
-i__21010 = G__21018;
+var seq__21690__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__21690__$1)){
+var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21690__$1);
+var G__21698 = cljs.core.chunk_rest.call(null,seq__21690__$1);
+var G__21699 = c__13332__auto__;
+var G__21700 = cljs.core.count.call(null,c__13332__auto__);
+var G__21701 = (0);
+seq__21690 = G__21698;
+chunk__21691 = G__21699;
+count__21692 = G__21700;
+i__21693 = G__21701;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__21007__$1);
+var ech = cljs.core.first.call(null,seq__21690__$1);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
 
-var G__21019 = cljs.core.next.call(null,seq__21007__$1);
-var G__21020 = null;
-var G__21021 = (0);
-var G__21022 = (0);
-seq__21007 = G__21019;
-chunk__21008 = G__21020;
-count__21009 = G__21021;
-i__21010 = G__21022;
+var G__21702 = cljs.core.next.call(null,seq__21690__$1);
+var G__21703 = null;
+var G__21704 = (0);
+var G__21705 = (0);
+seq__21690 = G__21702;
+chunk__21691 = G__21703;
+count__21692 = G__21704;
+i__21693 = G__21705;
 continue;
 }
 } else {
@@ -135,51 +160,51 @@ break;
 }
 });
 landing.render_entry_list = (function render_entry_list(entries,loc){
-var seq__21027 = cljs.core.seq.call(null,entries);
-var chunk__21028 = null;
-var count__21029 = (0);
-var i__21030 = (0);
+var seq__21710 = cljs.core.seq.call(null,entries);
+var chunk__21711 = null;
+var count__21712 = (0);
+var i__21713 = (0);
 while(true){
-if((i__21030 < count__21029)){
-var ech = cljs.core._nth.call(null,chunk__21028,i__21030);
+if((i__21713 < count__21712)){
+var ech = cljs.core._nth.call(null,chunk__21711,i__21713);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__21031 = seq__21027;
-var G__21032 = chunk__21028;
-var G__21033 = count__21029;
-var G__21034 = (i__21030 + (1));
-seq__21027 = G__21031;
-chunk__21028 = G__21032;
-count__21029 = G__21033;
-i__21030 = G__21034;
+var G__21714 = seq__21710;
+var G__21715 = chunk__21711;
+var G__21716 = count__21712;
+var G__21717 = (i__21713 + (1));
+seq__21710 = G__21714;
+chunk__21711 = G__21715;
+count__21712 = G__21716;
+i__21713 = G__21717;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__21027);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__21710);
 if(temp__4126__auto__){
-var seq__21027__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__21027__$1)){
-var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21027__$1);
-var G__21035 = cljs.core.chunk_rest.call(null,seq__21027__$1);
-var G__21036 = c__13332__auto__;
-var G__21037 = cljs.core.count.call(null,c__13332__auto__);
-var G__21038 = (0);
-seq__21027 = G__21035;
-chunk__21028 = G__21036;
-count__21029 = G__21037;
-i__21030 = G__21038;
+var seq__21710__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__21710__$1)){
+var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21710__$1);
+var G__21718 = cljs.core.chunk_rest.call(null,seq__21710__$1);
+var G__21719 = c__13332__auto__;
+var G__21720 = cljs.core.count.call(null,c__13332__auto__);
+var G__21721 = (0);
+seq__21710 = G__21718;
+chunk__21711 = G__21719;
+count__21712 = G__21720;
+i__21713 = G__21721;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__21027__$1);
+var ech = cljs.core.first.call(null,seq__21710__$1);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__21039 = cljs.core.next.call(null,seq__21027__$1);
-var G__21040 = null;
-var G__21041 = (0);
-var G__21042 = (0);
-seq__21027 = G__21039;
-chunk__21028 = G__21040;
-count__21029 = G__21041;
-i__21030 = G__21042;
+var G__21722 = cljs.core.next.call(null,seq__21710__$1);
+var G__21723 = null;
+var G__21724 = (0);
+var G__21725 = (0);
+seq__21710 = G__21722;
+chunk__21711 = G__21723;
+count__21712 = G__21724;
+i__21713 = G__21725;
 continue;
 }
 } else {
