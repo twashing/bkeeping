@@ -3,14 +3,14 @@
     <paper-input id="account-details-name" label="Name"></paper-input>
   </div>
   <div horizontal layout>
-    <paper-dropdown-menu label="Type">
+    <paper-dropdown-menu id="account-details-type" label="Type">
       <paper-dropdown class="dropdown core-transition core-closed">
-        <core-menu id="account-details-type" class="menu">
-          <paper-item> "Asset"</paper-item>
-          <paper-item> "Liability"</paper-item>
-          <paper-item> "Revenue"</paper-item>
-          <paper-item> "Expense"</paper-item>
-          <paper-item> "Capital"</paper-item>
+        <core-menu class="menu">
+          <paper-item id="account-details-type-asset">Asset</paper-item>
+          <paper-item id="account-details-type-liability">Liability</paper-item>
+          <paper-item id="account-details-type-revenue">Revenue</paper-item>
+          <paper-item id="account-details-type-expense">Expense</paper-item>
+          <paper-item id="account-details-type-capital">Capital</paper-item>
         </core-menu>
       </paper-dropdown>
     </paper-dropdown-menu>

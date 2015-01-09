@@ -65,33 +65,17 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
-
-(defn ^:export transitionAccounts [directionFn]
-  (let [as (gdom/getElement "accounts")]
-    (set! (.-selected as)
-          (directionFn (.-selected as) 1))))
-(defn ^:export transitionAccountsForward []  (transitionAccounts +))
-(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
-
-(defn ^:export transitionEntries [directionFn]
-  (let [es (gdom/getElement "entries")]
-    (set! (.-selected es)
-          (directionFn (.-selected es) 1))))
-(defn ^:export transitionEntriesForward []  (transitionEntries +))
-(defn ^:export transitionEntriesBackward []  (transitionEntries -))
-
-
 (declare data-location-mapping
          render-account-list
          render-entry-list
          render-account-details)
+
 
 (defn render-account-list [accounts loc]
   (doseq [ech accounts]
     (ef/at js/document [loc] (ef/append (tpl/accounts-template ech))) ))
 
 (defn render-account-details [account loc]
-  (bk/console-log (str "sanity check... / account[" account "] / loc[" loc "]"))
   (ef/at js/document [loc] (ef/append (tpl/account-details-template account))))
 
 (defn render-entry-list [entries loc]
@@ -127,7 +111,10 @@
 
     (render-path path data)))
 
-(tpl/gen-templates data-location-mapping render-account-details transitionAccountsForward transitionAccountsBackward)
+(tpl/gen-templates
+ data-location-mapping
+ render-account-details)
+
 (render)
 
 

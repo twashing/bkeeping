@@ -1,9 +1,25 @@
 (ns template
-  (:require [enfocus.core :as ef]
+  (:require [goog.dom :as gdom]
+            [enfocus.core :as ef]
             [enfocus.events :as events]
             [enfocus.effects :as effects]
             [cursors.core :as crs])
   (:require-macros [enfocus.macros :as em]))
+
+
+(defn ^:export transitionAccounts [directionFn]
+  (let [as (gdom/getElement "accounts")]
+    (set! (.-selected as)
+          (directionFn (.-selected as) 1))))
+(defn ^:export transitionAccountsForward []  (transitionAccounts +))
+(defn ^:export transitionAccountsBackward []  (transitionAccounts -))
+
+(defn ^:export transitionEntries [directionFn]
+  (let [es (gdom/getElement "entries")]
+    (set! (.-selected es)
+          (directionFn (.-selected es) 1))))
+(defn ^:export transitionEntriesForward []  (transitionEntries +))
+(defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
 (def account-type-mappings {:expense :debit
@@ -26,9 +42,7 @@
 
 
 (defn gen-templates [data-location-mapping
-                     adetailsFn
-                     transitionAccountsForward
-                     transitionAccountsBackward]
+                     adetailsFn]
 
   (em/deftemplate landing-template "/landing-body.html" [])
 
@@ -39,6 +53,9 @@
                                                (transitionAccountsForward)))))
 
   (em/deftemplate account-details-template "/account-details.html" [account]
+    ["#account-details-name"] (ef/set-attr :value (:name account))
+    ["#account-details-type"] #(let [adt (.querySelector js/document "#account-details-type")]
+                                 (.setValueSelected adt 1 true))
     ["#account-details-cancel"] (events/listen :click transitionAccountsBackward)
     ["#account-details-save"] (events/listen :click #((let [db-id (:db/id account)
                                                             aname (.-value (gdom/getElement "account-details-name"))
