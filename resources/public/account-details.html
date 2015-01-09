@@ -1,0 +1,22 @@
+<div slide-from-right>
+  <div horizontal layout>
+    <paper-input id="account-details-name" label="Name"></paper-input>
+  </div>
+  <div horizontal layout>
+    <paper-dropdown-menu label="Type">
+      <paper-dropdown class="dropdown core-transition core-closed">
+        <core-menu id="account-details-type" class="menu">
+          <paper-item> "Asset"</paper-item>
+          <paper-item> "Liability"</paper-item>
+          <paper-item> "Revenue"</paper-item>
+          <paper-item> "Expense"</paper-item>
+          <paper-item> "Capital"</paper-item>
+        </core-menu>
+      </paper-dropdown>
+    </paper-dropdown-menu>
+  </div>
+  <div horizontal layout>
+    <paper-button noink raised>cancel</paper-button>
+    <paper-button noink raised>save</paper-button>
+  </div>
+</div>

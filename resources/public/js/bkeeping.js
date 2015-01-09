@@ -27,9 +27,10 @@ goog.addDependency("../domina/css.js", ['domina.css'], ['goog.dom', 'cljs.core',
 goog.addDependency("../enfocus/enlive/syntax.js", ['enfocus.enlive.syntax'], ['cljs.core']);
 goog.addDependency("../domina/xpath.js", ['domina.xpath'], ['goog.dom', 'cljs.core', 'domina']);
 goog.addDependency("../enfocus/core.js", ['enfocus.core'], ['goog.dom.forms', 'goog.dom', 'goog.dom.classes', 'domina.css', 'goog.Timer', 'goog.net.XhrIo', 'goog.dom.ViewportSizeMonitor', 'cljs.core', 'domina', 'goog.style', 'domina.xpath', 'clojure.string', 'goog.events', 'goog.dom.query', 'enfocus.enlive.syntax', 'goog.async.Delay']);
+goog.addDependency("../cursors/core.js", ['cursors.core'], ['cljs.core']);
 goog.addDependency("../enfocus/effects.js", ['enfocus.effects'], ['cljs.core', 'enfocus.core', 'goog.fx', 'goog.fx.dom', 'goog.style', 'goog.events', 'goog.dom.query']);
 goog.addDependency("../enfocus/events.js", ['enfocus.events'], ['goog.dom', 'cljs.core', 'goog.object', 'enfocus.core', 'goog.events']);
-goog.addDependency("../cursors/core.js", ['cursors.core'], ['cljs.core']);
+goog.addDependency("../template.js", ['template'], ['cursors.core', 'cljs.core', 'enfocus.effects', 'enfocus.core', 'enfocus.events']);
 goog.addDependency("../view.js", ['view'], ['bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'freactive.core']);
 goog.addDependency("../figwheel/client.js", ['figwheel.client'], ['goog.Uri', 'cljs.core', 'cljs.core.async', 'figwheel.client.file_reloading', 'figwheel.client.heads_up', 'figwheel.client.socket']);
-goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'goog.dom', 'cursors.core', 'freactive.dom', 'view', 'weasel.repl', 'goog.string', 'cljs.core', 'enfocus.effects', 'freactive.core', 'enfocus.core', 'figwheel.client', 'enfocus.events']);
+goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'goog.dom', 'cursors.core', 'freactive.dom', 'view', 'weasel.repl', 'goog.string', 'cljs.core', 'enfocus.effects', 'freactive.core', 'enfocus.core', 'template', 'figwheel.client', 'enfocus.events']);

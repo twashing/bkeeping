@@ -10,6 +10,7 @@
             [enfocus.effects :as effects]
             [bkeeping :as bk]
             [view :as v]
+            [template :as tpl]
             [cursors.core :as crs]
             [figwheel.client :as fw])
   (:require-macros [freactive.macros :refer [rx]]
@@ -74,34 +75,31 @@
 
 (defn ^:export transitionEntries [directionFn]
   (let [es (gdom/getElement "entries")]
-    (bk/console-log (str "entries[" es "] / directionFn[" directionFn "]"))
     (set! (.-selected es)
           (directionFn (.-selected es) 1))))
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
-(em/deftemplate landing-template "/landing-body.html" [])
-
-(em/deftemplate accounts-template "/account-row.html" [account]
-  [".account-row"] (ef/append (:name account)))
-
-(em/deftemplate entries-template "/entry-row.html" [entry]
-  [".entry-row"] (ef/append (str (:date entry))))
-
+(declare data-location-mapping
+         render-account-list
+         render-entry-list
+         render-account-details)
 
 (defn render-account-list [accounts loc]
   (doseq [ech accounts]
-    (ef/at js/document [loc] (ef/append (accounts-template ech))) ))
+    (ef/at js/document [loc] (ef/append (tpl/accounts-template ech))) ))
+
+(defn render-account-details [account loc]
+  (bk/console-log (str "sanity check... / account[" account "] / loc[" loc "]"))
+  (ef/at js/document [loc] (ef/append (tpl/account-details-template account))))
 
 (defn render-entry-list [entries loc]
   (doseq [ech entries]
-    (bk/console-log (str "ech[" ech "]"))
-    (ef/at js/document [loc] (ef/append (entries-template ech))) ))
-
+    (ef/at js/document [loc] (ef/append (tpl/entries-template ech))) ))
 
 (def data-location-mapping {[:accounts] {:loc "#accounts-pane" :fn render-account-list}
-                            [:accounts :db/id] {:loc "#accounts-details-pane"}
+                            [:accounts :db/id] {:loc "#account-details-pane"}
                             [:journals :entries] {:loc "#entries-pane" :fn render-entry-list}
                             [:journals :entries :db/id] {:loc "#entry-details-pane"}
 
@@ -111,27 +109,27 @@
 (defn render-path [path data]
 
   (let [pmapping (data-location-mapping path)
-
         mfn (:fn pmapping)
         mloc (:loc pmapping)]
 
-    (bk/console-log (str "sanity check / path[" path "] / data[" data "] / mloc[" mloc "]"))
     (mfn data mloc)))
 
-(defn render []
+(defn render-body []
   (ef/at js/document
-         ["body"] (ef/content (landing-template))))
+         ["body"] (ef/content (tpl/landing-template))))
 
-(defn render-all []
+(defn render []
 
-  (render)
+  (render-body)
   (doseq [{path :path data :data}
           [{:path [:accounts] :data (:accounts @app-state)}
            {:path [:journals :entries] :data (-> @app-state :journals first :entries)}]]
 
     (render-path path data)))
 
-(render-all)
+(tpl/gen-templates data-location-mapping render-account-details transitionAccountsForward transitionAccountsBackward)
+(render)
+
 
 
 (fw/start {
