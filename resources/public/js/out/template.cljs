@@ -54,9 +54,7 @@
 
   (em/deftemplate account-details-template "/account-details.html" [account]
     ["#account-details-name"] (ef/set-attr :value (:name account))
-    ["#account-details-type"] #(let [adt (.querySelector js/document "#account-details-type")]
-                                 (.setValueSelected adt 1 true))
-    ["#account-details-cancel"] (events/listen :click transitionAccountsBackward)
+    ["#account-details-cancel"] (events/listen :click (transitionAccountsBackward))
     ["#account-details-save"] (events/listen :click #((let [db-id (:db/id account)
                                                             aname (.-value (gdom/getElement "account-details-name"))
                                                             type-kw (get-account-type-value

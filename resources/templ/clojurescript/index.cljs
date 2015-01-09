@@ -27,4 +27,4 @@
   (let [signinLink (gdom/getElement "signin")]
     (set! (.-onclick signinLink) onClickHandler)))
 
-(set! (.-onload js/window) start)
+(start)

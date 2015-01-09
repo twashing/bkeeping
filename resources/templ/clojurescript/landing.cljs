@@ -75,8 +75,9 @@
   (doseq [ech accounts]
     (ef/at js/document [loc] (ef/append (tpl/accounts-template ech))) ))
 
+
 (defn render-account-details [account loc]
-  (ef/at js/document [loc] (ef/append (tpl/account-details-template account))))
+  (ef/at js/document [loc] (ef/content (tpl/account-details-template account))))
 
 (defn render-entry-list [entries loc]
   (doseq [ech entries]

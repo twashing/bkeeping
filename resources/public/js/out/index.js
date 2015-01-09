@@ -22,6 +22,6 @@ index.start = (function start(){
 var signinLink = goog.dom.getElement("signin");
 return signinLink.onclick = index.onClickHandler;
 });
-window.onload = index.start;
+index.start.call(null);
 
 //# sourceMappingURL=index.js.map
