@@ -19,8 +19,8 @@
                  [noisesmith/groundhog "0.0.4"]
                  [freactive "0.1.0"]
                  [enfocus "2.1.1"]
-                 [cursors "0.1.0-SNAPSHOT"]
-                 [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
+                 [cursors "0.1.0"]
+                 [bkell "0.1.2" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
                  [clj-time "0.8.0"]]

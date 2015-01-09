@@ -52,19 +52,19 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/la
 }
 
 landing.landing_template = (function landing_template(){
-var vec__21677 = (function (){
+var vec__20501 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/landing-body.html");
 }).call(null);
-var id_sym21674 = cljs.core.nth.call(null,vec__21677,(0),null);
-var pnod21675 = cljs.core.nth.call(null,vec__21677,(1),null);
-var pnod21675__$1 = enfocus.core.create_hidden_dom.call(null,pnod21675);
-enfocus.core.i_at.call(null,id_sym21674,pnod21675__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["core-header-panel"], null),enfocus.core.append.call(null,"&nbsp;"));
+var id_sym20498 = cljs.core.nth.call(null,vec__20501,(0),null);
+var pnod20499 = cljs.core.nth.call(null,vec__20501,(1),null);
+var pnod20499__$1 = enfocus.core.create_hidden_dom.call(null,pnod20499);
+enfocus.core.i_at.call(null,id_sym20498,pnod20499__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["core-header-panel"], null),enfocus.core.append.call(null,"&nbsp;"));
 
-enfocus.core.reset_ids.call(null,id_sym21674,pnod21675__$1);
+enfocus.core.reset_ids.call(null,id_sym20498,pnod20499__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod21675__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod20499__$1);
 });
-enfocus.core.load_remote_dom.call(null,"/account-row.html","remote/account-row.html","en20594_");
+enfocus.core.load_remote_dom.call(null,"/account-row.html","remote/account-row.html","en19556_");
 
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"remote/account-row.html") == null)){
 cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/account-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["","NOT_LOADED"], null));
@@ -72,19 +72,19 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/ac
 }
 
 landing.accounts_template = (function accounts_template(account){
-var vec__21681 = (function (){
+var vec__20505 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/account-row.html");
 }).call(null);
-var id_sym21678 = cljs.core.nth.call(null,vec__21681,(0),null);
-var pnod21679 = cljs.core.nth.call(null,vec__21681,(1),null);
-var pnod21679__$1 = enfocus.core.create_hidden_dom.call(null,pnod21679);
-enfocus.core.i_at.call(null,id_sym21678,pnod21679__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-account-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)));
+var id_sym20502 = cljs.core.nth.call(null,vec__20505,(0),null);
+var pnod20503 = cljs.core.nth.call(null,vec__20505,(1),null);
+var pnod20503__$1 = enfocus.core.create_hidden_dom.call(null,pnod20503);
+enfocus.core.i_at.call(null,id_sym20502,pnod20503__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".account-row"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)));
 
-enfocus.core.reset_ids.call(null,id_sym21678,pnod21679__$1);
+enfocus.core.reset_ids.call(null,id_sym20502,pnod20503__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod21679__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod20503__$1);
 });
-enfocus.core.load_remote_dom.call(null,"/entry-row.html","remote/entry-row.html","en20790_");
+enfocus.core.load_remote_dom.call(null,"/entry-row.html","remote/entry-row.html","en19561_");
 
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"remote/entry-row.html") == null)){
 cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/entry-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["","NOT_LOADED"], null));
@@ -92,64 +92,64 @@ cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"remote/en
 }
 
 landing.entries_template = (function entries_template(entry){
-var vec__21685 = (function (){
+var vec__20509 = (function (){
 return enfocus.core.get_cached_dom.call(null,"remote/entry-row.html");
 }).call(null);
-var id_sym21682 = cljs.core.nth.call(null,vec__21685,(0),null);
-var pnod21683 = cljs.core.nth.call(null,vec__21685,(1),null);
-var pnod21683__$1 = enfocus.core.create_hidden_dom.call(null,pnod21683);
-enfocus.core.i_at.call(null,id_sym21682,pnod21683__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#delete-entry-row > text-node"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(entry)));
+var id_sym20506 = cljs.core.nth.call(null,vec__20509,(0),null);
+var pnod20507 = cljs.core.nth.call(null,vec__20509,(1),null);
+var pnod20507__$1 = enfocus.core.create_hidden_dom.call(null,pnod20507);
+enfocus.core.i_at.call(null,id_sym20506,pnod20507__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-row"], null),enfocus.core.append.call(null,[cljs.core.str(new cljs.core.Keyword(null,"date","date",-1463434462).cljs$core$IFn$_invoke$arity$1(entry))].join('')));
 
-enfocus.core.reset_ids.call(null,id_sym21682,pnod21683__$1);
+enfocus.core.reset_ids.call(null,id_sym20506,pnod20507__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod21683__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod20507__$1);
 });
 landing.render_account_list = (function render_account_list(accounts,loc){
-var seq__21690 = cljs.core.seq.call(null,accounts);
-var chunk__21691 = null;
-var count__21692 = (0);
-var i__21693 = (0);
+var seq__20514 = cljs.core.seq.call(null,accounts);
+var chunk__20515 = null;
+var count__20516 = (0);
+var i__20517 = (0);
 while(true){
-if((i__21693 < count__21692)){
-var ech = cljs.core._nth.call(null,chunk__21691,i__21693);
+if((i__20517 < count__20516)){
+var ech = cljs.core._nth.call(null,chunk__20515,i__20517);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
 
-var G__21694 = seq__21690;
-var G__21695 = chunk__21691;
-var G__21696 = count__21692;
-var G__21697 = (i__21693 + (1));
-seq__21690 = G__21694;
-chunk__21691 = G__21695;
-count__21692 = G__21696;
-i__21693 = G__21697;
+var G__20518 = seq__20514;
+var G__20519 = chunk__20515;
+var G__20520 = count__20516;
+var G__20521 = (i__20517 + (1));
+seq__20514 = G__20518;
+chunk__20515 = G__20519;
+count__20516 = G__20520;
+i__20517 = G__20521;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__21690);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__20514);
 if(temp__4126__auto__){
-var seq__21690__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__21690__$1)){
-var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21690__$1);
-var G__21698 = cljs.core.chunk_rest.call(null,seq__21690__$1);
-var G__21699 = c__13332__auto__;
-var G__21700 = cljs.core.count.call(null,c__13332__auto__);
-var G__21701 = (0);
-seq__21690 = G__21698;
-chunk__21691 = G__21699;
-count__21692 = G__21700;
-i__21693 = G__21701;
+var seq__20514__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__20514__$1)){
+var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__20514__$1);
+var G__20522 = cljs.core.chunk_rest.call(null,seq__20514__$1);
+var G__20523 = c__13332__auto__;
+var G__20524 = cljs.core.count.call(null,c__13332__auto__);
+var G__20525 = (0);
+seq__20514 = G__20522;
+chunk__20515 = G__20523;
+count__20516 = G__20524;
+i__20517 = G__20525;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__21690__$1);
+var ech = cljs.core.first.call(null,seq__20514__$1);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
 
-var G__21702 = cljs.core.next.call(null,seq__21690__$1);
-var G__21703 = null;
-var G__21704 = (0);
-var G__21705 = (0);
-seq__21690 = G__21702;
-chunk__21691 = G__21703;
-count__21692 = G__21704;
-i__21693 = G__21705;
+var G__20526 = cljs.core.next.call(null,seq__20514__$1);
+var G__20527 = null;
+var G__20528 = (0);
+var G__20529 = (0);
+seq__20514 = G__20526;
+chunk__20515 = G__20527;
+count__20516 = G__20528;
+i__20517 = G__20529;
 continue;
 }
 } else {
@@ -160,51 +160,55 @@ break;
 }
 });
 landing.render_entry_list = (function render_entry_list(entries,loc){
-var seq__21710 = cljs.core.seq.call(null,entries);
-var chunk__21711 = null;
-var count__21712 = (0);
-var i__21713 = (0);
+var seq__20534 = cljs.core.seq.call(null,entries);
+var chunk__20535 = null;
+var count__20536 = (0);
+var i__20537 = (0);
 while(true){
-if((i__21713 < count__21712)){
-var ech = cljs.core._nth.call(null,chunk__21711,i__21713);
+if((i__20537 < count__20536)){
+var ech = cljs.core._nth.call(null,chunk__20535,i__20537);
+bkeeping.console_log.call(null,[cljs.core.str("ech["),cljs.core.str(ech),cljs.core.str("]")].join(''));
+
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__21714 = seq__21710;
-var G__21715 = chunk__21711;
-var G__21716 = count__21712;
-var G__21717 = (i__21713 + (1));
-seq__21710 = G__21714;
-chunk__21711 = G__21715;
-count__21712 = G__21716;
-i__21713 = G__21717;
+var G__20538 = seq__20534;
+var G__20539 = chunk__20535;
+var G__20540 = count__20536;
+var G__20541 = (i__20537 + (1));
+seq__20534 = G__20538;
+chunk__20535 = G__20539;
+count__20536 = G__20540;
+i__20537 = G__20541;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__21710);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__20534);
 if(temp__4126__auto__){
-var seq__21710__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__21710__$1)){
-var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__21710__$1);
-var G__21718 = cljs.core.chunk_rest.call(null,seq__21710__$1);
-var G__21719 = c__13332__auto__;
-var G__21720 = cljs.core.count.call(null,c__13332__auto__);
-var G__21721 = (0);
-seq__21710 = G__21718;
-chunk__21711 = G__21719;
-count__21712 = G__21720;
-i__21713 = G__21721;
+var seq__20534__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__20534__$1)){
+var c__13332__auto__ = cljs.core.chunk_first.call(null,seq__20534__$1);
+var G__20542 = cljs.core.chunk_rest.call(null,seq__20534__$1);
+var G__20543 = c__13332__auto__;
+var G__20544 = cljs.core.count.call(null,c__13332__auto__);
+var G__20545 = (0);
+seq__20534 = G__20542;
+chunk__20535 = G__20543;
+count__20536 = G__20544;
+i__20537 = G__20545;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__21710__$1);
+var ech = cljs.core.first.call(null,seq__20534__$1);
+bkeeping.console_log.call(null,[cljs.core.str("ech["),cljs.core.str(ech),cljs.core.str("]")].join(''));
+
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__21722 = cljs.core.next.call(null,seq__21710__$1);
-var G__21723 = null;
-var G__21724 = (0);
-var G__21725 = (0);
-seq__21710 = G__21722;
-chunk__21711 = G__21723;
-count__21712 = G__21724;
-i__21713 = G__21725;
+var G__20546 = cljs.core.next.call(null,seq__20534__$1);
+var G__20547 = null;
+var G__20548 = (0);
+var G__20549 = (0);
+seq__20534 = G__20546;
+chunk__20535 = G__20547;
+count__20536 = G__20548;
+i__20537 = G__20549;
 continue;
 }
 } else {

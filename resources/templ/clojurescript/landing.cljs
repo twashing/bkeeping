@@ -95,10 +95,11 @@
   ["core-header-panel"] (ef/append "&nbsp;"))
 
 (em/deftemplate accounts-template "/account-row.html" [account]
-  ["#delete-account-row > text-node"] (ef/append (:name account)))
+  [".account-row"] (ef/append (:name account)))
 
 (em/deftemplate entries-template "/entry-row.html" [entry]
-  ["#delete-entry-row > text-node"] (ef/append (:name entry)))
+  [".entry-row"] (ef/append (str (:date entry))))
+
 
 (defn render-account-list [accounts loc]
   (doseq [ech accounts]
@@ -106,11 +107,13 @@
 
 (defn render-entry-list [entries loc]
   (doseq [ech entries]
+    (bk/console-log (str "ech[" ech "]"))
     (ef/at js/document [loc] (ef/append (entries-template ech))) ))
 
 (defn render []
   (ef/at js/document
          ["body"] (ef/content (landing-template))))
+
 
 (render)
 (render-account-list (:accounts @app-state) "#accounts-pane")
@@ -127,7 +130,6 @@
     #_(mfn mloc)
 
     (render-account-list (:accounts @app-state) "#accounts-pane")))
-
 
 
 (defn ^:export one []
