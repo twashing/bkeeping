@@ -8,7 +8,6 @@ goog.require('goog.events.EventType');
 goog.require('goog.events');
 goog.require('goog.net.XhrIo');
 goog.require('cljs.reader');
-weasel.repl.connect.call(null,"ws://172.28.128.5:9001");
 index.onClickHandler = (function onClickHandler(){
 var currentUser = "twashing@gmail.com";
 var navigatorId = navigator.id;
@@ -19,8 +18,13 @@ navigatorId.watch(cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMa
 return navigatorId.request();
 });
 index.start = (function start(){
-var signinLink = goog.dom.getElement("signin");
+var temp__4124__auto__ = goog.dom.getElement("signin");
+if(cljs.core.truth_(temp__4124__auto__)){
+var signinLink = temp__4124__auto__;
 return signinLink.onclick = index.onClickHandler;
+} else {
+return null;
+}
 });
 index.start.call(null);
 

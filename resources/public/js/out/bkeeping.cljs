@@ -11,16 +11,6 @@
   (.log js/console message))
 
 
-(defn transitionAccounts []
-  (let [as (gdom/getElement "accounts")]
-    (set! (.-selected as)
-          (+ 1 (.-selected as)))))
-
-(defn transitionEntries []
-  (let [es (gdom/getElement "entries")]
-    (set! (.-selected es)
-          (+ 1 (.-selected es)))))
-
 (def ^:private meths
   {:get "GET"
    :put "PUT"
@@ -62,21 +52,3 @@
    {:method :get
     :url "/signout"
     :on-complete basicHandler}))
-
-
-(defn onClickHandler []
-  (let [currentUser "twashing@gmail.com"
-        navigatorId js/navigator.id]
-
-    (console-log "Signin CLICKED")
-    (.watch navigatorId
-            (clj->js {:loggedInUser currentUser
-                      :onlogin verifyAssertion
-                      :onlogout signoutUser}))
-    (.request navigatorId)))
-
-(defn start []
-  (let [signinLink (gdom/getElement "signin")]
-    (set! (.-onclick signinLink) onClickHandler)))
-
-(set! (.-onload js/window) start)

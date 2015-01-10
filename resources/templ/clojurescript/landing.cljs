@@ -103,7 +103,17 @@
   (ef/at js/document
          ["body"] (ef/content (tpl/landing-template))))
 
-(defn render []
+(tpl/gen-templates
+ data-location-mapping
+ render-account-details)
+
+(em/defaction init []
+  "body" (ef/content (tpl/landing-template)))
+
+(set! (.-onload js/window) init)
+
+
+#_(defn render []
 
   (render-body)
   (doseq [{path :path data :data}
@@ -112,15 +122,11 @@
 
     (render-path path data)))
 
-(tpl/gen-templates
- data-location-mapping
- render-account-details)
-
-(render)
+#_(render)
 
 
 
-(fw/start {
+#_(fw/start {
            ;; configure a websocket url if yor are using your own server
            ;; :websocket-url "ws://localhost:3449/figwheel-ws"
 

@@ -9,9 +9,6 @@
            [goog.events EventType]))
 
 
-(ws-repl/connect "ws://172.28.128.5:9001")
-
-
 (defn onClickHandler []
   (let [currentUser "twashing@gmail.com"
         navigatorId js/navigator.id]
@@ -24,7 +21,7 @@
     (.request navigatorId)))
 
 (defn start []
-  (let [signinLink (gdom/getElement "signin")]
+  (if-let [signinLink (gdom/getElement "signin")]
     (set! (.-onclick signinLink) onClickHandler)))
 
 (start)

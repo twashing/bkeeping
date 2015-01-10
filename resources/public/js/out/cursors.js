@@ -2,28 +2,28 @@
 goog.provide('cursors');
 goog.require('cljs.core');
 
-cursors.ICursor = (function (){var obj20885 = {};
-return obj20885;
+cursors.ICursor = (function (){var obj11036 = {};
+return obj11036;
 })();
 
 cursors.path = (function path(cursor){
-if((function (){var and__12533__auto__ = cursor;
-if(and__12533__auto__){
+if((function (){var and__3610__auto__ = cursor;
+if(and__3610__auto__){
 return cursor.cursors$ICursor$path$arity$1;
 } else {
-return and__12533__auto__;
+return and__3610__auto__;
 }
 })()){
 return cursor.cursors$ICursor$path$arity$1(cursor);
 } else {
-var x__13189__auto__ = (((cursor == null))?null:cursor);
-return (function (){var or__12545__auto__ = (cursors.path[goog.typeOf(x__13189__auto__)]);
-if(or__12545__auto__){
-return or__12545__auto__;
+var x__4266__auto__ = (((cursor == null))?null:cursor);
+return (function (){var or__3622__auto__ = (cursors.path[goog.typeOf(x__4266__auto__)]);
+if(or__3622__auto__){
+return or__3622__auto__;
 } else {
-var or__12545__auto____$1 = (cursors.path["_"]);
-if(or__12545__auto____$1){
-return or__12545__auto____$1;
+var or__3622__auto____$1 = (cursors.path["_"]);
+if(or__3622__auto____$1){
+return or__3622__auto____$1;
 } else {
 throw cljs.core.missing_protocol.call(null,"ICursor.path",cursor);
 }
@@ -33,23 +33,23 @@ throw cljs.core.missing_protocol.call(null,"ICursor.path",cursor);
 });
 
 cursors.state = (function state(cursor){
-if((function (){var and__12533__auto__ = cursor;
-if(and__12533__auto__){
+if((function (){var and__3610__auto__ = cursor;
+if(and__3610__auto__){
 return cursor.cursors$ICursor$state$arity$1;
 } else {
-return and__12533__auto__;
+return and__3610__auto__;
 }
 })()){
 return cursor.cursors$ICursor$state$arity$1(cursor);
 } else {
-var x__13189__auto__ = (((cursor == null))?null:cursor);
-return (function (){var or__12545__auto__ = (cursors.state[goog.typeOf(x__13189__auto__)]);
-if(or__12545__auto__){
-return or__12545__auto__;
+var x__4266__auto__ = (((cursor == null))?null:cursor);
+return (function (){var or__3622__auto__ = (cursors.state[goog.typeOf(x__4266__auto__)]);
+if(or__3622__auto__){
+return or__3622__auto__;
 } else {
-var or__12545__auto____$1 = (cursors.state["_"]);
-if(or__12545__auto____$1){
-return or__12545__auto____$1;
+var or__3622__auto____$1 = (cursors.state["_"]);
+if(or__3622__auto____$1){
+return or__3622__auto____$1;
 } else {
 throw cljs.core.missing_protocol.call(null,"ICursor.state",cursor);
 }
@@ -59,23 +59,23 @@ throw cljs.core.missing_protocol.call(null,"ICursor.state",cursor);
 });
 
 cursors.parent = (function parent(cursor){
-if((function (){var and__12533__auto__ = cursor;
-if(and__12533__auto__){
+if((function (){var and__3610__auto__ = cursor;
+if(and__3610__auto__){
 return cursor.cursors$ICursor$parent$arity$1;
 } else {
-return and__12533__auto__;
+return and__3610__auto__;
 }
 })()){
 return cursor.cursors$ICursor$parent$arity$1(cursor);
 } else {
-var x__13189__auto__ = (((cursor == null))?null:cursor);
-return (function (){var or__12545__auto__ = (cursors.parent[goog.typeOf(x__13189__auto__)]);
-if(or__12545__auto__){
-return or__12545__auto__;
+var x__4266__auto__ = (((cursor == null))?null:cursor);
+return (function (){var or__3622__auto__ = (cursors.parent[goog.typeOf(x__4266__auto__)]);
+if(or__3622__auto__){
+return or__3622__auto__;
 } else {
-var or__12545__auto____$1 = (cursors.parent["_"]);
-if(or__12545__auto____$1){
-return or__12545__auto____$1;
+var or__3622__auto____$1 = (cursors.parent["_"]);
+if(or__3622__auto____$1){
+return or__3622__auto____$1;
 } else {
 throw cljs.core.missing_protocol.call(null,"ICursor.parent",cursor);
 }
@@ -85,23 +85,23 @@ throw cljs.core.missing_protocol.call(null,"ICursor.parent",cursor);
 });
 
 cursors.transact = (function transact(cursor,new_state){
-if((function (){var and__12533__auto__ = cursor;
-if(and__12533__auto__){
+if((function (){var and__3610__auto__ = cursor;
+if(and__3610__auto__){
 return cursor.cursors$ICursor$transact$arity$2;
 } else {
-return and__12533__auto__;
+return and__3610__auto__;
 }
 })()){
 return cursor.cursors$ICursor$transact$arity$2(cursor,new_state);
 } else {
-var x__13189__auto__ = (((cursor == null))?null:cursor);
-return (function (){var or__12545__auto__ = (cursors.transact[goog.typeOf(x__13189__auto__)]);
-if(or__12545__auto__){
-return or__12545__auto__;
+var x__4266__auto__ = (((cursor == null))?null:cursor);
+return (function (){var or__3622__auto__ = (cursors.transact[goog.typeOf(x__4266__auto__)]);
+if(or__3622__auto__){
+return or__3622__auto__;
 } else {
-var or__12545__auto____$1 = (cursors.transact["_"]);
-if(or__12545__auto____$1){
-return or__12545__auto____$1;
+var or__3622__auto____$1 = (cursors.transact["_"]);
+if(or__3622__auto____$1){
+return or__3622__auto____$1;
 } else {
 throw cljs.core.missing_protocol.call(null,"ICursor.transact",cursor);
 }
@@ -157,8 +157,8 @@ cursors.MapCursor.cljs$lang$type = true;
 
 cursors.MapCursor.cljs$lang$ctorStr = "cursors/MapCursor";
 
-cursors.MapCursor.cljs$lang$ctorPrWriter = (function (this__13132__auto__,writer__13133__auto__,opt__13134__auto__){
-return cljs.core._write.call(null,writer__13133__auto__,"cursors/MapCursor");
+cursors.MapCursor.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"cursors/MapCursor");
 });
 
 cursors.__GT_MapCursor = (function __GT_MapCursor(parent,state,path){

@@ -16,11 +16,28 @@
             [noisesmith.groundhog :as gh]
             [cemerick.piggieback]
             [weasel.repl.websocket]
+            [ring.middleware.resource :refer [wrap-resource]]
+            [ring.middleware.file-info :refer [wrap-file-info]]
 
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
 
-(defn add-user-ifnil [username]
+(defroutes app-routes
+
+  (GET "/" []
+
+         (-> (ring-resp/response (slurp (io/resource "public/index.html")))
+             (ring-resp/content-type "text/html")))
+
+  (route/files "/")
+  (route/resources "/")
+  (route/not-found "Not Found"))
+
+(def app
+  (-> app-routes
+      handler/site))
+
+#_(defn add-user-ifnil [username]
 
   (let [ds (-> bkell/system :spittoon :db)
         uresult (try+ (bku/add-user ds username "CA" "CDN")
@@ -31,15 +48,15 @@
 
     uresult))
 
-(defn start-weasel [ip]
+#_(defn start-weasel [ip]
  (cemerick.piggieback/cljs-repl
    :repl-env (weasel.repl.websocket/repl-env
               :ip ip :port 9001)))
 
-(defn gen-app []
+#_(defn gen-app []
 
   (bkell/start)
-  (start-weasel "172.28.128.5")
+  #_(start-weasel "172.28.128.4")
   (defroutes app-routes
 
     (GET "/" []
@@ -81,9 +98,11 @@
     (route/resources "/")
     (route/not-found "Not Found")))
 
-(def app
+#_(def app
   (-> (gen-app)
       (handler/site)
       (wrap-session {:cookie-attrs {:max-age 3600}
                      :store (cookie-store {:key "a 16-byte secret"})})
+      (wrap-resource "public")
+      (wrap-file-info)
       (gh/groundhog)))
