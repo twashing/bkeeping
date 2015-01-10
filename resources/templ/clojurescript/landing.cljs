@@ -107,13 +107,8 @@
  data-location-mapping
  render-account-details)
 
-(em/defaction init []
-  "body" (ef/content (tpl/landing-template)))
 
-(set! (.-onload js/window) init)
-
-
-#_(defn render []
+(defn render []
 
   (render-body)
   (doseq [{path :path data :data}
@@ -122,7 +117,7 @@
 
     (render-path path data)))
 
-#_(render)
+(render)
 
 
 

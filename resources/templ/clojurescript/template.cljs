@@ -44,7 +44,7 @@
 (defn gen-templates [data-location-mapping
                      adetailsFn]
 
-  (em/deftemplate landing-template "/landing-body.html" [])
+  (em/deftemplate landing-template "resources/public/landing-body.html" [])
 
   (em/deftemplate accounts-template "/account-row.html" [account]
     [".account-row"] (ef/append (:name account))
