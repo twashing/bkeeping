@@ -29,7 +29,7 @@
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
             [lein-figwheel "0.2.0-SNAPSHOT"]]
 
-  :ring {:handler bkeeping.core.handler/app}
+  :ring {:handler bkeeping.handler/app}
 
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 

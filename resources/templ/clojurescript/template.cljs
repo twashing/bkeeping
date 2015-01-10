@@ -44,15 +44,15 @@
 (defn gen-templates [data-location-mapping
                      adetailsFn]
 
-  (em/deftemplate landing-template "resources/public/landing-body.html" [])
+  (em/deftemplate landing-template :compiled "landing-body.html" [])
 
-  (em/deftemplate accounts-template "/account-row.html" [account]
+  (em/deftemplate accounts-template :compiled "account-row.html" [account]
     [".account-row"] (ef/append (:name account))
     [".account-row"] (events/listen :click #((let [loc (:loc (data-location-mapping [:accounts :db/id]))]
                                                (adetailsFn account loc)
                                                (transitionAccountsForward)))))
 
-  (em/deftemplate account-details-template "/account-details.html" [account]
+  (em/deftemplate account-details-template :compiled "account-details.html" [account]
     ["#account-details-name"] (ef/set-attr :value (:name account))
     ["#account-details-cancel"] (events/listen :click (transitionAccountsBackward))
     ["#account-details-save"] (events/listen :click #((let [db-id (:db/id account)
@@ -74,5 +74,5 @@
                                                                                       ee))
                                                                                   (:accounts @app-state)))))))))
 
-  (em/deftemplate entries-template "/entry-row.html" [entry]
+  (em/deftemplate entries-template :compiled "entry-row.html" [entry]
     [".entry-row"] (ef/append (str (:date entry)))))

@@ -103,6 +103,11 @@
   (ef/at js/document
          ["body"] (ef/content (tpl/landing-template))))
 
+(tpl/gen-templates
+ data-location-mapping
+ render-account-details)
+
+
 (defn render []
 
   (render-body)
@@ -112,11 +117,8 @@
 
     (render-path path data)))
 
-(tpl/gen-templates
- data-location-mapping
- render-account-details)
-
 (render)
+
 
 
 #_(fw/start {
