@@ -1,0 +1,33 @@
+<div slide-from-right>
+
+  <paper-dropdown-menu label="Type">
+    <paper-dropdown class="dropdown core-transition core-closed">
+      <core-menu class="menu">
+        <paper-item>"Debit"</paper-item>
+        <paper-item>"Credit"</paper-item>
+      </core-menu>
+    </paper-dropdown>
+  </paper-dropdown-menu>
+
+
+  <div horizontal layout>
+    <paper-dropdown-menu label="Account">
+      <paper-dropdown class="dropdown core-transition core-closed">
+        <core-menu class="menu">
+          <paper-item>"Cash"</paper-item>
+          <paper-item>"Inventory"</paper-item>
+        </core-menu>
+      </paper-dropdown>
+    </paper-dropdown-menu>
+  </div>
+
+  <div horizontal layout>
+    <paper-input label="Amount"/>
+  </div>
+
+  <div horizontal layout>
+    <paper-button noink raised onclick="template.transitionEntriesBackward()">cancel</paper-button>
+    <paper-button noink raised onclick="template.transitionEntriesBackward()">save</paper-button>
+  </div>
+
+</div>

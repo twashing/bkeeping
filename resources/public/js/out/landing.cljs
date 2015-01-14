@@ -90,7 +90,12 @@
                                             (render-entry-details entry loc)
                                             (tpl/transitionEntriesForward))))
 
-(em/deftemplate entry-details-template :compiled "entry-details.html" [entry])
+(em/deftemplate entry-details-template :compiled "entry-details.html" [entry]
+  [".entry-part"] (events/listen :click #(let [loc (:loc (data-location-mapping [:journals :entries :db/id [:content :db/id]]))]
+                                           (render-entry-details-part entry loc)
+                                           (tpl/transitionEntriesForward))))
+
+(em/deftemplate entry-details-part-template :compiled "entry-details-part.html" [epart])
 
 
 (defn render-account-list [accounts loc]
@@ -106,6 +111,10 @@
 
 (defn render-entry-details [entry loc]
   (ef/at js/document [loc] (ef/content (entry-details-template entry))))
+
+(defn render-entry-details-part [epart loc]
+  (ef/at js/document [loc] (ef/content (entry-details-part-template epart))))
+
 
 (def data-location-mapping {[:accounts] {:loc "#accounts-pane" :fn render-account-list}
                             [:accounts :db/id] {:loc "#account-details-pane"}
