@@ -42,7 +42,7 @@
   (:value (get-account-type-record idx)))
 
 
-(defn gen-templates [data-location-mapping
+#_(defn gen-templates [data-location-mapping
                      adetailsFn]
 
   (em/deftemplate landing-template :compiled "landing-body.html" [])
@@ -50,30 +50,33 @@
   (em/deftemplate accounts-template :compiled "account-row.html" [account]
     [".account-row"] (ef/append (:name account))
     [".account-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:accounts :db/id]))]
-                                              #_(adetailsFn account loc)
+                                              (adetailsFn account loc)
                                               (transitionAccountsForward))))
 
   (em/deftemplate account-details-template :compiled "account-details.html" [account]
     ["#account-details-name"] (ef/set-attr :value (:name account))
-    ["#account-details-cancel"] (events/listen :click (transitionAccountsBackward))
-    ["#account-details-save"] (events/listen :click #((let [db-id (:db/id account)
-                                                            aname (.-value (gdom/getElement "account-details-name"))
-                                                            type-kw (get-account-type-value
-                                                                     (.-selected (gdom/getElement "account-details-type")))
-                                                            account-cw (type-kw account-type-mappings)]
-
-                                                        (transitionAccountsBackward)
-                                                        #_(swap! app-state (fn [e]
-                                                                           (assoc e
-                                                                             :accounts
-                                                                             (map (fn [ee]
-                                                                                    (if (= (:db/id ee) db-id)
-                                                                                      {:db/id db-id
-                                                                                       :name aname
-                                                                                       :type type-kw
-                                                                                       :counterWeight account-cw}
-                                                                                      ee))
-                                                                                  (:accounts @app-state)))))))))
+    ["#account-details-cancel"] (event/listen :onclick (fn [e] (bk/console-log (str "cancelled... [" e "]"))))
+    ["#account-details-save"] (events/listen :click (fn [e] (bk/console-log (str "saved... [" e "]")))))
 
   (em/deftemplate entries-template :compiled "entry-row.html" [entry]
-    [".entry-row"] (ef/append (str (:date entry)))))
+    [".entry-row"] (ef/append (str (:date entry)))) )
+
+
+  #_(let [db-id (:db/id account)
+          aname (.-value (gdom/getElement "account-details-name"))
+          type-kw (get-account-type-value
+                   (.-selected (gdom/getElement "account-details-type")))
+          account-cw (type-kw account-type-mappings)]
+
+      (transitionAccountsBackward)
+      #_(swap! app-state (fn [e]
+                           (assoc e
+                             :accounts
+                             (map (fn [ee]
+                                    (if (= (:db/id ee) db-id)
+                                      {:db/id db-id
+                                       :name aname
+                                       :type type-kw
+                                       :counterWeight account-cw}
+                                      ee))
+                                  (:accounts @app-state))))))

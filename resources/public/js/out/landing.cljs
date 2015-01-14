@@ -65,23 +65,40 @@
                                              :amount 1600
                                              :account "widgets"}]}}}}}))
 
+
 (declare data-location-mapping
          render-account-list
          render-entry-list
          render-account-details)
 
+(em/deftemplate landing-template :compiled "landing-body.html" [])
+
+(em/deftemplate accounts-template :compiled "account-row.html" [account]
+  [".account-row"] (ef/append (:name account))
+  [".account-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:accounts :db/id]))]
+                                            (render-account-details account loc)
+                                            (tpl/transitionAccountsForward))))
+
+(em/deftemplate account-details-template :compiled "account-details.html" [account]
+  ["#account-details-name"] (ef/set-attr :value (:name account))
+  ["#account-details-cancel"] (events/listen :click #(tpl/transitionAccountsBackward))
+  ["#account-details-save"] (events/listen :click #(tpl/transitionAccountsBackward)))
+
+(em/deftemplate entries-template :compiled "entry-row.html" [entry]
+  [".entry-row"] (ef/append (str (:date entry))))
+
 
 (defn render-account-list [accounts loc]
   (doseq [ech accounts]
-    (ef/at js/document [loc] (ef/append (tpl/accounts-template ech))) ))
+    (ef/at js/document [loc] (ef/append (accounts-template ech))) ))
 
 
 (defn render-account-details [account loc]
-  (ef/at js/document [loc] (ef/content (tpl/account-details-template account))))
+  (ef/at js/document [loc] (ef/content (account-details-template account))))
 
 (defn render-entry-list [entries loc]
   (doseq [ech entries]
-    (ef/at js/document [loc] (ef/append (tpl/entries-template ech))) ))
+    (ef/at js/document [loc] (ef/append (entries-template ech))) ))
 
 (def data-location-mapping {[:accounts] {:loc "#accounts-pane" :fn render-account-list}
                             [:accounts :db/id] {:loc "#account-details-pane"}
@@ -101,9 +118,9 @@
 
 (defn render-body []
   (ef/at js/document
-         ["body"] (ef/content (tpl/landing-template))))
+         ["body"] (ef/content (landing-template))))
 
-(tpl/gen-templates
+(#_tpl/gen-templates
  data-location-mapping
  render-account-details)
 
@@ -120,7 +137,7 @@
 (render)
 
 
-(fw/start {
+#_(fw/start {
            ;; configure a websocket url if yor are using your own server
            ;; :websocket-url "ws://localhost:3449/figwheel-ws"
 
