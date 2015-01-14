@@ -1,43 +1,42 @@
 <core-header-panel flex fit>
-      <core-toolbar layout>
-        <div class="tk-lust-script header-logo">bkeeping</div>
-        <div class="tk-open-sans header-text">Your solution to simple online bookkeeping</div>
-        <span flex>&nbsp;</span>
-        <div class="tk-open-sans header-text" id="signout">logout</div>
-      </core-toolbar>
+  <core-toolbar layout>
+    <div class="tk-lust-script header-logo">bkeeping</div>
+    <div class="tk-open-sans header-text">Your solution to simple online bookkeeping</div>
+    <span flex>&nbsp;</span>
+    <div class="tk-open-sans header-text" id="signout">logout</div>
+  </core-toolbar>
 
-      <core-scaffold id="landing" drawerWidth="400px" responsiveWidth="650px">
-        <core-header-panel navigation flex mode="seamed">
-          <core-toolbar>Accounts</core-toolbar>
-          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
-            <section>
-                <div id="accounts-pane" slide-from-right>
-                </div>
-            </section>
-            <section>
-              <div id="account-details-pane" slide-from-right>
-              </div>
-            </section>
-          </core-animated-pages>
-        </core-header-panel>
-        <div tool>Entries</div>
-        <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
-            <section>
-              <div id="entries-pane" slide-from-right>
-                  <div>Entries</div>
-              </div>
-            </section>
-            <section>
-              <div id="entry-details-pane" slide-from-right>
-                  <div>Entry Details</div>
-              </div>
-            </section>
-            <section>
-              <div id="entry-details-part-pane" slide-from-right>
-                  <div>Entry Details Part</div>
-              </div>
-            </section>
-          </core-animated-pages>
-      </core-scaffold>
-
+  <core-scaffold id="landing" drawerWidth="400px" responsiveWidth="650px">
+    <core-header-panel navigation flex mode="seamed">
+      <core-toolbar>Accounts</core-toolbar>
+      <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
+        <section>
+          <div id="accounts-pane" slide-from-right>
+          </div>
+        </section>
+        <section>
+          <div id="account-details-pane" slide-from-right>
+          </div>
+        </section>
+      </core-animated-pages>
     </core-header-panel>
+    <div tool>Entries</div>
+    <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
+      <section>
+        <div id="entries-pane" slide-from-right>
+          <div>Entries</div>
+        </div>
+      </section>
+      <section>
+        <div id="entry-details-pane" slide-from-right>
+          <div>Entry Details</div>
+        </div>
+      </section>
+      <section>
+        <div id="entry-details-part-pane" slide-from-right>
+          <div>Entry Details Part</div>
+        </div>
+      </section>
+    </core-animated-pages>
+  </core-scaffold>
+</core-header-panel>

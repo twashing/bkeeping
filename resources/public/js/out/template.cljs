@@ -3,7 +3,8 @@
             [enfocus.core :as ef]
             [enfocus.events :as events]
             [enfocus.effects :as effects]
-            [cursors.core :as crs])
+            [cursors.core :as crs]
+            [bkeeping :as bk])
   (:require-macros [enfocus.macros :as em]))
 
 
@@ -48,9 +49,9 @@
 
   (em/deftemplate accounts-template :compiled "account-row.html" [account]
     [".account-row"] (ef/append (:name account))
-    [".account-row"] (events/listen :click #((let [loc (:loc (data-location-mapping [:accounts :db/id]))]
-                                               (adetailsFn account loc)
-                                               (transitionAccountsForward)))))
+    [".account-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:accounts :db/id]))]
+                                              #_(adetailsFn account loc)
+                                              (transitionAccountsForward))))
 
   (em/deftemplate account-details-template :compiled "account-details.html" [account]
     ["#account-details-name"] (ef/set-attr :value (:name account))
@@ -62,7 +63,7 @@
                                                             account-cw (type-kw account-type-mappings)]
 
                                                         (transitionAccountsBackward)
-                                                        (swap! app-state (fn [e]
+                                                        #_(swap! app-state (fn [e]
                                                                            (assoc e
                                                                              :accounts
                                                                              (map (fn [ee]
