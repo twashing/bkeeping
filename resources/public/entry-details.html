@@ -1,0 +1,56 @@
+<div slide-from-right>
+
+  <div horizontal layout>
+    <paper-input label="Date" id="datepicker" />
+    <script> "
+      var picker = new Pikaday(
+      {
+      field: document.getElementById('datepicker'),
+      firstDay: 1,
+      minDate: new Date('2000-01-01'),
+      maxDate: new Date('2020-12-31'),
+      yearRange: [2000,2020]
+      });
+      "</script>
+  </div>
+
+  <div horizontal layout>
+    <paper-input label="Balance" disabled>
+      <paper-dropdown-menu label="Currency">
+        <paper-dropdown class="dropdown core-transition core-closed">
+          <core-menu class="menu">
+            <paper-item>"CAD"</paper-item>
+            <paper-item>"USD"</paper-item>
+            <paper-item>"EUR"</paper-item>
+          </core-menu>
+        </paper-dropdown>
+      </paper-dropdown-menu>
+  </div>
+
+  <div horizontal layout>
+    <table class="pure-table">
+      <thead>
+        <tr>
+          <th>debit</th>
+          <th>credit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr onclick="template.transitionEntriesForward()">
+          <td>$ 1000</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr onclick="template.transitionEntriesForward()">
+          <td>&nbsp;</td>
+          <td>$ 1000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div horizontal layout>
+    <paper-button noink raised onclick="template.transitionEntriesBackward()">cancel</paper-button>
+    <paper-button noink raised onclick="template.transitionEntriesBackward()">save </paper-button>
+  </div>
+</div>

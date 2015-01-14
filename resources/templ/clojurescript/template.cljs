@@ -42,26 +42,6 @@
   (:value (get-account-type-record idx)))
 
 
-#_(defn gen-templates [data-location-mapping
-                     adetailsFn]
-
-  (em/deftemplate landing-template :compiled "landing-body.html" [])
-
-  (em/deftemplate accounts-template :compiled "account-row.html" [account]
-    [".account-row"] (ef/append (:name account))
-    [".account-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:accounts :db/id]))]
-                                              (adetailsFn account loc)
-                                              (transitionAccountsForward))))
-
-  (em/deftemplate account-details-template :compiled "account-details.html" [account]
-    ["#account-details-name"] (ef/set-attr :value (:name account))
-    ["#account-details-cancel"] (event/listen :onclick (fn [e] (bk/console-log (str "cancelled... [" e "]"))))
-    ["#account-details-save"] (events/listen :click (fn [e] (bk/console-log (str "saved... [" e "]")))))
-
-  (em/deftemplate entries-template :compiled "entry-row.html" [entry]
-    [".entry-row"] (ef/append (str (:date entry)))) )
-
-
   #_(let [db-id (:db/id account)
           aname (.-value (gdom/getElement "account-details-name"))
           type-kw (get-account-type-value

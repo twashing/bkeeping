@@ -85,13 +85,17 @@
   ["#account-details-save"] (events/listen :click #(tpl/transitionAccountsBackward)))
 
 (em/deftemplate entries-template :compiled "entry-row.html" [entry]
-  [".entry-row"] (ef/append (str (:date entry))))
+  [".entry-row"] (ef/append (str (:date entry)))
+  [".entry-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:journals :entries :db/id]))]
+                                            (render-entry-details entry loc)
+                                            (tpl/transitionEntriesForward))))
+
+(em/deftemplate entry-details-template :compiled "entry-details.html" [entry])
 
 
 (defn render-account-list [accounts loc]
   (doseq [ech accounts]
     (ef/at js/document [loc] (ef/append (accounts-template ech))) ))
-
 
 (defn render-account-details [account loc]
   (ef/at js/document [loc] (ef/content (account-details-template account))))
@@ -99,6 +103,9 @@
 (defn render-entry-list [entries loc]
   (doseq [ech entries]
     (ef/at js/document [loc] (ef/append (entries-template ech))) ))
+
+(defn render-entry-details [entry loc]
+  (ef/at js/document [loc] (ef/content (entry-details-template entry))))
 
 (def data-location-mapping {[:accounts] {:loc "#accounts-pane" :fn render-account-list}
                             [:accounts :db/id] {:loc "#account-details-pane"}
