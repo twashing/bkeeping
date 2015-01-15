@@ -21,23 +21,195 @@
     <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 
     <!-- <link rel="import" href="bower_components/core-animation/core-animation.html">
-    <link rel="import" href="bower_components/core-animation/web-animations.html">
-    <link rel="import" href="bower_components/web-animations-js/web-animations.html">
-    -->
+         <link rel="import" href="bower_components/core-animation/web-animations.html">
+         <link rel="import" href="bower_components/web-animations-js/web-animations.html">
+         -->
 
     <!-- <link rel="import" href="bower_components/sortable-table/sortable-table.html"> -->
 
     <!-- <script src="http://dbushell.github.io/Pikaday/pikaday.js"></script>
-    <link rel="stylesheet" href="http://dbushell.github.io/Pikaday/css/pikaday.css"></link>
-    <link rel="stylesheet" href="http://dbushell.github.io/Pikaday/css/site.css"></link>
-    -->
+         <link rel="stylesheet" href="http://dbushell.github.io/Pikaday/css/pikaday.css"></link>
+         <link rel="stylesheet" href="http://dbushell.github.io/Pikaday/css/site.css"></link>
+         -->
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" type="text/css" href="css/landing.css">
 
+    <script src="js/vendor/pure.js"></script>
+
   </head>
 
   <body fullbleed vertical layout>
+    <core-header-panel flex fit>
+      <core-toolbar layout>
+        <div class="tk-lust-script header-logo">bkeeping</div>
+        <div class="tk-open-sans header-text">Your solution to simple online bookkeeping</div>
+        <span flex>&nbsp;</span>
+        <div class="tk-open-sans header-text" id="signout">logout</div>
+      </core-toolbar>
+
+      <core-scaffold id="landing" drawerWidth="400px" responsiveWidth="650px">
+        <core-header-panel navigation flex mode="seamed">
+          <core-toolbar>
+            <div>Accounts</div>
+            <div id="add-account-button" class="generic-button"></div>
+          </core-toolbar>
+          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
+            <section>
+              <div id="accounts-pane" slide-from-right>
+                <div class="delete-account-row" horizontal layout>
+                  <div class="delete-account-button"></div>
+                  <div class="account-row" flex></div>
+                </div>
+
+              </div>
+            </section>
+            <section>
+              <div id="account-details-pane" slide-from-right>
+                <div slide-from-right>
+                  <div horizontal layout>
+                    <paper-input id="account-details-name" label="Name"></paper-input>
+                  </div>
+                  <div horizontal layout>
+                    <paper-dropdown-menu label="Type">
+                      <paper-dropdown class="dropdown core-transition core-closed">
+                        <core-menu id="account-details-type" class="menu">
+                          <paper-item id="account-details-type-asset">Asset</paper-item>
+                          <paper-item id="account-details-type-liability">Liability</paper-item>
+                          <paper-item id="account-details-type-revenue">Revenue</paper-item>
+                          <paper-item id="account-details-type-expense">Expense</paper-item>
+                          <paper-item id="account-details-type-capital">Capital</paper-item>
+                        </core-menu>
+                      </paper-dropdown>
+                    </paper-dropdown-menu>
+                  </div>
+                  <div horizontal layout>
+                    <paper-button id="account-details-cancel" noink raised>cancel</paper-button>
+                    <paper-button id="account-details-save" noink raised>save</paper-button>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+          </core-animated-pages>
+        </core-header-panel>
+        <div tool>
+          <div style="float: left;">Entries</div>
+          <div id="add-entry-button" class="generic-button" style="float: left;"></div>
+        </div>
+        <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
+          <section>
+            <div id="entries-pane" slide-from-right>
+              <div class="delete-entry-row" horizontal layout>
+                <div class="delete-entry-button"></div>
+                <div class="entry-row" onclick="landing.transitionEntriesForward();" flex></div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div id="entry-details-pane" slide-from-right>
+
+              <div slide-from-right>
+
+                <div horizontal layout>
+                  <paper-input label="Date" id="datepicker" />
+                  <script> "
+                    var picker = new Pikaday(
+                    {
+                    field: document.getElementById('datepicker'),
+                    firstDay: 1,
+                    minDate: new Date('2000-01-01'),
+                    maxDate: new Date('2020-12-31'),
+                    yearRange: [2000,2020]
+                    });
+                    "</script>
+                </div>
+
+                <div horizontal layout>
+                  <paper-input label="Balance" disabled>
+                    <paper-dropdown-menu label="Currency">
+                      <paper-dropdown class="dropdown core-transition core-closed">
+                        <core-menu class="menu">
+                          <paper-item>"CAD"</paper-item>
+                          <paper-item>"USD"</paper-item>
+                          <paper-item>"EUR"</paper-item>
+                        </core-menu>
+                      </paper-dropdown>
+                    </paper-dropdown-menu>
+                </div>
+
+                <div horizontal layout>
+                  <table class="pure-table">
+                    <thead>
+                      <tr>
+                        <th>debit</th>
+                        <th>credit</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr class="entry-part">
+                        <td>$ 1000</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr class="entry-part">
+                        <td>&nbsp;</td>
+                        <td>$ 1000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div horizontal layout>
+                  <paper-button noink raised onclick="template.transitionEntriesBackward()">cancel</paper-button>
+                  <paper-button noink raised onclick="template.transitionEntriesBackward()">save </paper-button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+          <section>
+            <div id="entry-details-part-pane" slide-from-right>
+              <div slide-from-right>
+
+                <paper-dropdown-menu label="Type">
+                  <paper-dropdown class="dropdown core-transition core-closed">
+                    <core-menu class="menu">
+                      <paper-item>"Debit"</paper-item>
+                      <paper-item>"Credit"</paper-item>
+                    </core-menu>
+                  </paper-dropdown>
+                </paper-dropdown-menu>
+
+
+                <div horizontal layout>
+                  <paper-dropdown-menu label="Account">
+                    <paper-dropdown class="dropdown core-transition core-closed">
+                      <core-menu class="menu">
+                        <paper-item>"Cash"</paper-item>
+                        <paper-item>"Inventory"</paper-item>
+                      </core-menu>
+                    </paper-dropdown>
+                  </paper-dropdown-menu>
+                </div>
+
+                <div horizontal layout>
+                  <paper-input label="Amount"/>
+                </div>
+
+                <div horizontal layout>
+                  <paper-button noink raised onclick="template.transitionEntriesBackward()">cancel</paper-button>
+                  <paper-button noink raised onclick="template.transitionEntriesBackward()">save</paper-button>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+        </core-animated-pages>
+      </core-scaffold>
+    </core-header-panel>
+
     <script data-main="js/landing.js" src="js/vendor/require.js"></script>
   </body>
 
