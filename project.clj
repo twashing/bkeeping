@@ -40,7 +40,7 @@
   :cljsbuild {:builds [{:id "bkeeping"
 
                         ;; The path to the top-level ClojureScript source directory:
-                        :source-paths ["resources/templ/clojurescript/"]
+                        :source-paths ["src/cljs/"]
 
                         ;; The standard ClojureScript compiler options:
                         ;; (See the ClojureScript compiler documentation for details.)

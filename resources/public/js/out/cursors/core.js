@@ -2,8 +2,8 @@
 goog.provide('cursors.core');
 goog.require('cljs.core');
 
-cursors.core.ICursor = (function (){var obj19821 = {};
-return obj19821;
+cursors.core.ICursor = (function (){var obj12436 = {};
+return obj12436;
 })();
 
 cursors.core.path = (function path(cursor){
