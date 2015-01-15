@@ -48,10 +48,10 @@ var i = (0);
 var acc = null;
 while(true){
 if((i < num_results)){
-var G__13072 = (i + (1));
-var G__13073 = cljs.core.cons.call(null,result.snapshotItem(i),acc);
-i = G__13072;
-acc = G__13073;
+var G__13113 = (i + (1));
+var G__13114 = cljs.core.cons.call(null,result.snapshotItem(i),acc);
+i = G__13113;
+acc = G__13114;
 continue;
 } else {
 return acc;
@@ -72,61 +72,61 @@ var xpath__1 = (function (expr){
 return xpath.call(null,domina.xpath.root_element.call(null),expr);
 });
 var xpath__2 = (function (base,expr){
-if(typeof domina.xpath.t13077 !== 'undefined'){
+if(typeof domina.xpath.t13118 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-domina.xpath.t13077 = (function (expr,base,xpath,meta13078){
+domina.xpath.t13118 = (function (expr,base,xpath,meta13119){
 this.expr = expr;
 this.base = base;
 this.xpath = xpath;
-this.meta13078 = meta13078;
+this.meta13119 = meta13119;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-domina.xpath.t13077.prototype.domina$DomContent$ = true;
+domina.xpath.t13118.prototype.domina$DomContent$ = true;
 
-domina.xpath.t13077.prototype.domina$DomContent$nodes$arity$1 = (function (_){
+domina.xpath.t13118.prototype.domina$DomContent$nodes$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
 return cljs.core.mapcat.call(null,cljs.core.partial.call(null,domina.xpath.select_nodes,self__.expr),domina.nodes.call(null,self__.base));
 });
 
-domina.xpath.t13077.prototype.domina$DomContent$single_node$arity$1 = (function (_){
+domina.xpath.t13118.prototype.domina$DomContent$single_node$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
 return cljs.core.first.call(null,cljs.core.filter.call(null,cljs.core.complement.call(null,cljs.core.nil_QMARK_),cljs.core.map.call(null,cljs.core.partial.call(null,domina.xpath.select_node,self__.expr),domina.nodes.call(null,self__.base))));
 });
 
-domina.xpath.t13077.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_13079){
+domina.xpath.t13118.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_13120){
 var self__ = this;
-var _13079__$1 = this;
-return self__.meta13078;
+var _13120__$1 = this;
+return self__.meta13119;
 });
 
-domina.xpath.t13077.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_13079,meta13078__$1){
+domina.xpath.t13118.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_13120,meta13119__$1){
 var self__ = this;
-var _13079__$1 = this;
-return (new domina.xpath.t13077(self__.expr,self__.base,self__.xpath,meta13078__$1));
+var _13120__$1 = this;
+return (new domina.xpath.t13118(self__.expr,self__.base,self__.xpath,meta13119__$1));
 });
 
-domina.xpath.t13077.cljs$lang$type = true;
+domina.xpath.t13118.cljs$lang$type = true;
 
-domina.xpath.t13077.cljs$lang$ctorStr = "domina.xpath/t13077";
+domina.xpath.t13118.cljs$lang$ctorStr = "domina.xpath/t13118";
 
-domina.xpath.t13077.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"domina.xpath/t13077");
+domina.xpath.t13118.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"domina.xpath/t13118");
 });
 
-domina.xpath.__GT_t13077 = (function __GT_t13077(expr__$1,base__$1,xpath__$1,meta13078){
-return (new domina.xpath.t13077(expr__$1,base__$1,xpath__$1,meta13078));
+domina.xpath.__GT_t13118 = (function __GT_t13118(expr__$1,base__$1,xpath__$1,meta13119){
+return (new domina.xpath.t13118(expr__$1,base__$1,xpath__$1,meta13119));
 });
 
 }
 
-return (new domina.xpath.t13077(expr,base,xpath,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),79,new cljs.core.Keyword(null,"end-line","end-line",1837326455),59,new cljs.core.Keyword(null,"column","column",2078222095),16,new cljs.core.Keyword(null,"line","line",212345235),55,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/resources/public/js/out/domina/xpath.cljs"], null)));
+return (new domina.xpath.t13118(expr,base,xpath,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),79,new cljs.core.Keyword(null,"end-line","end-line",1837326455),59,new cljs.core.Keyword(null,"column","column",2078222095),16,new cljs.core.Keyword(null,"line","line",212345235),55,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/resources/public/js/out/domina/xpath.cljs"], null)));
 });
 xpath = function(base,expr){
 switch(arguments.length){

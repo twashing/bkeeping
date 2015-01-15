@@ -8,7 +8,10 @@
 
   <core-scaffold id="landing" drawerWidth="400px" responsiveWidth="650px">
     <core-header-panel navigation flex mode="seamed">
-      <core-toolbar>Accounts</core-toolbar>
+      <core-toolbar>
+        <div>Accounts</div>
+        <div id="add-account-button" class="generic-button"></div>
+      </core-toolbar>
       <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
         <section>
           <div id="accounts-pane" slide-from-right>
@@ -20,11 +23,13 @@
         </section>
       </core-animated-pages>
     </core-header-panel>
-    <div tool>Entries</div>
+    <div tool>
+      <div style="float: left;">Entries</div>
+      <div id="add-entry-button" class="generic-button" style="float: left;"></div>
+    </div>
     <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
       <section>
         <div id="entries-pane" slide-from-right>
-          <div>Entries</div>
         </div>
       </section>
       <section>

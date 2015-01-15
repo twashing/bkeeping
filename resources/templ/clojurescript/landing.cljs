@@ -21,49 +21,49 @@
 
 (def app-state
   (atom {:name "main"
-         :accounts #{{:db/id "0"
+         :accounts [{:db/id "0"
                       :name "cash"
                       :type :asset
                       :counterWeight :debit}
-                     {:db/id "1"
-                      :name "debt"
-                      :type :liability
-                      :counterWeight :credit}
-                     {:db/id "2"
-                      :name "revenue"
-                      :type :revenue
-                      :counterWeight :credit}
-                     {:db/id "3"
-                      :name "expense"
-                      :type :expense
-                      :counterWeight :debit}
-                     {:db/id "4"
-                      :name "trade-creditor"
-                      :type :expense
-                      :counterWeight :debit}
-                     {:db/id "5"
-                      :name "electricity"
-                      :type :asset
-                      :counterWeight :debit}
-                     {:db/id "6"
-                      :name "widgets"
-                      :type :asset
-                      :counterWeight :debit}}
+                    {:db/id "1"
+                     :name "debt"
+                     :type :liability
+                     :counterWeight :credit}
+                    {:db/id "2"
+                     :name "revenue"
+                     :type :revenue
+                     :counterWeight :credit}
+                    {:db/id "3"
+                     :name "expense"
+                     :type :expense
+                     :counterWeight :debit}
+                    {:db/id "4"
+                     :name "trade-creditor"
+                     :type :expense
+                     :counterWeight :debit}
+                    {:db/id "5"
+                     :name "electricity"
+                     :type :asset
+                     :counterWeight :debit}
+                    {:db/id "6"
+                     :name "widgets"
+                     :type :asset
+                     :counterWeight :debit}]
 
-         :journals #{{:name "generalledger"
-                      :entries #{{:db/id "7"
-                                  :date #inst "2014-12-12T23:20:50.52Z"
-                                  :content [{:type :credit
-                                             :amount 2600
-                                             :account "trade-creditor"}
+         :journals [{:name "generalledger"
+                     :entries [{:db/id "7"
+                                :date #inst "2014-12-12T23:20:50.52Z"
+                                :content [{:type :credit
+                                           :amount 2600
+                                           :account "trade-creditor"}
 
-                                            {:type :debit
-                                             :amount 1000
-                                             :account "electricity"}
+                                          {:type :debit
+                                           :amount 1000
+                                           :account "electricity"}
 
-                                            {:type :debit
-                                             :amount 1600
-                                             :account "widgets"}]}}}}}))
+                                          {:type :debit
+                                           :amount 1600
+                                           :account "widgets"}]}]}]}))
 
 
 (declare data-location-mapping
@@ -73,10 +73,10 @@
 
 (em/deftemplate landing-template :compiled "landing-body.html" [])
 
-(em/deftemplate accounts-template :compiled "account-row.html" [account]
-  [".account-row"] (ef/append (:name account))
+(em/deftemplate accounts-template :compiled "account-row.html" [acursor]
+  [".account-row"] (ef/append (:name (crs/get-data acursor)))
   [".account-row"] (events/listen :click #(let [loc (:loc (data-location-mapping [:accounts :db/id]))]
-                                            (render-account-details account loc)
+                                            (render-account-details (crs/get-data acursor) loc)
                                             (tpl/transitionAccountsForward))))
 
 (em/deftemplate account-details-template :compiled "account-details.html" [account]
@@ -98,9 +98,17 @@
 (em/deftemplate entry-details-part-template :compiled "entry-details-part.html" [epart])
 
 
-(defn render-account-list [accounts loc]
-  (doseq [ech accounts]
-    (ef/at js/document [loc] (ef/append (accounts-template ech))) ))
+(defn render-account-list [data loc]
+
+  (let [accounts (:accounts @data)
+        indexedAs (map vector (iterate inc 0) accounts)]
+
+    (doseq [[index _] indexedAs]
+
+      (def one (crs/cursor data [:accounts index]))
+      (bk/console-log (str "... " one))
+      (bk/console-log (str "... " (crs/path one)))
+      #_ (ef/at js/document [loc] (ef/append (accounts-template (crs/cursor data [:accounts index])))) )))
 
 (defn render-account-details [account loc]
   (ef/at js/document [loc] (ef/content (account-details-template account))))
@@ -145,7 +153,7 @@
 
   (render-body)
   (doseq [{path :path data :data}
-          [{:path [:accounts] :data (:accounts @app-state)}
+          [{:path [:accounts] :data app-state}
            {:path [:journals :entries] :data (-> @app-state :journals first :entries)}]]
 
     (render-path path data)))

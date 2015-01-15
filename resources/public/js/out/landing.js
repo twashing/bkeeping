@@ -15,211 +15,225 @@ goog.require('freactive.core');
 goog.require('enfocus.events');
 goog.require('template');
 cljs.core.enable_console_print_BANG_.call(null);
-landing.app_state = freactive.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"name","name",1843675177),"main",new cljs.core.Keyword(null,"accounts","accounts",-935308676),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"6",new cljs.core.Keyword(null,"name","name",1843675177),"widgets",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"5",new cljs.core.Keyword(null,"name","name",1843675177),"electricity",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"0",new cljs.core.Keyword(null,"name","name",1843675177),"cash",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"2",new cljs.core.Keyword(null,"name","name",1843675177),"revenue",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"revenue","revenue",943993380),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"3",new cljs.core.Keyword(null,"name","name",1843675177),"expense",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"4",new cljs.core.Keyword(null,"name","name",1843675177),"trade-creditor",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"1",new cljs.core.Keyword(null,"name","name",1843675177),"debt",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"liability","liability",853006629),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null)], true),new cljs.core.Keyword(null,"journals","journals",-1915761091),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),"generalledger",new cljs.core.Keyword(null,"entries","entries",-86943161),cljs.core.PersistentHashSet.fromArray([new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("db","id","db/id",-1388397098),"7",new cljs.core.Keyword(null,"date","date",-1463434462),new Date(1418426450520),new cljs.core.Keyword(null,"content","content",15833224),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"credit","credit",782856892),new cljs.core.Keyword(null,"amount","amount",364489504),(2600),new cljs.core.Keyword(null,"account","account",718006320),"trade-creditor"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1000),new cljs.core.Keyword(null,"account","account",718006320),"electricity"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1600),new cljs.core.Keyword(null,"account","account",718006320),"widgets"], null)], null)], null)], true)], null)], true)], null));
+landing.app_state = freactive.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"name","name",1843675177),"main",new cljs.core.Keyword(null,"accounts","accounts",-935308676),new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"0",new cljs.core.Keyword(null,"name","name",1843675177),"cash",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"1",new cljs.core.Keyword(null,"name","name",1843675177),"debt",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"liability","liability",853006629),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"2",new cljs.core.Keyword(null,"name","name",1843675177),"revenue",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"revenue","revenue",943993380),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"credit","credit",782856892)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"3",new cljs.core.Keyword(null,"name","name",1843675177),"expense",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"4",new cljs.core.Keyword(null,"name","name",1843675177),"trade-creditor",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"5",new cljs.core.Keyword(null,"name","name",1843675177),"electricity",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("db","id","db/id",-1388397098),"6",new cljs.core.Keyword(null,"name","name",1843675177),"widgets",new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"counterWeight","counterWeight",99066871),new cljs.core.Keyword(null,"debit","debit",214956555)], null)], null),new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),"generalledger",new cljs.core.Keyword(null,"entries","entries",-86943161),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("db","id","db/id",-1388397098),"7",new cljs.core.Keyword(null,"date","date",-1463434462),new Date(1418426450520),new cljs.core.Keyword(null,"content","content",15833224),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"credit","credit",782856892),new cljs.core.Keyword(null,"amount","amount",364489504),(2600),new cljs.core.Keyword(null,"account","account",718006320),"trade-creditor"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1000),new cljs.core.Keyword(null,"account","account",718006320),"electricity"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"amount","amount",364489504),(1600),new cljs.core.Keyword(null,"account","account",718006320),"widgets"], null)], null)], null)], null)], null)], null)], null));
 
 
 
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledlanding-body.html") == null)){
-var vec__10936_10941 = enfocus.core.replace_ids.call(null,"en10935_","<core-header-panel flex fit>\n  <core-toolbar layout>\n    <div class=\"tk-lust-script header-logo\">bkeeping</div>\n    <div class=\"tk-open-sans header-text\">Your solution to simple online bookkeeping</div>\n    <span flex>&nbsp;</span>\n    <div class=\"tk-open-sans header-text\" id=\"signout\">logout</div>\n  </core-toolbar>\n\n  <core-scaffold id=\"landing\" drawerWidth=\"400px\" responsiveWidth=\"650px\">\n    <core-header-panel navigation flex mode=\"seamed\">\n      <core-toolbar>Accounts</core-toolbar>\n      <core-animated-pages id=\"accounts\" transitions=\"slide-from-right\" onclick=\"landing.transitionAccounts();\">\n        <section>\n          <div id=\"accounts-pane\" slide-from-right>\n          </div>\n        </section>\n        <section>\n          <div id=\"account-details-pane\" slide-from-right>\n          </div>\n        </section>\n      </core-animated-pages>\n    </core-header-panel>\n    <div tool>Entries</div>\n    <core-animated-pages id=\"entries\" transitions=\"slide-from-right\" onclick=\"landing.transitionEntries();\">\n      <section>\n        <div id=\"entries-pane\" slide-from-right>\n          <div>Entries</div>\n        </div>\n      </section>\n      <section>\n        <div id=\"entry-details-pane\" slide-from-right>\n          <div>Entry Details</div>\n        </div>\n      </section>\n      <section>\n        <div id=\"entry-details-part-pane\" slide-from-right>\n          <div>Entry Details Part</div>\n        </div>\n      </section>\n    </core-animated-pages>\n  </core-scaffold>\n</core-header-panel>\n");
-var sym__5284__auto___10942 = cljs.core.nth.call(null,vec__10936_10941,(0),null);
-var txt__5285__auto___10943 = cljs.core.nth.call(null,vec__10936_10941,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledlanding-body.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10942,txt__5285__auto___10943], null));
+var vec__21340_21345 = enfocus.core.replace_ids.call(null,"en10935_","<core-header-panel flex fit>\n  <core-toolbar layout>\n    <div class=\"tk-lust-script header-logo\">bkeeping</div>\n    <div class=\"tk-open-sans header-text\">Your solution to simple online bookkeeping</div>\n    <span flex>&nbsp;</span>\n    <div class=\"tk-open-sans header-text\" id=\"signout\">logout</div>\n  </core-toolbar>\n\n  <core-scaffold id=\"landing\" drawerWidth=\"400px\" responsiveWidth=\"650px\">\n    <core-header-panel navigation flex mode=\"seamed\">\n      <core-toolbar>\n        <div>Accounts</div>\n        <div id=\"add-account-button\" class=\"generic-button\"></div>\n      </core-toolbar>\n      <core-animated-pages id=\"accounts\" transitions=\"slide-from-right\" onclick=\"landing.transitionAccounts();\">\n        <section>\n          <div id=\"accounts-pane\" slide-from-right>\n          </div>\n        </section>\n        <section>\n          <div id=\"account-details-pane\" slide-from-right>\n          </div>\n        </section>\n      </core-animated-pages>\n    </core-header-panel>\n    <div tool>\n      <div style=\"float: left;\">Entries</div>\n      <div id=\"add-entry-button\" class=\"generic-button\" style=\"float: left;\"></div>\n    </div>\n    <core-animated-pages id=\"entries\" transitions=\"slide-from-right\" onclick=\"landing.transitionEntries();\">\n      <section>\n        <div id=\"entries-pane\" slide-from-right>\n        </div>\n      </section>\n      <section>\n        <div id=\"entry-details-pane\" slide-from-right>\n          <div>Entry Details</div>\n        </div>\n      </section>\n      <section>\n        <div id=\"entry-details-part-pane\" slide-from-right>\n          <div>Entry Details Part</div>\n        </div>\n      </section>\n    </core-animated-pages>\n  </core-scaffold>\n</core-header-panel>\n");
+var sym__5284__auto___21346 = cljs.core.nth.call(null,vec__21340_21345,(0),null);
+var txt__5285__auto___21347 = cljs.core.nth.call(null,vec__21340_21345,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledlanding-body.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21346,txt__5285__auto___21347], null));
 } else {
 }
 
 landing.landing_template = (function landing_template(){
-var vec__10940 = (function (){
+var vec__21344 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledlanding-body.html");
 }).call(null);
-var id_sym10937 = cljs.core.nth.call(null,vec__10940,(0),null);
-var pnod10938 = cljs.core.nth.call(null,vec__10940,(1),null);
-var pnod10938__$1 = enfocus.core.create_hidden_dom.call(null,pnod10938);
-enfocus.core.i_at.call(null,id_sym10937,pnod10938__$1);
+var id_sym21341 = cljs.core.nth.call(null,vec__21344,(0),null);
+var pnod21342 = cljs.core.nth.call(null,vec__21344,(1),null);
+var pnod21342__$1 = enfocus.core.create_hidden_dom.call(null,pnod21342);
+enfocus.core.i_at.call(null,id_sym21341,pnod21342__$1);
 
-enfocus.core.reset_ids.call(null,id_sym10937,pnod10938__$1);
+enfocus.core.reset_ids.call(null,id_sym21341,pnod21342__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10938__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21342__$1);
 });
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledaccount-row.html") == null)){
-var vec__10945_10950 = enfocus.core.replace_ids.call(null,"en10944_","<div class=\"delete-account-row\" horizontal layout>\n  <div class=\"delete-account-button\"></div>\n  <div class=\"account-row\" flex></div>\n</div>\n");
-var sym__5284__auto___10951 = cljs.core.nth.call(null,vec__10945_10950,(0),null);
-var txt__5285__auto___10952 = cljs.core.nth.call(null,vec__10945_10950,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledaccount-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10951,txt__5285__auto___10952], null));
+var vec__21348_21353 = enfocus.core.replace_ids.call(null,"en10944_","<div class=\"delete-account-row\" horizontal layout>\n  <div class=\"delete-account-button\"></div>\n  <div class=\"account-row\" flex></div>\n</div>\n");
+var sym__5284__auto___21354 = cljs.core.nth.call(null,vec__21348_21353,(0),null);
+var txt__5285__auto___21355 = cljs.core.nth.call(null,vec__21348_21353,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledaccount-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21354,txt__5285__auto___21355], null));
 } else {
 }
 
-landing.accounts_template = (function accounts_template(account){
-var vec__10949 = (function (){
+landing.accounts_template = (function accounts_template(acursor){
+var vec__21352 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledaccount-row.html");
 }).call(null);
-var id_sym10946 = cljs.core.nth.call(null,vec__10949,(0),null);
-var pnod10947 = cljs.core.nth.call(null,vec__10949,(1),null);
-var pnod10947__$1 = enfocus.core.create_hidden_dom.call(null,pnod10947);
-enfocus.core.i_at.call(null,id_sym10946,pnod10947__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".account-row"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".account-row"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__10949,id_sym10946,pnod10947,pnod10947__$1){
+var id_sym21349 = cljs.core.nth.call(null,vec__21352,(0),null);
+var pnod21350 = cljs.core.nth.call(null,vec__21352,(1),null);
+var pnod21350__$1 = enfocus.core.create_hidden_dom.call(null,pnod21350);
+enfocus.core.i_at.call(null,id_sym21349,pnod21350__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".account-row"], null),enfocus.core.append.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(cursors.core.get_data.call(null,acursor))),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".account-row"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__21352,id_sym21349,pnod21350,pnod21350__$1){
 return (function (){
 var loc = new cljs.core.Keyword(null,"loc","loc",-584284901).cljs$core$IFn$_invoke$arity$1(landing.data_location_mapping.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676),new cljs.core.Keyword("db","id","db/id",-1388397098)], null)));
-landing.render_account_details.call(null,account,loc);
+landing.render_account_details.call(null,cursors.core.get_data.call(null,acursor),loc);
 
 return template.transitionAccountsForward.call(null);
-});})(vec__10949,id_sym10946,pnod10947,pnod10947__$1))
+});})(vec__21352,id_sym21349,pnod21350,pnod21350__$1))
 ));
 
-enfocus.core.reset_ids.call(null,id_sym10946,pnod10947__$1);
+enfocus.core.reset_ids.call(null,id_sym21349,pnod21350__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10947__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21350__$1);
 });
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledaccount-details.html") == null)){
-var vec__10954_10959 = enfocus.core.replace_ids.call(null,"en10953_","<div slide-from-right>\n  <div horizontal layout>\n    <paper-input id=\"account-details-name\" label=\"Name\"></paper-input>\n  </div>\n  <div horizontal layout>\n    <paper-dropdown-menu label=\"Type\">\n      <paper-dropdown class=\"dropdown core-transition core-closed\">\n        <core-menu id=\"account-details-type\" class=\"menu\">\n          <paper-item id=\"account-details-type-asset\">Asset</paper-item>\n          <paper-item id=\"account-details-type-liability\">Liability</paper-item>\n          <paper-item id=\"account-details-type-revenue\">Revenue</paper-item>\n          <paper-item id=\"account-details-type-expense\">Expense</paper-item>\n          <paper-item id=\"account-details-type-capital\">Capital</paper-item>\n        </core-menu>\n      </paper-dropdown>\n    </paper-dropdown-menu>\n  </div>\n  <div horizontal layout>\n    <paper-button id=\"account-details-cancel\" noink raised>cancel</paper-button>\n    <paper-button id=\"account-details-save\" noink raised>save</paper-button>\n  </div>\n</div>\n");
-var sym__5284__auto___10960 = cljs.core.nth.call(null,vec__10954_10959,(0),null);
-var txt__5285__auto___10961 = cljs.core.nth.call(null,vec__10954_10959,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledaccount-details.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10960,txt__5285__auto___10961], null));
+var vec__21356_21361 = enfocus.core.replace_ids.call(null,"en10953_","<div slide-from-right>\n  <div horizontal layout>\n    <paper-input id=\"account-details-name\" label=\"Name\"></paper-input>\n  </div>\n  <div horizontal layout>\n    <paper-dropdown-menu label=\"Type\">\n      <paper-dropdown class=\"dropdown core-transition core-closed\">\n        <core-menu id=\"account-details-type\" class=\"menu\">\n          <paper-item id=\"account-details-type-asset\">Asset</paper-item>\n          <paper-item id=\"account-details-type-liability\">Liability</paper-item>\n          <paper-item id=\"account-details-type-revenue\">Revenue</paper-item>\n          <paper-item id=\"account-details-type-expense\">Expense</paper-item>\n          <paper-item id=\"account-details-type-capital\">Capital</paper-item>\n        </core-menu>\n      </paper-dropdown>\n    </paper-dropdown-menu>\n  </div>\n  <div horizontal layout>\n    <paper-button id=\"account-details-cancel\" noink raised>cancel</paper-button>\n    <paper-button id=\"account-details-save\" noink raised>save</paper-button>\n  </div>\n</div>\n");
+var sym__5284__auto___21362 = cljs.core.nth.call(null,vec__21356_21361,(0),null);
+var txt__5285__auto___21363 = cljs.core.nth.call(null,vec__21356_21361,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledaccount-details.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21362,txt__5285__auto___21363], null));
 } else {
 }
 
 landing.account_details_template = (function account_details_template(account){
-var vec__10958 = (function (){
+var vec__21360 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledaccount-details.html");
 }).call(null);
-var id_sym10955 = cljs.core.nth.call(null,vec__10958,(0),null);
-var pnod10956 = cljs.core.nth.call(null,vec__10958,(1),null);
-var pnod10956__$1 = enfocus.core.create_hidden_dom.call(null,pnod10956);
-enfocus.core.i_at.call(null,id_sym10955,pnod10956__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-name"], null),enfocus.core.set_attr.call(null,new cljs.core.Keyword(null,"value","value",305978217),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-cancel"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__10958,id_sym10955,pnod10956,pnod10956__$1){
+var id_sym21357 = cljs.core.nth.call(null,vec__21360,(0),null);
+var pnod21358 = cljs.core.nth.call(null,vec__21360,(1),null);
+var pnod21358__$1 = enfocus.core.create_hidden_dom.call(null,pnod21358);
+enfocus.core.i_at.call(null,id_sym21357,pnod21358__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-name"], null),enfocus.core.set_attr.call(null,new cljs.core.Keyword(null,"value","value",305978217),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(account)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-cancel"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__21360,id_sym21357,pnod21358,pnod21358__$1){
 return (function (){
 return template.transitionAccountsBackward.call(null);
-});})(vec__10958,id_sym10955,pnod10956,pnod10956__$1))
-),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-save"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__10958,id_sym10955,pnod10956,pnod10956__$1){
+});})(vec__21360,id_sym21357,pnod21358,pnod21358__$1))
+),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#account-details-save"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__21360,id_sym21357,pnod21358,pnod21358__$1){
 return (function (){
 return template.transitionAccountsBackward.call(null);
-});})(vec__10958,id_sym10955,pnod10956,pnod10956__$1))
+});})(vec__21360,id_sym21357,pnod21358,pnod21358__$1))
 ));
 
-enfocus.core.reset_ids.call(null,id_sym10955,pnod10956__$1);
+enfocus.core.reset_ids.call(null,id_sym21357,pnod21358__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10956__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21358__$1);
 });
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledentry-row.html") == null)){
-var vec__10963_10968 = enfocus.core.replace_ids.call(null,"en10962_","<div class=\"delete-entry-row\" horizontal layout>\n  <div class=\"delete-entry-button\"></div>\n  <div class=\"entry-row\" onclick=\"landing.transitionEntriesForward();\" flex></div>\n</div>\n");
-var sym__5284__auto___10969 = cljs.core.nth.call(null,vec__10963_10968,(0),null);
-var txt__5285__auto___10970 = cljs.core.nth.call(null,vec__10963_10968,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10969,txt__5285__auto___10970], null));
+var vec__21364_21369 = enfocus.core.replace_ids.call(null,"en10962_","<div class=\"delete-entry-row\" horizontal layout>\n  <div class=\"delete-entry-button\"></div>\n  <div class=\"entry-row\" onclick=\"landing.transitionEntriesForward();\" flex></div>\n</div>\n");
+var sym__5284__auto___21370 = cljs.core.nth.call(null,vec__21364_21369,(0),null);
+var txt__5285__auto___21371 = cljs.core.nth.call(null,vec__21364_21369,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-row.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21370,txt__5285__auto___21371], null));
 } else {
 }
 
 landing.entries_template = (function entries_template(entry){
-var vec__10967 = (function (){
+var vec__21368 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledentry-row.html");
 }).call(null);
-var id_sym10964 = cljs.core.nth.call(null,vec__10967,(0),null);
-var pnod10965 = cljs.core.nth.call(null,vec__10967,(1),null);
-var pnod10965__$1 = enfocus.core.create_hidden_dom.call(null,pnod10965);
-enfocus.core.i_at.call(null,id_sym10964,pnod10965__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-row"], null),enfocus.core.append.call(null,[cljs.core.str(new cljs.core.Keyword(null,"date","date",-1463434462).cljs$core$IFn$_invoke$arity$1(entry))].join('')),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-row"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__10967,id_sym10964,pnod10965,pnod10965__$1){
+var id_sym21365 = cljs.core.nth.call(null,vec__21368,(0),null);
+var pnod21366 = cljs.core.nth.call(null,vec__21368,(1),null);
+var pnod21366__$1 = enfocus.core.create_hidden_dom.call(null,pnod21366);
+enfocus.core.i_at.call(null,id_sym21365,pnod21366__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-row"], null),enfocus.core.append.call(null,[cljs.core.str(new cljs.core.Keyword(null,"date","date",-1463434462).cljs$core$IFn$_invoke$arity$1(entry))].join('')),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-row"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__21368,id_sym21365,pnod21366,pnod21366__$1){
 return (function (){
 var loc = new cljs.core.Keyword(null,"loc","loc",-584284901).cljs$core$IFn$_invoke$arity$1(landing.data_location_mapping.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161),new cljs.core.Keyword("db","id","db/id",-1388397098)], null)));
 landing.render_entry_details.call(null,entry,loc);
 
 return template.transitionEntriesForward.call(null);
-});})(vec__10967,id_sym10964,pnod10965,pnod10965__$1))
+});})(vec__21368,id_sym21365,pnod21366,pnod21366__$1))
 ));
 
-enfocus.core.reset_ids.call(null,id_sym10964,pnod10965__$1);
+enfocus.core.reset_ids.call(null,id_sym21365,pnod21366__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10965__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21366__$1);
 });
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledentry-details.html") == null)){
-var vec__10972_10977 = enfocus.core.replace_ids.call(null,"en10971_","<div slide-from-right>\n\n  <div horizontal layout>\n    <paper-input label=\"Date\" id=\"datepicker\" />\n    <script> \"\n      var picker = new Pikaday(\n      {\n      field: document.getElementById('datepicker'),\n      firstDay: 1,\n      minDate: new Date('2000-01-01'),\n      maxDate: new Date('2020-12-31'),\n      yearRange: [2000,2020]\n      });\n      \"</script>\n  </div>\n\n  <div horizontal layout>\n    <paper-input label=\"Balance\" disabled>\n      <paper-dropdown-menu label=\"Currency\">\n        <paper-dropdown class=\"dropdown core-transition core-closed\">\n          <core-menu class=\"menu\">\n            <paper-item>\"CAD\"</paper-item>\n            <paper-item>\"USD\"</paper-item>\n            <paper-item>\"EUR\"</paper-item>\n          </core-menu>\n        </paper-dropdown>\n      </paper-dropdown-menu>\n  </div>\n\n  <div horizontal layout>\n    <table class=\"pure-table\">\n      <thead>\n        <tr>\n          <th>debit</th>\n          <th>credit</th>\n        </tr>\n      </thead>\n\n      <tbody>\n        <tr class=\"entry-part\">\n          <td>$ 1000</td>\n          <td>&nbsp;</td>\n        </tr>\n        <tr class=\"entry-part\">\n          <td>&nbsp;</td>\n          <td>$ 1000</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div horizontal layout>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">cancel</paper-button>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">save </paper-button>\n  </div>\n</div>\n");
-var sym__5284__auto___10978 = cljs.core.nth.call(null,vec__10972_10977,(0),null);
-var txt__5285__auto___10979 = cljs.core.nth.call(null,vec__10972_10977,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-details.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10978,txt__5285__auto___10979], null));
+var vec__21372_21377 = enfocus.core.replace_ids.call(null,"en10971_","<div slide-from-right>\n\n  <div horizontal layout>\n    <paper-input label=\"Date\" id=\"datepicker\" />\n    <script> \"\n      var picker = new Pikaday(\n      {\n      field: document.getElementById('datepicker'),\n      firstDay: 1,\n      minDate: new Date('2000-01-01'),\n      maxDate: new Date('2020-12-31'),\n      yearRange: [2000,2020]\n      });\n      \"</script>\n  </div>\n\n  <div horizontal layout>\n    <paper-input label=\"Balance\" disabled>\n      <paper-dropdown-menu label=\"Currency\">\n        <paper-dropdown class=\"dropdown core-transition core-closed\">\n          <core-menu class=\"menu\">\n            <paper-item>\"CAD\"</paper-item>\n            <paper-item>\"USD\"</paper-item>\n            <paper-item>\"EUR\"</paper-item>\n          </core-menu>\n        </paper-dropdown>\n      </paper-dropdown-menu>\n  </div>\n\n  <div horizontal layout>\n    <table class=\"pure-table\">\n      <thead>\n        <tr>\n          <th>debit</th>\n          <th>credit</th>\n        </tr>\n      </thead>\n\n      <tbody>\n        <tr class=\"entry-part\">\n          <td>$ 1000</td>\n          <td>&nbsp;</td>\n        </tr>\n        <tr class=\"entry-part\">\n          <td>&nbsp;</td>\n          <td>$ 1000</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div horizontal layout>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">cancel</paper-button>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">save </paper-button>\n  </div>\n</div>\n");
+var sym__5284__auto___21378 = cljs.core.nth.call(null,vec__21372_21377,(0),null);
+var txt__5285__auto___21379 = cljs.core.nth.call(null,vec__21372_21377,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-details.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21378,txt__5285__auto___21379], null));
 } else {
 }
 
 landing.entry_details_template = (function entry_details_template(entry){
-var vec__10976 = (function (){
+var vec__21376 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledentry-details.html");
 }).call(null);
-var id_sym10973 = cljs.core.nth.call(null,vec__10976,(0),null);
-var pnod10974 = cljs.core.nth.call(null,vec__10976,(1),null);
-var pnod10974__$1 = enfocus.core.create_hidden_dom.call(null,pnod10974);
-enfocus.core.i_at.call(null,id_sym10973,pnod10974__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-part"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__10976,id_sym10973,pnod10974,pnod10974__$1){
+var id_sym21373 = cljs.core.nth.call(null,vec__21376,(0),null);
+var pnod21374 = cljs.core.nth.call(null,vec__21376,(1),null);
+var pnod21374__$1 = enfocus.core.create_hidden_dom.call(null,pnod21374);
+enfocus.core.i_at.call(null,id_sym21373,pnod21374__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [".entry-part"], null),enfocus.events.listen.call(null,new cljs.core.Keyword(null,"click","click",1912301393),((function (vec__21376,id_sym21373,pnod21374,pnod21374__$1){
 return (function (){
 var loc = new cljs.core.Keyword(null,"loc","loc",-584284901).cljs$core$IFn$_invoke$arity$1(landing.data_location_mapping.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161),new cljs.core.Keyword("db","id","db/id",-1388397098),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"content","content",15833224),new cljs.core.Keyword("db","id","db/id",-1388397098)], null)], null)));
 landing.render_entry_details_part.call(null,entry,loc);
 
 return template.transitionEntriesForward.call(null);
-});})(vec__10976,id_sym10973,pnod10974,pnod10974__$1))
+});})(vec__21376,id_sym21373,pnod21374,pnod21374__$1))
 ));
 
-enfocus.core.reset_ids.call(null,id_sym10973,pnod10974__$1);
+enfocus.core.reset_ids.call(null,id_sym21373,pnod21374__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10974__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21374__$1);
 });
 if((cljs.core.deref.call(null,enfocus.core.tpl_cache).call(null,"compiledentry-details-part.html") == null)){
-var vec__10981_10986 = enfocus.core.replace_ids.call(null,"en10980_","<div slide-from-right>\n\n  <paper-dropdown-menu label=\"Type\">\n    <paper-dropdown class=\"dropdown core-transition core-closed\">\n      <core-menu class=\"menu\">\n        <paper-item>\"Debit\"</paper-item>\n        <paper-item>\"Credit\"</paper-item>\n      </core-menu>\n    </paper-dropdown>\n  </paper-dropdown-menu>\n\n\n  <div horizontal layout>\n    <paper-dropdown-menu label=\"Account\">\n      <paper-dropdown class=\"dropdown core-transition core-closed\">\n        <core-menu class=\"menu\">\n          <paper-item>\"Cash\"</paper-item>\n          <paper-item>\"Inventory\"</paper-item>\n        </core-menu>\n      </paper-dropdown>\n    </paper-dropdown-menu>\n  </div>\n\n  <div horizontal layout>\n    <paper-input label=\"Amount\"/>\n  </div>\n\n  <div horizontal layout>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">cancel</paper-button>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">save</paper-button>\n  </div>\n\n</div>\n");
-var sym__5284__auto___10987 = cljs.core.nth.call(null,vec__10981_10986,(0),null);
-var txt__5285__auto___10988 = cljs.core.nth.call(null,vec__10981_10986,(1),null);
-cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-details-part.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___10987,txt__5285__auto___10988], null));
+var vec__21380_21385 = enfocus.core.replace_ids.call(null,"en10980_","<div slide-from-right>\n\n  <paper-dropdown-menu label=\"Type\">\n    <paper-dropdown class=\"dropdown core-transition core-closed\">\n      <core-menu class=\"menu\">\n        <paper-item>\"Debit\"</paper-item>\n        <paper-item>\"Credit\"</paper-item>\n      </core-menu>\n    </paper-dropdown>\n  </paper-dropdown-menu>\n\n\n  <div horizontal layout>\n    <paper-dropdown-menu label=\"Account\">\n      <paper-dropdown class=\"dropdown core-transition core-closed\">\n        <core-menu class=\"menu\">\n          <paper-item>\"Cash\"</paper-item>\n          <paper-item>\"Inventory\"</paper-item>\n        </core-menu>\n      </paper-dropdown>\n    </paper-dropdown-menu>\n  </div>\n\n  <div horizontal layout>\n    <paper-input label=\"Amount\"/>\n  </div>\n\n  <div horizontal layout>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">cancel</paper-button>\n    <paper-button noink raised onclick=\"template.transitionEntriesBackward()\">save</paper-button>\n  </div>\n\n</div>\n");
+var sym__5284__auto___21386 = cljs.core.nth.call(null,vec__21380_21385,(0),null);
+var txt__5285__auto___21387 = cljs.core.nth.call(null,vec__21380_21385,(1),null);
+cljs.core.swap_BANG_.call(null,enfocus.core.tpl_cache,cljs.core.assoc,"compiledentry-details-part.html",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__5284__auto___21386,txt__5285__auto___21387], null));
 } else {
 }
 
 landing.entry_details_part_template = (function entry_details_part_template(epart){
-var vec__10985 = (function (){
+var vec__21384 = (function (){
 return enfocus.core.get_cached_dom.call(null,"compiledentry-details-part.html");
 }).call(null);
-var id_sym10982 = cljs.core.nth.call(null,vec__10985,(0),null);
-var pnod10983 = cljs.core.nth.call(null,vec__10985,(1),null);
-var pnod10983__$1 = enfocus.core.create_hidden_dom.call(null,pnod10983);
-enfocus.core.i_at.call(null,id_sym10982,pnod10983__$1);
+var id_sym21381 = cljs.core.nth.call(null,vec__21384,(0),null);
+var pnod21382 = cljs.core.nth.call(null,vec__21384,(1),null);
+var pnod21382__$1 = enfocus.core.create_hidden_dom.call(null,pnod21382);
+enfocus.core.i_at.call(null,id_sym21381,pnod21382__$1);
 
-enfocus.core.reset_ids.call(null,id_sym10982,pnod10983__$1);
+enfocus.core.reset_ids.call(null,id_sym21381,pnod21382__$1);
 
-return enfocus.core.remove_node_return_child.call(null,pnod10983__$1);
+return enfocus.core.remove_node_return_child.call(null,pnod21382__$1);
 });
-landing.render_account_list = (function render_account_list(accounts,loc){
-var seq__10993 = cljs.core.seq.call(null,accounts);
-var chunk__10994 = null;
-var count__10995 = (0);
-var i__10996 = (0);
+landing.render_account_list = (function render_account_list(data,loc){
+var accounts = new cljs.core.Keyword(null,"accounts","accounts",-935308676).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,data));
+var indexedAs = cljs.core.map.call(null,cljs.core.vector,cljs.core.iterate.call(null,cljs.core.inc,(0)),accounts);
+var seq__21394 = cljs.core.seq.call(null,indexedAs);
+var chunk__21395 = null;
+var count__21396 = (0);
+var i__21397 = (0);
 while(true){
-if((i__10996 < count__10995)){
-var ech = cljs.core._nth.call(null,chunk__10994,i__10996);
-enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
+if((i__21397 < count__21396)){
+var vec__21398 = cljs.core._nth.call(null,chunk__21395,i__21397);
+var index__$1 = cljs.core.nth.call(null,vec__21398,(0),null);
+var _ = cljs.core.nth.call(null,vec__21398,(1),null);
+landing.one = cursors.core.cursor.call(null,data,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676),index__$1], null));
 
-var G__10997 = seq__10993;
-var G__10998 = chunk__10994;
-var G__10999 = count__10995;
-var G__11000 = (i__10996 + (1));
-seq__10993 = G__10997;
-chunk__10994 = G__10998;
-count__10995 = G__10999;
-i__10996 = G__11000;
+bkeeping.console_log.call(null,[cljs.core.str("... "),cljs.core.str(landing.one)].join(''));
+
+bkeeping.console_log.call(null,[cljs.core.str("... "),cljs.core.str(cursors.core.path.call(null,landing.one))].join(''));
+
+var G__21400 = seq__21394;
+var G__21401 = chunk__21395;
+var G__21402 = count__21396;
+var G__21403 = (i__21397 + (1));
+seq__21394 = G__21400;
+chunk__21395 = G__21401;
+count__21396 = G__21402;
+i__21397 = G__21403;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__10993);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__21394);
 if(temp__4126__auto__){
-var seq__10993__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__10993__$1)){
-var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__10993__$1);
-var G__11001 = cljs.core.chunk_rest.call(null,seq__10993__$1);
-var G__11002 = c__4409__auto__;
-var G__11003 = cljs.core.count.call(null,c__4409__auto__);
-var G__11004 = (0);
-seq__10993 = G__11001;
-chunk__10994 = G__11002;
-count__10995 = G__11003;
-i__10996 = G__11004;
+var seq__21394__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__21394__$1)){
+var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__21394__$1);
+var G__21404 = cljs.core.chunk_rest.call(null,seq__21394__$1);
+var G__21405 = c__4409__auto__;
+var G__21406 = cljs.core.count.call(null,c__4409__auto__);
+var G__21407 = (0);
+seq__21394 = G__21404;
+chunk__21395 = G__21405;
+count__21396 = G__21406;
+i__21397 = G__21407;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__10993__$1);
-enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.accounts_template.call(null,ech)));
+var vec__21399 = cljs.core.first.call(null,seq__21394__$1);
+var index__$1 = cljs.core.nth.call(null,vec__21399,(0),null);
+var _ = cljs.core.nth.call(null,vec__21399,(1),null);
+landing.one = cursors.core.cursor.call(null,data,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676),index__$1], null));
 
-var G__11005 = cljs.core.next.call(null,seq__10993__$1);
-var G__11006 = null;
-var G__11007 = (0);
-var G__11008 = (0);
-seq__10993 = G__11005;
-chunk__10994 = G__11006;
-count__10995 = G__11007;
-i__10996 = G__11008;
+bkeeping.console_log.call(null,[cljs.core.str("... "),cljs.core.str(landing.one)].join(''));
+
+bkeeping.console_log.call(null,[cljs.core.str("... "),cljs.core.str(cursors.core.path.call(null,landing.one))].join(''));
+
+var G__21408 = cljs.core.next.call(null,seq__21394__$1);
+var G__21409 = null;
+var G__21410 = (0);
+var G__21411 = (0);
+seq__21394 = G__21408;
+chunk__21395 = G__21409;
+count__21396 = G__21410;
+i__21397 = G__21411;
 continue;
 }
 } else {
@@ -233,51 +247,51 @@ landing.render_account_details = (function render_account_details(account,loc){
 return enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.content.call(null,landing.account_details_template.call(null,account)));
 });
 landing.render_entry_list = (function render_entry_list(entries,loc){
-var seq__11013 = cljs.core.seq.call(null,entries);
-var chunk__11014 = null;
-var count__11015 = (0);
-var i__11016 = (0);
+var seq__21416 = cljs.core.seq.call(null,entries);
+var chunk__21417 = null;
+var count__21418 = (0);
+var i__21419 = (0);
 while(true){
-if((i__11016 < count__11015)){
-var ech = cljs.core._nth.call(null,chunk__11014,i__11016);
+if((i__21419 < count__21418)){
+var ech = cljs.core._nth.call(null,chunk__21417,i__21419);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__11017 = seq__11013;
-var G__11018 = chunk__11014;
-var G__11019 = count__11015;
-var G__11020 = (i__11016 + (1));
-seq__11013 = G__11017;
-chunk__11014 = G__11018;
-count__11015 = G__11019;
-i__11016 = G__11020;
+var G__21420 = seq__21416;
+var G__21421 = chunk__21417;
+var G__21422 = count__21418;
+var G__21423 = (i__21419 + (1));
+seq__21416 = G__21420;
+chunk__21417 = G__21421;
+count__21418 = G__21422;
+i__21419 = G__21423;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__11013);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__21416);
 if(temp__4126__auto__){
-var seq__11013__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__11013__$1)){
-var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__11013__$1);
-var G__11021 = cljs.core.chunk_rest.call(null,seq__11013__$1);
-var G__11022 = c__4409__auto__;
-var G__11023 = cljs.core.count.call(null,c__4409__auto__);
-var G__11024 = (0);
-seq__11013 = G__11021;
-chunk__11014 = G__11022;
-count__11015 = G__11023;
-i__11016 = G__11024;
+var seq__21416__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__21416__$1)){
+var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__21416__$1);
+var G__21424 = cljs.core.chunk_rest.call(null,seq__21416__$1);
+var G__21425 = c__4409__auto__;
+var G__21426 = cljs.core.count.call(null,c__4409__auto__);
+var G__21427 = (0);
+seq__21416 = G__21424;
+chunk__21417 = G__21425;
+count__21418 = G__21426;
+i__21419 = G__21427;
 continue;
 } else {
-var ech = cljs.core.first.call(null,seq__11013__$1);
+var ech = cljs.core.first.call(null,seq__21416__$1);
 enfocus.core.at.call(null,document,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [loc], null),enfocus.core.append.call(null,landing.entries_template.call(null,ech)));
 
-var G__11025 = cljs.core.next.call(null,seq__11013__$1);
-var G__11026 = null;
-var G__11027 = (0);
-var G__11028 = (0);
-seq__11013 = G__11025;
-chunk__11014 = G__11026;
-count__11015 = G__11027;
-i__11016 = G__11028;
+var G__21428 = cljs.core.next.call(null,seq__21416__$1);
+var G__21429 = null;
+var G__21430 = (0);
+var G__21431 = (0);
+seq__21416 = G__21428;
+chunk__21417 = G__21429;
+count__21418 = G__21430;
+i__21419 = G__21431;
 continue;
 }
 } else {
@@ -307,57 +321,57 @@ landing.data_location_mapping.call(null,landing.render_account_details);
 landing.render = (function render(){
 landing.render_body.call(null);
 
-var seq__11035 = cljs.core.seq.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676)], null),new cljs.core.Keyword(null,"data","data",-232669377),new cljs.core.Keyword(null,"accounts","accounts",-935308676).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,landing.app_state))], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161)], null),new cljs.core.Keyword(null,"data","data",-232669377),new cljs.core.Keyword(null,"entries","entries",-86943161).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"journals","journals",-1915761091).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,landing.app_state))))], null)], null));
-var chunk__11036 = null;
-var count__11037 = (0);
-var i__11038 = (0);
+var seq__21438 = cljs.core.seq.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"accounts","accounts",-935308676)], null),new cljs.core.Keyword(null,"data","data",-232669377),landing.app_state], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"journals","journals",-1915761091),new cljs.core.Keyword(null,"entries","entries",-86943161)], null),new cljs.core.Keyword(null,"data","data",-232669377),new cljs.core.Keyword(null,"entries","entries",-86943161).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"journals","journals",-1915761091).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,landing.app_state))))], null)], null));
+var chunk__21439 = null;
+var count__21440 = (0);
+var i__21441 = (0);
 while(true){
-if((i__11038 < count__11037)){
-var map__11039 = cljs.core._nth.call(null,chunk__11036,i__11038);
-var map__11039__$1 = ((cljs.core.seq_QMARK_.call(null,map__11039))?cljs.core.apply.call(null,cljs.core.hash_map,map__11039):map__11039);
-var path = cljs.core.get.call(null,map__11039__$1,new cljs.core.Keyword(null,"path","path",-188191168));
-var data = cljs.core.get.call(null,map__11039__$1,new cljs.core.Keyword(null,"data","data",-232669377));
+if((i__21441 < count__21440)){
+var map__21442 = cljs.core._nth.call(null,chunk__21439,i__21441);
+var map__21442__$1 = ((cljs.core.seq_QMARK_.call(null,map__21442))?cljs.core.apply.call(null,cljs.core.hash_map,map__21442):map__21442);
+var path = cljs.core.get.call(null,map__21442__$1,new cljs.core.Keyword(null,"path","path",-188191168));
+var data = cljs.core.get.call(null,map__21442__$1,new cljs.core.Keyword(null,"data","data",-232669377));
 landing.render_path.call(null,path,data);
 
-var G__11041 = seq__11035;
-var G__11042 = chunk__11036;
-var G__11043 = count__11037;
-var G__11044 = (i__11038 + (1));
-seq__11035 = G__11041;
-chunk__11036 = G__11042;
-count__11037 = G__11043;
-i__11038 = G__11044;
+var G__21444 = seq__21438;
+var G__21445 = chunk__21439;
+var G__21446 = count__21440;
+var G__21447 = (i__21441 + (1));
+seq__21438 = G__21444;
+chunk__21439 = G__21445;
+count__21440 = G__21446;
+i__21441 = G__21447;
 continue;
 } else {
-var temp__4126__auto__ = cljs.core.seq.call(null,seq__11035);
+var temp__4126__auto__ = cljs.core.seq.call(null,seq__21438);
 if(temp__4126__auto__){
-var seq__11035__$1 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__11035__$1)){
-var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__11035__$1);
-var G__11045 = cljs.core.chunk_rest.call(null,seq__11035__$1);
-var G__11046 = c__4409__auto__;
-var G__11047 = cljs.core.count.call(null,c__4409__auto__);
-var G__11048 = (0);
-seq__11035 = G__11045;
-chunk__11036 = G__11046;
-count__11037 = G__11047;
-i__11038 = G__11048;
+var seq__21438__$1 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__21438__$1)){
+var c__4409__auto__ = cljs.core.chunk_first.call(null,seq__21438__$1);
+var G__21448 = cljs.core.chunk_rest.call(null,seq__21438__$1);
+var G__21449 = c__4409__auto__;
+var G__21450 = cljs.core.count.call(null,c__4409__auto__);
+var G__21451 = (0);
+seq__21438 = G__21448;
+chunk__21439 = G__21449;
+count__21440 = G__21450;
+i__21441 = G__21451;
 continue;
 } else {
-var map__11040 = cljs.core.first.call(null,seq__11035__$1);
-var map__11040__$1 = ((cljs.core.seq_QMARK_.call(null,map__11040))?cljs.core.apply.call(null,cljs.core.hash_map,map__11040):map__11040);
-var path = cljs.core.get.call(null,map__11040__$1,new cljs.core.Keyword(null,"path","path",-188191168));
-var data = cljs.core.get.call(null,map__11040__$1,new cljs.core.Keyword(null,"data","data",-232669377));
+var map__21443 = cljs.core.first.call(null,seq__21438__$1);
+var map__21443__$1 = ((cljs.core.seq_QMARK_.call(null,map__21443))?cljs.core.apply.call(null,cljs.core.hash_map,map__21443):map__21443);
+var path = cljs.core.get.call(null,map__21443__$1,new cljs.core.Keyword(null,"path","path",-188191168));
+var data = cljs.core.get.call(null,map__21443__$1,new cljs.core.Keyword(null,"data","data",-232669377));
 landing.render_path.call(null,path,data);
 
-var G__11049 = cljs.core.next.call(null,seq__11035__$1);
-var G__11050 = null;
-var G__11051 = (0);
-var G__11052 = (0);
-seq__11035 = G__11049;
-chunk__11036 = G__11050;
-count__11037 = G__11051;
-i__11038 = G__11052;
+var G__21452 = cljs.core.next.call(null,seq__21438__$1);
+var G__21453 = null;
+var G__21454 = (0);
+var G__21455 = (0);
+seq__21438 = G__21452;
+chunk__21439 = G__21453;
+count__21440 = G__21454;
+i__21441 = G__21455;
 continue;
 }
 } else {
