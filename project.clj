@@ -31,16 +31,19 @@
 
   :ring {:handler bkeeping.handler/app}
 
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  :auto {:default {:file-pattern #"\.(clj|cljs|cljx|edn|coffee)$"}
+         }
+  :profiles {:dev {:source-paths ["src/cljs/" "src/clj/"]
 
-  :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                   :dependencies [[javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]
+
                    :resource-paths ["resources/public/"]}}
 
   :cljsbuild {:builds [{:id "bkeeping"
 
                         ;; The path to the top-level ClojureScript source directory:
-                        :source-paths ["src/cljs/"]
+                        :source-paths ["src/cljs/" "src/clj/"]
 
                         ;; The standard ClojureScript compiler options:
                         ;; (See the ClojureScript compiler documentation for details.)

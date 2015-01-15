@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "landing.js",
+  "sourceRoot": "",
+  "sources": [
+    "landing.coffee"
+  ],
+  "names": [],
+  "mappings": ";;AAAA;CAAA;CAAA;CAAA"
+}
