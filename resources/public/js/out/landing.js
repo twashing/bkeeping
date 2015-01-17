@@ -11,59 +11,59 @@ setTimeout((function (){
 bkeeping.console_log.call(null,[cljs.core.str("sanity... 0"),cljs.core.str(document.getElementById("fubar"))].join(''));
 
 return om.core.root.call(null,(function (app,owner){
-if(typeof landing.t10957 !== 'undefined'){
+if(typeof landing.t10984 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-landing.t10957 = (function (owner,app,meta10958){
+landing.t10984 = (function (owner,app,meta10985){
 this.owner = owner;
 this.app = app;
-this.meta10958 = meta10958;
+this.meta10985 = meta10985;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-landing.t10957.prototype.om$core$IRender$ = true;
+landing.t10984.prototype.om$core$IRender$ = true;
 
-landing.t10957.prototype.om$core$IRender$render$arity$1 = (function (_){
+landing.t10984.prototype.om$core$IRender$render$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
-bkeeping.console_log.call(null,"sanity check... 1");
-
-bkeeping.console_log.call(null,document.getElementById("fubar"));
-
-return React.DOM.h1(null,"fubar");
+return React.DOM.h1(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(self__.app));
 });
 
-landing.t10957.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_10959){
+landing.t10984.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_10986){
 var self__ = this;
-var _10959__$1 = this;
-return self__.meta10958;
+var _10986__$1 = this;
+return self__.meta10985;
 });
 
-landing.t10957.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_10959,meta10958__$1){
+landing.t10984.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_10986,meta10985__$1){
 var self__ = this;
-var _10959__$1 = this;
-return (new landing.t10957(self__.owner,self__.app,meta10958__$1));
+var _10986__$1 = this;
+return (new landing.t10984(self__.owner,self__.app,meta10985__$1));
 });
 
-landing.t10957.cljs$lang$type = true;
+landing.t10984.cljs$lang$type = true;
 
-landing.t10957.cljs$lang$ctorStr = "landing/t10957";
+landing.t10984.cljs$lang$ctorStr = "landing/t10984";
 
-landing.t10957.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"landing/t10957");
+landing.t10984.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"landing/t10984");
 });
 
-landing.__GT_t10957 = (function __GT_t10957(owner__$1,app__$1,meta10958){
-return (new landing.t10957(owner__$1,app__$1,meta10958));
+landing.__GT_t10984 = (function __GT_t10984(owner__$1,app__$1,meta10985){
+return (new landing.t10984(owner__$1,app__$1,meta10985));
 });
 
 }
 
-return (new landing.t10957(owner,app,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),47,new cljs.core.Keyword(null,"end-line","end-line",1837326455),70,new cljs.core.Keyword(null,"column","column",2078222095),21,new cljs.core.Keyword(null,"line","line",212345235),65,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/landing.cljs"], null)));
+return (new landing.t10984(owner,app,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),51,new cljs.core.Keyword(null,"end-line","end-line",1837326455),67,new cljs.core.Keyword(null,"column","column",2078222095),21,new cljs.core.Keyword(null,"line","line",212345235),65,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/landing.cljs"], null)));
 }),landing.app_state,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("fubar")], null));
 }),(2000));
+landing.changeme = (function changeme(inp){
+return cljs.core.swap_BANG_.call(null,landing.app_state,cljs.core.assoc,new cljs.core.Keyword(null,"name","name",1843675177),inp);
+});
+goog.exportSymbol('landing.changeme', landing.changeme);
 
 //# sourceMappingURL=landing.js.map

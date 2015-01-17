@@ -64,12 +64,12 @@
                   (fn [app owner]
                     (reify om/IRender
                       (render [_]
-
-                        (bg/console-log "sanity check... 1")
-                        (bg/console-log (. js/document (getElementById "fubar")))
-                        (dom/h1 nil "fubar"))))
+                        (dom/h1 nil (:name app)))))
                   app-state
                   {:target (. js/document (getElementById "fubar"))})
                  )
 
                2000)
+
+(defn ^:export changeme [inp]
+  (swap! app-state assoc :name inp))
