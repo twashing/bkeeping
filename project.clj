@@ -1,6 +1,6 @@
 (defproject bkeeping "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "A web frontend to the bkell, double-entry bookkeeping package"
+  :url "http://bkeeping.com"
   :min-lein-version "2.0.0"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -15,11 +15,12 @@
                  [com.cemerick/piggieback "0.1.3"]
                  [figwheel "0.2.0-SNAPSHOT"]
                  [weasel "0.4.2"]
-
                  [noisesmith/groundhog "0.0.4"]
                  [om "0.8.0-rc2"]
                  [freactive "0.1.0"]
-                 [bkell "0.1.0-SNAPSHOT" :exclusions [joda-time]]
+                 [enfocus "2.1.1"]
+                 [cursors "0.1.1-SNAPSHOT"]
+                 [bkell "0.1.2" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
                  [clj-time "0.8.0"]]
@@ -28,18 +29,21 @@
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
             [lein-figwheel "0.2.0-SNAPSHOT"]]
 
-  :ring {:handler bkeeping.core.handler/app}
+  :ring {:handler bkeeping.handler/app}
 
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  :auto {:default {:file-pattern #"\.(clj|cljs|cljx|edn|coffee)$"}
+         }
+  :profiles {:dev {:source-paths ["src/cljs/" "src/clj/"]
 
-  :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                   :dependencies [[javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]
+
                    :resource-paths ["resources/public/"]}}
 
   :cljsbuild {:builds [{:id "bkeeping"
 
                         ;; The path to the top-level ClojureScript source directory:
-                        :source-paths ["resources/templ/clojurescript/"]
+                        :source-paths ["src/cljs/" "src/clj/"]
 
                         ;; The standard ClojureScript compiler options:
                         ;; (See the ClojureScript compiler documentation for details.)

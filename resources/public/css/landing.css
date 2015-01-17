@@ -37,20 +37,44 @@ body {
 .delete-entry-row:hover {
     background-color: #FFFFFF;
 }
-.delete-account-button , .delete-entry-button {
-    min-width: 1.5em;
-    height: 1.3em;
+.generic-button , .delete-account-button , .delete-entry-button {
+    width: 24px;
+    height: 18px;
+
+    -webkit-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
     margin: 0px 10px 0px 0px;
     background-color: #FFFFFF;
-    // background-color: #ec514e;
-    // background-color: #994500;
-    // background-color: #C72015;
-    // background-color: #CF2f2f;
 }
-paper-button[pressed] {
-    // box-shadow: 0.01px 0.1px 0.1px 0;
-    // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.01);
+.generic-button , .delete-account-button:active , .delete-entry-button:active {
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
+
+#add-account-button , #add-entry-button {
+    width: 29px;
+    height: 20px;
+
+    -webkit-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+}
+#add-entry-button {
+    margin: 5px 0px 0px 15px;
+}
+#add-account-button:active , #add-entry-button:active {
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+}
+
 html /deep/ paper-dropdown-menu {
     box-sizing: border-box;
     width: 170px;
