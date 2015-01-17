@@ -1,0 +1,12 @@
+{"version":3,
+ "file":
+ "/home/twashing/Projects/bkeeping/resources/public/js/out/index.js",
+ "sources":["index.cljs"],
+ "lineCount":31,
+ "mappings":
+ ";AAAA;;;;;;;;;AAWA,uBAAA,vBAAMA;AAAN,AACE,kBAAA,dAAMC;IACAC,cAAYC;AADlB,AAGE,+BAAA,/BAACC;;AACD,AAAQF,kBACA,+BAAA,2CAAA,iFAAA,oFAAA,/OAACG,+IAAuBJ,uEACLK,sFACCC;;AAC5B,OAAUL;;AAEd,cAAA,dAAMM;AAAN,AACE,IAAAC,qBAAoB,oBAAA,pBAACE;AAArB,AAAA,oBAAAF;AAAA,iBAAAA,bAASC;AAAT,AACE,OAAM,AAAWA,qBAAYV;;AAD/B;;;AAGF,AAACQ",
+ "names":
+ ["index/onClickHandler", "currentUser", "navigatorId",
+  "js/navigator.id", "bkeeping/console-log", "cljs.core/clj->js",
+  "bkeeping/verifyAssertion", "bkeeping/signoutUser", "index/start",
+  "temp__4124__auto__", "signinLink", "goog.dom/getElement"]}
