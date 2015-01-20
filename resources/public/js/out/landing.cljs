@@ -73,31 +73,50 @@
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
+(defn handle-change [e owner {:keys [name]}]
+  (bg/console-log (str "... " (.. e -target -value)))
+  (om/set-state! owner :name (.. e -target -value)))
+
 (defn account-view [account owner]
-  (om/component
-   (html
+  (reify
 
-    [:div {:id "account-details-pane" :slide-from-right true}
+    om/IInitState
+    (init-state [_]
+      {:name ""})
 
-     [:div {:horizontal true :layout true}
-      [:input {:id "account-details-name" :label "Name" :type "text" :value (:name account)}]]
+    om/IRenderState
+    (render-state [this state]
 
-     [:div {:horizontal true :layout true}
-      ]
+      (html
+       [:div {:id "account-details-pane" :slide-from-right true}
 
-     [:div {:horizontal true :layout true}
-      [:div {:id "account-details-cancel"
-             :noink true
-             :raised true
-             :on-click transitionAccountsBackward} "cancel"]
-      [:div {:id "account-details-save"
-             :noink true
-             :raised true
-             :on-click (fn [e]
-                         (transitionAccountsBackward)
-                         (om/transact! account
-                                       (fn [x]
-                                         (assoc x :name "fubar"))))} "save"]]])))
+        [:div {:horizontal true :layout true}
+         [:input {:id "account-details-name"
+                  :ref "account-details-name"
+                  :label "Name"
+                  :type "text"
+                  :value (:name account)
+                  :on-change #(handle-change % this account)}]]
+
+        [:div {:horizontal true :layout true}
+         ]
+
+        [:div {:horizontal true :layout true}
+         [:div {:id "account-details-cancel"
+                :noink true
+                :raised true
+                :on-click transitionAccountsBackward} "cancel"]
+         [:div {:id "account-details-save"
+                :noink true
+                :raised true
+                :on-click (fn [e]
+                            (transitionAccountsBackward)
+                            (om/transact! account
+                                          (fn [x]
+                                            (assoc x
+                                              :name
+                                              (.-value (om/get-node owner "account-details-name"))))))}
+          "save"]]]))))
 
 
 (defn accounts-view [app owner]
