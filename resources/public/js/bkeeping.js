@@ -33,6 +33,6 @@ goog.addDependency("../enfocus/events.js", ['enfocus.events'], ['goog.dom', 'clj
 goog.addDependency("../template.js", ['template'], ['bkeeping', 'goog.dom', 'cursors.core', 'cljs.core', 'enfocus.effects', 'enfocus.core', 'enfocus.events']);
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'cljs.core.async.impl.timers']);
 goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono.util', 'cljs.core', 'sablono.interpreter', 'clojure.string', 'clojure.walk']);
-goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'cljs.core', 'om.dom', 'cljs.core.async', 'sablono.core', 'om.core']);
+goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'cljs.core.async', 'sablono.core', 'om.core']);
 goog.addDependency("../freactive/core.js", ['freactive.core'], ['cljs.core']);
 goog.addDependency("../view.js", ['view'], ['bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'freactive.core']);
