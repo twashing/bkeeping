@@ -7,6 +7,10 @@ goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.
 goog.addDependency("../om/dom.js", ['om.dom'], ['cljs.core', 'goog.object']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
 goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl.channels'], ['cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
+goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
+goog.addDependency("../sablono/util.js", ['sablono.util'], ['goog.Uri', 'cljs.core', 'clojure.set', 'clojure.string']);
+goog.addDependency("../sablono/interpreter.js", ['sablono.interpreter'], ['sablono.util', 'cljs.core', 'clojure.string']);
 goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
 goog.addDependency("../bkeeping.js", ['bkeeping'], ['goog.dom', 'goog.net.XhrIo', 'cljs.core', 'goog.events.EventType', 'cljs.reader', 'goog.events']);
 goog.addDependency("../clojure/browser/event.js", ['clojure.browser.event'], ['cljs.core', 'goog.events.EventTarget', 'goog.events.EventType', 'goog.events']);
@@ -15,10 +19,10 @@ goog.addDependency("../weasel/impls/websocket.js", ['weasel.impls.websocket'], [
 goog.addDependency("../weasel/repl.js", ['weasel.repl'], ['weasel.impls.websocket', 'cljs.core', 'clojure.browser.net', 'cljs.reader', 'clojure.browser.event']);
 goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'weasel.repl', 'cljs.core', 'goog.events.EventType', 'cljs.reader', 'goog.events']);
 goog.addDependency("../domina/support.js", ['domina.support'], ['goog.dom', 'cljs.core', 'goog.events']);
-goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
 goog.addDependency("../domina.js", ['domina'], ['goog.dom.forms', 'goog.dom', 'goog.dom.classes', 'goog.string', 'cljs.core', 'domina.support', 'goog.style', 'clojure.string', 'goog.events', 'goog.dom.xml']);
 goog.addDependency("../domina/css.js", ['domina.css'], ['goog.dom', 'cljs.core', 'domina', 'goog.dom.query']);
 goog.addDependency("../enfocus/enlive/syntax.js", ['enfocus.enlive.syntax'], ['cljs.core']);
+goog.addDependency("../clojure/walk.js", ['clojure.walk'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.timers'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../domina/xpath.js", ['domina.xpath'], ['goog.dom', 'cljs.core', 'domina']);
 goog.addDependency("../enfocus/core.js", ['enfocus.core'], ['goog.dom.forms', 'goog.dom', 'goog.dom.classes', 'domina.css', 'goog.Timer', 'goog.net.XhrIo', 'goog.dom.ViewportSizeMonitor', 'cljs.core', 'domina', 'goog.style', 'domina.xpath', 'clojure.string', 'goog.events', 'goog.dom.query', 'enfocus.enlive.syntax', 'goog.async.Delay']);
@@ -28,6 +32,7 @@ goog.addDependency("../enfocus/effects.js", ['enfocus.effects'], ['cljs.core', '
 goog.addDependency("../enfocus/events.js", ['enfocus.events'], ['goog.dom', 'cljs.core', 'goog.object', 'enfocus.core', 'goog.events']);
 goog.addDependency("../template.js", ['template'], ['bkeeping', 'goog.dom', 'cursors.core', 'cljs.core', 'enfocus.effects', 'enfocus.core', 'enfocus.events']);
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'cljs.core.async.impl.timers']);
-goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'cljs.core', 'om.dom', 'cljs.core.async', 'om.core']);
+goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono.util', 'cljs.core', 'sablono.interpreter', 'clojure.string', 'clojure.walk']);
+goog.addDependency("../landing.js", ['landing'], ['bkeeping', 'cljs.core', 'om.dom', 'cljs.core.async', 'sablono.core', 'om.core']);
 goog.addDependency("../freactive/core.js", ['freactive.core'], ['cljs.core']);
 goog.addDependency("../view.js", ['view'], ['bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'freactive.core']);

@@ -1,6 +1,7 @@
 (ns landing
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
+            [sablono.core :as html :refer-macros [html]]
             [cljs.core.async :refer [chan close!]]
             [bkeeping :as bg])
   (:require-macros
@@ -58,16 +59,17 @@
 
 (js/setTimeout (fn []
 
-                 (bg/console-log (str "sanity... 0" (. js/document (getElementById "fubar"))))
-
                  (om/root
                   (fn [app owner]
-                    (reify om/IRender
-                      (render [_]
-                        (dom/h1 nil (:name app)))))
+
+                    (om/component
+                     (html [:div {:id "accounts-pane" :slide-from-right true}
+                            (for [ech (:accounts app)]
+                              [:div {:class "delete-account-row" :horizontal true :layout true}
+                                    [:div {:class "delete-account-button"}]
+                                    [:div {:class "account-row" :flex true} (:name ech)]])])))
                   app-state
-                  {:target (. js/document (getElementById "fubar"))})
-                 )
+                  {:target (. js/document (getElementById "accounts-section"))}))
 
                2000)
 

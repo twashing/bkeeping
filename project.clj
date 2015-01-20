@@ -18,6 +18,7 @@
                  [weasel "0.4.2"]
                  [noisesmith/groundhog "0.0.4"]
                  [om "0.8.0-rc1"]
+                 [sablono "0.2.22"]
                  [freactive "0.1.0"]
                  [enfocus "2.1.1"]
                  [cursors "0.1.1-SNAPSHOT"]

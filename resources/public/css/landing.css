@@ -51,6 +51,7 @@ body {
 
     margin: 0px 10px 0px 0px;
     background-color: #FFFFFF;
+    float: left;
 }
 .generic-button , .delete-account-button:active , .delete-entry-button:active {
     -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
@@ -59,7 +60,7 @@ body {
 }
 
 #add-account-button , #add-entry-button {
-    width: 29px;
+    width: 27px;
     height: 20px;
 
     -webkit-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
