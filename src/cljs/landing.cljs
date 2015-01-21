@@ -3,10 +3,8 @@
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [sablono.core :as html :refer-macros [html]]
-            [cljs.core.async :refer [chan close!]]
-            [bkeeping :as bg])
-  (:require-macros
-       [cljs.core.async.macros :as m :refer [go]]))
+            [om-material-ui.core :as mui :include-macros true]
+            [bkeeping :as bg]))
 
 
 (enable-console-print!)
@@ -74,8 +72,7 @@
 
 
 (defn handle-change [e owner {:keys [name]}]
-  (bg/console-log (str "... " (.. e -target -value)))
-  (om/set-state! owner :name (.. e -target -value)))
+  (om/set-state! owner :name (.-value (.-target e))))
 
 (defn account-view [account owner]
   (reify
@@ -91,15 +88,12 @@
        [:div {:id "account-details-pane" :slide-from-right true}
 
         [:div {:horizontal true :layout true}
-         [:input {:id "account-details-name"
-                  :ref "account-details-name"
-                  :label "Name"
-                  :type "text"
-                  :value (:name account)
-                  :on-change #(handle-change % this account)}]]
-
-        [:div {:horizontal true :layout true}
-         ]
+         (mui/input {:id "account-details-name"
+                     :ref "account-details-name"
+                     :placeholder "Name"
+                     :description "Account Name"
+                     :defaultValue (:name account)
+                     :on-change #(handle-change % this account)})]
 
         [:div {:horizontal true :layout true}
          [:div {:id "account-details-cancel"
@@ -115,7 +109,7 @@
                                           (fn [x]
                                             (assoc x
                                               :name
-                                              (.-value (om/get-node owner "account-details-name"))))))}
+                                              (.-value (. js/document (getElementById "account-details-name")))))))}
           "save"]]]))))
 
 

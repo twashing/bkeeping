@@ -13,15 +13,10 @@
                  [cheshire "5.4.0"]
                  [slingshot "0.12.1"]
                  [com.taoensso/timbre "3.3.1"]
-                 [com.cemerick/piggieback "0.1.3"]
-                 [figwheel "0.2.0-SNAPSHOT"]
-                 [weasel "0.4.2"]
                  [noisesmith/groundhog "0.0.4"]
                  [om "0.8.0-rc1"]
                  [sablono "0.2.22"]
-                 [freactive "0.1.0"]
-                 [enfocus "2.1.1"]
-                 [cursors "0.1.1-SNAPSHOT"]
+                 [om-material-ui "0.1.0"]
                  [bkell "0.1.2" :exclusions [joda-time]]
 
                  ;; meant to override [clj-time "0.6.0"] in ring-core
