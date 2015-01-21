@@ -85,7 +85,7 @@
                             :capital :credit})
 
 (defn selectedindex-from-account-type [atype]
-  (atype asset-types))
+  (asset-types atype))
 
 (defn accounttype-from-selectedindex [idx]
   (-> (set/map-invert asset-types)
@@ -100,16 +100,13 @@
 
 (defn account-view [account owner]
 
-  #_(om/set-state! owner :type (selectedindex-from-account-type (:type account)))
-  #_(defn ^:export x []
-    (om/get-state owner :type))
-
   (reify
 
     om/IInitState
     (init-state [_]
-      {:name ""
-       :type 0})
+      (bg/console-log (str "init-state... account[" (:type account) "]"))
+      {:name (:name account)
+       :type (selectedindex-from-account-type (:type account))})
 
     om/IRenderState
     (render-state [this state]
@@ -127,7 +124,7 @@
          (mui/drop-down-menu {:id "account-details-type"
                               :ref "account-details-type"
                               :autoWidth false
-                              :selectedIndex (selectedindex-from-account-type (:type account))
+                              :selectedIndex (om/get-state owner :type)
                               :on-change #(handle-type-change %1 owner %2)
                               :menuItems (clj->js [{:payload "asset" :text "Asset"}
                                                    {:payload "liability" :text "Liability"}

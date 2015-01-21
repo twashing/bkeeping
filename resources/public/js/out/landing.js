@@ -39,49 +39,49 @@ goog.exportSymbol('landing.transitionEntriesBackward', landing.transitionEntries
 landing.asset_types = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"asset","asset",-280274466),(0),new cljs.core.Keyword(null,"liability","liability",853006629),(1),new cljs.core.Keyword(null,"revenue","revenue",943993380),(2),new cljs.core.Keyword(null,"expense","expense",1909150212),(3),new cljs.core.Keyword(null,"capital","capital",1627991945),(4)], null);
 landing.account_type_mappings = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"expense","expense",1909150212),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"revenue","revenue",943993380),new cljs.core.Keyword(null,"credit","credit",782856892),new cljs.core.Keyword(null,"liability","liability",853006629),new cljs.core.Keyword(null,"credit","credit",782856892),new cljs.core.Keyword(null,"asset","asset",-280274466),new cljs.core.Keyword(null,"debit","debit",214956555),new cljs.core.Keyword(null,"capital","capital",1627991945),new cljs.core.Keyword(null,"credit","credit",782856892)], null);
 landing.selectedindex_from_account_type = (function selectedindex_from_account_type(atype){
-return atype.call(null,landing.asset_types);
+return landing.asset_types.call(null,atype);
 });
 landing.accounttype_from_selectedindex = (function accounttype_from_selectedindex(idx){
 return cljs.core.get.call(null,clojure.set.map_invert.call(null,landing.asset_types),idx);
 });
-landing.handle_name_change = (function handle_name_change(e,owner,p__12315){
-var map__12317 = p__12315;
-var map__12317__$1 = ((cljs.core.seq_QMARK_.call(null,map__12317))?cljs.core.apply.call(null,cljs.core.hash_map,map__12317):map__12317);
-var name = cljs.core.get.call(null,map__12317__$1,new cljs.core.Keyword(null,"name","name",1843675177));
+landing.handle_name_change = (function handle_name_change(e,owner,p__12563){
+var map__12565 = p__12563;
+var map__12565__$1 = ((cljs.core.seq_QMARK_.call(null,map__12565))?cljs.core.apply.call(null,cljs.core.hash_map,map__12565):map__12565);
+var name = cljs.core.get.call(null,map__12565__$1,new cljs.core.Keyword(null,"name","name",1843675177));
 return om.core.set_state_BANG_.call(null,owner,new cljs.core.Keyword(null,"name","name",1843675177),e.target.value);
 });
 landing.handle_type_change = (function handle_type_change(e,owner,idx){
 return om.core.set_state_BANG_.call(null,owner,new cljs.core.Keyword(null,"type","type",1174270348),idx);
 });
 landing.account_view = (function account_view(account,owner){
-if(typeof landing.t12324 !== 'undefined'){
+if(typeof landing.t12572 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-landing.t12324 = (function (owner,account,account_view,meta12325){
+landing.t12572 = (function (owner,account,account_view,meta12573){
 this.owner = owner;
 this.account = account;
 this.account_view = account_view;
-this.meta12325 = meta12325;
+this.meta12573 = meta12573;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-landing.t12324.prototype.om$core$IRenderState$ = true;
+landing.t12572.prototype.om$core$IRenderState$ = true;
 
-landing.t12324.prototype.om$core$IRenderState$render_state$arity$2 = (function (this$,state){
+landing.t12572.prototype.om$core$IRenderState$render_state$arity$2 = (function (this$,state){
 var self__ = this;
 var this$__$1 = this;
 return React.DOM.div({"id": "account-details-pane", "slideFromRight": true},React.DOM.div({"horizontal": true, "layout": true},sablono.interpreter.interpret.call(null,MaterialUI.Input({"onChange": om_tools.dom.format_opts.call(null,((function (this$__$1){
-return (function (p1__12318_SHARP_){
-return landing.handle_name_change.call(null,p1__12318_SHARP_,self__.owner,self__.account);
+return (function (p1__12566_SHARP_){
+return landing.handle_name_change.call(null,p1__12566_SHARP_,self__.owner,self__.account);
 });})(this$__$1))
 ), "defaultValue": om_tools.dom.format_opts.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(self__.account)), "ref": "account-details-name", "id": "account-details-name"}))),React.DOM.div({"horizontal": true, "layout": true},sablono.interpreter.interpret.call(null,MaterialUI.DropDownMenu({"menuItems": om_tools.dom.format_opts.call(null,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"asset",new cljs.core.Keyword(null,"text","text",-1790561697),"Asset"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"liability",new cljs.core.Keyword(null,"text","text",-1790561697),"Liability"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"revenue",new cljs.core.Keyword(null,"text","text",-1790561697),"Revenue"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"payload","payload",-383036092),"expense",new cljs.core.Keyword(null,"text","text",-1790561697),"Expense",new cljs.core.Keyword(null,"selected","selected",574897764),true], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"capital",new cljs.core.Keyword(null,"text","text",-1790561697),"Capital"], null)], null))), "onChange": om_tools.dom.format_opts.call(null,((function (this$__$1){
-return (function (p1__12319_SHARP_,p2__12320_SHARP_){
-return landing.handle_type_change.call(null,p1__12319_SHARP_,self__.owner,p2__12320_SHARP_);
+return (function (p1__12567_SHARP_,p2__12568_SHARP_){
+return landing.handle_type_change.call(null,p1__12567_SHARP_,self__.owner,p2__12568_SHARP_);
 });})(this$__$1))
-), "selectedIndex": om_tools.dom.format_opts.call(null,landing.selectedindex_from_account_type.call(null,new cljs.core.Keyword(null,"type","type",1174270348).cljs$core$IFn$_invoke$arity$1(self__.account))), "autoWidth": false, "ref": "account-details-type", "id": "account-details-type"}))),React.DOM.div({"horizontal": true, "layout": true},React.DOM.div({"id": "account-details-cancel", "noink": true, "raised": true, "onClick": landing.transitionAccountsBackward},"cancel"),React.DOM.div({"id": "account-details-save", "noink": true, "raised": true, "onClick": ((function (this$__$1){
+), "selectedIndex": om_tools.dom.format_opts.call(null,om.core.get_state.call(null,self__.owner,new cljs.core.Keyword(null,"type","type",1174270348))), "autoWidth": false, "ref": "account-details-type", "id": "account-details-type"}))),React.DOM.div({"horizontal": true, "layout": true},React.DOM.div({"id": "account-details-cancel", "noink": true, "raised": true, "onClick": landing.transitionAccountsBackward},"cancel"),React.DOM.div({"id": "account-details-save", "noink": true, "raised": true, "onClick": ((function (this$__$1){
 return (function (e){
 landing.transitionAccountsBackward.call(null);
 
@@ -98,89 +98,91 @@ return resultF;
 },"save")));
 });
 
-landing.t12324.prototype.om$core$IInitState$ = true;
+landing.t12572.prototype.om$core$IInitState$ = true;
 
-landing.t12324.prototype.om$core$IInitState$init_state$arity$1 = (function (_){
+landing.t12572.prototype.om$core$IInitState$init_state$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
-return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),"",new cljs.core.Keyword(null,"type","type",1174270348),(0)], null);
+bkeeping.console_log.call(null,[cljs.core.str("init-state... account["),cljs.core.str(new cljs.core.Keyword(null,"type","type",1174270348).cljs$core$IFn$_invoke$arity$1(self__.account)),cljs.core.str("]")].join(''));
+
+return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(self__.account),new cljs.core.Keyword(null,"type","type",1174270348),landing.selectedindex_from_account_type.call(null,new cljs.core.Keyword(null,"type","type",1174270348).cljs$core$IFn$_invoke$arity$1(self__.account))], null);
 });
 
-landing.t12324.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_12326){
+landing.t12572.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_12574){
 var self__ = this;
-var _12326__$1 = this;
-return self__.meta12325;
+var _12574__$1 = this;
+return self__.meta12573;
 });
 
-landing.t12324.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_12326,meta12325__$1){
+landing.t12572.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_12574,meta12573__$1){
 var self__ = this;
-var _12326__$1 = this;
-return (new landing.t12324(self__.owner,self__.account,self__.account_view,meta12325__$1));
+var _12574__$1 = this;
+return (new landing.t12572(self__.owner,self__.account,self__.account_view,meta12573__$1));
 });
 
-landing.t12324.cljs$lang$type = true;
+landing.t12572.cljs$lang$type = true;
 
-landing.t12324.cljs$lang$ctorStr = "landing/t12324";
+landing.t12572.cljs$lang$ctorStr = "landing/t12572";
 
-landing.t12324.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"landing/t12324");
+landing.t12572.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"landing/t12572");
 });
 
-landing.__GT_t12324 = (function __GT_t12324(owner__$1,account__$1,account_view__$1,meta12325){
-return (new landing.t12324(owner__$1,account__$1,account_view__$1,meta12325));
+landing.__GT_t12572 = (function __GT_t12572(owner__$1,account__$1,account_view__$1,meta12573){
+return (new landing.t12572(owner__$1,account__$1,account_view__$1,meta12573));
 });
 
 }
 
-return (new landing.t12324(owner,account,account_view,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),23,new cljs.core.Keyword(null,"end-line","end-line",1837326455),157,new cljs.core.Keyword(null,"column","column",2078222095),3,new cljs.core.Keyword(null,"line","line",212345235),107,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/landing.cljs"], null)));
+return (new landing.t12572(owner,account,account_view,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),23,new cljs.core.Keyword(null,"end-line","end-line",1837326455),154,new cljs.core.Keyword(null,"column","column",2078222095),3,new cljs.core.Keyword(null,"line","line",212345235),103,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/landing.cljs"], null)));
 });
 landing.accounts_view = (function accounts_view(app,owner){
-if(typeof landing.t12336 !== 'undefined'){
+if(typeof landing.t12584 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-landing.t12336 = (function (owner,app,accounts_view,meta12337){
+landing.t12584 = (function (owner,app,accounts_view,meta12585){
 this.owner = owner;
 this.app = app;
 this.accounts_view = accounts_view;
-this.meta12337 = meta12337;
+this.meta12585 = meta12585;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-landing.t12336.prototype.om$core$IRender$ = true;
+landing.t12584.prototype.om$core$IRender$ = true;
 
-landing.t12336.prototype.om$core$IRender$render$arity$1 = (function (this__8580__auto__){
+landing.t12584.prototype.om$core$IRender$render$arity$1 = (function (this__8580__auto__){
 var self__ = this;
 var this__8580__auto____$1 = this;
 return React.DOM.div({"id": "accounts-pane", "slideFromRight": true},cljs.core.into_array.call(null,(function (){var iter__4378__auto__ = ((function (this__8580__auto____$1){
-return (function iter__12341(s__12342){
+return (function iter__12589(s__12590){
 return (new cljs.core.LazySeq(null,((function (this__8580__auto____$1){
 return (function (){
-var s__12342__$1 = s__12342;
+var s__12590__$1 = s__12590;
 while(true){
-var temp__4126__auto__ = cljs.core.seq.call(null,s__12342__$1);
+var temp__4126__auto__ = cljs.core.seq.call(null,s__12590__$1);
 if(temp__4126__auto__){
-var s__12342__$2 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__12342__$2)){
-var c__4376__auto__ = cljs.core.chunk_first.call(null,s__12342__$2);
+var s__12590__$2 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__12590__$2)){
+var c__4376__auto__ = cljs.core.chunk_first.call(null,s__12590__$2);
 var size__4377__auto__ = cljs.core.count.call(null,c__4376__auto__);
-var b__12344 = cljs.core.chunk_buffer.call(null,size__4377__auto__);
-if((function (){var i__12343 = (0);
+var b__12592 = cljs.core.chunk_buffer.call(null,size__4377__auto__);
+if((function (){var i__12591 = (0);
 while(true){
-if((i__12343 < size__4377__auto__)){
-var ech = cljs.core._nth.call(null,c__4376__auto__,i__12343);
-cljs.core.chunk_append.call(null,b__12344,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (i__12343,ech,c__4376__auto__,size__4377__auto__,b__12344,s__12342__$2,temp__4126__auto__,this__8580__auto____$1){
+if((i__12591 < size__4377__auto__)){
+var ech = cljs.core._nth.call(null,c__4376__auto__,i__12591);
+cljs.core.chunk_append.call(null,b__12592,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (i__12591,ech,c__4376__auto__,size__4377__auto__,b__12592,s__12590__$2,temp__4126__auto__,this__8580__auto____$1){
 return (function (e){
 landing.transitionAccountsForward.call(null);
 
 return om.core.root.call(null,landing.account_view,ech,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("account-section")], null));
-});})(i__12343,ech,c__4376__auto__,size__4377__auto__,b__12344,s__12342__$2,temp__4126__auto__,this__8580__auto____$1))
+});})(i__12591,ech,c__4376__auto__,size__4377__auto__,b__12592,s__12590__$2,temp__4126__auto__,this__8580__auto____$1))
 },sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))));
 
-var G__12345 = (i__12343 + (1));
-i__12343 = G__12345;
+var G__12593 = (i__12591 + (1));
+i__12591 = G__12593;
 continue;
 } else {
 return true;
@@ -188,19 +190,19 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__12344),iter__12341.call(null,cljs.core.chunk_rest.call(null,s__12342__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__12592),iter__12589.call(null,cljs.core.chunk_rest.call(null,s__12590__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__12344),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__12592),null);
 }
 } else {
-var ech = cljs.core.first.call(null,s__12342__$2);
-return cljs.core.cons.call(null,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (ech,s__12342__$2,temp__4126__auto__,this__8580__auto____$1){
+var ech = cljs.core.first.call(null,s__12590__$2);
+return cljs.core.cons.call(null,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (ech,s__12590__$2,temp__4126__auto__,this__8580__auto____$1){
 return (function (e){
 landing.transitionAccountsForward.call(null);
 
 return om.core.root.call(null,landing.account_view,ech,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("account-section")], null));
-});})(ech,s__12342__$2,temp__4126__auto__,this__8580__auto____$1))
-},sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))),iter__12341.call(null,cljs.core.rest.call(null,s__12342__$2)));
+});})(ech,s__12590__$2,temp__4126__auto__,this__8580__auto____$1))
+},sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))),iter__12589.call(null,cljs.core.rest.call(null,s__12590__$2)));
 }
 } else {
 return null;
@@ -215,33 +217,33 @@ return iter__4378__auto__.call(null,new cljs.core.Keyword(null,"accounts","accou
 })()));
 });
 
-landing.t12336.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_12338){
+landing.t12584.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_12586){
 var self__ = this;
-var _12338__$1 = this;
-return self__.meta12337;
+var _12586__$1 = this;
+return self__.meta12585;
 });
 
-landing.t12336.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_12338,meta12337__$1){
+landing.t12584.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_12586,meta12585__$1){
 var self__ = this;
-var _12338__$1 = this;
-return (new landing.t12336(self__.owner,self__.app,self__.accounts_view,meta12337__$1));
+var _12586__$1 = this;
+return (new landing.t12584(self__.owner,self__.app,self__.accounts_view,meta12585__$1));
 });
 
-landing.t12336.cljs$lang$type = true;
+landing.t12584.cljs$lang$type = true;
 
-landing.t12336.cljs$lang$ctorStr = "landing/t12336";
+landing.t12584.cljs$lang$ctorStr = "landing/t12584";
 
-landing.t12336.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"landing/t12336");
+landing.t12584.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"landing/t12584");
 });
 
-landing.__GT_t12336 = (function __GT_t12336(owner__$1,app__$1,accounts_view__$1,meta12337){
-return (new landing.t12336(owner__$1,app__$1,accounts_view__$1,meta12337));
+landing.__GT_t12584 = (function __GT_t12584(owner__$1,app__$1,accounts_view__$1,meta12585){
+return (new landing.t12584(owner__$1,app__$1,accounts_view__$1,meta12585));
 });
 
 }
 
-return (new landing.t12336(owner,app,accounts_view,null));
+return (new landing.t12584(owner,app,accounts_view,null));
 });
 setTimeout((function (){
 return om.core.root.call(null,landing.accounts_view,landing.app_state,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("accounts-section")], null));
