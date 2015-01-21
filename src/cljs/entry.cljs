@@ -43,7 +43,7 @@
        [:div {:id "entry-details-pane" :slide-from-right true}
 
         [:div {:horizontal true :layout true}
-         #_(mui/date-picker {:id "entry-details-date"
+         (mui/date-picker {:id "entry-details-date"
                            :ref "entry-details-date"
                            :name "Date"
                            :inlinePlaceholder true})]
