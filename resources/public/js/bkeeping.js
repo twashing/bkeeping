@@ -14,4 +14,4 @@ goog.addDependency("../om_material_ui/core.js", ['om_material_ui.core'], ['om_to
 goog.addDependency("../clojure/walk.js", ['clojure.walk'], ['cljs.core']);
 goog.addDependency("../om/core.js", ['om.core'], ['goog.dom', 'cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
 goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono.util', 'cljs.core', 'sablono.interpreter', 'clojure.string', 'clojure.walk']);
-goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'om.core']);
+goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core']);

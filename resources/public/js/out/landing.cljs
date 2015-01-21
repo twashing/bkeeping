@@ -4,6 +4,7 @@
             [om.dom :as dom :include-macros true]
             [sablono.core :as html :refer-macros [html]]
             [om-material-ui.core :as mui :include-macros true]
+            [clojure.set :as set]
             [bkeeping :as bg]))
 
 
@@ -71,23 +72,44 @@
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
+(def asset-types {:asset 0
+                  :liability 1
+                  :revenue 2
+                  :expense 3
+                  :capital 4})
+
+(def account-type-mappings {:expense :debit
+                            :revenue :credit
+                            :liability :credit
+                            :asset :debit
+                            :capital :credit})
+
+(defn selectedindex-from-account-type [atype]
+  (atype asset-types))
+
+(defn accounttype-from-selectedindex [idx]
+  (-> (set/map-invert asset-types)
+      (get idx)))
+
 (defn handle-name-change [e owner {:keys [name]}]
   (om/set-state! owner :name (.-value (.-target e))))
 
-(defn selectedindex-from-account-type [atype]
-  (atype {:asset 0
-          :liability 1
-          :revenue 2
-          :expense 3
-          :capital 4}))
+(defn handle-type-change [e owner idx]
+  (om/set-state! owner :type idx))
+
 
 (defn account-view [account owner]
+
+  #_(om/set-state! owner :type (selectedindex-from-account-type (:type account)))
+  #_(defn ^:export x []
+    (om/get-state owner :type))
 
   (reify
 
     om/IInitState
     (init-state [_]
-      {:name ""})
+      {:name ""
+       :type 0})
 
     om/IRenderState
     (render-state [this state]
@@ -99,13 +121,14 @@
          (mui/input {:id "account-details-name"
                      :ref "account-details-name"
                      :defaultValue (:name account)
-                     :on-change #(handle-name-change % this account)})]
+                     :on-change #(handle-name-change % owner account)})]
 
         [:div {:horizontal true :layout true}
          (mui/drop-down-menu {:id "account-details-type"
                               :ref "account-details-type"
                               :autoWidth false
                               :selectedIndex (selectedindex-from-account-type (:type account))
+                              :on-change #(handle-type-change %1 owner %2)
                               :menuItems (clj->js [{:payload "asset" :text "Asset"}
                                                    {:payload "liability" :text "Liability"}
                                                    {:payload "revenue" :text "Revenue"}
@@ -124,9 +147,13 @@
                             (transitionAccountsBackward)
                             (om/transact! account
                                           (fn [x]
-                                            (assoc x
-                                              :name
-                                              (.-value (. js/document (getElementById "account-details-name")))))))}
+                                            (let [natype (accounttype-from-selectedindex (om/get-state owner :type))
+                                                  resultF (assoc x
+                                                            :name (.-value (. js/document (getElementById "account-details-name")))
+                                                            :type natype
+                                                            :counterWeight (natype account-type-mappings))]
+                                              (bg/console-log (str "... " resultF))
+                                              resultF))))}
           "save"]]]))))
 
 
