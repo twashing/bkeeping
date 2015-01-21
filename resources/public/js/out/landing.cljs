@@ -175,7 +175,3 @@
                           app-state
                           {:target (. js/document (getElementById "accounts-section"))}))
                2000)
-
-
-(defn ^:export changeme [inp]
-  (swap! app-state assoc :name inp))
