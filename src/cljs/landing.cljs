@@ -71,10 +71,18 @@
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
 
 
-(defn handle-change [e owner {:keys [name]}]
+(defn handle-name-change [e owner {:keys [name]}]
   (om/set-state! owner :name (.-value (.-target e))))
 
+(defn selectedindex-from-account-type [atype]
+  (atype {:asset 0
+          :liability 1
+          :revenue 2
+          :expense 3
+          :capital 4}))
+
 (defn account-view [account owner]
+
   (reify
 
     om/IInitState
@@ -90,10 +98,19 @@
         [:div {:horizontal true :layout true}
          (mui/input {:id "account-details-name"
                      :ref "account-details-name"
-                     :placeholder "Name"
-                     :description "Account Name"
                      :defaultValue (:name account)
-                     :on-change #(handle-change % this account)})]
+                     :on-change #(handle-name-change % this account)})]
+
+        [:div {:horizontal true :layout true}
+         (mui/drop-down-menu {:id "account-details-type"
+                              :ref "account-details-type"
+                              :autoWidth false
+                              :selectedIndex (selectedindex-from-account-type (:type account))
+                              :menuItems (clj->js [{:payload "asset" :text "Asset"}
+                                                   {:payload "liability" :text "Liability"}
+                                                   {:payload "revenue" :text "Revenue"}
+                                                   {:payload "expense" :text "Expense" :selected true}
+                                                   {:payload "capital" :text "Capital"}])})]
 
         [:div {:horizontal true :layout true}
          [:div {:id "account-details-cancel"
