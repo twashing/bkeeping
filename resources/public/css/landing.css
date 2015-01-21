@@ -34,7 +34,7 @@ body {
 .delete-account-row:hover {
     background-color: #EEEEEE;
 }
-.delete-entry-row:hover {
+.delete-entry-row:hover , .entry-part-row:hover {
     background-color: #FFFFFF;
 }
 .generic-button , .delete-account-button , .delete-entry-button {

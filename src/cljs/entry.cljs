@@ -17,11 +17,13 @@
 
   (if (= :debit (:type ech))
 
-    [:tr {:class "entry-part"}
+    [:tr {:class "entry-part-row"
+          :on-click (fn [e] (bg/transitionEntriesForward))}
      [:td (:amount ech)]
      [:td (gstr/unescapeEntities "&nbsp;")]]
 
-    [:tr {:class "entry-part"}
+    [:tr {:class "entry-part-row"
+          :on-click (fn [e] (bg/transitionEntriesForward))}
      [:td (gstr/unescapeEntities "&nbsp;")]
      [:td (:amount ech)]]))
 
