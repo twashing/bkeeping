@@ -10,6 +10,61 @@
             [account :as act]))
 
 
+(defn entry-part-view [entry owner]
+  (reify
+
+    om/IInitState
+    (init-state [_]
+      {:name ""
+       :type ""})
+
+    om/IRenderState
+    (render-state [this state]
+
+      (html
+       [:div {:id "entry-details-part-pane" :slide-from-right true}
+
+        [:div {:horizontal true :layout true}
+         (mui/drop-down-menu {:id "entry-part-type"
+                              :ref "entry-part-type"
+                              :autoWidth false
+                              :selectedIndex (om/get-state owner :type)
+                              :menuItems (clj->js [{:payload "debit" :text "Debit"}
+                                                   {:payload "credit" :text "Credit"}])})]
+
+        [:div {:horizontal true :layout true}
+         (mui/drop-down-menu {:id "entry-part-account"
+                              :ref "entry-part-account"
+                              :autoWidth false
+                              :selectedIndex (om/get-state owner :type)
+                              :menuItems (clj->js [{:payload "a1" :text "Account One"}
+                                                   {:payload "a2" :text "Account Two"}])})]
+
+        [:div {:horizontal true :layout true}
+         (mui/input {:id "entry-part-amount"
+                     :ref "entry-part-amount"
+                     :defaultValue (:amount entry)})]
+
+        [:div {:horizontal true :layout true}
+         [:div {:id "entry-part-cancel"
+                :noink true
+                :raised true
+                :on-click bg/transitionEntriesBackward} "cancel"]
+         [:div {:id "entry-part-save"
+                :noink true
+                :raised true
+                :on-click (fn [e]
+                            (bg/transitionEntriesBackward)
+                            #_(om/transact! entry
+                                          (fn [x]
+                                            (let [natype (entrytype-from-selectedindex (om/get-state owner :type))
+                                                  resultF (assoc x
+                                                            :name (.-value (. js/document (getElementById "entry-part-name")))
+                                                            :type natype
+                                                            :counterWeight (natype entry-type-mappings))]
+                                              resultF))))}
+          "save"]]]))))
+
 (defn handle-currency-change [e owner state]
   (bg/console-log (str "handle-currency-change / e[" e "] owner[" owner "] state[" state "]")))
 
@@ -23,7 +78,11 @@
      [:td (gstr/unescapeEntities "&nbsp;")]]
 
     [:tr {:class "entry-part-row"
-          :on-click (fn [e] (bg/transitionEntriesForward))}
+          :on-click (fn [e]
+                      (bg/transitionEntriesForward)
+                      (om/root entry-part-view
+                               ech
+                               {:target (. js/document (getElementById "entry-part-section"))}))}
      [:td (gstr/unescapeEntities "&nbsp;")]
      [:td (:amount ech)]]))
 

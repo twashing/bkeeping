@@ -62,7 +62,7 @@
             <div>Accounts</div>
             <div id="add-account-button" class="generic-button"></div>
           </core-toolbar>
-          <core-animated-pages id="accounts" transitions="slide-from-right" onclick="landing.transitionAccounts();">
+          <core-animated-pages id="accounts" transitions="slide-from-right">
             <section id="accounts-section">
               <div id="accounts-pane" slide-from-right>
                 <div class="delete-account-row" horizontal layout>
@@ -104,7 +104,7 @@
           <div style="float: left;">Entries</div>
           <div id="add-entry-button" class="generic-button" style="float: left;"></div>
         </div>
-        <core-animated-pages id="entries" transitions="slide-from-right" onclick="landing.transitionEntries();">
+        <core-animated-pages id="entries" transitions="slide-from-right">
           <section id="entries-section">
             <div id="entries-pane" slide-from-right>
               <div class="delete-entry-row" horizontal layout>
@@ -158,14 +158,14 @@
                 </div>
 
                 <div horizontal layout>
-                  <paper-button noink raised onclick="template.transitionEntriesBackward()">cancel</paper-button>
-                  <paper-button noink raised onclick="template.transitionEntriesBackward()">save </paper-button>
+                  <paper-button noink raised>cancel</paper-button>
+                  <paper-button noink raised>save </paper-button>
                 </div>
               </div>
 
             </div>
           </section>
-          <section>
+          <section id="entry-part-section">
             <div id="entry-details-part-pane" slide-from-right>
               <div slide-from-right>
 
