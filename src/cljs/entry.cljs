@@ -15,12 +15,14 @@
 
 
 (defn entry-part-view [entry-part owner]
+
   (reify
 
     om/IInitState
     (init-state [_]
-      {:name ""
-       :type ""})
+      {:type (:type entry-part)
+       :amount (:amount entry-part)
+       :account (:account entry-part)})
 
     om/IRenderState
     (render-state [this state]
@@ -32,7 +34,8 @@
          (mui/drop-down-menu {:id "entry-part-type"
                               :ref "entry-part-type"
                               :autoWidth false
-                              :selectedIndex (om/get-state owner :type)
+                              :selectedIndex (if (= :debit (om/get-state owner :type))
+                                               0 1)
                               :menuItems (clj->js [{:payload "debit" :text "Debit"}
                                                    {:payload "credit" :text "Credit"}])})]
 
@@ -40,7 +43,7 @@
          (mui/drop-down-menu {:id "entry-part-account"
                               :ref "entry-part-account"
                               :autoWidth false
-                              :selectedIndex (om/get-state owner :type)
+                              :selectedIndex 1 #_(om/get-state owner :account)
                               :menuItems (clj->js [{:payload "a1" :text "Account One"}
                                                    {:payload "a2" :text "Account Two"}])})]
 
@@ -91,7 +94,6 @@
             :on-click part-click-handler}
        [:td (gstr/unescapeEntities "&nbsp;")]
        [:td (:amount ech)]])))
-
 
 (defn entry-view [entry owner]
 
@@ -155,7 +157,8 @@
                                           (fn [x]
                                             (let [resultF (assoc x
                                                             :date (js/Date.
-                                                                   (.-value (. js/document (getElementById "entry-details-date"))))
+                                                                   (.-value
+                                                                    (. js/document (getElementById "entry-details-date"))))
                                                             :content (om/get-state owner :content))]
                                               resultF))))}
           "save"]]]))))
