@@ -7,7 +7,11 @@
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
             [bkeeping :as bg]
-            [account :as act]))
+            [account :as act]
+
+            ;; simple-brepl.client
+            ;;[simple-brepl.service :refer [brepl-js]]
+            ))
 
 
 (defn entry-part-view [entry-part owner]
@@ -110,9 +114,10 @@
                            :ref "entry-details-date"
                            :name "Date"
                            :defaultDate (:date entry)
+
+                           ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                            :formatDate (fn [d]
-                                         (.toISOString d)) ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                           :inlinePlaceholder true})]
+                                         (.toISOString d))})]
 
         [:div {:horizontal true :layout true}
          [:div {:class "entry-balance" :horizontal true :layout true} "100.00"]
@@ -146,19 +151,19 @@
                 :raised true
                 :on-click (fn [e]
                             (bg/transitionEntriesBackward)
-                            #_(om/transact! entry
+                            (om/transact! entry
                                           (fn [x]
-                                            (let [natype (entrytype-from-selectedindex (om/get-state owner :type))
-                                                  resultF (assoc x
-                                                            :name (.-value (. js/document (getElementById "entry-details-name")))
-                                                            :type natype
-                                                            :counterWeight (natype entry-type-mappings))]
+                                            (let [resultF (assoc x
+                                                            :date (js/Date.
+                                                                   (.-value (. js/document (getElementById "entry-details-date"))))
+                                                            :content (om/get-state owner :content))]
                                               resultF))))}
           "save"]]]))))
 
 (defn entries-view [state owner]
   (om/component
    (html [:div {:id "entries-pane" :slide-from-right true}
+          ;;[:script (brepl-js)]
           (for [ech (-> state :journals first :entries)]
             [:div {:class "delete-entry-row" :horizontal true :layout true}
              [:div {:class "delete-entry-button"}]

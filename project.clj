@@ -24,7 +24,9 @@
 
   :plugins [[lein-ring "0.8.13"]
             [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
-            [lein-figwheel "0.2.0-SNAPSHOT"]]
+            ;;[jarohen/simple-brepl "0.2.1"]
+            ;;[jarohen/simple-brepl "0.1.2"]
+            ]
 
   :ring {:handler bkeeping.handler/app}
 
