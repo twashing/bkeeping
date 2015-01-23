@@ -14,5 +14,5 @@ goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono
 goog.addDependency("../om/core.js", ['om.core'], ['goog.dom', 'cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
 goog.addDependency("../account.js", ['account'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core']);
 goog.addDependency("../entry.js", ['entry'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core', 'account']);
-goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'weasel.repl', 'cljs.core', 'goog.events.EventType', 'cljs.reader', 'goog.events']);
+goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'cljs.core', 'goog.events.EventType', 'cljs.reader', 'goog.events']);
 goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core', 'account', 'entry']);

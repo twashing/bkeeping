@@ -2,7 +2,6 @@
   (:require [cljs.reader :as reader]
             [goog.events :as events]
             [goog.dom :as gdom]
-            [weasel.repl :as ws-repl]
             [bkeeping :as bk])
   (:import [goog.net XhrIo]
            goog.net.EventType

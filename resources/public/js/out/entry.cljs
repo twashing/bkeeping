@@ -10,7 +10,7 @@
             [account :as act]))
 
 
-(defn entry-part-view [entry owner]
+(defn entry-part-view [entry-part owner]
   (reify
 
     om/IInitState
@@ -43,7 +43,7 @@
         [:div {:horizontal true :layout true}
          (mui/input {:id "entry-part-amount"
                      :ref "entry-part-amount"
-                     :defaultValue (:amount entry)})]
+                     :defaultValue (:amount entry-part)})]
 
         [:div {:horizontal true :layout true}
          [:div {:id "entry-part-cancel"
@@ -70,21 +70,23 @@
 
 (defn generate-entry-part-row [ech]
 
-  (if (= :debit (:type ech))
+  (let [part-click-handler (fn [e]
+                             (bg/transitionEntriesForward)
+                             (om/root entry-part-view
+                                      ech
+                                      {:target (. js/document (getElementById "entry-part-section"))}))]
 
-    [:tr {:class "entry-part-row"
-          :on-click (fn [e] (bg/transitionEntriesForward))}
-     [:td (:amount ech)]
-     [:td (gstr/unescapeEntities "&nbsp;")]]
+    (if (= :debit (:type ech))
 
-    [:tr {:class "entry-part-row"
-          :on-click (fn [e]
-                      (bg/transitionEntriesForward)
-                      (om/root entry-part-view
-                               ech
-                               {:target (. js/document (getElementById "entry-part-section"))}))}
-     [:td (gstr/unescapeEntities "&nbsp;")]
-     [:td (:amount ech)]]))
+      [:tr {:class "entry-part-row"
+            :on-click part-click-handler}
+       [:td (:amount ech)]
+       [:td (gstr/unescapeEntities "&nbsp;")]]
+
+      [:tr {:class "entry-part-row"
+            :on-click part-click-handler}
+       [:td (gstr/unescapeEntities "&nbsp;")]
+       [:td (:amount ech)]])))
 
 
 (defn entry-view [entry owner]
@@ -107,6 +109,9 @@
          (mui/date-picker {:id "entry-details-date"
                            :ref "entry-details-date"
                            :name "Date"
+                           :defaultDate (:date entry)
+                           :formatDate (fn [d]
+                                         (.toISOString d)) ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                            :inlinePlaceholder true})]
 
         [:div {:horizontal true :layout true}
