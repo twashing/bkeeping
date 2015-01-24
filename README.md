@@ -18,6 +18,7 @@ You will need [Leiningen][] 2.0.0 or above installed.
 
 - `add-user-ifnil`
 - internal data structures can only be maps and vectors (update-in doesn't work on lists, sets and sequnces)
+- kludgey implementation of entry-partstate update; refactor
 
 ## Notes 
 
