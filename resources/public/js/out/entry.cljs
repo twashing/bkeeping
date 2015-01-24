@@ -7,11 +7,8 @@
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
             [bkeeping :as bg]
-            [account :as act]
+            [account :as act]))
 
-            ;; simple-brepl.client
-            ;;[simple-brepl.service :refer [brepl-js]]
-            ))
 
 (defn one [entry]
   (def entryF entry)
@@ -41,8 +38,9 @@
 (defn handle-amount-change [e owner {:keys [amount]}]
   (om/set-state! owner :amount (.-value (.-target e))))
 
-(defn entry-part-view [parent-owner idx entry-part owner]
+(defn entry-part-view [parent-owner [idx entry-part] owner]
 
+  (bg/console-log (str "entry-part-view... idx[" idx "] <==> entry[" entry-part "]"))
   (reify
 
     om/IInitState
@@ -89,9 +87,21 @@
                 :noink true
                 :raised true
                 :on-click (fn [e]
+
                             (bg/transitionEntriesBackward)
-                            (om/transact! (get-in entryF [:content idx])
+
+                            (let [pamount (om/get-state owner :amount)
+                                  _ (bg/console-log "sanity 1... " idx)
+                                  _ (bg/console-log "sanity 2... " (js/parseFloat pamount))]
+
+                              (swap! state2 (fn [inp]
+                                              (update-in inp [:content idx] assoc :amount (js/parseFloat pamount)))))
+
+                            (om/refresh! parent-owner)
+
+                            #_(om/transact! #_(get-in entryF [:content idx])
                                           #_entry-part
+                                          (get-in entry [:content idx])
                                           (fn [x]
                                             (let [ptype (parttype-from-selectedindex (om/get-state owner :type))
                                                   pamount (om/get-state owner :amount)
@@ -103,19 +113,20 @@
 
                                               (bg/console-log (str "... resultF[" resultF "]"))
                                               resultF)))
-                            (om/refresh! parent-owner))}
+                            )}
           "save"]]]))))
 
 
 (defn handle-currency-change [e owner state]
   (bg/console-log (str "handle-currency-change / e[" e "] owner[" owner "] state[" state "]")))
 
-(defn generate-entry-part-row [[idx ech] owner]
+(defn generate-entry-part-row [full owner]
 
-  (let [part-click-handler (fn [e]
+  (let [[idx ech] full
+        part-click-handler (fn [e]
                              (bg/transitionEntriesForward)
-                             (om/root (partial entry-part-view owner idx)
-                                      ech
+                             (om/root (partial entry-part-view owner)
+                                      full
                                       {:target (. js/document (getElementById "entry-part-section"))}))]
 
     (if (= :debit (:type ech))
@@ -132,101 +143,76 @@
 
 (defn entry-view [entry owner]
 
+  (def state2 (atom @entry))
+
   (reify
 
     om/IInitState
     (init-state [_]
+
       {:date (:date entry)
        :currency (:currency entry)
        :content (:content entry)})
 
-    om/IWillReceiveProps
-    (will-receive-props [this next-props]
-      #_(bg/console-log (str "Entry - IWillReceiveProps... next-props[" @next-props "]")))
-
-    om/IWillUpdate
-    (will-update [this next-props next-state]
-      #_(bg/console-log (str "Entry - IWillUpdate... next-prop[" @next-props "] / next-state[" next-state "]")))
-
-    om/IDidUpdate
-    (did-update [this prev-props prev-state]
-      #_(bg/console-log (str "Entry - IDidUpdate... prev-props[" @prev-props "] / prev-state[" prev-state "]")))
-
-    om/IWillUnmount
-    (will-unmount [this]
-      #_(bg/console-log (str "Entry - IWillUnmount")))
-
     om/IRenderState
     (render-state [this state]
-      (bg/console-log (str "Entry - IRenderState... state[" state "] / props[" @(om/get-props owner) "]"))
+      (bg/console-log (str "Entry - IRenderState... state[" @state2 "]"))
 
-      (let [entryS @(om/get-props owner)
+      (html
+       [:div {:id "entry-details-pane" :slide-from-right true}
 
+        [:div {:horizontal true :layout true}
+         (mui/date-picker {:id "entry-details-date"
+                           :ref "entry-details-date"
+                           :name "Date"
+                           :defaultDate (:date @state2)
 
-            _ (om/set-state! owner :content (:content entryS))]
+                           ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                           :formatDate (fn [d]
+                                         (.toISOString d))})]
 
-        (html
-         [:div {:id "entry-details-pane" :slide-from-right true}
+        [:div {:horizontal true :layout true}
+         [:div {:class "entry-balance" :horizontal true :layout true} "100.00"]
+         (mui/drop-down-menu {:id "entry-details-currency"
+                              :ref "entry-details-currency"
+                              :autoWidth false
+                              :selectedIndex 1
+                              :on-change #(handle-currency-change %1 owner %2)
+                              :menuItems (clj->js [{:payload "cdn" :text "USD"}
+                                                   {:payload "usd" :text "CAD"}])})]
 
-          [:div {:horizontal true :layout true}
-           (mui/date-picker {:id "entry-details-date"
-                             :ref "entry-details-date"
-                             :name "Date"
-                             :defaultDate (:date entryS)
+        [:div {:horizontal true :layout true}
+         [:table {:class "pure-table"}
 
-                             ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                             :formatDate (fn [d]
-                                           (.toISOString d))})]
+          [:thead
+           [:tr
+            [:th "debit"]
+            [:th "credit"]]]
 
-          [:div {:horizontal true :layout true}
-           [:div {:class "entry-balance" :horizontal true :layout true} "100.00"]
-           (mui/drop-down-menu {:id "entry-details-currency"
-                                :ref "entry-details-currency"
-                                :autoWidth false
-                                :selectedIndex 1
-                                :on-change #(handle-currency-change %1 owner %2)
-                                :menuItems (clj->js [{:payload "cdn" :text "USD"}
-                                                     {:payload "usd" :text "CAD"}])})]
+          [:tbody
 
-          [:div {:horizontal true :layout true}
-           [:table {:class "pure-table"}
+           ;; Om require get-in (which requires an index), in order to get sub-cursors
+           (for [ech (map-indexed (fn [idx itm] [idx itm]) (:content @state2))]
+             (generate-entry-part-row ech owner))]]]
 
-            [:thead
-             [:tr
-              [:th "debit"]
-              [:th "credit"]]]
-
-            [:tbody
-
-             ;; Om require get-in (which requires an index), in order to get sub-cursors
-             (for [ech (map-indexed (fn [idx itm] [idx itm])
-                                    (:content entryS))]
-               (generate-entry-part-row ech owner))]]]
-
-          [:div {:horizontal true :layout true}
-           [:div {:id "entry-details-cancel"
-                  :noink true
-                  :raised true
-                  :on-click bg/transitionEntriesBackward} "cancel"]
-           [:div {:id "entry-details-save"
-                  :noink true
-                  :raised true
-                  :on-click (fn [e]
-                              (bg/transitionEntriesBackward)
-                              (om/transact! entry
-                                            (fn [x]
-                                              (let [resultF (assoc x
-                                                              :date (js/Date.
-                                                                     (.-value
-                                                                      (. js/document (getElementById "entry-details-date"))))
-                                                              :content (om/get-state owner :content))]
-                                                resultF))))}
-            "save"]]])))))
+        [:div {:horizontal true :layout true}
+         [:div {:id "entry-details-cancel"
+                :noink true
+                :raised true
+                :on-click bg/transitionEntriesBackward} "cancel"]
+         [:div {:id "entry-details-save"
+                :noink true
+                :raised true
+                :on-click (fn [e]
+                            (bg/transitionEntriesBackward)
+                            (om/transact! entry
+                                          (fn [x]
+                                            @state2)))}
+          "save"]]]))))
 
 (defn entries-view [state owner]
   (om/component
    (html [:div {:id "entries-pane" :slide-from-right true}
-          ;;[:script (brepl-js)]
           (for [ech (-> state :journals first :entries)]
             [:div {:class "delete-entry-row" :horizontal true :layout true}
              [:div {:class "delete-entry-button"}]
