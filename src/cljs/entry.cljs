@@ -161,6 +161,8 @@
       (bg/console-log (str "Entry - IRenderState... state[" state "] / props[" @(om/get-props owner) "]"))
 
       (let [entryS @(om/get-props owner)
+
+
             _ (om/set-state! owner :content (:content entryS))]
 
         (html
