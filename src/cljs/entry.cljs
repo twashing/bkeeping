@@ -41,7 +41,7 @@
 (defn handle-amount-change [e owner {:keys [amount]}]
   (om/set-state! owner :amount (.-value (.-target e))))
 
-(defn entry-part-view [entry-part owner]
+(defn entry-part-view [parent-owner entry-part owner]
 
   (reify
 
@@ -53,7 +53,6 @@
 
     om/IRenderState
     (render-state [this state]
-      (bg/console-log (str "EntryPart - IRenderState... state[" state "]"))
       (html
        [:div {:id "entry-details-part-pane" :slide-from-right true}
 
@@ -102,7 +101,8 @@
                                                             )]
 
                                               (bg/console-log (str "... resultF[" resultF "]"))
-                                              resultF))))}
+                                              resultF)))
+                            (om/refresh! parent-owner))}
           "save"]]]))))
 
 
@@ -113,7 +113,7 @@
 
   (let [part-click-handler (fn [e]
                              (bg/transitionEntriesForward)
-                             (om/root entry-part-view
+                             (om/root (partial entry-part-view owner)
                                       ech
                                       {:target (. js/document (getElementById "entry-part-section"))}))]
 
@@ -191,8 +191,8 @@
 
           [:tbody
            (for [[idx itm] (map-indexed (fn [idx itm] [idx itm])
-                                        (:content entry))]
-               (generate-entry-part-row (get-in entry [:content idx])))]]]
+                                        (:content (deref (om/get-props owner))))]
+             (generate-entry-part-row (get-in (deref (om/get-props owner)) [:content idx]) owner))]]]
 
         [:div {:horizontal true :layout true}
          [:div {:id "entry-details-cancel"
