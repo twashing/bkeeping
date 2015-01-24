@@ -13,6 +13,32 @@
             ;;[simple-brepl.service :refer [brepl-js]]
             ))
 
+(defn one [entry]
+  (defn ^:export two []
+    (let [epart (get-in entry [:content 0])]
+      (om/transact! epart
+                    (fn [x]
+                      (let [resultF (assoc x :amount 2605 )]
+                        (bg/console-log (str "... resultF[" resultF "]"))
+                        resultF)))))
+  (defn ^:export three []
+    (om/transact! entry
+                  (fn [x]
+                    (let [resultF (assoc x :content [] )]
+                      (bg/console-log (str "... resultF[" resultF "]"))
+                      resultF))))
+  (defn ^:export four []
+    (bg/console-log (str "... entry[" @entry "]"))))
+
+(defn parttype-from-selectedindex [idx]
+  (get {0 :debit
+        1 :credit} idx))
+
+(defn handle-type-change [e owner idx]
+  (om/set-state! owner :type idx))
+
+(defn handle-amount-change [e owner {:keys [amount]}]
+  (om/set-state! owner :amount (.-value (.-target e))))
 
 (defn entry-part-view [entry-part owner]
 
@@ -26,7 +52,7 @@
 
     om/IRenderState
     (render-state [this state]
-
+      (bg/console-log (str "EntryPart - IRenderState... state[" state "]"))
       (html
        [:div {:id "entry-details-part-pane" :slide-from-right true}
 
@@ -37,7 +63,8 @@
                               :selectedIndex (if (= :debit (om/get-state owner :type))
                                                0 1)
                               :menuItems (clj->js [{:payload "debit" :text "Debit"}
-                                                   {:payload "credit" :text "Credit"}])})]
+                                                   {:payload "credit" :text "Credit"}])
+                              :on-change #(handle-type-change %1 owner %2)})]
 
         [:div {:horizontal true :layout true}
          (mui/drop-down-menu {:id "entry-part-account"
@@ -50,7 +77,8 @@
         [:div {:horizontal true :layout true}
          (mui/input {:id "entry-part-amount"
                      :ref "entry-part-amount"
-                     :defaultValue (:amount entry-part)})]
+                     :defaultValue (:amount entry-part)
+                     :on-change #(handle-amount-change % owner entry-part)})]
 
         [:div {:horizontal true :layout true}
          [:div {:id "entry-part-cancel"
@@ -62,20 +90,27 @@
                 :raised true
                 :on-click (fn [e]
                             (bg/transitionEntriesBackward)
-                            #_(om/transact! entry
-                                          (fn [x]
-                                            (let [natype (entrytype-from-selectedindex (om/get-state owner :type))
+                            (om/transact! entry-part
+                                          #(assoc % :amount 2605)
+
+                                          #_(fn [x]
+                                            (let [ptype (parttype-from-selectedindex (om/get-state owner :type))
+                                                  pamount (om/get-state owner :amount)
                                                   resultF (assoc x
-                                                            :name (.-value (. js/document (getElementById "entry-part-name")))
-                                                            :type natype
-                                                            :counterWeight (natype entry-type-mappings))]
+                                                            ;;:type ptype
+                                                            :amount pamount
+                                                            ;;:account (natype entry-type-mappings)
+                                                            )]
+
+                                              (bg/console-log (str "... resultF[" resultF "]"))
                                               resultF))))}
           "save"]]]))))
+
 
 (defn handle-currency-change [e owner state]
   (bg/console-log (str "handle-currency-change / e[" e "] owner[" owner "] state[" state "]")))
 
-(defn generate-entry-part-row [ech]
+(defn generate-entry-part-row [ech owner]
 
   (let [part-click-handler (fn [e]
                              (bg/transitionEntriesForward)
@@ -105,9 +140,25 @@
        :currency (:currency entry)
        :content (:content entry)})
 
+    om/IWillReceiveProps
+    (will-receive-props [this next-props]
+      #_(bg/console-log (str "Entry - IWillReceiveProps... next-props[" @next-props "]")))
+
+    om/IWillUpdate
+    (will-update [this next-props next-state]
+      #_(bg/console-log (str "Entry - IWillUpdate... next-prop[" @next-props "] / next-state[" next-state "]")))
+
+    om/IDidUpdate
+    (did-update [this prev-props prev-state]
+      #_(bg/console-log (str "Entry - IDidUpdate... prev-props[" @prev-props "] / prev-state[" prev-state "]")))
+
+    om/IWillUnmount
+    (will-unmount [this]
+      #_(bg/console-log (str "Entry - IWillUnmount")))
+
     om/IRenderState
     (render-state [this state]
-
+      (bg/console-log (str "Entry - IRenderState... state[" state "] / props[" @(om/get-props owner) "]"))
       (html
        [:div {:id "entry-details-pane" :slide-from-right true}
 
@@ -115,7 +166,7 @@
          (mui/date-picker {:id "entry-details-date"
                            :ref "entry-details-date"
                            :name "Date"
-                           :defaultDate (:date entry)
+                           :defaultDate (:date (deref (om/get-props owner)))
 
                            ;; yields"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                            :formatDate (fn [d]
@@ -140,8 +191,8 @@
             [:th "credit"]]]
 
           [:tbody
-           (for [ech (:content entry)]
-             (generate-entry-part-row ech))]]]
+           (for [ech (:content (deref (om/get-props owner)))]
+             (generate-entry-part-row ech owner))]]]
 
         [:div {:horizontal true :layout true}
          [:div {:id "entry-details-cancel"
@@ -173,6 +224,7 @@
              [:div {:class "entry-row"
                     :flex true
                     :on-click (fn [e]
+                                (one ech)
                                 (bg/transitionEntriesForward)
                                 (om/root entry-view
                                          ech
