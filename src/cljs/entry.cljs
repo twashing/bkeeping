@@ -14,6 +14,7 @@
             ))
 
 (defn one [entry]
+  (def entryF entry)
   (defn ^:export two []
     (let [epart (get-in entry [:content 0])]
       (om/transact! epart
@@ -90,15 +91,13 @@
                 :raised true
                 :on-click (fn [e]
                             (bg/transitionEntriesBackward)
-                            (om/transact! entry-part
-                                          #(assoc % :amount 2605)
-
-                                          #_(fn [x]
+                            (om/transact! (get-in entryF [:content 0])
+                                          (fn [x]
                                             (let [ptype (parttype-from-selectedindex (om/get-state owner :type))
                                                   pamount (om/get-state owner :amount)
                                                   resultF (assoc x
                                                             ;;:type ptype
-                                                            :amount pamount
+                                                            :amount (js/parseFloat pamount)
                                                             ;;:account (natype entry-type-mappings)
                                                             )]
 
@@ -191,8 +190,9 @@
             [:th "credit"]]]
 
           [:tbody
-           (for [ech (:content (deref (om/get-props owner)))]
-             (generate-entry-part-row ech owner))]]]
+           (for [[idx itm] (map-indexed (fn [idx itm] [idx itm])
+                                        (:content entry))]
+               (generate-entry-part-row (get-in entry [:content idx])))]]]
 
         [:div {:horizontal true :layout true}
          [:div {:id "entry-details-cancel"
