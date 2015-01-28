@@ -13,6 +13,8 @@
                  [cheshire "5.4.0"]
                  [slingshot "0.12.1"]
                  [com.taoensso/timbre "3.3.1"]
+                 [com.taoensso/sente "1.3.0"]
+                 [com.taoensso/encore "1.20.0"]
                  [noisesmith/groundhog "0.0.4"]
                  [om "0.8.0-rc1"]
                  [sablono "0.2.22"]

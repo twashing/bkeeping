@@ -14,5 +14,15 @@ goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono
 goog.addDependency("../om/core.js", ['om.core'], ['goog.dom', 'cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
 goog.addDependency("../account.js", ['account'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core']);
 goog.addDependency("../entry.js", ['entry'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'goog.string', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core', 'account']);
+goog.addDependency("../taoensso/sente/interfaces.js", ['taoensso.sente.interfaces'], ['cljs.core', 'cljs.reader']);
+goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
+goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
+goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl.channels'], ['cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.timers'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'cljs.core.async.impl.timers']);
+goog.addDependency("../taoensso/encore.js", ['taoensso.encore'], ['goog.net.XhrIoPool', 'goog.net.XhrIo', 'goog.string', 'goog.Uri.QueryData', 'cljs.core', 'goog.string.StringBuffer', 'goog.net.EventType', 'clojure.set', 'goog.structs', 'goog.string.format', 'clojure.string', 'cljs.reader', 'goog.events', 'goog.net.ErrorCode']);
+goog.addDependency("../taoensso/sente.js", ['taoensso.sente'], ['cljs.core', 'taoensso.sente.interfaces', 'cljs.core.async', 'clojure.string', 'taoensso.encore']);
 goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'cljs.core', 'goog.events.EventType', 'cljs.reader', 'goog.events']);
-goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'sablono.core', 'clojure.set', 'om.core', 'account', 'entry']);
+goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'cljs.core.async', 'sablono.core', 'clojure.set', 'taoensso.sente', 'om.core', 'account', 'entry']);

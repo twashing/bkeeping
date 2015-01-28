@@ -53,3 +53,12 @@ goog.addDependency("uri/utils.js", ['goog.uri.utils', 'goog.uri.utils.ComponentI
 goog.addDependency("net/xhrio.js", ['goog.net.XhrIo', 'goog.net.XhrIo.ResponseType'], ['goog.Timer', 'goog.array', 'goog.debug.entryPointRegistry', 'goog.events.EventTarget', 'goog.json', 'goog.log', 'goog.net.ErrorCode', 'goog.net.EventType', 'goog.net.HttpStatus', 'goog.net.XmlHttp', 'goog.object', 'goog.string', 'goog.structs', 'goog.structs.Map', 'goog.uri.utils', 'goog.userAgent']);
 goog.addDependency("uri/uri.js", ['goog.Uri', 'goog.Uri.QueryData'], ['goog.array', 'goog.string', 'goog.structs', 'goog.structs.Map', 'goog.uri.utils', 'goog.uri.utils.ComponentIndex', 'goog.uri.utils.StandardQueryParam']);
 goog.addDependency("ui/idgenerator.js", ['goog.ui.IdGenerator'], []);
+goog.addDependency("structs/node.js", ['goog.structs.Node'], []);
+goog.addDependency("async/nexttick.js", ['goog.async.nextTick', 'goog.async.throwException'], ['goog.debug.entryPointRegistry', 'goog.functions']);
+goog.addDependency("structs/queue.js", ['goog.structs.Queue'], ['goog.array']);
+goog.addDependency("structs/pool.js", ['goog.structs.Pool'], ['goog.Disposable', 'goog.structs.Queue', 'goog.structs.Set']);
+goog.addDependency("structs/heap.js", ['goog.structs.Heap'], ['goog.array', 'goog.object', 'goog.structs.Node']);
+goog.addDependency("structs/priorityqueue.js", ['goog.structs.PriorityQueue'], ['goog.structs.Heap']);
+goog.addDependency("structs/prioritypool.js", ['goog.structs.PriorityPool'], ['goog.structs.Pool', 'goog.structs.PriorityQueue']);
+goog.addDependency("net/xhriopool.js", ['goog.net.XhrIoPool'], ['goog.net.XhrIo', 'goog.structs.PriorityPool']);
+goog.addDependency("string/stringformat.js", ['goog.string.format'], ['goog.string']);

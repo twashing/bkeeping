@@ -12,22 +12,21 @@
             [noisesmith.groundhog :as gh]
             [clj-http.client :as client]
             [cheshire.core :as chesr]
+            [taoensso.sente :as sente]
 
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
 
-#_(defroutes app-routes
-
-  (GET "/" []
-       (-> (ring-resp/response (slurp (io/resource "public/index.html")))
-           (ring-resp/content-type "text/html")))
-
-  (route/resources "/")
-  (route/not-found "Not Found"))
-
-#_(def app
-  (-> app-routes
-      handler/site))
+;; SENTE
+(let [{:keys [ch-recv send-fn ajax-post-fn ajax-get-or-ws-handshake-fn
+              connected-uids]}
+      (sente/make-channel-socket! {})]
+  (def ring-ajax-post                ajax-post-fn)
+  (def ring-ajax-get-or-ws-handshake ajax-get-or-ws-handshake-fn)
+  (def ch-chsk                       ch-recv) ; ChannelSocket's receive channel
+  (def chsk-send!                    send-fn) ; ChannelSocket's send API fn
+  (def connected-uids                connected-uids) ; Watchable, read-only atom
+  )
 
 (defn add-user-ifnil [username]
 
@@ -40,16 +39,14 @@
 
     uresult))
 
-#_(defn start-weasel [ip]
- (cemerick.piggieback/cljs-repl
-   :repl-env (weasel.repl.websocket/repl-env
-              :ip ip :port 9001)))
-
 (defn gen-app []
 
   (bkell/start)
-  #_(start-weasel "172.28.128.4")
   (defroutes app-routes
+
+    ;; SENTE
+    (GET  "/chsk" req (ring-ajax-get-or-ws-handshake req))
+    (POST "/chsk" req (ring-ajax-post                req))
 
     (GET "/" []
 
@@ -95,6 +92,4 @@
       handler/site
       (wrap-session {:cookie-attrs {:max-age 3600}
                      :store (cookie-store {:key "a 16-byte secret"})})
-      #_(wrap-resource "public")
-      #_(wrap-file-info)
       gh/groundhog))
