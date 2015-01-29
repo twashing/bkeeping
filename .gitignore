@@ -10,3 +10,4 @@ pom.xml.asc
 /.nrepl-port
 resources/config.edn
 resources/config-bkeeping.edn
+/logs

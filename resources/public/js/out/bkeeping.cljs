@@ -40,15 +40,17 @@
        (send url (meths method) (when data (pr-str data))
              #js {"Content-Type" "application/edn"}))))
 
-(defn basicHandler [res]
-
+(defn basicHandler [handlefn res]
   (if (= 200 (:status res))
     (do
       (console-log (str "XMLHttpRequest SUCCESS: " res))
-      (.reload window.location))
+      (handlefn))
     (do
       (console-log (str "XMLHttpRequest ERROR: " res))
       (.logout navigator.id))))
+
+(defn basicHandlerS [res]
+  (basicHandler res (fn [inp] (basicHandler #(.reload window.location) res))))
 
 (defn verifyAssertion [assertion]
 
@@ -57,7 +59,8 @@
    {:method :post
     :url "/verify-assertion"
     :data {:assertion assertion}
-    :on-complete basicHandler}))
+    :on-complete (partial basicHandler #(set! (.-location js/window)
+                                              "/landing.html")) }))
 
 (defn signoutUser []
   (console-log "signoutUser CALLED")
@@ -65,4 +68,4 @@
   (edn-xhr
    {:method :get
     :url "/signout"
-    :on-complete basicHandler}))
+    :on-complete basicHandlerS}))

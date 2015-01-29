@@ -63,7 +63,7 @@
                 assertion (:assertion body)
                 response (client/post "https://verifier.login.persona.org/verify"
                                       {:form-params {:assertion assertion
-                                                     :audience audience}})
+                                                     :audience "http://172.28.128.4:3000"}})
                 parsed-body (chesr/parse-string (-> response :body))
                 response-status (parsed-body "status")
                 response-email (parsed-body "email")
@@ -92,15 +92,19 @@
   (-> (gen-app)
       handler/site
       (wrap-session {:cookie-attrs {:max-age 3600}
-                     :store (cookie-store {:key "a 16-byte secret"})})
-))
+                     :store (cookie-store {:key "a 16-byte secret"})})))
 
 
 (defonce http-server_ (atom nil))
 
-(defn stop-http-server! []
-  (when-let [stop-f @http-server_]
-    (stop-f :timeout 100)))
+(defn stop-http-server!
+  ([] (stop-http-server! nil))
+  ([satom]
+   (let [stop-f (if-not (nil? satom)
+                  @satom
+                  @http-server_)]
+     (if-not (nil? stop-f)
+       (stop-f :timeout 100)))))
 
 (defn start-http-server! []
   (stop-http-server!)
