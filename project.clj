@@ -13,6 +13,7 @@
                  [environ "1.0.0"]
                  [cheshire "5.4.0"]
                  [slingshot "0.12.1"]
+                 [im.chit/hara.component "2.1.7"]
                  [com.taoensso/timbre "3.3.1"]
                  [com.taoensso/sente "1.3.0"]
                  [com.taoensso/encore "1.20.0"]
@@ -28,10 +29,7 @@
   :repl-options {:init-ns bkeeping.shell}
 
   :plugins [[lein-ring "0.8.13"]
-            [lein-cljsbuild "1.0.3"] ;; 1.0.3 is a requirement
-            ;;[jarohen/simple-brepl "0.2.1"]
-            ;;[jarohen/simple-brepl "0.1.2"]
-            ]
+            [lein-cljsbuild "1.0.3"]]
 
   :ring {:handler bkeeping.handler/app}
 
@@ -39,7 +37,8 @@
          }
   :profiles {:dev {:source-paths ["src/cljs/" "src/clj/"]
 
-                   :dependencies [[javax.servlet/servlet-api "2.5"]
+                   :dependencies [[alembic "0.3.2"]
+                                  [javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]
 
                    :resource-paths ["resources/public/"]}}

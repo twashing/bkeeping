@@ -9,3 +9,4 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 resources/config.edn
+resources/config-bkeeping.edn

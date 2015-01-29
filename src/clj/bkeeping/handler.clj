@@ -93,13 +93,13 @@
       handler/site
       (wrap-session {:cookie-attrs {:max-age 3600}
                      :store (cookie-store {:key "a 16-byte secret"})})
-      #_gh/groundhog))
+))
 
 
-(defonce *HTTP-SERVER* (atom nil))
+(defonce http-server_ (atom nil))
 
 (defn stop-http-server! []
-  (when-let [stop-f @*HTTP-SERVER*]
+  (when-let [stop-f @http-server_]
     (stop-f :timeout 100)))
 
 (defn start-http-server! []
@@ -107,5 +107,6 @@
   (let [s   (hkit/run-server app {:ip "172.28.128.4"
                                   :port 3000})
         uri (format "http://172.28.128.4:%s/" (:local-port (meta s)))]
-    (reset! *HTTP-SERVER* s)
-    (timbre/debug "Http-kit server is running at `%s`" uri) ))
+    (reset! http-server_ s)
+    (timbre/debug "Http-kit server is running at `%s`" uri)
+    http-server_))

@@ -15,7 +15,7 @@ System started datomic:dev://<your-host>:4334/<DB-NAME>, storing data in: data
 ```
 
 2) Start the bkeeping system with the following steps.
-- Setup your configuration. The simplest way is to copy the template configuration file to `resources/config.edn`. So this command should do it `cp resources/config.edn{.template,}`.
+- Setup your configuration. The simplest way is to copy the template configuration file to `resources/config.edn`. So this command should do it `cp resources/config.edn{.template,}`. Make sure the config contents reflect your files and DB URL.
 - Start a repl. The initial namespace should be `bkeeping.shell`.
 - Invoke the function `(start)`.
 
@@ -26,7 +26,7 @@ System started datomic:dev://<your-host>:4334/<DB-NAME>, storing data in: data
 
 ## Prerequisites
 
-You will need [Leiningen][] 2.0.0 or above installed.
+You will need [Leiningen][https://github.com/technomancy/leiningen] 2.0.0 or above installed.
 
 [leiningen]: https://github.com/technomancy/leiningen
 
