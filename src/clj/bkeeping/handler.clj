@@ -13,6 +13,7 @@
             [clj-http.client :as client]
             [cheshire.core :as chesr]
             [taoensso.sente :as sente]
+            [org.httpkit.server :as hkit]
 
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
@@ -92,4 +93,19 @@
       handler/site
       (wrap-session {:cookie-attrs {:max-age 3600}
                      :store (cookie-store {:key "a 16-byte secret"})})
-      gh/groundhog))
+      #_gh/groundhog))
+
+
+(defonce *HTTP-SERVER* (atom nil))
+
+(defn stop-http-server! []
+  (when-let [stop-f @*HTTP-SERVER*]
+    (stop-f :timeout 100)))
+
+(defn start-http-server! []
+  (stop-http-server!)
+  (let [s   (hkit/run-server app {:ip "172.28.128.4"
+                                  :port 3000})
+        uri (format "http://172.28.128.4:%s/" (:local-port (meta s)))]
+    (reset! *HTTP-SERVER* s)
+    (timbre/debug "Http-kit server is running at `%s`" uri) ))

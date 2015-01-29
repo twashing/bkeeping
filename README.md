@@ -4,6 +4,22 @@ A web frontend library to the [bkell](https://github.com/twashing/bkell) bookkee
 
 ## Usage
 
+Start the system in 2 parts. 
+
+1) Start the datomic transactor, or make sure one is already running. This is typically done with a command like below. For more details, see datomic's [getting started](http://docs.datomic.com/getting-started.html) page.
+```
+$ bin/transactor config/transactor.properties 
+Launching with Java options -server -Xms1g -Xmx1g -XX:+UseG1GC -XX:MaxGCPauseMillis=50
+Starting datomic:dev://<your-host>:4334/<DB-NAME>, storing data in: data ...
+System started datomic:dev://<your-host>:4334/<DB-NAME>, storing data in: data
+```
+
+2) Start the bkeeping system with the following steps.
+- Setup your configuration. The simplest way is to copy the template configuration file to `resources/config.edn`. So this command should do it `cp resources/config.edn{.template,}`.
+- Start a repl. The initial namespace should be `bkeeping.shell`.
+- Invoke the function `(start)`.
+
+
 ## Devops
 
 - `HOST` environment variable needs to be set, to your host's IP address
