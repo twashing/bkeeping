@@ -16,42 +16,42 @@ return account.asset_types.call(null,atype);
 account.accounttype_from_selectedindex = (function accounttype_from_selectedindex(idx){
 return cljs.core.get.call(null,clojure.set.map_invert.call(null,account.asset_types),idx);
 });
-account.handle_name_change = (function handle_name_change(e,owner,p__99129){
-var map__99131 = p__99129;
-var map__99131__$1 = ((cljs.core.seq_QMARK_.call(null,map__99131))?cljs.core.apply.call(null,cljs.core.hash_map,map__99131):map__99131);
-var name = cljs.core.get.call(null,map__99131__$1,new cljs.core.Keyword(null,"name","name",1843675177));
+account.handle_name_change = (function handle_name_change(e,owner,p__203036){
+var map__203038 = p__203036;
+var map__203038__$1 = ((cljs.core.seq_QMARK_.call(null,map__203038))?cljs.core.apply.call(null,cljs.core.hash_map,map__203038):map__203038);
+var name = cljs.core.get.call(null,map__203038__$1,new cljs.core.Keyword(null,"name","name",1843675177));
 return om.core.set_state_BANG_.call(null,owner,new cljs.core.Keyword(null,"name","name",1843675177),e.target.value);
 });
 account.handle_type_change = (function handle_type_change(e,owner,idx){
 return om.core.set_state_BANG_.call(null,owner,new cljs.core.Keyword(null,"type","type",1174270348),idx);
 });
 account.account_view = (function account_view(account__$1,owner){
-if(typeof account.t99138 !== 'undefined'){
+if(typeof account.t203045 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-account.t99138 = (function (owner,account,account_view,meta99139){
+account.t203045 = (function (owner,account,account_view,meta203046){
 this.owner = owner;
 this.account = account;
 this.account_view = account_view;
-this.meta99139 = meta99139;
+this.meta203046 = meta203046;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-account.t99138.prototype.om$core$IRenderState$ = true;
+account.t203045.prototype.om$core$IRenderState$ = true;
 
-account.t99138.prototype.om$core$IRenderState$render_state$arity$2 = (function (this$,state){
+account.t203045.prototype.om$core$IRenderState$render_state$arity$2 = (function (this$,state){
 var self__ = this;
 var this$__$1 = this;
 return React.DOM.div({"id": "account-details-pane", "slideFromRight": true},React.DOM.div({"horizontal": true, "layout": true},sablono.interpreter.interpret.call(null,MaterialUI.Input({"onChange": om_tools.dom.format_opts.call(null,((function (this$__$1){
-return (function (p1__99132_SHARP_){
-return account.handle_name_change.call(null,p1__99132_SHARP_,self__.owner,self__.account);
+return (function (p1__203039_SHARP_){
+return account.handle_name_change.call(null,p1__203039_SHARP_,self__.owner,self__.account);
 });})(this$__$1))
 ), "defaultValue": om_tools.dom.format_opts.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(self__.account)), "ref": "account-details-name", "id": "account-details-name"}))),React.DOM.div({"horizontal": true, "layout": true},sablono.interpreter.interpret.call(null,MaterialUI.DropDownMenu({"menuItems": om_tools.dom.format_opts.call(null,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"asset",new cljs.core.Keyword(null,"text","text",-1790561697),"Asset"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"liability",new cljs.core.Keyword(null,"text","text",-1790561697),"Liability"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"revenue",new cljs.core.Keyword(null,"text","text",-1790561697),"Revenue"], null),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"payload","payload",-383036092),"expense",new cljs.core.Keyword(null,"text","text",-1790561697),"Expense",new cljs.core.Keyword(null,"selected","selected",574897764),true], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"payload","payload",-383036092),"capital",new cljs.core.Keyword(null,"text","text",-1790561697),"Capital"], null)], null))), "onChange": om_tools.dom.format_opts.call(null,((function (this$__$1){
-return (function (p1__99133_SHARP_,p2__99134_SHARP_){
-return account.handle_type_change.call(null,p1__99133_SHARP_,self__.owner,p2__99134_SHARP_);
+return (function (p1__203040_SHARP_,p2__203041_SHARP_){
+return account.handle_type_change.call(null,p1__203040_SHARP_,self__.owner,p2__203041_SHARP_);
 });})(this$__$1))
 ), "selectedIndex": om_tools.dom.format_opts.call(null,om.core.get_state.call(null,self__.owner,new cljs.core.Keyword(null,"type","type",1174270348))), "autoWidth": false, "ref": "account-details-type", "id": "account-details-type"}))),React.DOM.div({"horizontal": true, "layout": true},React.DOM.div({"id": "account-details-cancel", "noink": true, "raised": true, "onClick": bkeeping.transitionAccountsBackward},"cancel"),React.DOM.div({"id": "account-details-save", "noink": true, "raised": true, "onClick": ((function (this$__$1){
 return (function (e){
@@ -68,89 +68,89 @@ return resultF;
 },"save")));
 });
 
-account.t99138.prototype.om$core$IInitState$ = true;
+account.t203045.prototype.om$core$IInitState$ = true;
 
-account.t99138.prototype.om$core$IInitState$init_state$arity$1 = (function (_){
+account.t203045.prototype.om$core$IInitState$init_state$arity$1 = (function (_){
 var self__ = this;
 var ___$1 = this;
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(self__.account),new cljs.core.Keyword(null,"type","type",1174270348),account.selectedindex_from_account_type.call(null,new cljs.core.Keyword(null,"type","type",1174270348).cljs$core$IFn$_invoke$arity$1(self__.account))], null);
 });
 
-account.t99138.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_99140){
+account.t203045.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_203047){
 var self__ = this;
-var _99140__$1 = this;
-return self__.meta99139;
+var _203047__$1 = this;
+return self__.meta203046;
 });
 
-account.t99138.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_99140,meta99139__$1){
+account.t203045.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_203047,meta203046__$1){
 var self__ = this;
-var _99140__$1 = this;
-return (new account.t99138(self__.owner,self__.account,self__.account_view,meta99139__$1));
+var _203047__$1 = this;
+return (new account.t203045(self__.owner,self__.account,self__.account_view,meta203046__$1));
 });
 
-account.t99138.cljs$lang$type = true;
+account.t203045.cljs$lang$type = true;
 
-account.t99138.cljs$lang$ctorStr = "account/t99138";
+account.t203045.cljs$lang$ctorStr = "account/t203045";
 
-account.t99138.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"account/t99138");
+account.t203045.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"account/t203045");
 });
 
-account.__GT_t99138 = (function __GT_t99138(owner__$1,account__$2,account_view__$1,meta99139){
-return (new account.t99138(owner__$1,account__$2,account_view__$1,meta99139));
+account.__GT_t203045 = (function __GT_t203045(owner__$1,account__$2,account_view__$1,meta203046){
+return (new account.t203045(owner__$1,account__$2,account_view__$1,meta203046));
 });
 
 }
 
-return (new account.t99138(owner,account__$1,account_view,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),23,new cljs.core.Keyword(null,"end-line","end-line",1837326455),87,new cljs.core.Keyword(null,"column","column",2078222095),3,new cljs.core.Keyword(null,"line","line",212345235),38,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/account.cljs"], null)));
+return (new account.t203045(owner,account__$1,account_view,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"end-column","end-column",1425389514),23,new cljs.core.Keyword(null,"end-line","end-line",1837326455),87,new cljs.core.Keyword(null,"column","column",2078222095),3,new cljs.core.Keyword(null,"line","line",212345235),38,new cljs.core.Keyword(null,"file","file",-1269645878),"/home/twashing/Projects/bkeeping/src/cljs/account.cljs"], null)));
 });
 account.accounts_view = (function accounts_view(state,owner){
-if(typeof account.t99150 !== 'undefined'){
+if(typeof account.t203057 !== 'undefined'){
 } else {
 
 /**
 * @constructor
 */
-account.t99150 = (function (owner,state,accounts_view,meta99151){
+account.t203057 = (function (owner,state,accounts_view,meta203058){
 this.owner = owner;
 this.state = state;
 this.accounts_view = accounts_view;
-this.meta99151 = meta99151;
+this.meta203058 = meta203058;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-account.t99150.prototype.om$core$IRender$ = true;
+account.t203057.prototype.om$core$IRender$ = true;
 
-account.t99150.prototype.om$core$IRender$render$arity$1 = (function (this__9858__auto__){
+account.t203057.prototype.om$core$IRender$render$arity$1 = (function (this__9858__auto__){
 var self__ = this;
 var this__9858__auto____$1 = this;
 return React.DOM.div({"id": "accounts-pane", "slideFromRight": true},cljs.core.into_array.call(null,(function (){var iter__4378__auto__ = ((function (this__9858__auto____$1){
-return (function iter__99155(s__99156){
+return (function iter__203062(s__203063){
 return (new cljs.core.LazySeq(null,((function (this__9858__auto____$1){
 return (function (){
-var s__99156__$1 = s__99156;
+var s__203063__$1 = s__203063;
 while(true){
-var temp__4126__auto__ = cljs.core.seq.call(null,s__99156__$1);
+var temp__4126__auto__ = cljs.core.seq.call(null,s__203063__$1);
 if(temp__4126__auto__){
-var s__99156__$2 = temp__4126__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__99156__$2)){
-var c__4376__auto__ = cljs.core.chunk_first.call(null,s__99156__$2);
+var s__203063__$2 = temp__4126__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__203063__$2)){
+var c__4376__auto__ = cljs.core.chunk_first.call(null,s__203063__$2);
 var size__4377__auto__ = cljs.core.count.call(null,c__4376__auto__);
-var b__99158 = cljs.core.chunk_buffer.call(null,size__4377__auto__);
-if((function (){var i__99157 = (0);
+var b__203065 = cljs.core.chunk_buffer.call(null,size__4377__auto__);
+if((function (){var i__203064 = (0);
 while(true){
-if((i__99157 < size__4377__auto__)){
-var ech = cljs.core._nth.call(null,c__4376__auto__,i__99157);
-cljs.core.chunk_append.call(null,b__99158,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (i__99157,ech,c__4376__auto__,size__4377__auto__,b__99158,s__99156__$2,temp__4126__auto__,this__9858__auto____$1){
+if((i__203064 < size__4377__auto__)){
+var ech = cljs.core._nth.call(null,c__4376__auto__,i__203064);
+cljs.core.chunk_append.call(null,b__203065,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (i__203064,ech,c__4376__auto__,size__4377__auto__,b__203065,s__203063__$2,temp__4126__auto__,this__9858__auto____$1){
 return (function (e){
 bkeeping.transitionAccountsForward.call(null);
 
 return om.core.root.call(null,account.account_view,ech,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("account-section")], null));
-});})(i__99157,ech,c__4376__auto__,size__4377__auto__,b__99158,s__99156__$2,temp__4126__auto__,this__9858__auto____$1))
+});})(i__203064,ech,c__4376__auto__,size__4377__auto__,b__203065,s__203063__$2,temp__4126__auto__,this__9858__auto____$1))
 },sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))));
 
-var G__99159 = (i__99157 + (1));
-i__99157 = G__99159;
+var G__203066 = (i__203064 + (1));
+i__203064 = G__203066;
 continue;
 } else {
 return true;
@@ -158,19 +158,19 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__99158),iter__99155.call(null,cljs.core.chunk_rest.call(null,s__99156__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__203065),iter__203062.call(null,cljs.core.chunk_rest.call(null,s__203063__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__99158),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__203065),null);
 }
 } else {
-var ech = cljs.core.first.call(null,s__99156__$2);
-return cljs.core.cons.call(null,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (ech,s__99156__$2,temp__4126__auto__,this__9858__auto____$1){
+var ech = cljs.core.first.call(null,s__203063__$2);
+return cljs.core.cons.call(null,React.DOM.div({"className": "delete-account-row", "horizontal": true, "layout": true},React.DOM.div({"className": "delete-account-button"}),React.DOM.div({"className": "account-row", "flex": true, "onClick": ((function (ech,s__203063__$2,temp__4126__auto__,this__9858__auto____$1){
 return (function (e){
 bkeeping.transitionAccountsForward.call(null);
 
 return om.core.root.call(null,account.account_view,ech,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("account-section")], null));
-});})(ech,s__99156__$2,temp__4126__auto__,this__9858__auto____$1))
-},sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))),iter__99155.call(null,cljs.core.rest.call(null,s__99156__$2)));
+});})(ech,s__203063__$2,temp__4126__auto__,this__9858__auto____$1))
+},sablono.interpreter.interpret.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(ech)))),iter__203062.call(null,cljs.core.rest.call(null,s__203063__$2)));
 }
 } else {
 return null;
@@ -185,33 +185,33 @@ return iter__4378__auto__.call(null,new cljs.core.Keyword(null,"accounts","accou
 })()));
 });
 
-account.t99150.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_99152){
+account.t203057.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_203059){
 var self__ = this;
-var _99152__$1 = this;
-return self__.meta99151;
+var _203059__$1 = this;
+return self__.meta203058;
 });
 
-account.t99150.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_99152,meta99151__$1){
+account.t203057.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_203059,meta203058__$1){
 var self__ = this;
-var _99152__$1 = this;
-return (new account.t99150(self__.owner,self__.state,self__.accounts_view,meta99151__$1));
+var _203059__$1 = this;
+return (new account.t203057(self__.owner,self__.state,self__.accounts_view,meta203058__$1));
 });
 
-account.t99150.cljs$lang$type = true;
+account.t203057.cljs$lang$type = true;
 
-account.t99150.cljs$lang$ctorStr = "account/t99150";
+account.t203057.cljs$lang$ctorStr = "account/t203057";
 
-account.t99150.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
-return cljs.core._write.call(null,writer__4210__auto__,"account/t99150");
+account.t203057.cljs$lang$ctorPrWriter = (function (this__4209__auto__,writer__4210__auto__,opt__4211__auto__){
+return cljs.core._write.call(null,writer__4210__auto__,"account/t203057");
 });
 
-account.__GT_t99150 = (function __GT_t99150(owner__$1,state__$1,accounts_view__$1,meta99151){
-return (new account.t99150(owner__$1,state__$1,accounts_view__$1,meta99151));
+account.__GT_t203057 = (function __GT_t203057(owner__$1,state__$1,accounts_view__$1,meta203058){
+return (new account.t203057(owner__$1,state__$1,accounts_view__$1,meta203058));
 });
 
 }
 
-return (new account.t99150(owner,state,accounts_view,null));
+return (new account.t203057(owner,state,accounts_view,null));
 });
 
 //# sourceMappingURL=account.js.map

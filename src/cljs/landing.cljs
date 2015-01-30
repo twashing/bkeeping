@@ -26,8 +26,37 @@
   (def chsk-state state)   ; Watchable, read-only atom
   )
 
+(defmulti event-msg-handler :id)
+
+(defmethod event-msg-handler :server/default ; Fallback
+  [{:as ev-msg :keys [event]}]
+  (bg/console-log (str "default event: " event)))
+
+(defmethod event-msg-handler :chsk/state
+  [{:as ev-msg :keys [?data]}]
+  (if (= ?data {:first-open? true})
+    (bg/console-log "Channel socket successfully established!")
+    (bg/console-log (str "Channel socket state change: " ?data))))
+
+(defmethod event-msg-handler :chsk/recv
+  [{:as ev-msg :keys [?data]}]
+  (bg/console-log (str "Push event from server: " ?data)))
+
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+  (bg/console-log (str "Event: " event))
+  (event-msg-handler ev-msg))
+
+(def router_ (atom nil))
+(defn stop-router! [] (when-let [stop-f @router_] (stop-f)))
+(defn start-router! []
+  (stop-router!)
+  (reset! router_ (sente/start-chsk-router! ch-chsk event-msg-handler*)))
+
+(start-router!)
+
+
 (defn ^:export sendMessage [msg]
-  (chsk-send! [:t/default msg]))
+  (chsk-send! [:client/default msg]))
 
 (def app-state
   (atom {:name "main"

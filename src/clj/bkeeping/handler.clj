@@ -22,13 +22,54 @@
 ;; SENTE
 (let [{:keys [ch-recv send-fn ajax-post-fn ajax-get-or-ws-handshake-fn
               connected-uids]}
-      (sente/make-channel-socket! {})]
+      (sente/make-channel-socket! {} #_{:user-id-fn #(java.util.UUID/randomUUID)})]
   (def ring-ajax-post                ajax-post-fn)
   (def ring-ajax-get-or-ws-handshake ajax-get-or-ws-handshake-fn)
   (def ch-chsk                       ch-recv) ; ChannelSocket's receive channel
   (def chsk-send!                    send-fn) ; ChannelSocket's send API fn
   (def connected-uids                connected-uids) ; Watchable, read-only atom
   )
+
+
+(defn broadcast-toclients [msg]
+  (doseq [uid (:any @connected-uids)]
+    (chsk-send! uid msg)))
+
+(defmulti event-msg-handler :id)
+
+(defmethod event-msg-handler :default
+  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
+  (let [session (:session ring-req)
+        uid     (:uid     session)]
+
+    (timbre/debug (str "default event: " event))
+    (when ?reply-fn
+      (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
+
+#_(defmethod event-msg-handler :chsk/uidport-open
+  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
+  (let [session (:session ring-req)
+        uid     (:uid     session)]
+
+    (timbre/debug (str "chsk/uidport-open event: " event))
+    (assoc )))
+
+;; Add your (defmethod event-msg-handler <event-id> [ev-msg] <body>)s here...
+
+
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+  #_(timbre/debug (str "Event: " event))
+  (event-msg-handler ev-msg))
+
+(defonce router_ (atom nil))
+
+(defn stop-router! []
+  (when-let [stop-f @router_] (stop-f)))
+
+(defn start-router! []
+  (stop-router!)
+  (reset! router_ (sente/start-chsk-router! ch-chsk event-msg-handler*)))
+
 
 (defn add-user-ifnil [username]
 
@@ -40,34 +81,6 @@
             (timbre/debug "SUCCESS: adding user [" username "]"))]
 
     uresult))
-
-
-(defmulti event-msg-handler :id)
-
-(defmethod event-msg-handler :default ; Fallback
-  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
-  (let [session (:session ring-req)
-        uid     (:uid     session)]
-
-    (timbre/debug (str "default event: " event))
-    (when ?reply-fn
-      (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
-
-;; Add your (defmethod event-msg-handler <event-id> [ev-msg] <body>)s here...
-
-
-(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  (timbre/debug (str "Event: " event))
-  (event-msg-handler ev-msg))
-
-(defonce router_ (atom nil))
-
-(defn stop-router! []
-  (when-let [stop-f @router_] (stop-f)))
-
-(defn start-router! []
-  (stop-router!)
-  (reset! router_ (sente/start-chsk-router! ch-chsk event-msg-handler*)))
 
 (defn gen-app []
 
