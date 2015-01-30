@@ -16,9 +16,9 @@ if (arguments.length > 1) {
 } 
 return a__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 a.cljs$lang$maxFixedArity = 1;
-a.cljs$lang$applyTo = (function (arglist__204496){
-var opts__5791__auto__ = cljs.core.first(arglist__204496);
-var children__5792__auto__ = cljs.core.rest(arglist__204496);
+a.cljs$lang$applyTo = (function (arglist__262884){
+var opts__5791__auto__ = cljs.core.first(arglist__262884);
+var children__5792__auto__ = cljs.core.rest(arglist__262884);
 return a__delegate(opts__5791__auto__,children__5792__auto__);
 });
 a.cljs$core$IFn$_invoke$arity$variadic = a__delegate;
@@ -40,9 +40,9 @@ if (arguments.length > 1) {
 } 
 return abbr__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 abbr.cljs$lang$maxFixedArity = 1;
-abbr.cljs$lang$applyTo = (function (arglist__204497){
-var opts__5791__auto__ = cljs.core.first(arglist__204497);
-var children__5792__auto__ = cljs.core.rest(arglist__204497);
+abbr.cljs$lang$applyTo = (function (arglist__262885){
+var opts__5791__auto__ = cljs.core.first(arglist__262885);
+var children__5792__auto__ = cljs.core.rest(arglist__262885);
 return abbr__delegate(opts__5791__auto__,children__5792__auto__);
 });
 abbr.cljs$core$IFn$_invoke$arity$variadic = abbr__delegate;
@@ -64,9 +64,9 @@ if (arguments.length > 1) {
 } 
 return address__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 address.cljs$lang$maxFixedArity = 1;
-address.cljs$lang$applyTo = (function (arglist__204498){
-var opts__5791__auto__ = cljs.core.first(arglist__204498);
-var children__5792__auto__ = cljs.core.rest(arglist__204498);
+address.cljs$lang$applyTo = (function (arglist__262886){
+var opts__5791__auto__ = cljs.core.first(arglist__262886);
+var children__5792__auto__ = cljs.core.rest(arglist__262886);
 return address__delegate(opts__5791__auto__,children__5792__auto__);
 });
 address.cljs$core$IFn$_invoke$arity$variadic = address__delegate;
@@ -88,9 +88,9 @@ if (arguments.length > 1) {
 } 
 return area__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 area.cljs$lang$maxFixedArity = 1;
-area.cljs$lang$applyTo = (function (arglist__204499){
-var opts__5791__auto__ = cljs.core.first(arglist__204499);
-var children__5792__auto__ = cljs.core.rest(arglist__204499);
+area.cljs$lang$applyTo = (function (arglist__262887){
+var opts__5791__auto__ = cljs.core.first(arglist__262887);
+var children__5792__auto__ = cljs.core.rest(arglist__262887);
 return area__delegate(opts__5791__auto__,children__5792__auto__);
 });
 area.cljs$core$IFn$_invoke$arity$variadic = area__delegate;
@@ -112,9 +112,9 @@ if (arguments.length > 1) {
 } 
 return article__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 article.cljs$lang$maxFixedArity = 1;
-article.cljs$lang$applyTo = (function (arglist__204500){
-var opts__5791__auto__ = cljs.core.first(arglist__204500);
-var children__5792__auto__ = cljs.core.rest(arglist__204500);
+article.cljs$lang$applyTo = (function (arglist__262888){
+var opts__5791__auto__ = cljs.core.first(arglist__262888);
+var children__5792__auto__ = cljs.core.rest(arglist__262888);
 return article__delegate(opts__5791__auto__,children__5792__auto__);
 });
 article.cljs$core$IFn$_invoke$arity$variadic = article__delegate;
@@ -136,9 +136,9 @@ if (arguments.length > 1) {
 } 
 return aside__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 aside.cljs$lang$maxFixedArity = 1;
-aside.cljs$lang$applyTo = (function (arglist__204501){
-var opts__5791__auto__ = cljs.core.first(arglist__204501);
-var children__5792__auto__ = cljs.core.rest(arglist__204501);
+aside.cljs$lang$applyTo = (function (arglist__262889){
+var opts__5791__auto__ = cljs.core.first(arglist__262889);
+var children__5792__auto__ = cljs.core.rest(arglist__262889);
 return aside__delegate(opts__5791__auto__,children__5792__auto__);
 });
 aside.cljs$core$IFn$_invoke$arity$variadic = aside__delegate;
@@ -160,9 +160,9 @@ if (arguments.length > 1) {
 } 
 return audio__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 audio.cljs$lang$maxFixedArity = 1;
-audio.cljs$lang$applyTo = (function (arglist__204502){
-var opts__5791__auto__ = cljs.core.first(arglist__204502);
-var children__5792__auto__ = cljs.core.rest(arglist__204502);
+audio.cljs$lang$applyTo = (function (arglist__262890){
+var opts__5791__auto__ = cljs.core.first(arglist__262890);
+var children__5792__auto__ = cljs.core.rest(arglist__262890);
 return audio__delegate(opts__5791__auto__,children__5792__auto__);
 });
 audio.cljs$core$IFn$_invoke$arity$variadic = audio__delegate;
@@ -184,9 +184,9 @@ if (arguments.length > 1) {
 } 
 return b__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 b.cljs$lang$maxFixedArity = 1;
-b.cljs$lang$applyTo = (function (arglist__204503){
-var opts__5791__auto__ = cljs.core.first(arglist__204503);
-var children__5792__auto__ = cljs.core.rest(arglist__204503);
+b.cljs$lang$applyTo = (function (arglist__262891){
+var opts__5791__auto__ = cljs.core.first(arglist__262891);
+var children__5792__auto__ = cljs.core.rest(arglist__262891);
 return b__delegate(opts__5791__auto__,children__5792__auto__);
 });
 b.cljs$core$IFn$_invoke$arity$variadic = b__delegate;
@@ -208,9 +208,9 @@ if (arguments.length > 1) {
 } 
 return base__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 base.cljs$lang$maxFixedArity = 1;
-base.cljs$lang$applyTo = (function (arglist__204504){
-var opts__5791__auto__ = cljs.core.first(arglist__204504);
-var children__5792__auto__ = cljs.core.rest(arglist__204504);
+base.cljs$lang$applyTo = (function (arglist__262892){
+var opts__5791__auto__ = cljs.core.first(arglist__262892);
+var children__5792__auto__ = cljs.core.rest(arglist__262892);
 return base__delegate(opts__5791__auto__,children__5792__auto__);
 });
 base.cljs$core$IFn$_invoke$arity$variadic = base__delegate;
@@ -232,9 +232,9 @@ if (arguments.length > 1) {
 } 
 return bdi__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 bdi.cljs$lang$maxFixedArity = 1;
-bdi.cljs$lang$applyTo = (function (arglist__204505){
-var opts__5791__auto__ = cljs.core.first(arglist__204505);
-var children__5792__auto__ = cljs.core.rest(arglist__204505);
+bdi.cljs$lang$applyTo = (function (arglist__262893){
+var opts__5791__auto__ = cljs.core.first(arglist__262893);
+var children__5792__auto__ = cljs.core.rest(arglist__262893);
 return bdi__delegate(opts__5791__auto__,children__5792__auto__);
 });
 bdi.cljs$core$IFn$_invoke$arity$variadic = bdi__delegate;
@@ -256,9 +256,9 @@ if (arguments.length > 1) {
 } 
 return bdo__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 bdo.cljs$lang$maxFixedArity = 1;
-bdo.cljs$lang$applyTo = (function (arglist__204506){
-var opts__5791__auto__ = cljs.core.first(arglist__204506);
-var children__5792__auto__ = cljs.core.rest(arglist__204506);
+bdo.cljs$lang$applyTo = (function (arglist__262894){
+var opts__5791__auto__ = cljs.core.first(arglist__262894);
+var children__5792__auto__ = cljs.core.rest(arglist__262894);
 return bdo__delegate(opts__5791__auto__,children__5792__auto__);
 });
 bdo.cljs$core$IFn$_invoke$arity$variadic = bdo__delegate;
@@ -280,9 +280,9 @@ if (arguments.length > 1) {
 } 
 return big__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 big.cljs$lang$maxFixedArity = 1;
-big.cljs$lang$applyTo = (function (arglist__204507){
-var opts__5791__auto__ = cljs.core.first(arglist__204507);
-var children__5792__auto__ = cljs.core.rest(arglist__204507);
+big.cljs$lang$applyTo = (function (arglist__262895){
+var opts__5791__auto__ = cljs.core.first(arglist__262895);
+var children__5792__auto__ = cljs.core.rest(arglist__262895);
 return big__delegate(opts__5791__auto__,children__5792__auto__);
 });
 big.cljs$core$IFn$_invoke$arity$variadic = big__delegate;
@@ -304,9 +304,9 @@ if (arguments.length > 1) {
 } 
 return blockquote__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 blockquote.cljs$lang$maxFixedArity = 1;
-blockquote.cljs$lang$applyTo = (function (arglist__204508){
-var opts__5791__auto__ = cljs.core.first(arglist__204508);
-var children__5792__auto__ = cljs.core.rest(arglist__204508);
+blockquote.cljs$lang$applyTo = (function (arglist__262896){
+var opts__5791__auto__ = cljs.core.first(arglist__262896);
+var children__5792__auto__ = cljs.core.rest(arglist__262896);
 return blockquote__delegate(opts__5791__auto__,children__5792__auto__);
 });
 blockquote.cljs$core$IFn$_invoke$arity$variadic = blockquote__delegate;
@@ -328,9 +328,9 @@ if (arguments.length > 1) {
 } 
 return body__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 body.cljs$lang$maxFixedArity = 1;
-body.cljs$lang$applyTo = (function (arglist__204509){
-var opts__5791__auto__ = cljs.core.first(arglist__204509);
-var children__5792__auto__ = cljs.core.rest(arglist__204509);
+body.cljs$lang$applyTo = (function (arglist__262897){
+var opts__5791__auto__ = cljs.core.first(arglist__262897);
+var children__5792__auto__ = cljs.core.rest(arglist__262897);
 return body__delegate(opts__5791__auto__,children__5792__auto__);
 });
 body.cljs$core$IFn$_invoke$arity$variadic = body__delegate;
@@ -352,9 +352,9 @@ if (arguments.length > 1) {
 } 
 return br__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 br.cljs$lang$maxFixedArity = 1;
-br.cljs$lang$applyTo = (function (arglist__204510){
-var opts__5791__auto__ = cljs.core.first(arglist__204510);
-var children__5792__auto__ = cljs.core.rest(arglist__204510);
+br.cljs$lang$applyTo = (function (arglist__262898){
+var opts__5791__auto__ = cljs.core.first(arglist__262898);
+var children__5792__auto__ = cljs.core.rest(arglist__262898);
 return br__delegate(opts__5791__auto__,children__5792__auto__);
 });
 br.cljs$core$IFn$_invoke$arity$variadic = br__delegate;
@@ -376,9 +376,9 @@ if (arguments.length > 1) {
 } 
 return button__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 button.cljs$lang$maxFixedArity = 1;
-button.cljs$lang$applyTo = (function (arglist__204511){
-var opts__5791__auto__ = cljs.core.first(arglist__204511);
-var children__5792__auto__ = cljs.core.rest(arglist__204511);
+button.cljs$lang$applyTo = (function (arglist__262899){
+var opts__5791__auto__ = cljs.core.first(arglist__262899);
+var children__5792__auto__ = cljs.core.rest(arglist__262899);
 return button__delegate(opts__5791__auto__,children__5792__auto__);
 });
 button.cljs$core$IFn$_invoke$arity$variadic = button__delegate;
@@ -400,9 +400,9 @@ if (arguments.length > 1) {
 } 
 return canvas__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 canvas.cljs$lang$maxFixedArity = 1;
-canvas.cljs$lang$applyTo = (function (arglist__204512){
-var opts__5791__auto__ = cljs.core.first(arglist__204512);
-var children__5792__auto__ = cljs.core.rest(arglist__204512);
+canvas.cljs$lang$applyTo = (function (arglist__262900){
+var opts__5791__auto__ = cljs.core.first(arglist__262900);
+var children__5792__auto__ = cljs.core.rest(arglist__262900);
 return canvas__delegate(opts__5791__auto__,children__5792__auto__);
 });
 canvas.cljs$core$IFn$_invoke$arity$variadic = canvas__delegate;
@@ -424,9 +424,9 @@ if (arguments.length > 1) {
 } 
 return caption__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 caption.cljs$lang$maxFixedArity = 1;
-caption.cljs$lang$applyTo = (function (arglist__204513){
-var opts__5791__auto__ = cljs.core.first(arglist__204513);
-var children__5792__auto__ = cljs.core.rest(arglist__204513);
+caption.cljs$lang$applyTo = (function (arglist__262901){
+var opts__5791__auto__ = cljs.core.first(arglist__262901);
+var children__5792__auto__ = cljs.core.rest(arglist__262901);
 return caption__delegate(opts__5791__auto__,children__5792__auto__);
 });
 caption.cljs$core$IFn$_invoke$arity$variadic = caption__delegate;
@@ -448,9 +448,9 @@ if (arguments.length > 1) {
 } 
 return cite__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 cite.cljs$lang$maxFixedArity = 1;
-cite.cljs$lang$applyTo = (function (arglist__204514){
-var opts__5791__auto__ = cljs.core.first(arglist__204514);
-var children__5792__auto__ = cljs.core.rest(arglist__204514);
+cite.cljs$lang$applyTo = (function (arglist__262902){
+var opts__5791__auto__ = cljs.core.first(arglist__262902);
+var children__5792__auto__ = cljs.core.rest(arglist__262902);
 return cite__delegate(opts__5791__auto__,children__5792__auto__);
 });
 cite.cljs$core$IFn$_invoke$arity$variadic = cite__delegate;
@@ -472,9 +472,9 @@ if (arguments.length > 1) {
 } 
 return code__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 code.cljs$lang$maxFixedArity = 1;
-code.cljs$lang$applyTo = (function (arglist__204515){
-var opts__5791__auto__ = cljs.core.first(arglist__204515);
-var children__5792__auto__ = cljs.core.rest(arglist__204515);
+code.cljs$lang$applyTo = (function (arglist__262903){
+var opts__5791__auto__ = cljs.core.first(arglist__262903);
+var children__5792__auto__ = cljs.core.rest(arglist__262903);
 return code__delegate(opts__5791__auto__,children__5792__auto__);
 });
 code.cljs$core$IFn$_invoke$arity$variadic = code__delegate;
@@ -496,9 +496,9 @@ if (arguments.length > 1) {
 } 
 return col__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 col.cljs$lang$maxFixedArity = 1;
-col.cljs$lang$applyTo = (function (arglist__204516){
-var opts__5791__auto__ = cljs.core.first(arglist__204516);
-var children__5792__auto__ = cljs.core.rest(arglist__204516);
+col.cljs$lang$applyTo = (function (arglist__262904){
+var opts__5791__auto__ = cljs.core.first(arglist__262904);
+var children__5792__auto__ = cljs.core.rest(arglist__262904);
 return col__delegate(opts__5791__auto__,children__5792__auto__);
 });
 col.cljs$core$IFn$_invoke$arity$variadic = col__delegate;
@@ -520,9 +520,9 @@ if (arguments.length > 1) {
 } 
 return colgroup__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 colgroup.cljs$lang$maxFixedArity = 1;
-colgroup.cljs$lang$applyTo = (function (arglist__204517){
-var opts__5791__auto__ = cljs.core.first(arglist__204517);
-var children__5792__auto__ = cljs.core.rest(arglist__204517);
+colgroup.cljs$lang$applyTo = (function (arglist__262905){
+var opts__5791__auto__ = cljs.core.first(arglist__262905);
+var children__5792__auto__ = cljs.core.rest(arglist__262905);
 return colgroup__delegate(opts__5791__auto__,children__5792__auto__);
 });
 colgroup.cljs$core$IFn$_invoke$arity$variadic = colgroup__delegate;
@@ -544,9 +544,9 @@ if (arguments.length > 1) {
 } 
 return data__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 data.cljs$lang$maxFixedArity = 1;
-data.cljs$lang$applyTo = (function (arglist__204518){
-var opts__5791__auto__ = cljs.core.first(arglist__204518);
-var children__5792__auto__ = cljs.core.rest(arglist__204518);
+data.cljs$lang$applyTo = (function (arglist__262906){
+var opts__5791__auto__ = cljs.core.first(arglist__262906);
+var children__5792__auto__ = cljs.core.rest(arglist__262906);
 return data__delegate(opts__5791__auto__,children__5792__auto__);
 });
 data.cljs$core$IFn$_invoke$arity$variadic = data__delegate;
@@ -568,9 +568,9 @@ if (arguments.length > 1) {
 } 
 return datalist__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 datalist.cljs$lang$maxFixedArity = 1;
-datalist.cljs$lang$applyTo = (function (arglist__204519){
-var opts__5791__auto__ = cljs.core.first(arglist__204519);
-var children__5792__auto__ = cljs.core.rest(arglist__204519);
+datalist.cljs$lang$applyTo = (function (arglist__262907){
+var opts__5791__auto__ = cljs.core.first(arglist__262907);
+var children__5792__auto__ = cljs.core.rest(arglist__262907);
 return datalist__delegate(opts__5791__auto__,children__5792__auto__);
 });
 datalist.cljs$core$IFn$_invoke$arity$variadic = datalist__delegate;
@@ -592,9 +592,9 @@ if (arguments.length > 1) {
 } 
 return dd__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 dd.cljs$lang$maxFixedArity = 1;
-dd.cljs$lang$applyTo = (function (arglist__204520){
-var opts__5791__auto__ = cljs.core.first(arglist__204520);
-var children__5792__auto__ = cljs.core.rest(arglist__204520);
+dd.cljs$lang$applyTo = (function (arglist__262908){
+var opts__5791__auto__ = cljs.core.first(arglist__262908);
+var children__5792__auto__ = cljs.core.rest(arglist__262908);
 return dd__delegate(opts__5791__auto__,children__5792__auto__);
 });
 dd.cljs$core$IFn$_invoke$arity$variadic = dd__delegate;
@@ -616,9 +616,9 @@ if (arguments.length > 1) {
 } 
 return del__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 del.cljs$lang$maxFixedArity = 1;
-del.cljs$lang$applyTo = (function (arglist__204521){
-var opts__5791__auto__ = cljs.core.first(arglist__204521);
-var children__5792__auto__ = cljs.core.rest(arglist__204521);
+del.cljs$lang$applyTo = (function (arglist__262909){
+var opts__5791__auto__ = cljs.core.first(arglist__262909);
+var children__5792__auto__ = cljs.core.rest(arglist__262909);
 return del__delegate(opts__5791__auto__,children__5792__auto__);
 });
 del.cljs$core$IFn$_invoke$arity$variadic = del__delegate;
@@ -640,9 +640,9 @@ if (arguments.length > 1) {
 } 
 return dfn__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 dfn.cljs$lang$maxFixedArity = 1;
-dfn.cljs$lang$applyTo = (function (arglist__204522){
-var opts__5791__auto__ = cljs.core.first(arglist__204522);
-var children__5792__auto__ = cljs.core.rest(arglist__204522);
+dfn.cljs$lang$applyTo = (function (arglist__262910){
+var opts__5791__auto__ = cljs.core.first(arglist__262910);
+var children__5792__auto__ = cljs.core.rest(arglist__262910);
 return dfn__delegate(opts__5791__auto__,children__5792__auto__);
 });
 dfn.cljs$core$IFn$_invoke$arity$variadic = dfn__delegate;
@@ -664,9 +664,9 @@ if (arguments.length > 1) {
 } 
 return div__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 div.cljs$lang$maxFixedArity = 1;
-div.cljs$lang$applyTo = (function (arglist__204523){
-var opts__5791__auto__ = cljs.core.first(arglist__204523);
-var children__5792__auto__ = cljs.core.rest(arglist__204523);
+div.cljs$lang$applyTo = (function (arglist__262911){
+var opts__5791__auto__ = cljs.core.first(arglist__262911);
+var children__5792__auto__ = cljs.core.rest(arglist__262911);
 return div__delegate(opts__5791__auto__,children__5792__auto__);
 });
 div.cljs$core$IFn$_invoke$arity$variadic = div__delegate;
@@ -688,9 +688,9 @@ if (arguments.length > 1) {
 } 
 return dl__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 dl.cljs$lang$maxFixedArity = 1;
-dl.cljs$lang$applyTo = (function (arglist__204524){
-var opts__5791__auto__ = cljs.core.first(arglist__204524);
-var children__5792__auto__ = cljs.core.rest(arglist__204524);
+dl.cljs$lang$applyTo = (function (arglist__262912){
+var opts__5791__auto__ = cljs.core.first(arglist__262912);
+var children__5792__auto__ = cljs.core.rest(arglist__262912);
 return dl__delegate(opts__5791__auto__,children__5792__auto__);
 });
 dl.cljs$core$IFn$_invoke$arity$variadic = dl__delegate;
@@ -712,9 +712,9 @@ if (arguments.length > 1) {
 } 
 return dt__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 dt.cljs$lang$maxFixedArity = 1;
-dt.cljs$lang$applyTo = (function (arglist__204525){
-var opts__5791__auto__ = cljs.core.first(arglist__204525);
-var children__5792__auto__ = cljs.core.rest(arglist__204525);
+dt.cljs$lang$applyTo = (function (arglist__262913){
+var opts__5791__auto__ = cljs.core.first(arglist__262913);
+var children__5792__auto__ = cljs.core.rest(arglist__262913);
 return dt__delegate(opts__5791__auto__,children__5792__auto__);
 });
 dt.cljs$core$IFn$_invoke$arity$variadic = dt__delegate;
@@ -736,9 +736,9 @@ if (arguments.length > 1) {
 } 
 return em__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 em.cljs$lang$maxFixedArity = 1;
-em.cljs$lang$applyTo = (function (arglist__204526){
-var opts__5791__auto__ = cljs.core.first(arglist__204526);
-var children__5792__auto__ = cljs.core.rest(arglist__204526);
+em.cljs$lang$applyTo = (function (arglist__262914){
+var opts__5791__auto__ = cljs.core.first(arglist__262914);
+var children__5792__auto__ = cljs.core.rest(arglist__262914);
 return em__delegate(opts__5791__auto__,children__5792__auto__);
 });
 em.cljs$core$IFn$_invoke$arity$variadic = em__delegate;
@@ -760,9 +760,9 @@ if (arguments.length > 1) {
 } 
 return embed__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 embed.cljs$lang$maxFixedArity = 1;
-embed.cljs$lang$applyTo = (function (arglist__204527){
-var opts__5791__auto__ = cljs.core.first(arglist__204527);
-var children__5792__auto__ = cljs.core.rest(arglist__204527);
+embed.cljs$lang$applyTo = (function (arglist__262915){
+var opts__5791__auto__ = cljs.core.first(arglist__262915);
+var children__5792__auto__ = cljs.core.rest(arglist__262915);
 return embed__delegate(opts__5791__auto__,children__5792__auto__);
 });
 embed.cljs$core$IFn$_invoke$arity$variadic = embed__delegate;
@@ -784,9 +784,9 @@ if (arguments.length > 1) {
 } 
 return fieldset__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 fieldset.cljs$lang$maxFixedArity = 1;
-fieldset.cljs$lang$applyTo = (function (arglist__204528){
-var opts__5791__auto__ = cljs.core.first(arglist__204528);
-var children__5792__auto__ = cljs.core.rest(arglist__204528);
+fieldset.cljs$lang$applyTo = (function (arglist__262916){
+var opts__5791__auto__ = cljs.core.first(arglist__262916);
+var children__5792__auto__ = cljs.core.rest(arglist__262916);
 return fieldset__delegate(opts__5791__auto__,children__5792__auto__);
 });
 fieldset.cljs$core$IFn$_invoke$arity$variadic = fieldset__delegate;
@@ -808,9 +808,9 @@ if (arguments.length > 1) {
 } 
 return figcaption__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 figcaption.cljs$lang$maxFixedArity = 1;
-figcaption.cljs$lang$applyTo = (function (arglist__204529){
-var opts__5791__auto__ = cljs.core.first(arglist__204529);
-var children__5792__auto__ = cljs.core.rest(arglist__204529);
+figcaption.cljs$lang$applyTo = (function (arglist__262917){
+var opts__5791__auto__ = cljs.core.first(arglist__262917);
+var children__5792__auto__ = cljs.core.rest(arglist__262917);
 return figcaption__delegate(opts__5791__auto__,children__5792__auto__);
 });
 figcaption.cljs$core$IFn$_invoke$arity$variadic = figcaption__delegate;
@@ -832,9 +832,9 @@ if (arguments.length > 1) {
 } 
 return figure__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 figure.cljs$lang$maxFixedArity = 1;
-figure.cljs$lang$applyTo = (function (arglist__204530){
-var opts__5791__auto__ = cljs.core.first(arglist__204530);
-var children__5792__auto__ = cljs.core.rest(arglist__204530);
+figure.cljs$lang$applyTo = (function (arglist__262918){
+var opts__5791__auto__ = cljs.core.first(arglist__262918);
+var children__5792__auto__ = cljs.core.rest(arglist__262918);
 return figure__delegate(opts__5791__auto__,children__5792__auto__);
 });
 figure.cljs$core$IFn$_invoke$arity$variadic = figure__delegate;
@@ -856,9 +856,9 @@ if (arguments.length > 1) {
 } 
 return footer__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 footer.cljs$lang$maxFixedArity = 1;
-footer.cljs$lang$applyTo = (function (arglist__204531){
-var opts__5791__auto__ = cljs.core.first(arglist__204531);
-var children__5792__auto__ = cljs.core.rest(arglist__204531);
+footer.cljs$lang$applyTo = (function (arglist__262919){
+var opts__5791__auto__ = cljs.core.first(arglist__262919);
+var children__5792__auto__ = cljs.core.rest(arglist__262919);
 return footer__delegate(opts__5791__auto__,children__5792__auto__);
 });
 footer.cljs$core$IFn$_invoke$arity$variadic = footer__delegate;
@@ -880,9 +880,9 @@ if (arguments.length > 1) {
 } 
 return form__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 form.cljs$lang$maxFixedArity = 1;
-form.cljs$lang$applyTo = (function (arglist__204532){
-var opts__5791__auto__ = cljs.core.first(arglist__204532);
-var children__5792__auto__ = cljs.core.rest(arglist__204532);
+form.cljs$lang$applyTo = (function (arglist__262920){
+var opts__5791__auto__ = cljs.core.first(arglist__262920);
+var children__5792__auto__ = cljs.core.rest(arglist__262920);
 return form__delegate(opts__5791__auto__,children__5792__auto__);
 });
 form.cljs$core$IFn$_invoke$arity$variadic = form__delegate;
@@ -904,9 +904,9 @@ if (arguments.length > 1) {
 } 
 return h1__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h1.cljs$lang$maxFixedArity = 1;
-h1.cljs$lang$applyTo = (function (arglist__204533){
-var opts__5791__auto__ = cljs.core.first(arglist__204533);
-var children__5792__auto__ = cljs.core.rest(arglist__204533);
+h1.cljs$lang$applyTo = (function (arglist__262921){
+var opts__5791__auto__ = cljs.core.first(arglist__262921);
+var children__5792__auto__ = cljs.core.rest(arglist__262921);
 return h1__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h1.cljs$core$IFn$_invoke$arity$variadic = h1__delegate;
@@ -928,9 +928,9 @@ if (arguments.length > 1) {
 } 
 return h2__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h2.cljs$lang$maxFixedArity = 1;
-h2.cljs$lang$applyTo = (function (arglist__204534){
-var opts__5791__auto__ = cljs.core.first(arglist__204534);
-var children__5792__auto__ = cljs.core.rest(arglist__204534);
+h2.cljs$lang$applyTo = (function (arglist__262922){
+var opts__5791__auto__ = cljs.core.first(arglist__262922);
+var children__5792__auto__ = cljs.core.rest(arglist__262922);
 return h2__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h2.cljs$core$IFn$_invoke$arity$variadic = h2__delegate;
@@ -952,9 +952,9 @@ if (arguments.length > 1) {
 } 
 return h3__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h3.cljs$lang$maxFixedArity = 1;
-h3.cljs$lang$applyTo = (function (arglist__204535){
-var opts__5791__auto__ = cljs.core.first(arglist__204535);
-var children__5792__auto__ = cljs.core.rest(arglist__204535);
+h3.cljs$lang$applyTo = (function (arglist__262923){
+var opts__5791__auto__ = cljs.core.first(arglist__262923);
+var children__5792__auto__ = cljs.core.rest(arglist__262923);
 return h3__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h3.cljs$core$IFn$_invoke$arity$variadic = h3__delegate;
@@ -976,9 +976,9 @@ if (arguments.length > 1) {
 } 
 return h4__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h4.cljs$lang$maxFixedArity = 1;
-h4.cljs$lang$applyTo = (function (arglist__204536){
-var opts__5791__auto__ = cljs.core.first(arglist__204536);
-var children__5792__auto__ = cljs.core.rest(arglist__204536);
+h4.cljs$lang$applyTo = (function (arglist__262924){
+var opts__5791__auto__ = cljs.core.first(arglist__262924);
+var children__5792__auto__ = cljs.core.rest(arglist__262924);
 return h4__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h4.cljs$core$IFn$_invoke$arity$variadic = h4__delegate;
@@ -1000,9 +1000,9 @@ if (arguments.length > 1) {
 } 
 return h5__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h5.cljs$lang$maxFixedArity = 1;
-h5.cljs$lang$applyTo = (function (arglist__204537){
-var opts__5791__auto__ = cljs.core.first(arglist__204537);
-var children__5792__auto__ = cljs.core.rest(arglist__204537);
+h5.cljs$lang$applyTo = (function (arglist__262925){
+var opts__5791__auto__ = cljs.core.first(arglist__262925);
+var children__5792__auto__ = cljs.core.rest(arglist__262925);
 return h5__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h5.cljs$core$IFn$_invoke$arity$variadic = h5__delegate;
@@ -1024,9 +1024,9 @@ if (arguments.length > 1) {
 } 
 return h6__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 h6.cljs$lang$maxFixedArity = 1;
-h6.cljs$lang$applyTo = (function (arglist__204538){
-var opts__5791__auto__ = cljs.core.first(arglist__204538);
-var children__5792__auto__ = cljs.core.rest(arglist__204538);
+h6.cljs$lang$applyTo = (function (arglist__262926){
+var opts__5791__auto__ = cljs.core.first(arglist__262926);
+var children__5792__auto__ = cljs.core.rest(arglist__262926);
 return h6__delegate(opts__5791__auto__,children__5792__auto__);
 });
 h6.cljs$core$IFn$_invoke$arity$variadic = h6__delegate;
@@ -1048,9 +1048,9 @@ if (arguments.length > 1) {
 } 
 return head__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 head.cljs$lang$maxFixedArity = 1;
-head.cljs$lang$applyTo = (function (arglist__204539){
-var opts__5791__auto__ = cljs.core.first(arglist__204539);
-var children__5792__auto__ = cljs.core.rest(arglist__204539);
+head.cljs$lang$applyTo = (function (arglist__262927){
+var opts__5791__auto__ = cljs.core.first(arglist__262927);
+var children__5792__auto__ = cljs.core.rest(arglist__262927);
 return head__delegate(opts__5791__auto__,children__5792__auto__);
 });
 head.cljs$core$IFn$_invoke$arity$variadic = head__delegate;
@@ -1072,9 +1072,9 @@ if (arguments.length > 1) {
 } 
 return header__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 header.cljs$lang$maxFixedArity = 1;
-header.cljs$lang$applyTo = (function (arglist__204540){
-var opts__5791__auto__ = cljs.core.first(arglist__204540);
-var children__5792__auto__ = cljs.core.rest(arglist__204540);
+header.cljs$lang$applyTo = (function (arglist__262928){
+var opts__5791__auto__ = cljs.core.first(arglist__262928);
+var children__5792__auto__ = cljs.core.rest(arglist__262928);
 return header__delegate(opts__5791__auto__,children__5792__auto__);
 });
 header.cljs$core$IFn$_invoke$arity$variadic = header__delegate;
@@ -1096,9 +1096,9 @@ if (arguments.length > 1) {
 } 
 return hr__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 hr.cljs$lang$maxFixedArity = 1;
-hr.cljs$lang$applyTo = (function (arglist__204541){
-var opts__5791__auto__ = cljs.core.first(arglist__204541);
-var children__5792__auto__ = cljs.core.rest(arglist__204541);
+hr.cljs$lang$applyTo = (function (arglist__262929){
+var opts__5791__auto__ = cljs.core.first(arglist__262929);
+var children__5792__auto__ = cljs.core.rest(arglist__262929);
 return hr__delegate(opts__5791__auto__,children__5792__auto__);
 });
 hr.cljs$core$IFn$_invoke$arity$variadic = hr__delegate;
@@ -1120,9 +1120,9 @@ if (arguments.length > 1) {
 } 
 return html__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 html.cljs$lang$maxFixedArity = 1;
-html.cljs$lang$applyTo = (function (arglist__204542){
-var opts__5791__auto__ = cljs.core.first(arglist__204542);
-var children__5792__auto__ = cljs.core.rest(arglist__204542);
+html.cljs$lang$applyTo = (function (arglist__262930){
+var opts__5791__auto__ = cljs.core.first(arglist__262930);
+var children__5792__auto__ = cljs.core.rest(arglist__262930);
 return html__delegate(opts__5791__auto__,children__5792__auto__);
 });
 html.cljs$core$IFn$_invoke$arity$variadic = html__delegate;
@@ -1144,9 +1144,9 @@ if (arguments.length > 1) {
 } 
 return i__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 i.cljs$lang$maxFixedArity = 1;
-i.cljs$lang$applyTo = (function (arglist__204543){
-var opts__5791__auto__ = cljs.core.first(arglist__204543);
-var children__5792__auto__ = cljs.core.rest(arglist__204543);
+i.cljs$lang$applyTo = (function (arglist__262931){
+var opts__5791__auto__ = cljs.core.first(arglist__262931);
+var children__5792__auto__ = cljs.core.rest(arglist__262931);
 return i__delegate(opts__5791__auto__,children__5792__auto__);
 });
 i.cljs$core$IFn$_invoke$arity$variadic = i__delegate;
@@ -1168,9 +1168,9 @@ if (arguments.length > 1) {
 } 
 return iframe__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 iframe.cljs$lang$maxFixedArity = 1;
-iframe.cljs$lang$applyTo = (function (arglist__204544){
-var opts__5791__auto__ = cljs.core.first(arglist__204544);
-var children__5792__auto__ = cljs.core.rest(arglist__204544);
+iframe.cljs$lang$applyTo = (function (arglist__262932){
+var opts__5791__auto__ = cljs.core.first(arglist__262932);
+var children__5792__auto__ = cljs.core.rest(arglist__262932);
 return iframe__delegate(opts__5791__auto__,children__5792__auto__);
 });
 iframe.cljs$core$IFn$_invoke$arity$variadic = iframe__delegate;
@@ -1192,9 +1192,9 @@ if (arguments.length > 1) {
 } 
 return img__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 img.cljs$lang$maxFixedArity = 1;
-img.cljs$lang$applyTo = (function (arglist__204545){
-var opts__5791__auto__ = cljs.core.first(arglist__204545);
-var children__5792__auto__ = cljs.core.rest(arglist__204545);
+img.cljs$lang$applyTo = (function (arglist__262933){
+var opts__5791__auto__ = cljs.core.first(arglist__262933);
+var children__5792__auto__ = cljs.core.rest(arglist__262933);
 return img__delegate(opts__5791__auto__,children__5792__auto__);
 });
 img.cljs$core$IFn$_invoke$arity$variadic = img__delegate;
@@ -1216,9 +1216,9 @@ if (arguments.length > 1) {
 } 
 return ins__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 ins.cljs$lang$maxFixedArity = 1;
-ins.cljs$lang$applyTo = (function (arglist__204546){
-var opts__5791__auto__ = cljs.core.first(arglist__204546);
-var children__5792__auto__ = cljs.core.rest(arglist__204546);
+ins.cljs$lang$applyTo = (function (arglist__262934){
+var opts__5791__auto__ = cljs.core.first(arglist__262934);
+var children__5792__auto__ = cljs.core.rest(arglist__262934);
 return ins__delegate(opts__5791__auto__,children__5792__auto__);
 });
 ins.cljs$core$IFn$_invoke$arity$variadic = ins__delegate;
@@ -1240,9 +1240,9 @@ if (arguments.length > 1) {
 } 
 return kbd__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 kbd.cljs$lang$maxFixedArity = 1;
-kbd.cljs$lang$applyTo = (function (arglist__204547){
-var opts__5791__auto__ = cljs.core.first(arglist__204547);
-var children__5792__auto__ = cljs.core.rest(arglist__204547);
+kbd.cljs$lang$applyTo = (function (arglist__262935){
+var opts__5791__auto__ = cljs.core.first(arglist__262935);
+var children__5792__auto__ = cljs.core.rest(arglist__262935);
 return kbd__delegate(opts__5791__auto__,children__5792__auto__);
 });
 kbd.cljs$core$IFn$_invoke$arity$variadic = kbd__delegate;
@@ -1264,9 +1264,9 @@ if (arguments.length > 1) {
 } 
 return keygen__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 keygen.cljs$lang$maxFixedArity = 1;
-keygen.cljs$lang$applyTo = (function (arglist__204548){
-var opts__5791__auto__ = cljs.core.first(arglist__204548);
-var children__5792__auto__ = cljs.core.rest(arglist__204548);
+keygen.cljs$lang$applyTo = (function (arglist__262936){
+var opts__5791__auto__ = cljs.core.first(arglist__262936);
+var children__5792__auto__ = cljs.core.rest(arglist__262936);
 return keygen__delegate(opts__5791__auto__,children__5792__auto__);
 });
 keygen.cljs$core$IFn$_invoke$arity$variadic = keygen__delegate;
@@ -1288,9 +1288,9 @@ if (arguments.length > 1) {
 } 
 return label__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 label.cljs$lang$maxFixedArity = 1;
-label.cljs$lang$applyTo = (function (arglist__204549){
-var opts__5791__auto__ = cljs.core.first(arglist__204549);
-var children__5792__auto__ = cljs.core.rest(arglist__204549);
+label.cljs$lang$applyTo = (function (arglist__262937){
+var opts__5791__auto__ = cljs.core.first(arglist__262937);
+var children__5792__auto__ = cljs.core.rest(arglist__262937);
 return label__delegate(opts__5791__auto__,children__5792__auto__);
 });
 label.cljs$core$IFn$_invoke$arity$variadic = label__delegate;
@@ -1312,9 +1312,9 @@ if (arguments.length > 1) {
 } 
 return legend__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 legend.cljs$lang$maxFixedArity = 1;
-legend.cljs$lang$applyTo = (function (arglist__204550){
-var opts__5791__auto__ = cljs.core.first(arglist__204550);
-var children__5792__auto__ = cljs.core.rest(arglist__204550);
+legend.cljs$lang$applyTo = (function (arglist__262938){
+var opts__5791__auto__ = cljs.core.first(arglist__262938);
+var children__5792__auto__ = cljs.core.rest(arglist__262938);
 return legend__delegate(opts__5791__auto__,children__5792__auto__);
 });
 legend.cljs$core$IFn$_invoke$arity$variadic = legend__delegate;
@@ -1336,9 +1336,9 @@ if (arguments.length > 1) {
 } 
 return li__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 li.cljs$lang$maxFixedArity = 1;
-li.cljs$lang$applyTo = (function (arglist__204551){
-var opts__5791__auto__ = cljs.core.first(arglist__204551);
-var children__5792__auto__ = cljs.core.rest(arglist__204551);
+li.cljs$lang$applyTo = (function (arglist__262939){
+var opts__5791__auto__ = cljs.core.first(arglist__262939);
+var children__5792__auto__ = cljs.core.rest(arglist__262939);
 return li__delegate(opts__5791__auto__,children__5792__auto__);
 });
 li.cljs$core$IFn$_invoke$arity$variadic = li__delegate;
@@ -1360,9 +1360,9 @@ if (arguments.length > 1) {
 } 
 return link__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 link.cljs$lang$maxFixedArity = 1;
-link.cljs$lang$applyTo = (function (arglist__204552){
-var opts__5791__auto__ = cljs.core.first(arglist__204552);
-var children__5792__auto__ = cljs.core.rest(arglist__204552);
+link.cljs$lang$applyTo = (function (arglist__262940){
+var opts__5791__auto__ = cljs.core.first(arglist__262940);
+var children__5792__auto__ = cljs.core.rest(arglist__262940);
 return link__delegate(opts__5791__auto__,children__5792__auto__);
 });
 link.cljs$core$IFn$_invoke$arity$variadic = link__delegate;
@@ -1384,9 +1384,9 @@ if (arguments.length > 1) {
 } 
 return main__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 main.cljs$lang$maxFixedArity = 1;
-main.cljs$lang$applyTo = (function (arglist__204553){
-var opts__5791__auto__ = cljs.core.first(arglist__204553);
-var children__5792__auto__ = cljs.core.rest(arglist__204553);
+main.cljs$lang$applyTo = (function (arglist__262941){
+var opts__5791__auto__ = cljs.core.first(arglist__262941);
+var children__5792__auto__ = cljs.core.rest(arglist__262941);
 return main__delegate(opts__5791__auto__,children__5792__auto__);
 });
 main.cljs$core$IFn$_invoke$arity$variadic = main__delegate;
@@ -1408,9 +1408,9 @@ if (arguments.length > 1) {
 } 
 return map__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 map.cljs$lang$maxFixedArity = 1;
-map.cljs$lang$applyTo = (function (arglist__204554){
-var opts__5791__auto__ = cljs.core.first(arglist__204554);
-var children__5792__auto__ = cljs.core.rest(arglist__204554);
+map.cljs$lang$applyTo = (function (arglist__262942){
+var opts__5791__auto__ = cljs.core.first(arglist__262942);
+var children__5792__auto__ = cljs.core.rest(arglist__262942);
 return map__delegate(opts__5791__auto__,children__5792__auto__);
 });
 map.cljs$core$IFn$_invoke$arity$variadic = map__delegate;
@@ -1432,9 +1432,9 @@ if (arguments.length > 1) {
 } 
 return mark__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 mark.cljs$lang$maxFixedArity = 1;
-mark.cljs$lang$applyTo = (function (arglist__204555){
-var opts__5791__auto__ = cljs.core.first(arglist__204555);
-var children__5792__auto__ = cljs.core.rest(arglist__204555);
+mark.cljs$lang$applyTo = (function (arglist__262943){
+var opts__5791__auto__ = cljs.core.first(arglist__262943);
+var children__5792__auto__ = cljs.core.rest(arglist__262943);
 return mark__delegate(opts__5791__auto__,children__5792__auto__);
 });
 mark.cljs$core$IFn$_invoke$arity$variadic = mark__delegate;
@@ -1456,9 +1456,9 @@ if (arguments.length > 1) {
 } 
 return marquee__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 marquee.cljs$lang$maxFixedArity = 1;
-marquee.cljs$lang$applyTo = (function (arglist__204556){
-var opts__5791__auto__ = cljs.core.first(arglist__204556);
-var children__5792__auto__ = cljs.core.rest(arglist__204556);
+marquee.cljs$lang$applyTo = (function (arglist__262944){
+var opts__5791__auto__ = cljs.core.first(arglist__262944);
+var children__5792__auto__ = cljs.core.rest(arglist__262944);
 return marquee__delegate(opts__5791__auto__,children__5792__auto__);
 });
 marquee.cljs$core$IFn$_invoke$arity$variadic = marquee__delegate;
@@ -1480,9 +1480,9 @@ if (arguments.length > 1) {
 } 
 return menu__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 menu.cljs$lang$maxFixedArity = 1;
-menu.cljs$lang$applyTo = (function (arglist__204557){
-var opts__5791__auto__ = cljs.core.first(arglist__204557);
-var children__5792__auto__ = cljs.core.rest(arglist__204557);
+menu.cljs$lang$applyTo = (function (arglist__262945){
+var opts__5791__auto__ = cljs.core.first(arglist__262945);
+var children__5792__auto__ = cljs.core.rest(arglist__262945);
 return menu__delegate(opts__5791__auto__,children__5792__auto__);
 });
 menu.cljs$core$IFn$_invoke$arity$variadic = menu__delegate;
@@ -1504,9 +1504,9 @@ if (arguments.length > 1) {
 } 
 return menuitem__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 menuitem.cljs$lang$maxFixedArity = 1;
-menuitem.cljs$lang$applyTo = (function (arglist__204558){
-var opts__5791__auto__ = cljs.core.first(arglist__204558);
-var children__5792__auto__ = cljs.core.rest(arglist__204558);
+menuitem.cljs$lang$applyTo = (function (arglist__262946){
+var opts__5791__auto__ = cljs.core.first(arglist__262946);
+var children__5792__auto__ = cljs.core.rest(arglist__262946);
 return menuitem__delegate(opts__5791__auto__,children__5792__auto__);
 });
 menuitem.cljs$core$IFn$_invoke$arity$variadic = menuitem__delegate;
@@ -1528,9 +1528,9 @@ if (arguments.length > 1) {
 } 
 return meta__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 meta.cljs$lang$maxFixedArity = 1;
-meta.cljs$lang$applyTo = (function (arglist__204559){
-var opts__5791__auto__ = cljs.core.first(arglist__204559);
-var children__5792__auto__ = cljs.core.rest(arglist__204559);
+meta.cljs$lang$applyTo = (function (arglist__262947){
+var opts__5791__auto__ = cljs.core.first(arglist__262947);
+var children__5792__auto__ = cljs.core.rest(arglist__262947);
 return meta__delegate(opts__5791__auto__,children__5792__auto__);
 });
 meta.cljs$core$IFn$_invoke$arity$variadic = meta__delegate;
@@ -1552,9 +1552,9 @@ if (arguments.length > 1) {
 } 
 return meter__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 meter.cljs$lang$maxFixedArity = 1;
-meter.cljs$lang$applyTo = (function (arglist__204560){
-var opts__5791__auto__ = cljs.core.first(arglist__204560);
-var children__5792__auto__ = cljs.core.rest(arglist__204560);
+meter.cljs$lang$applyTo = (function (arglist__262948){
+var opts__5791__auto__ = cljs.core.first(arglist__262948);
+var children__5792__auto__ = cljs.core.rest(arglist__262948);
 return meter__delegate(opts__5791__auto__,children__5792__auto__);
 });
 meter.cljs$core$IFn$_invoke$arity$variadic = meter__delegate;
@@ -1576,9 +1576,9 @@ if (arguments.length > 1) {
 } 
 return nav__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 nav.cljs$lang$maxFixedArity = 1;
-nav.cljs$lang$applyTo = (function (arglist__204561){
-var opts__5791__auto__ = cljs.core.first(arglist__204561);
-var children__5792__auto__ = cljs.core.rest(arglist__204561);
+nav.cljs$lang$applyTo = (function (arglist__262949){
+var opts__5791__auto__ = cljs.core.first(arglist__262949);
+var children__5792__auto__ = cljs.core.rest(arglist__262949);
 return nav__delegate(opts__5791__auto__,children__5792__auto__);
 });
 nav.cljs$core$IFn$_invoke$arity$variadic = nav__delegate;
@@ -1600,9 +1600,9 @@ if (arguments.length > 1) {
 } 
 return noscript__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 noscript.cljs$lang$maxFixedArity = 1;
-noscript.cljs$lang$applyTo = (function (arglist__204562){
-var opts__5791__auto__ = cljs.core.first(arglist__204562);
-var children__5792__auto__ = cljs.core.rest(arglist__204562);
+noscript.cljs$lang$applyTo = (function (arglist__262950){
+var opts__5791__auto__ = cljs.core.first(arglist__262950);
+var children__5792__auto__ = cljs.core.rest(arglist__262950);
 return noscript__delegate(opts__5791__auto__,children__5792__auto__);
 });
 noscript.cljs$core$IFn$_invoke$arity$variadic = noscript__delegate;
@@ -1624,9 +1624,9 @@ if (arguments.length > 1) {
 } 
 return object__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 object.cljs$lang$maxFixedArity = 1;
-object.cljs$lang$applyTo = (function (arglist__204563){
-var opts__5791__auto__ = cljs.core.first(arglist__204563);
-var children__5792__auto__ = cljs.core.rest(arglist__204563);
+object.cljs$lang$applyTo = (function (arglist__262951){
+var opts__5791__auto__ = cljs.core.first(arglist__262951);
+var children__5792__auto__ = cljs.core.rest(arglist__262951);
 return object__delegate(opts__5791__auto__,children__5792__auto__);
 });
 object.cljs$core$IFn$_invoke$arity$variadic = object__delegate;
@@ -1648,9 +1648,9 @@ if (arguments.length > 1) {
 } 
 return ol__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 ol.cljs$lang$maxFixedArity = 1;
-ol.cljs$lang$applyTo = (function (arglist__204564){
-var opts__5791__auto__ = cljs.core.first(arglist__204564);
-var children__5792__auto__ = cljs.core.rest(arglist__204564);
+ol.cljs$lang$applyTo = (function (arglist__262952){
+var opts__5791__auto__ = cljs.core.first(arglist__262952);
+var children__5792__auto__ = cljs.core.rest(arglist__262952);
 return ol__delegate(opts__5791__auto__,children__5792__auto__);
 });
 ol.cljs$core$IFn$_invoke$arity$variadic = ol__delegate;
@@ -1672,9 +1672,9 @@ if (arguments.length > 1) {
 } 
 return optgroup__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 optgroup.cljs$lang$maxFixedArity = 1;
-optgroup.cljs$lang$applyTo = (function (arglist__204565){
-var opts__5791__auto__ = cljs.core.first(arglist__204565);
-var children__5792__auto__ = cljs.core.rest(arglist__204565);
+optgroup.cljs$lang$applyTo = (function (arglist__262953){
+var opts__5791__auto__ = cljs.core.first(arglist__262953);
+var children__5792__auto__ = cljs.core.rest(arglist__262953);
 return optgroup__delegate(opts__5791__auto__,children__5792__auto__);
 });
 optgroup.cljs$core$IFn$_invoke$arity$variadic = optgroup__delegate;
@@ -1696,9 +1696,9 @@ if (arguments.length > 1) {
 } 
 return output__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 output.cljs$lang$maxFixedArity = 1;
-output.cljs$lang$applyTo = (function (arglist__204566){
-var opts__5791__auto__ = cljs.core.first(arglist__204566);
-var children__5792__auto__ = cljs.core.rest(arglist__204566);
+output.cljs$lang$applyTo = (function (arglist__262954){
+var opts__5791__auto__ = cljs.core.first(arglist__262954);
+var children__5792__auto__ = cljs.core.rest(arglist__262954);
 return output__delegate(opts__5791__auto__,children__5792__auto__);
 });
 output.cljs$core$IFn$_invoke$arity$variadic = output__delegate;
@@ -1720,9 +1720,9 @@ if (arguments.length > 1) {
 } 
 return p__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 p.cljs$lang$maxFixedArity = 1;
-p.cljs$lang$applyTo = (function (arglist__204567){
-var opts__5791__auto__ = cljs.core.first(arglist__204567);
-var children__5792__auto__ = cljs.core.rest(arglist__204567);
+p.cljs$lang$applyTo = (function (arglist__262955){
+var opts__5791__auto__ = cljs.core.first(arglist__262955);
+var children__5792__auto__ = cljs.core.rest(arglist__262955);
 return p__delegate(opts__5791__auto__,children__5792__auto__);
 });
 p.cljs$core$IFn$_invoke$arity$variadic = p__delegate;
@@ -1744,9 +1744,9 @@ if (arguments.length > 1) {
 } 
 return param__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 param.cljs$lang$maxFixedArity = 1;
-param.cljs$lang$applyTo = (function (arglist__204568){
-var opts__5791__auto__ = cljs.core.first(arglist__204568);
-var children__5792__auto__ = cljs.core.rest(arglist__204568);
+param.cljs$lang$applyTo = (function (arglist__262956){
+var opts__5791__auto__ = cljs.core.first(arglist__262956);
+var children__5792__auto__ = cljs.core.rest(arglist__262956);
 return param__delegate(opts__5791__auto__,children__5792__auto__);
 });
 param.cljs$core$IFn$_invoke$arity$variadic = param__delegate;
@@ -1768,9 +1768,9 @@ if (arguments.length > 1) {
 } 
 return pre__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 pre.cljs$lang$maxFixedArity = 1;
-pre.cljs$lang$applyTo = (function (arglist__204569){
-var opts__5791__auto__ = cljs.core.first(arglist__204569);
-var children__5792__auto__ = cljs.core.rest(arglist__204569);
+pre.cljs$lang$applyTo = (function (arglist__262957){
+var opts__5791__auto__ = cljs.core.first(arglist__262957);
+var children__5792__auto__ = cljs.core.rest(arglist__262957);
 return pre__delegate(opts__5791__auto__,children__5792__auto__);
 });
 pre.cljs$core$IFn$_invoke$arity$variadic = pre__delegate;
@@ -1792,9 +1792,9 @@ if (arguments.length > 1) {
 } 
 return progress__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 progress.cljs$lang$maxFixedArity = 1;
-progress.cljs$lang$applyTo = (function (arglist__204570){
-var opts__5791__auto__ = cljs.core.first(arglist__204570);
-var children__5792__auto__ = cljs.core.rest(arglist__204570);
+progress.cljs$lang$applyTo = (function (arglist__262958){
+var opts__5791__auto__ = cljs.core.first(arglist__262958);
+var children__5792__auto__ = cljs.core.rest(arglist__262958);
 return progress__delegate(opts__5791__auto__,children__5792__auto__);
 });
 progress.cljs$core$IFn$_invoke$arity$variadic = progress__delegate;
@@ -1816,9 +1816,9 @@ if (arguments.length > 1) {
 } 
 return q__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 q.cljs$lang$maxFixedArity = 1;
-q.cljs$lang$applyTo = (function (arglist__204571){
-var opts__5791__auto__ = cljs.core.first(arglist__204571);
-var children__5792__auto__ = cljs.core.rest(arglist__204571);
+q.cljs$lang$applyTo = (function (arglist__262959){
+var opts__5791__auto__ = cljs.core.first(arglist__262959);
+var children__5792__auto__ = cljs.core.rest(arglist__262959);
 return q__delegate(opts__5791__auto__,children__5792__auto__);
 });
 q.cljs$core$IFn$_invoke$arity$variadic = q__delegate;
@@ -1840,9 +1840,9 @@ if (arguments.length > 1) {
 } 
 return rp__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 rp.cljs$lang$maxFixedArity = 1;
-rp.cljs$lang$applyTo = (function (arglist__204572){
-var opts__5791__auto__ = cljs.core.first(arglist__204572);
-var children__5792__auto__ = cljs.core.rest(arglist__204572);
+rp.cljs$lang$applyTo = (function (arglist__262960){
+var opts__5791__auto__ = cljs.core.first(arglist__262960);
+var children__5792__auto__ = cljs.core.rest(arglist__262960);
 return rp__delegate(opts__5791__auto__,children__5792__auto__);
 });
 rp.cljs$core$IFn$_invoke$arity$variadic = rp__delegate;
@@ -1864,9 +1864,9 @@ if (arguments.length > 1) {
 } 
 return rt__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 rt.cljs$lang$maxFixedArity = 1;
-rt.cljs$lang$applyTo = (function (arglist__204573){
-var opts__5791__auto__ = cljs.core.first(arglist__204573);
-var children__5792__auto__ = cljs.core.rest(arglist__204573);
+rt.cljs$lang$applyTo = (function (arglist__262961){
+var opts__5791__auto__ = cljs.core.first(arglist__262961);
+var children__5792__auto__ = cljs.core.rest(arglist__262961);
 return rt__delegate(opts__5791__auto__,children__5792__auto__);
 });
 rt.cljs$core$IFn$_invoke$arity$variadic = rt__delegate;
@@ -1888,9 +1888,9 @@ if (arguments.length > 1) {
 } 
 return ruby__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 ruby.cljs$lang$maxFixedArity = 1;
-ruby.cljs$lang$applyTo = (function (arglist__204574){
-var opts__5791__auto__ = cljs.core.first(arglist__204574);
-var children__5792__auto__ = cljs.core.rest(arglist__204574);
+ruby.cljs$lang$applyTo = (function (arglist__262962){
+var opts__5791__auto__ = cljs.core.first(arglist__262962);
+var children__5792__auto__ = cljs.core.rest(arglist__262962);
 return ruby__delegate(opts__5791__auto__,children__5792__auto__);
 });
 ruby.cljs$core$IFn$_invoke$arity$variadic = ruby__delegate;
@@ -1912,9 +1912,9 @@ if (arguments.length > 1) {
 } 
 return s__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 s.cljs$lang$maxFixedArity = 1;
-s.cljs$lang$applyTo = (function (arglist__204575){
-var opts__5791__auto__ = cljs.core.first(arglist__204575);
-var children__5792__auto__ = cljs.core.rest(arglist__204575);
+s.cljs$lang$applyTo = (function (arglist__262963){
+var opts__5791__auto__ = cljs.core.first(arglist__262963);
+var children__5792__auto__ = cljs.core.rest(arglist__262963);
 return s__delegate(opts__5791__auto__,children__5792__auto__);
 });
 s.cljs$core$IFn$_invoke$arity$variadic = s__delegate;
@@ -1936,9 +1936,9 @@ if (arguments.length > 1) {
 } 
 return samp__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 samp.cljs$lang$maxFixedArity = 1;
-samp.cljs$lang$applyTo = (function (arglist__204576){
-var opts__5791__auto__ = cljs.core.first(arglist__204576);
-var children__5792__auto__ = cljs.core.rest(arglist__204576);
+samp.cljs$lang$applyTo = (function (arglist__262964){
+var opts__5791__auto__ = cljs.core.first(arglist__262964);
+var children__5792__auto__ = cljs.core.rest(arglist__262964);
 return samp__delegate(opts__5791__auto__,children__5792__auto__);
 });
 samp.cljs$core$IFn$_invoke$arity$variadic = samp__delegate;
@@ -1960,9 +1960,9 @@ if (arguments.length > 1) {
 } 
 return script__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 script.cljs$lang$maxFixedArity = 1;
-script.cljs$lang$applyTo = (function (arglist__204577){
-var opts__5791__auto__ = cljs.core.first(arglist__204577);
-var children__5792__auto__ = cljs.core.rest(arglist__204577);
+script.cljs$lang$applyTo = (function (arglist__262965){
+var opts__5791__auto__ = cljs.core.first(arglist__262965);
+var children__5792__auto__ = cljs.core.rest(arglist__262965);
 return script__delegate(opts__5791__auto__,children__5792__auto__);
 });
 script.cljs$core$IFn$_invoke$arity$variadic = script__delegate;
@@ -1984,9 +1984,9 @@ if (arguments.length > 1) {
 } 
 return section__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 section.cljs$lang$maxFixedArity = 1;
-section.cljs$lang$applyTo = (function (arglist__204578){
-var opts__5791__auto__ = cljs.core.first(arglist__204578);
-var children__5792__auto__ = cljs.core.rest(arglist__204578);
+section.cljs$lang$applyTo = (function (arglist__262966){
+var opts__5791__auto__ = cljs.core.first(arglist__262966);
+var children__5792__auto__ = cljs.core.rest(arglist__262966);
 return section__delegate(opts__5791__auto__,children__5792__auto__);
 });
 section.cljs$core$IFn$_invoke$arity$variadic = section__delegate;
@@ -2008,9 +2008,9 @@ if (arguments.length > 1) {
 } 
 return select__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 select.cljs$lang$maxFixedArity = 1;
-select.cljs$lang$applyTo = (function (arglist__204579){
-var opts__5791__auto__ = cljs.core.first(arglist__204579);
-var children__5792__auto__ = cljs.core.rest(arglist__204579);
+select.cljs$lang$applyTo = (function (arglist__262967){
+var opts__5791__auto__ = cljs.core.first(arglist__262967);
+var children__5792__auto__ = cljs.core.rest(arglist__262967);
 return select__delegate(opts__5791__auto__,children__5792__auto__);
 });
 select.cljs$core$IFn$_invoke$arity$variadic = select__delegate;
@@ -2032,9 +2032,9 @@ if (arguments.length > 1) {
 } 
 return small__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 small.cljs$lang$maxFixedArity = 1;
-small.cljs$lang$applyTo = (function (arglist__204580){
-var opts__5791__auto__ = cljs.core.first(arglist__204580);
-var children__5792__auto__ = cljs.core.rest(arglist__204580);
+small.cljs$lang$applyTo = (function (arglist__262968){
+var opts__5791__auto__ = cljs.core.first(arglist__262968);
+var children__5792__auto__ = cljs.core.rest(arglist__262968);
 return small__delegate(opts__5791__auto__,children__5792__auto__);
 });
 small.cljs$core$IFn$_invoke$arity$variadic = small__delegate;
@@ -2056,9 +2056,9 @@ if (arguments.length > 1) {
 } 
 return source__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 source.cljs$lang$maxFixedArity = 1;
-source.cljs$lang$applyTo = (function (arglist__204581){
-var opts__5791__auto__ = cljs.core.first(arglist__204581);
-var children__5792__auto__ = cljs.core.rest(arglist__204581);
+source.cljs$lang$applyTo = (function (arglist__262969){
+var opts__5791__auto__ = cljs.core.first(arglist__262969);
+var children__5792__auto__ = cljs.core.rest(arglist__262969);
 return source__delegate(opts__5791__auto__,children__5792__auto__);
 });
 source.cljs$core$IFn$_invoke$arity$variadic = source__delegate;
@@ -2080,9 +2080,9 @@ if (arguments.length > 1) {
 } 
 return span__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 span.cljs$lang$maxFixedArity = 1;
-span.cljs$lang$applyTo = (function (arglist__204582){
-var opts__5791__auto__ = cljs.core.first(arglist__204582);
-var children__5792__auto__ = cljs.core.rest(arglist__204582);
+span.cljs$lang$applyTo = (function (arglist__262970){
+var opts__5791__auto__ = cljs.core.first(arglist__262970);
+var children__5792__auto__ = cljs.core.rest(arglist__262970);
 return span__delegate(opts__5791__auto__,children__5792__auto__);
 });
 span.cljs$core$IFn$_invoke$arity$variadic = span__delegate;
@@ -2104,9 +2104,9 @@ if (arguments.length > 1) {
 } 
 return strong__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 strong.cljs$lang$maxFixedArity = 1;
-strong.cljs$lang$applyTo = (function (arglist__204583){
-var opts__5791__auto__ = cljs.core.first(arglist__204583);
-var children__5792__auto__ = cljs.core.rest(arglist__204583);
+strong.cljs$lang$applyTo = (function (arglist__262971){
+var opts__5791__auto__ = cljs.core.first(arglist__262971);
+var children__5792__auto__ = cljs.core.rest(arglist__262971);
 return strong__delegate(opts__5791__auto__,children__5792__auto__);
 });
 strong.cljs$core$IFn$_invoke$arity$variadic = strong__delegate;
@@ -2128,9 +2128,9 @@ if (arguments.length > 1) {
 } 
 return style__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 style.cljs$lang$maxFixedArity = 1;
-style.cljs$lang$applyTo = (function (arglist__204584){
-var opts__5791__auto__ = cljs.core.first(arglist__204584);
-var children__5792__auto__ = cljs.core.rest(arglist__204584);
+style.cljs$lang$applyTo = (function (arglist__262972){
+var opts__5791__auto__ = cljs.core.first(arglist__262972);
+var children__5792__auto__ = cljs.core.rest(arglist__262972);
 return style__delegate(opts__5791__auto__,children__5792__auto__);
 });
 style.cljs$core$IFn$_invoke$arity$variadic = style__delegate;
@@ -2152,9 +2152,9 @@ if (arguments.length > 1) {
 } 
 return sub__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 sub.cljs$lang$maxFixedArity = 1;
-sub.cljs$lang$applyTo = (function (arglist__204585){
-var opts__5791__auto__ = cljs.core.first(arglist__204585);
-var children__5792__auto__ = cljs.core.rest(arglist__204585);
+sub.cljs$lang$applyTo = (function (arglist__262973){
+var opts__5791__auto__ = cljs.core.first(arglist__262973);
+var children__5792__auto__ = cljs.core.rest(arglist__262973);
 return sub__delegate(opts__5791__auto__,children__5792__auto__);
 });
 sub.cljs$core$IFn$_invoke$arity$variadic = sub__delegate;
@@ -2176,9 +2176,9 @@ if (arguments.length > 1) {
 } 
 return summary__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 summary.cljs$lang$maxFixedArity = 1;
-summary.cljs$lang$applyTo = (function (arglist__204586){
-var opts__5791__auto__ = cljs.core.first(arglist__204586);
-var children__5792__auto__ = cljs.core.rest(arglist__204586);
+summary.cljs$lang$applyTo = (function (arglist__262974){
+var opts__5791__auto__ = cljs.core.first(arglist__262974);
+var children__5792__auto__ = cljs.core.rest(arglist__262974);
 return summary__delegate(opts__5791__auto__,children__5792__auto__);
 });
 summary.cljs$core$IFn$_invoke$arity$variadic = summary__delegate;
@@ -2200,9 +2200,9 @@ if (arguments.length > 1) {
 } 
 return sup__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 sup.cljs$lang$maxFixedArity = 1;
-sup.cljs$lang$applyTo = (function (arglist__204587){
-var opts__5791__auto__ = cljs.core.first(arglist__204587);
-var children__5792__auto__ = cljs.core.rest(arglist__204587);
+sup.cljs$lang$applyTo = (function (arglist__262975){
+var opts__5791__auto__ = cljs.core.first(arglist__262975);
+var children__5792__auto__ = cljs.core.rest(arglist__262975);
 return sup__delegate(opts__5791__auto__,children__5792__auto__);
 });
 sup.cljs$core$IFn$_invoke$arity$variadic = sup__delegate;
@@ -2224,9 +2224,9 @@ if (arguments.length > 1) {
 } 
 return table__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 table.cljs$lang$maxFixedArity = 1;
-table.cljs$lang$applyTo = (function (arglist__204588){
-var opts__5791__auto__ = cljs.core.first(arglist__204588);
-var children__5792__auto__ = cljs.core.rest(arglist__204588);
+table.cljs$lang$applyTo = (function (arglist__262976){
+var opts__5791__auto__ = cljs.core.first(arglist__262976);
+var children__5792__auto__ = cljs.core.rest(arglist__262976);
 return table__delegate(opts__5791__auto__,children__5792__auto__);
 });
 table.cljs$core$IFn$_invoke$arity$variadic = table__delegate;
@@ -2248,9 +2248,9 @@ if (arguments.length > 1) {
 } 
 return tbody__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 tbody.cljs$lang$maxFixedArity = 1;
-tbody.cljs$lang$applyTo = (function (arglist__204589){
-var opts__5791__auto__ = cljs.core.first(arglist__204589);
-var children__5792__auto__ = cljs.core.rest(arglist__204589);
+tbody.cljs$lang$applyTo = (function (arglist__262977){
+var opts__5791__auto__ = cljs.core.first(arglist__262977);
+var children__5792__auto__ = cljs.core.rest(arglist__262977);
 return tbody__delegate(opts__5791__auto__,children__5792__auto__);
 });
 tbody.cljs$core$IFn$_invoke$arity$variadic = tbody__delegate;
@@ -2272,9 +2272,9 @@ if (arguments.length > 1) {
 } 
 return td__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 td.cljs$lang$maxFixedArity = 1;
-td.cljs$lang$applyTo = (function (arglist__204590){
-var opts__5791__auto__ = cljs.core.first(arglist__204590);
-var children__5792__auto__ = cljs.core.rest(arglist__204590);
+td.cljs$lang$applyTo = (function (arglist__262978){
+var opts__5791__auto__ = cljs.core.first(arglist__262978);
+var children__5792__auto__ = cljs.core.rest(arglist__262978);
 return td__delegate(opts__5791__auto__,children__5792__auto__);
 });
 td.cljs$core$IFn$_invoke$arity$variadic = td__delegate;
@@ -2296,9 +2296,9 @@ if (arguments.length > 1) {
 } 
 return tfoot__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 tfoot.cljs$lang$maxFixedArity = 1;
-tfoot.cljs$lang$applyTo = (function (arglist__204591){
-var opts__5791__auto__ = cljs.core.first(arglist__204591);
-var children__5792__auto__ = cljs.core.rest(arglist__204591);
+tfoot.cljs$lang$applyTo = (function (arglist__262979){
+var opts__5791__auto__ = cljs.core.first(arglist__262979);
+var children__5792__auto__ = cljs.core.rest(arglist__262979);
 return tfoot__delegate(opts__5791__auto__,children__5792__auto__);
 });
 tfoot.cljs$core$IFn$_invoke$arity$variadic = tfoot__delegate;
@@ -2320,9 +2320,9 @@ if (arguments.length > 1) {
 } 
 return th__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 th.cljs$lang$maxFixedArity = 1;
-th.cljs$lang$applyTo = (function (arglist__204592){
-var opts__5791__auto__ = cljs.core.first(arglist__204592);
-var children__5792__auto__ = cljs.core.rest(arglist__204592);
+th.cljs$lang$applyTo = (function (arglist__262980){
+var opts__5791__auto__ = cljs.core.first(arglist__262980);
+var children__5792__auto__ = cljs.core.rest(arglist__262980);
 return th__delegate(opts__5791__auto__,children__5792__auto__);
 });
 th.cljs$core$IFn$_invoke$arity$variadic = th__delegate;
@@ -2344,9 +2344,9 @@ if (arguments.length > 1) {
 } 
 return thead__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 thead.cljs$lang$maxFixedArity = 1;
-thead.cljs$lang$applyTo = (function (arglist__204593){
-var opts__5791__auto__ = cljs.core.first(arglist__204593);
-var children__5792__auto__ = cljs.core.rest(arglist__204593);
+thead.cljs$lang$applyTo = (function (arglist__262981){
+var opts__5791__auto__ = cljs.core.first(arglist__262981);
+var children__5792__auto__ = cljs.core.rest(arglist__262981);
 return thead__delegate(opts__5791__auto__,children__5792__auto__);
 });
 thead.cljs$core$IFn$_invoke$arity$variadic = thead__delegate;
@@ -2368,9 +2368,9 @@ if (arguments.length > 1) {
 } 
 return time__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 time.cljs$lang$maxFixedArity = 1;
-time.cljs$lang$applyTo = (function (arglist__204594){
-var opts__5791__auto__ = cljs.core.first(arglist__204594);
-var children__5792__auto__ = cljs.core.rest(arglist__204594);
+time.cljs$lang$applyTo = (function (arglist__262982){
+var opts__5791__auto__ = cljs.core.first(arglist__262982);
+var children__5792__auto__ = cljs.core.rest(arglist__262982);
 return time__delegate(opts__5791__auto__,children__5792__auto__);
 });
 time.cljs$core$IFn$_invoke$arity$variadic = time__delegate;
@@ -2392,9 +2392,9 @@ if (arguments.length > 1) {
 } 
 return title__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 title.cljs$lang$maxFixedArity = 1;
-title.cljs$lang$applyTo = (function (arglist__204595){
-var opts__5791__auto__ = cljs.core.first(arglist__204595);
-var children__5792__auto__ = cljs.core.rest(arglist__204595);
+title.cljs$lang$applyTo = (function (arglist__262983){
+var opts__5791__auto__ = cljs.core.first(arglist__262983);
+var children__5792__auto__ = cljs.core.rest(arglist__262983);
 return title__delegate(opts__5791__auto__,children__5792__auto__);
 });
 title.cljs$core$IFn$_invoke$arity$variadic = title__delegate;
@@ -2416,9 +2416,9 @@ if (arguments.length > 1) {
 } 
 return tr__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 tr.cljs$lang$maxFixedArity = 1;
-tr.cljs$lang$applyTo = (function (arglist__204596){
-var opts__5791__auto__ = cljs.core.first(arglist__204596);
-var children__5792__auto__ = cljs.core.rest(arglist__204596);
+tr.cljs$lang$applyTo = (function (arglist__262984){
+var opts__5791__auto__ = cljs.core.first(arglist__262984);
+var children__5792__auto__ = cljs.core.rest(arglist__262984);
 return tr__delegate(opts__5791__auto__,children__5792__auto__);
 });
 tr.cljs$core$IFn$_invoke$arity$variadic = tr__delegate;
@@ -2440,9 +2440,9 @@ if (arguments.length > 1) {
 } 
 return track__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 track.cljs$lang$maxFixedArity = 1;
-track.cljs$lang$applyTo = (function (arglist__204597){
-var opts__5791__auto__ = cljs.core.first(arglist__204597);
-var children__5792__auto__ = cljs.core.rest(arglist__204597);
+track.cljs$lang$applyTo = (function (arglist__262985){
+var opts__5791__auto__ = cljs.core.first(arglist__262985);
+var children__5792__auto__ = cljs.core.rest(arglist__262985);
 return track__delegate(opts__5791__auto__,children__5792__auto__);
 });
 track.cljs$core$IFn$_invoke$arity$variadic = track__delegate;
@@ -2464,9 +2464,9 @@ if (arguments.length > 1) {
 } 
 return u__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 u.cljs$lang$maxFixedArity = 1;
-u.cljs$lang$applyTo = (function (arglist__204598){
-var opts__5791__auto__ = cljs.core.first(arglist__204598);
-var children__5792__auto__ = cljs.core.rest(arglist__204598);
+u.cljs$lang$applyTo = (function (arglist__262986){
+var opts__5791__auto__ = cljs.core.first(arglist__262986);
+var children__5792__auto__ = cljs.core.rest(arglist__262986);
 return u__delegate(opts__5791__auto__,children__5792__auto__);
 });
 u.cljs$core$IFn$_invoke$arity$variadic = u__delegate;
@@ -2488,9 +2488,9 @@ if (arguments.length > 1) {
 } 
 return ul__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 ul.cljs$lang$maxFixedArity = 1;
-ul.cljs$lang$applyTo = (function (arglist__204599){
-var opts__5791__auto__ = cljs.core.first(arglist__204599);
-var children__5792__auto__ = cljs.core.rest(arglist__204599);
+ul.cljs$lang$applyTo = (function (arglist__262987){
+var opts__5791__auto__ = cljs.core.first(arglist__262987);
+var children__5792__auto__ = cljs.core.rest(arglist__262987);
 return ul__delegate(opts__5791__auto__,children__5792__auto__);
 });
 ul.cljs$core$IFn$_invoke$arity$variadic = ul__delegate;
@@ -2512,9 +2512,9 @@ if (arguments.length > 1) {
 } 
 return var$__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 var$.cljs$lang$maxFixedArity = 1;
-var$.cljs$lang$applyTo = (function (arglist__204600){
-var opts__5791__auto__ = cljs.core.first(arglist__204600);
-var children__5792__auto__ = cljs.core.rest(arglist__204600);
+var$.cljs$lang$applyTo = (function (arglist__262988){
+var opts__5791__auto__ = cljs.core.first(arglist__262988);
+var children__5792__auto__ = cljs.core.rest(arglist__262988);
 return var$__delegate(opts__5791__auto__,children__5792__auto__);
 });
 var$.cljs$core$IFn$_invoke$arity$variadic = var$__delegate;
@@ -2536,9 +2536,9 @@ if (arguments.length > 1) {
 } 
 return video__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 video.cljs$lang$maxFixedArity = 1;
-video.cljs$lang$applyTo = (function (arglist__204601){
-var opts__5791__auto__ = cljs.core.first(arglist__204601);
-var children__5792__auto__ = cljs.core.rest(arglist__204601);
+video.cljs$lang$applyTo = (function (arglist__262989){
+var opts__5791__auto__ = cljs.core.first(arglist__262989);
+var children__5792__auto__ = cljs.core.rest(arglist__262989);
 return video__delegate(opts__5791__auto__,children__5792__auto__);
 });
 video.cljs$core$IFn$_invoke$arity$variadic = video__delegate;
@@ -2560,9 +2560,9 @@ if (arguments.length > 1) {
 } 
 return wbr__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 wbr.cljs$lang$maxFixedArity = 1;
-wbr.cljs$lang$applyTo = (function (arglist__204602){
-var opts__5791__auto__ = cljs.core.first(arglist__204602);
-var children__5792__auto__ = cljs.core.rest(arglist__204602);
+wbr.cljs$lang$applyTo = (function (arglist__262990){
+var opts__5791__auto__ = cljs.core.first(arglist__262990);
+var children__5792__auto__ = cljs.core.rest(arglist__262990);
 return wbr__delegate(opts__5791__auto__,children__5792__auto__);
 });
 wbr.cljs$core$IFn$_invoke$arity$variadic = wbr__delegate;
@@ -2584,9 +2584,9 @@ if (arguments.length > 1) {
 } 
 return circle__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 circle.cljs$lang$maxFixedArity = 1;
-circle.cljs$lang$applyTo = (function (arglist__204603){
-var opts__5791__auto__ = cljs.core.first(arglist__204603);
-var children__5792__auto__ = cljs.core.rest(arglist__204603);
+circle.cljs$lang$applyTo = (function (arglist__262991){
+var opts__5791__auto__ = cljs.core.first(arglist__262991);
+var children__5792__auto__ = cljs.core.rest(arglist__262991);
 return circle__delegate(opts__5791__auto__,children__5792__auto__);
 });
 circle.cljs$core$IFn$_invoke$arity$variadic = circle__delegate;
@@ -2608,9 +2608,9 @@ if (arguments.length > 1) {
 } 
 return ellipse__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 ellipse.cljs$lang$maxFixedArity = 1;
-ellipse.cljs$lang$applyTo = (function (arglist__204604){
-var opts__5791__auto__ = cljs.core.first(arglist__204604);
-var children__5792__auto__ = cljs.core.rest(arglist__204604);
+ellipse.cljs$lang$applyTo = (function (arglist__262992){
+var opts__5791__auto__ = cljs.core.first(arglist__262992);
+var children__5792__auto__ = cljs.core.rest(arglist__262992);
 return ellipse__delegate(opts__5791__auto__,children__5792__auto__);
 });
 ellipse.cljs$core$IFn$_invoke$arity$variadic = ellipse__delegate;
@@ -2632,9 +2632,9 @@ if (arguments.length > 1) {
 } 
 return g__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 g.cljs$lang$maxFixedArity = 1;
-g.cljs$lang$applyTo = (function (arglist__204605){
-var opts__5791__auto__ = cljs.core.first(arglist__204605);
-var children__5792__auto__ = cljs.core.rest(arglist__204605);
+g.cljs$lang$applyTo = (function (arglist__262993){
+var opts__5791__auto__ = cljs.core.first(arglist__262993);
+var children__5792__auto__ = cljs.core.rest(arglist__262993);
 return g__delegate(opts__5791__auto__,children__5792__auto__);
 });
 g.cljs$core$IFn$_invoke$arity$variadic = g__delegate;
@@ -2656,9 +2656,9 @@ if (arguments.length > 1) {
 } 
 return line__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 line.cljs$lang$maxFixedArity = 1;
-line.cljs$lang$applyTo = (function (arglist__204606){
-var opts__5791__auto__ = cljs.core.first(arglist__204606);
-var children__5792__auto__ = cljs.core.rest(arglist__204606);
+line.cljs$lang$applyTo = (function (arglist__262994){
+var opts__5791__auto__ = cljs.core.first(arglist__262994);
+var children__5792__auto__ = cljs.core.rest(arglist__262994);
 return line__delegate(opts__5791__auto__,children__5792__auto__);
 });
 line.cljs$core$IFn$_invoke$arity$variadic = line__delegate;
@@ -2680,9 +2680,9 @@ if (arguments.length > 1) {
 } 
 return path__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 path.cljs$lang$maxFixedArity = 1;
-path.cljs$lang$applyTo = (function (arglist__204607){
-var opts__5791__auto__ = cljs.core.first(arglist__204607);
-var children__5792__auto__ = cljs.core.rest(arglist__204607);
+path.cljs$lang$applyTo = (function (arglist__262995){
+var opts__5791__auto__ = cljs.core.first(arglist__262995);
+var children__5792__auto__ = cljs.core.rest(arglist__262995);
 return path__delegate(opts__5791__auto__,children__5792__auto__);
 });
 path.cljs$core$IFn$_invoke$arity$variadic = path__delegate;
@@ -2704,9 +2704,9 @@ if (arguments.length > 1) {
 } 
 return polyline__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 polyline.cljs$lang$maxFixedArity = 1;
-polyline.cljs$lang$applyTo = (function (arglist__204608){
-var opts__5791__auto__ = cljs.core.first(arglist__204608);
-var children__5792__auto__ = cljs.core.rest(arglist__204608);
+polyline.cljs$lang$applyTo = (function (arglist__262996){
+var opts__5791__auto__ = cljs.core.first(arglist__262996);
+var children__5792__auto__ = cljs.core.rest(arglist__262996);
 return polyline__delegate(opts__5791__auto__,children__5792__auto__);
 });
 polyline.cljs$core$IFn$_invoke$arity$variadic = polyline__delegate;
@@ -2728,9 +2728,9 @@ if (arguments.length > 1) {
 } 
 return rect__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 rect.cljs$lang$maxFixedArity = 1;
-rect.cljs$lang$applyTo = (function (arglist__204609){
-var opts__5791__auto__ = cljs.core.first(arglist__204609);
-var children__5792__auto__ = cljs.core.rest(arglist__204609);
+rect.cljs$lang$applyTo = (function (arglist__262997){
+var opts__5791__auto__ = cljs.core.first(arglist__262997);
+var children__5792__auto__ = cljs.core.rest(arglist__262997);
 return rect__delegate(opts__5791__auto__,children__5792__auto__);
 });
 rect.cljs$core$IFn$_invoke$arity$variadic = rect__delegate;
@@ -2752,9 +2752,9 @@ if (arguments.length > 1) {
 } 
 return svg__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 svg.cljs$lang$maxFixedArity = 1;
-svg.cljs$lang$applyTo = (function (arglist__204610){
-var opts__5791__auto__ = cljs.core.first(arglist__204610);
-var children__5792__auto__ = cljs.core.rest(arglist__204610);
+svg.cljs$lang$applyTo = (function (arglist__262998){
+var opts__5791__auto__ = cljs.core.first(arglist__262998);
+var children__5792__auto__ = cljs.core.rest(arglist__262998);
 return svg__delegate(opts__5791__auto__,children__5792__auto__);
 });
 svg.cljs$core$IFn$_invoke$arity$variadic = svg__delegate;
@@ -2776,9 +2776,9 @@ if (arguments.length > 1) {
 } 
 return text__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 text.cljs$lang$maxFixedArity = 1;
-text.cljs$lang$applyTo = (function (arglist__204611){
-var opts__5791__auto__ = cljs.core.first(arglist__204611);
-var children__5792__auto__ = cljs.core.rest(arglist__204611);
+text.cljs$lang$applyTo = (function (arglist__262999){
+var opts__5791__auto__ = cljs.core.first(arglist__262999);
+var children__5792__auto__ = cljs.core.rest(arglist__262999);
 return text__delegate(opts__5791__auto__,children__5792__auto__);
 });
 text.cljs$core$IFn$_invoke$arity$variadic = text__delegate;
@@ -2800,9 +2800,9 @@ if (arguments.length > 1) {
 } 
 return defs__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 defs.cljs$lang$maxFixedArity = 1;
-defs.cljs$lang$applyTo = (function (arglist__204612){
-var opts__5791__auto__ = cljs.core.first(arglist__204612);
-var children__5792__auto__ = cljs.core.rest(arglist__204612);
+defs.cljs$lang$applyTo = (function (arglist__263000){
+var opts__5791__auto__ = cljs.core.first(arglist__263000);
+var children__5792__auto__ = cljs.core.rest(arglist__263000);
 return defs__delegate(opts__5791__auto__,children__5792__auto__);
 });
 defs.cljs$core$IFn$_invoke$arity$variadic = defs__delegate;
@@ -2824,9 +2824,9 @@ if (arguments.length > 1) {
 } 
 return linearGradient__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 linearGradient.cljs$lang$maxFixedArity = 1;
-linearGradient.cljs$lang$applyTo = (function (arglist__204613){
-var opts__5791__auto__ = cljs.core.first(arglist__204613);
-var children__5792__auto__ = cljs.core.rest(arglist__204613);
+linearGradient.cljs$lang$applyTo = (function (arglist__263001){
+var opts__5791__auto__ = cljs.core.first(arglist__263001);
+var children__5792__auto__ = cljs.core.rest(arglist__263001);
 return linearGradient__delegate(opts__5791__auto__,children__5792__auto__);
 });
 linearGradient.cljs$core$IFn$_invoke$arity$variadic = linearGradient__delegate;
@@ -2848,9 +2848,9 @@ if (arguments.length > 1) {
 } 
 return polygon__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 polygon.cljs$lang$maxFixedArity = 1;
-polygon.cljs$lang$applyTo = (function (arglist__204614){
-var opts__5791__auto__ = cljs.core.first(arglist__204614);
-var children__5792__auto__ = cljs.core.rest(arglist__204614);
+polygon.cljs$lang$applyTo = (function (arglist__263002){
+var opts__5791__auto__ = cljs.core.first(arglist__263002);
+var children__5792__auto__ = cljs.core.rest(arglist__263002);
 return polygon__delegate(opts__5791__auto__,children__5792__auto__);
 });
 polygon.cljs$core$IFn$_invoke$arity$variadic = polygon__delegate;
@@ -2872,9 +2872,9 @@ if (arguments.length > 1) {
 } 
 return radialGradient__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 radialGradient.cljs$lang$maxFixedArity = 1;
-radialGradient.cljs$lang$applyTo = (function (arglist__204615){
-var opts__5791__auto__ = cljs.core.first(arglist__204615);
-var children__5792__auto__ = cljs.core.rest(arglist__204615);
+radialGradient.cljs$lang$applyTo = (function (arglist__263003){
+var opts__5791__auto__ = cljs.core.first(arglist__263003);
+var children__5792__auto__ = cljs.core.rest(arglist__263003);
 return radialGradient__delegate(opts__5791__auto__,children__5792__auto__);
 });
 radialGradient.cljs$core$IFn$_invoke$arity$variadic = radialGradient__delegate;
@@ -2896,9 +2896,9 @@ if (arguments.length > 1) {
 } 
 return stop__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 stop.cljs$lang$maxFixedArity = 1;
-stop.cljs$lang$applyTo = (function (arglist__204616){
-var opts__5791__auto__ = cljs.core.first(arglist__204616);
-var children__5792__auto__ = cljs.core.rest(arglist__204616);
+stop.cljs$lang$applyTo = (function (arglist__263004){
+var opts__5791__auto__ = cljs.core.first(arglist__263004);
+var children__5792__auto__ = cljs.core.rest(arglist__263004);
 return stop__delegate(opts__5791__auto__,children__5792__auto__);
 });
 stop.cljs$core$IFn$_invoke$arity$variadic = stop__delegate;
@@ -2920,9 +2920,9 @@ if (arguments.length > 1) {
 } 
 return tspan__delegate.call(this,opts__5791__auto__,children__5792__auto__);};
 tspan.cljs$lang$maxFixedArity = 1;
-tspan.cljs$lang$applyTo = (function (arglist__204617){
-var opts__5791__auto__ = cljs.core.first(arglist__204617);
-var children__5792__auto__ = cljs.core.rest(arglist__204617);
+tspan.cljs$lang$applyTo = (function (arglist__263005){
+var opts__5791__auto__ = cljs.core.first(arglist__263005);
+var children__5792__auto__ = cljs.core.rest(arglist__263005);
 return tspan__delegate(opts__5791__auto__,children__5792__auto__);
 });
 tspan.cljs$core$IFn$_invoke$arity$variadic = tspan__delegate;

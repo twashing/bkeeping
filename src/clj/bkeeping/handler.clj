@@ -15,7 +15,7 @@
             [cheshire.core :as chesr]
             [taoensso.sente :as sente]
             [org.httpkit.server :as hkit]
-            #_[overtone.at-at :as atat]
+            [overtone.at-at :as atat]
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
 
@@ -35,6 +35,9 @@
   (doseq [uid (:any @connected-uids)]
     (chsk-send! uid msg)))
 
+(defn broadcast-simple-toclients [msg]
+  (broadcast-toclients [:server/default msg]))
+
 (defmulti event-msg-handler :id)
 
 (defmethod event-msg-handler :default
@@ -46,20 +49,10 @@
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
-#_(defmethod event-msg-handler :chsk/uidport-open
-  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
-  (let [session (:session ring-req)
-        uid     (:uid     session)]
-
-    (timbre/debug (str "chsk/uidport-open event: " event))
-    (assoc )))
-
-;; Add your (defmethod event-msg-handler <event-id> [ev-msg] <body>)s here...
-
-
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   #_(timbre/debug (str "Event: " event))
   (event-msg-handler ev-msg))
+
 
 (defonce router_ (atom nil))
 
@@ -99,10 +92,10 @@
 
     (GET "/landing" [:as req]
 
-         #_(def my-pool (atat/mk-pool))
-         #_(after 3000
+         (def my-pool (atat/mk-pool))
+         (atat/after 10000
                 #(do
-                   (println "hello from the past!"))
+                   (broadcast-simple-toclients "hello from the past!"))
                 my-pool)
 
          (-> (ring-resp/response (slurp (io/resource "public/landing.html")))
