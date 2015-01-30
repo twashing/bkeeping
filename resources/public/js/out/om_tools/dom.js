@@ -29,8 +29,8 @@ return om_tools.dom.camel_case.call(null,attr);
 * Converts aliased attributes
 */
 om_tools.dom.opt_key_alias = (function opt_key_alias(opt){
-var G__22884 = (((opt instanceof cljs.core.Keyword))?opt.fqn:null);
-switch (G__22884) {
+var G__100581 = (((opt instanceof cljs.core.Keyword))?opt.fqn:null);
+switch (G__100581) {
 case "for":
 return new cljs.core.Keyword(null,"htmlFor","htmlFor",-1050291720);
 
@@ -68,10 +68,10 @@ return opt_val;
 */
 om_tools.dom.format_opts = (function format_opts(opts){
 if(cljs.core.map_QMARK_.call(null,opts)){
-return cljs.core.clj__GT_js.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p__22888){
-var vec__22889 = p__22888;
-var k = cljs.core.nth.call(null,vec__22889,(0),null);
-var v = cljs.core.nth.call(null,vec__22889,(1),null);
+return cljs.core.clj__GT_js.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p__100585){
+var vec__100586 = p__100585;
+var k = cljs.core.nth.call(null,vec__100586,(0),null);
+var v = cljs.core.nth.call(null,vec__100586,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [om_tools.dom.format_opt_key.call(null,k),om_tools.dom.format_opt_val.call(null,v)], null);
 }),opts)));
 } else {
@@ -110,9 +110,9 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 }
 });
 om_tools.dom.element = (function element(ctor,opts,children){
-var vec__22891 = om_tools.dom.element_args.call(null,opts,children);
-var opts__$1 = cljs.core.nth.call(null,vec__22891,(0),null);
-var children__$1 = cljs.core.nth.call(null,vec__22891,(1),null);
+var vec__100588 = om_tools.dom.element_args.call(null,opts,children);
+var opts__$1 = cljs.core.nth.call(null,vec__100588,(0),null);
+var children__$1 = cljs.core.nth.call(null,vec__100588,(1),null);
 return cljs.core.apply.call(null,ctor,cljs.core.flatten.call(null,cljs.core.cons.call(null,opts__$1,children__$1)));
 });
 om_tools.dom.class_set = (function class_set(m){

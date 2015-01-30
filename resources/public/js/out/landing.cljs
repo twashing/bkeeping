@@ -26,6 +26,9 @@
   (def chsk-state state)   ; Watchable, read-only atom
   )
 
+(defn ^:export sendMessage [msg]
+  (chsk-send! [:t/default msg]))
+
 (def app-state
   (atom {:name "main"
          :accounts [{:db/id "0"
