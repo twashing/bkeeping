@@ -36,6 +36,8 @@
     (chsk-send! uid msg)))
 
 (defn broadcast-simple-toclients [msg]
+
+  (timbre/debug (str "sanity check: broadcast-simple-toclients : " msg))
   (broadcast-toclients [:server/default msg]))
 
 (defmulti event-msg-handler :id)
@@ -85,27 +87,22 @@
     (GET  "/chsk" req (ring-ajax-get-or-ws-handshake req))
     (POST "/chsk" req (ring-ajax-post                req))
 
-    (GET "/" []
+    (GET "/" [:as req]
 
          (-> (ring-resp/response (slurp (io/resource "public/index.html")))
              (ring-resp/content-type "text/html")))
 
     (GET "/landing" [:as req]
 
-         (def my-pool (atat/mk-pool))
-         (atat/after 10000
-                #(do
-                   (broadcast-simple-toclients "hello from the past!"))
-                my-pool)
-
+         (timbre/debug (str "/landing req[" req "]"))
          (-> (ring-resp/response (slurp (io/resource "public/landing.html")))
              (ring-resp/content-type "text/html")))
 
-    (POST "/verify-assertion" [req]
+    (POST "/verify-assertion" [:as req]
 
           (let [session (:session req)
 
-                _ (timbre/debug "verify-assertion CALLED / session [" session "] / req [" req "]")
+                ;; _ (timbre/debug "verify-assertion CALLED / session [" session "] / req [" req "]")
 
                 audience (str (if (env :host) (env :host) "http://localhost")
                               ":3000")
@@ -117,17 +114,23 @@
                 parsed-body (chesr/parse-string (-> response :body))
                 response-status (parsed-body "status")
                 response-email (parsed-body "email")
-                session (if (nil? session) {} session)]
+                session (if (nil? session) {} session)
+                responseF (assoc response :session session)]
 
-            (timbre/debug "... sanity / response-body[" parsed-body
+            #_(timbre/debug "verify-assertion / response-body[" parsed-body
                           "] / response-status[" response-status
                           "] / response-email[" response-email "]")
-            (timbre/debug "... sanity / (str response) [" (str response) "]")
+            #_(timbre/debug "verify-assertion / (str response) [" (str response) "]")
+
+            (timbre/debug "FINAL response... " (-> (ring-resp/response response)
+                                                   (ring-resp/content-type "application/edn")
+                                                   (assoc :session session)))
+
 
             (if (= "okay" response-status)
               (do
                 (add-user-ifnil response-email)
-                (-> (ring-resp/response (str response))
+                (-> (ring-resp/response response)
                     (ring-resp/content-type "application/edn")
                     (assoc :session session)))
               (-> (ring-resp/response (str {:body {:status response-status}}))
@@ -144,19 +147,93 @@
     (route/resources "/")
     (route/not-found "Not Found")))
 
-(def timeout-response
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "timeout"})
+
+(defn seconds-to-milliseconds [inp]
+  (* inp 1000))
+
+(defn minutes-to-milliseconds [inp]
+  (* 60 (seconds-to-milliseconds inp)))
+
+(defn- current-time []
+  (quot (System/currentTimeMillis) 1000))
+
+
+(def my-pool nil)
+
+(defn reset-websocket-timer! [timeout]
+
+  (timbre/debug (str "sanity check: reset-websocket-timer!: " timeout))
+
+  (if (nil? my-pool)
+    (def my-pool (atat/mk-pool))
+    (atat/stop-and-reset-pool! my-pool))
+
+  (atat/after timeout
+              #(broadcast-simple-toclients "session has timed out")
+              my-pool))
+
+(defn timeout-middleware [handler {:keys [timeout timeout-response] :or {timeout (minutes-to-milliseconds 10)}}]
+
+  (fn [request]
+
+    (let [session (:session request)
+          end-time (::idle-timeout session)
+          uri (:uri request)]
+
+      (if (not (= uri "/landing"))
+
+        (handler request)
+
+        (let [response (handler request)
+              end-time (+ (current-time) timeout)
+              session  (-> (:session response session)
+                           (assoc ::idle-timeout end-time))]
+
+          (reset-websocket-timer! timeout)
+          (assoc response :session session)))
+
+
+
+      #_(timbre/debug "...uri[" uri "] / request[" request "]")
+      #_(if (not (= uri "/landing"))
+
+          (handler request)
+
+          ;; if we're dealing with /landing
+          (if (nil? session)
+
+            ;; if there's no session
+            (assoc timeout-response :session nil)
+
+            (do
+
+              (timbre/debug "")
+              (timbre/debug (str "uri... " uri))
+              (timbre/debug (str "1... " end-time))
+              (timbre/debug (str "2... " (< end-time (current-time))))
+              (timbre/debug (str "3... " (and end-time (< end-time (current-time)))))
+
+              (if (and end-time (< end-time (current-time)))
+
+                ;; if we've timed out
+                (assoc timeout-response :session nil)
+
+                (let [response (handler request)
+                      end-time (+ (current-time) timeout)
+                      session  (-> (:session response session)
+                                   (assoc ::idle-timeout end-time))]
+
+                  (reset-websocket-timer! timeout)
+                  (assoc response :session session)))))))))
 
 (def app
   (-> (gen-app)
       handler/site
       (session/wrap-session {:cookie-attrs {:max-age 3600}
                              :store (cookie-store {:key "a 16-byte secret"})})
-      #_(timeout/wrap-idle-session-timeout
-       {:timeout 100
-        :timeout-response timeout-response})))
+      (timeout-middleware
+       {:timeout (seconds-to-milliseconds 10)
+        :timeout-response (ring-resp/redirect "/")})))
 
 
 (defonce http-server_ (atom nil))

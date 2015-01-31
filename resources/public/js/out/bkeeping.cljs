@@ -60,7 +60,7 @@
     :url "/verify-assertion"
     :data {:assertion assertion}
     :on-complete (partial basicHandler #(set! (.-location js/window)
-                                              "/landing.html")) }))
+                                              "/landing")) }))
 
 (defn signoutUser []
   (console-log "signoutUser CALLED")
