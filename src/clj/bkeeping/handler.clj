@@ -155,15 +155,17 @@
 
 (defn reset-websocket-timer! [timeout]
 
-  (timbre/debug (str "sanity check: reset-websocket-timer!: " timeout))
+  (let [timeoutF (* timeout 1000)]
 
-  (if (nil? my-pool)
-    (def my-pool (atat/mk-pool))
-    (atat/stop-and-reset-pool! my-pool))
+    (timbre/debug (str "sanity check: reset-websocket-timer!: " timeoutF))
 
-  (atat/after timeout
-              #(broadcast-simple-toclients "session has timed out")
-              my-pool))
+    (if (nil? my-pool)
+      (def my-pool (atat/mk-pool))
+      (atat/stop-and-reset-pool! my-pool))
+
+    (atat/after timeoutF
+                #(broadcast-simple-toclients "session has timed out")
+                my-pool)))
 
 (defn timeout-middleware [handler {:keys [timeout timeout-response] :or {timeout (minutes-to-milliseconds 10)}}]
 
@@ -173,7 +175,7 @@
           end-time (::idle-timeout session)
           uri (:uri request)]
 
-      (timbre/debug "...uri[" uri "] / request[" request "]")
+      ;;(timbre/debug "...uri[" uri "] / request[" request "]")
 
       (if (not (= uri "/landing"))
 
@@ -203,18 +205,17 @@
                       session  (-> (:session response session)
                                    (assoc ::idle-timeout end-time))]
 
-                  #_(reset-websocket-timer! timeout)
+                  (reset-websocket-timer! timeout)
                   (assoc response :session session)))))))))
 
 (def app
   (-> (gen-app)
       (timeout-middleware
-       {:timeout (seconds-to-milliseconds 10)
+       {:timeout 10
         :timeout-response (ring-resp/redirect "/")})
       handler/site
       (session/wrap-session {:cookie-attrs {:max-age 3600}
-                             :store (cookie-store {:key "a 16-byte secret"})})
-      ))
+                             :store (cookie-store {:key "a 16-byte secret"})})))
 
 
 (defonce http-server_ (atom nil))
