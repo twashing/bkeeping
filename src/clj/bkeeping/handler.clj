@@ -118,8 +118,7 @@
                 session (if (nil? session) {} session)]
 
             (timbre/debug "FINAL response... " (-> (ring-resp/response response)
-                                                   (ring-resp/content-type "application/edn")
-                                                   (assoc :session session)))
+                                                   (ring-resp/content-type "application/edn")))
 
             (if (= "okay" response-status)
               (do

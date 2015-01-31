@@ -35,12 +35,23 @@
   (let [xhr (XhrIo.)]
     (events/listen xhr goog.net.EventType.COMPLETE
                    (fn [e]
-                     (on-complete (reader/read-string (.getResponseText xhr)))))
+
+                     ;; Map data is returned as a flattened list of entry vectors
+                     ;; So A) needs to be converted to B)
+
+                     ;; A) "[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]"
+                     ;; B) "[[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]]"
+                     (let [response (str "[" (.getResponseText xhr) "]")
+                           response-edn  (reader/read-string response)
+                           responseF (reduce #(assoc %1 (first %2) (second %2)) {} response-edn) ]
+                       (on-complete responseF))))
     (. xhr
        (send url (meths method) (when data (pr-str data))
              #js {"Content-Type" "application/edn"}))))
 
 (defn basicHandler [handlefn res]
+
+  (console-log (str "basicHandler response: " res))
   (if (= 200 (:status res))
     (do
       (console-log (str "XMLHttpRequest SUCCESS: " res))
@@ -59,8 +70,7 @@
    {:method :post
     :url "/verify-assertion"
     :data {:assertion assertion}
-    :on-complete (partial basicHandler #(set! (.-location js/window)
-                                              "/landing")) }))
+    :on-complete (partial basicHandler (fn [e] (set! (.-location js/window) "/landing"))) }))
 
 (defn signoutUser []
   (console-log "signoutUser CALLED")
