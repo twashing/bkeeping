@@ -96,7 +96,8 @@
 
          (timbre/debug (str "/landing req[" req "]"))
          (-> (ring-resp/response (slurp (io/resource "public/landing.html")))
-             (ring-resp/content-type "text/html")))
+             (ring-resp/content-type "text/html")
+             (assoc :session {:fu :bar})))
 
     (POST "/verify-assertion" [:as req]
 
@@ -126,18 +127,16 @@
                                                    (ring-resp/content-type "application/edn")
                                                    (assoc :session session)))
 
-
             (if (= "okay" response-status)
               (do
                 (add-user-ifnil response-email)
                 (-> (ring-resp/response response)
-                    (ring-resp/content-type "application/edn")
-                    (assoc :session session)))
+                    (ring-resp/content-type "application/edn")))
               (-> (ring-resp/response (str {:body {:status response-status}}))
                   (ring-resp/status 401)
                   (ring-resp/content-type "application/edn")))))
 
-    (GET "/session-status" [req]
+    (GET "/session-status" [:as req]
 
          (timbre/debug (str "/session-status request[" (:session req) "]"))
          (-> (ring-resp/response (str (:session req)))
@@ -177,21 +176,28 @@
   (fn [request]
 
     (let [session (:session request)
-          end-time (::idle-timeout session)
+          end-time (::idle-timeout session 0)
           uri (:uri request)]
 
       (if (not (= uri "/landing"))
 
         (handler request)
 
-        (let [response (handler request)
-              end-time (+ (current-time) timeout)
-              session  (-> (:session response session)
-                           (assoc ::idle-timeout end-time))]
+        (do
 
-          (reset-websocket-timer! timeout)
-          (assoc response :session session)))
+          (timbre/debug "")
+          (timbre/debug (str "uri... " uri))
+          (timbre/debug (str "1... " end-time))
+          (timbre/debug (str "2... " (< end-time (current-time))))
+          (timbre/debug (str "3... " (and end-time (< end-time (current-time)))))
 
+          (let [response (handler request)
+                end-time (+ (current-time) timeout)
+                session  (-> (:session response session)
+                             (assoc ::idle-timeout end-time))]
+
+            (reset-websocket-timer! timeout)
+            (assoc response :session session))))
 
 
       #_(timbre/debug "...uri[" uri "] / request[" request "]")
@@ -231,7 +237,7 @@
       handler/site
       (session/wrap-session {:cookie-attrs {:max-age 3600}
                              :store (cookie-store {:key "a 16-byte secret"})})
-      (timeout-middleware
+      #_(timeout-middleware
        {:timeout (seconds-to-milliseconds 10)
         :timeout-response (ring-resp/redirect "/")})))
 
