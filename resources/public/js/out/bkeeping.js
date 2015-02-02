@@ -36,25 +36,25 @@ return bkeeping.transitionEntries.call(null,cljs.core._);
 });
 goog.exportSymbol('bkeeping.transitionEntriesBackward', bkeeping.transitionEntriesBackward);
 bkeeping.meths = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"get","get",1683182755),"GET",new cljs.core.Keyword(null,"put","put",1299772570),"PUT",new cljs.core.Keyword(null,"post","post",269697687),"POST",new cljs.core.Keyword(null,"delete","delete",-1768633620),"DELETE"], null);
-bkeeping.edn_xhr = (function edn_xhr(p__1311966){
-var map__1311968 = p__1311966;
-var map__1311968__$1 = ((cljs.core.seq_QMARK_.call(null,map__1311968))?cljs.core.apply.call(null,cljs.core.hash_map,map__1311968):map__1311968);
-var on_complete = cljs.core.get.call(null,map__1311968__$1,new cljs.core.Keyword(null,"on-complete","on-complete",-1531183971));
-var data = cljs.core.get.call(null,map__1311968__$1,new cljs.core.Keyword(null,"data","data",-232669377));
-var url = cljs.core.get.call(null,map__1311968__$1,new cljs.core.Keyword(null,"url","url",276297046));
-var method = cljs.core.get.call(null,map__1311968__$1,new cljs.core.Keyword(null,"method","method",55703592));
+bkeeping.edn_xhr = (function edn_xhr(p__1318457){
+var map__1318459 = p__1318457;
+var map__1318459__$1 = ((cljs.core.seq_QMARK_.call(null,map__1318459))?cljs.core.apply.call(null,cljs.core.hash_map,map__1318459):map__1318459);
+var on_complete = cljs.core.get.call(null,map__1318459__$1,new cljs.core.Keyword(null,"on-complete","on-complete",-1531183971));
+var data = cljs.core.get.call(null,map__1318459__$1,new cljs.core.Keyword(null,"data","data",-232669377));
+var url = cljs.core.get.call(null,map__1318459__$1,new cljs.core.Keyword(null,"url","url",276297046));
+var method = cljs.core.get.call(null,map__1318459__$1,new cljs.core.Keyword(null,"method","method",55703592));
 var xhr = (new goog.net.XhrIo());
-goog.events.listen(xhr,goog.net.EventType.COMPLETE,((function (xhr,map__1311968,map__1311968__$1,on_complete,data,url,method){
+goog.events.listen(xhr,goog.net.EventType.COMPLETE,((function (xhr,map__1318459,map__1318459__$1,on_complete,data,url,method){
 return (function (e){
 var response = [cljs.core.str("["),cljs.core.str(xhr.getResponseText()),cljs.core.str("]")].join('');
 var response_edn = cljs.reader.read_string.call(null,response);
-var responseF = cljs.core.reduce.call(null,((function (response,response_edn,xhr,map__1311968,map__1311968__$1,on_complete,data,url,method){
-return (function (p1__1311964_SHARP_,p2__1311965_SHARP_){
-return cljs.core.assoc.call(null,p1__1311964_SHARP_,cljs.core.first.call(null,p2__1311965_SHARP_),cljs.core.second.call(null,p2__1311965_SHARP_));
-});})(response,response_edn,xhr,map__1311968,map__1311968__$1,on_complete,data,url,method))
+var responseF = cljs.core.reduce.call(null,((function (response,response_edn,xhr,map__1318459,map__1318459__$1,on_complete,data,url,method){
+return (function (p1__1318455_SHARP_,p2__1318456_SHARP_){
+return cljs.core.assoc.call(null,p1__1318455_SHARP_,cljs.core.first.call(null,p2__1318456_SHARP_),cljs.core.second.call(null,p2__1318456_SHARP_));
+});})(response,response_edn,xhr,map__1318459,map__1318459__$1,on_complete,data,url,method))
 ,cljs.core.PersistentArrayMap.EMPTY,response_edn);
 return on_complete.call(null,responseF);
-});})(xhr,map__1311968,map__1311968__$1,on_complete,data,url,method))
+});})(xhr,map__1318459,map__1318459__$1,on_complete,data,url,method))
 );
 
 return xhr.send(url,bkeeping.meths.call(null,method),(cljs.core.truth_(data)?cljs.core.pr_str.call(null,data):null),{"Content-Type": "application/edn"});

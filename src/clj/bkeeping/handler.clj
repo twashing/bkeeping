@@ -71,11 +71,24 @@
   (let [ds (-> bkell/system :spittoon :db)
         uresult (try+ (bku/add-user ds username "CA" "CDN")
                       (catch AssertionError e &throw-context))
-        _ (if (:stack-trace uresult)
-            (timbre/debug "NIL: user [" username "] already exists")
-            (timbre/debug "SUCCESS: adding user [" username "]"))]
 
-    uresult))
+        uresultF (if (:stack-trace uresult)
+
+                   ;; Mirroring structure that's returned from a successful user creation
+                   (do
+                     (timbre/debug "NIL: user [" username "] already exists")
+                     [{:system
+                       {:groups
+                        #{{:name (str "group-" username)
+                           :users
+                           #{{:username username}}}}}}])
+
+                   ;; Return structure that system generates
+                   (do
+                     (timbre/debug "SUCCESS: adding user [" username "]")
+                     uresult))]
+
+    uresultF))
 
 (defn gen-app []
 
@@ -103,8 +116,6 @@
 
           (let [session (:session req)
 
-                ;; _ (timbre/debug "verify-assertion CALLED / session [" session "] / req [" req "]")
-
                 audience (str (if (env :host) (env :host) "http://localhost")
                               ":3000")
                 body (read-string (slurp (:body req)))
@@ -117,14 +128,16 @@
                 response-email (parsed-body "email")
                 session (if (nil? session) {} session)]
 
-            (timbre/debug "FINAL response... " (-> (ring-resp/response response)
-                                                   (ring-resp/content-type "application/edn")))
-
             (if (= "okay" response-status)
               (do
-                (add-user-ifnil response-email)
-                (-> (ring-resp/response response)
-                    (ring-resp/content-type "application/edn")))
+
+                ;; this will have the group-name and user-name
+                ;; (-> result first :system :groups first :name)
+                ;; (-> result first :system :groups first :users first :username)
+                (let [uresult (add-user-ifnil response-email)
+                      response-withuser (assoc response :uresult uresult)]
+                  (-> (ring-resp/response response-withuser)
+                      (ring-resp/content-type "application/edn"))))
               (-> (ring-resp/response (str {:body {:status response-status}}))
                   (ring-resp/status 401)
                   (ring-resp/content-type "application/edn")))))
