@@ -5,7 +5,7 @@
             [sablono.core :as html :refer-macros [html]]
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
-            [bkeeping :as bg]))
+            [util :as ul]))
 
 
 (def asset-types {:asset 0
@@ -70,12 +70,12 @@
          [:div {:id "account-details-cancel"
                 :noink true
                 :raised true
-                :on-click bg/transitionAccountsBackward} "cancel"]
+                :on-click ul/transitionAccountsBackward} "cancel"]
          [:div {:id "account-details-save"
                 :noink true
                 :raised true
                 :on-click (fn [e]
-                            (bg/transitionAccountsBackward)
+                            (ul/transitionAccountsBackward)
                             (om/transact! account
                                           (fn [x]
                                             (let [natype (accounttype-from-selectedindex (om/get-state owner :type))
@@ -96,7 +96,7 @@
              [:div {:class "account-row"
                     :flex true
                     :on-click (fn [e]
-                                (bg/transitionAccountsForward)
+                                (ul/transitionAccountsForward)
                                 (om/root account-view
                                          ech
                                          {:target (. js/document (getElementById "account-section"))}))}

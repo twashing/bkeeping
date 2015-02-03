@@ -7,13 +7,11 @@
             [sablono.core :as html :refer-macros [html]]
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
-            [bkeeping :as bg]
             [account :as act]
-            [entry :as ent])
+            [entry :as ent]
+            [util :as ul])
   (:require-macros [cljs.core.async.macros :as asyncm :refer (go go-loop)]))
 
-
-(enable-console-print!)
 
 ;; SENTE
 (let [{:keys [chsk ch-recv send-fn state]}
@@ -30,20 +28,20 @@
 
 (defmethod event-msg-handler :server/default ; Fallback
   [{:as ev-msg :keys [event]}]
-  (bg/console-log (str "default event: " event)))
+  (ul/console-log (str "default event: " event)))
 
 (defmethod event-msg-handler :chsk/state
   [{:as ev-msg :keys [?data]}]
   (if (= ?data {:first-open? true})
-    (bg/console-log "Channel socket successfully established!")
-    (bg/console-log (str "Channel socket state change: " ?data))))
+    (ul/console-log "Channel socket successfully established!")
+    (ul/console-log (str "Channel socket state change: " ?data))))
 
 (defmethod event-msg-handler :chsk/recv
   [{:as ev-msg :keys [?data]}]
-  (bg/console-log (str "Push event from server: " ?data)))
+  (ul/console-log (str "Push event from server: " ?data)))
 
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  (bg/console-log (str "Event: " event))
+  (ul/console-log (str "Event: " event))
   (event-msg-handler ev-msg))
 
 (def router_ (atom nil))
@@ -55,9 +53,7 @@
 (start-router!)
 
 
-(defn ^:export sendMessage [msg]
-  (chsk-send! [:client/default msg]))
-
+(def user-state (atom nil))
 (def app-state
   (atom {:name "main"
          :accounts [{:db/id "0"
@@ -104,7 +100,28 @@
                                            :amount 1600
                                            :account "widgets"}]}]}]}))
 
-(js/setTimeout (fn []
+(defn ^:export sendMessage [msg]
+  (chsk-send! [:client/default msg]))
+
+(defn ^:export printUserState []
+  (ul/console-log @user-state))
+
+(defn ^:export printAppState []
+  (ul/console-log @app-state))
+
+
+(defn main []
+
+  (om/root act/accounts-view
+           app-state
+           {:target (. js/document (getElementById "accounts-section"))})
+
+  (om/root ent/entries-view
+           app-state
+           {:target (. js/document (getElementById "entries-section"))}))
+
+
+#_(js/setTimeout (fn []
 
                  (om/root act/accounts-view
                           app-state

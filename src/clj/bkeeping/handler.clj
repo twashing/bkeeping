@@ -52,7 +52,6 @@
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  #_(timbre/debug (str "Event: " event))
   (event-msg-handler ev-msg))
 
 
@@ -109,8 +108,7 @@
 
          (timbre/debug (str "/landing req[" req "]"))
          (-> (ring-resp/response (slurp (io/resource "public/landing.html")))
-             (ring-resp/content-type "text/html")
-             #_(assoc :session {:fu :bar})))
+             (ring-resp/content-type "text/html")))
 
     (POST "/verify-assertion" [:as req]
 
@@ -132,8 +130,6 @@
               (do
 
                 ;; this will have the group-name and user-name
-                ;; (-> result first :system :groups first :name)
-                ;; (-> result first :system :groups first :users first :username)
                 (let [uresult (add-user-ifnil response-email)
                       response-withuser (assoc response :uresult uresult)]
                   (-> (ring-resp/response response-withuser)
@@ -223,7 +219,7 @@
 (def app
   (-> (gen-app)
       (timeout-middleware
-       {:timeout 10
+       {:timeout 1000
         :timeout-response (ring-resp/redirect "/")})
       handler/site
       (session/wrap-session {:cookie-attrs {:max-age 3600}

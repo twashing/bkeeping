@@ -2,11 +2,17 @@
  "file":
  "/home/twashing/Projects/bkeeping/resources/public/js/out/index.js",
  "sources":["index.cljs"],
- "lineCount":30,
+ "lineCount":63,
  "mappings":
- ";AAAA;;;;;;;;AAUA,uBAAA,vBAAMA;AAAN,AACE,kBAAA,dAAMC;IACAC,cAAYC;AADlB,AAGE,+BAAA,/BAACC;;AACD,AAAQF,kBACA,+BAAA,2CAAA,iFAAA,oFAAA,/OAACG,+IAAuBJ,uEACLK,sFACCC;;AAC5B,OAAUL;;AAEd,cAAA,dAAMM;AAAN,AACE,IAAAC,qBAAoB,oBAAA,pBAACE;AAArB,AAAA,oBAAAF;AAAA,iBAAAA,bAASC;AAAT,AACE,OAAM,AAAWA,qBAAYV;;AAD/B;;;AAGF,AAACQ",
+ ";AAAA;;;;;;;;;;AAYA,wBAAA,xBAAMA,kDAAiBC;AAAvB,AAEE,AAACC,2BAAe,eAAA,sDAA4CD;;AAC5D,kCAAA,2CAAA,uDAAA,oDAAA,kDAAA,oBAAA,qDAAA,2CAAA,kFAAA,zaAACE,uZAGmBF,sFACL,AAACG,4BAAQC,sBACA,WAAKC,EAAEC;AAAP,AAME,IAAMC,OAAK,AAAkBD;IACvBE,WAAS,eAAA,uCAAA,pBAASD;IAClBE,eAAc,AAACC,kCAAmBF;IAClCG,YAAU,2BAAA,3BAACG;kBAADF,iBAAAC;AAAA,AAAS,iCAAAD,1BAACG,2CAAS,0BAAAF,1BAACG,4CAAU,2BAAAH,3BAACI;;CAA/B,mCAA8CR;AAH9D,AAKE,kCAAA,2CAAA,uDAAA,mDAAA,kDAAA,WAAA,7OAACP,iTAGc;kBAAKG,MAAEC;AAAP,AAEE,IAAMY,SAAO,AAAkBZ;AAA/B,AACE,AAACa,+BAAMC,mBAAc;kBAAKC;AAAL,AAAA,kDAAA,+XAAA,sfAAA,tzBACc,AAAA,mFAAA,0BAAA,AAAA,uFAAA,AAAA,sFAAA,0BAAIH,1BAAOF,vMAAsBA,0SAClC,AAAA,2FAAA,0BAAA,AAAA,qFAAA,0BAAA,AAAA,uFAAA,AAAA,sFAAA,0BAAIE,1BAAOF,vMACPA,/GAAaA,uZACjBE;;;;AAClC,OAACI;;;;;AAElD,oBAAA,pBAAMC;AAAN,AACE,2BAAA,3BAACtB;;AAED,kCAAA,2CAAA,uDAAA,mDAAA,kDAAA,WAAA,7OAACC,iTAGc,+BAAA,/BAACsB;;AAElB,uBAAA,vBAAMC;AAAN,AACE,kBAAA,dAAMC;IACAC,cAAYC;AADlB,AAGE,2BAAA,3BAAC3B;;AACD,AAAQ0B,kBACA,+BAAA,2CAAA,iFAAA,iFAAA,5OAACE,+IAAuBH,uEACL3B,mFACCwB;;AAC5B,OAAUI;;AAEd,cAAA,dAAMG;AAAN,AACE,IAAAC,qBAAoB,oBAAA,pBAACE;AAArB,AAAA,oBAAAF;AAAA,iBAAAA,bAASC;AAAT,AACE,OAAM,AAAWA,qBAAYP;;AAD/B;;;AAGF,AAACK",
  "names":
- ["index/onClickHandler", "currentUser", "navigatorId",
-  "js/navigator.id", "bkeeping/console-log", "cljs.core/clj->js",
-  "bkeeping/verifyAssertion", "bkeeping/signoutUser", "index/start",
+ ["index/verifyAssertion", "assertion", "util/console-log",
+  "bkeeping/edn-xhr", "cljs.core/partial", "bkeeping/basicHandler",
+  "e", "xhr", "data", "response", "response-edn",
+  "cljs.reader/read-string", "responseF", "p1__34445#", "p2__34446#",
+  "cljs.core/reduce", "cljs.core/assoc", "cljs.core/first",
+  "cljs.core/second", "result", "cljs.core/swap!",
+  "landing/user-state", "inp", "landing/main", "index/signoutUser",
+  "cljs.core/constantly", "index/onClickHandler", "currentUser",
+  "navigatorId", "js/navigator.id", "cljs.core/clj->js", "index/start",
   "temp__4124__auto__", "signinLink", "goog.dom/getElement"]}

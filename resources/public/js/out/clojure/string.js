@@ -53,10 +53,10 @@ var sb = (new goog.string.StringBuffer());
 var coll__$1 = cljs.core.seq.call(null,coll);
 while(true){
 if(coll__$1){
-var G__1319909 = sb.append([cljs.core.str(cljs.core.first.call(null,coll__$1))].join(''));
-var G__1319910 = cljs.core.next.call(null,coll__$1);
-sb = G__1319909;
-coll__$1 = G__1319910;
+var G__29369 = sb.append([cljs.core.str(cljs.core.first.call(null,coll__$1))].join(''));
+var G__29370 = cljs.core.next.call(null,coll__$1);
+sb = G__29369;
+coll__$1 = G__29370;
 continue;
 } else {
 return sb.toString();
@@ -77,10 +77,10 @@ if((coll__$2 == null)){
 sb.append(separator);
 }
 
-var G__1319911 = sb;
-var G__1319912 = coll__$2;
-sb = G__1319911;
-coll__$1 = G__1319912;
+var G__29371 = sb;
+var G__29372 = coll__$2;
+sb = G__29371;
+coll__$1 = G__29372;
 continue;
 } else {
 return sb.toString();
@@ -129,8 +129,8 @@ clojure.string.pop_last_while_empty = (function pop_last_while_empty(v){
 var v__$1 = v;
 while(true){
 if(cljs.core._EQ_.call(null,"",cljs.core.peek.call(null,v__$1))){
-var G__1319913 = cljs.core.pop.call(null,v__$1);
-v__$1 = G__1319913;
+var G__29373 = cljs.core.pop.call(null,v__$1);
+v__$1 = G__29373;
 continue;
 } else {
 return v__$1;
@@ -149,12 +149,12 @@ clojure.string.split_with_empty_regex = (function split_with_empty_regex(s,limit
 if(((limit <= (0))) || ((limit >= ((2) + cljs.core.count.call(null,s))))){
 return cljs.core.conj.call(null,cljs.core.vec.call(null,cljs.core.cons.call(null,"",cljs.core.map.call(null,cljs.core.str,cljs.core.seq.call(null,s)))),"");
 } else {
-var pred__1319917 = cljs.core._EQ_;
-var expr__1319918 = limit;
-if(cljs.core.truth_(pred__1319917.call(null,(1),expr__1319918))){
+var pred__29377 = cljs.core._EQ_;
+var expr__29378 = limit;
+if(cljs.core.truth_(pred__29377.call(null,(1),expr__29378))){
 return (new cljs.core.PersistentVector(null,1,(5),cljs.core.PersistentVector.EMPTY_NODE,[s],null));
 } else {
-if(cljs.core.truth_(pred__1319917.call(null,(2),expr__1319918))){
+if(cljs.core.truth_(pred__29377.call(null,(2),expr__29378))){
 return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,["",s],null));
 } else {
 var c = (limit - (2));
@@ -184,12 +184,12 @@ var temp__4124__auto__ = cljs.core.re_find.call(null,re,s__$1);
 if(cljs.core.truth_(temp__4124__auto__)){
 var m = temp__4124__auto__;
 var index__$1 = s__$1.indexOf(m);
-var G__1319920 = s__$1.substring((index__$1 + cljs.core.count.call(null,m)));
-var G__1319921 = (limit__$1 - (1));
-var G__1319922 = cljs.core.conj.call(null,parts,s__$1.substring((0),index__$1));
-s__$1 = G__1319920;
-limit__$1 = G__1319921;
-parts = G__1319922;
+var G__29380 = s__$1.substring((index__$1 + cljs.core.count.call(null,m)));
+var G__29381 = (limit__$1 - (1));
+var G__29382 = cljs.core.conj.call(null,parts,s__$1.substring((0),index__$1));
+s__$1 = G__29380;
+limit__$1 = G__29381;
+parts = G__29382;
 continue;
 } else {
 return cljs.core.conj.call(null,parts,s__$1);
@@ -251,8 +251,8 @@ return "";
 } else {
 var ch = cljs.core.get.call(null,s,(index__$1 - (1)));
 if((cljs.core._EQ_.call(null,ch,"\n")) || (cljs.core._EQ_.call(null,ch,"\r"))){
-var G__1319923 = (index__$1 - (1));
-index__$1 = G__1319923;
+var G__29383 = (index__$1 - (1));
+index__$1 = G__29383;
 continue;
 } else {
 return s.substring((0),index__$1);
@@ -283,16 +283,16 @@ if(cljs.core._EQ_.call(null,length,index__$1)){
 return buffer.toString();
 } else {
 var ch = s.charAt(index__$1);
-var temp__4124__auto___1319924 = cljs.core.get.call(null,cmap,ch);
-if(cljs.core.truth_(temp__4124__auto___1319924)){
-var replacement_1319925 = temp__4124__auto___1319924;
-buffer.append([cljs.core.str(replacement_1319925)].join(''));
+var temp__4124__auto___29384 = cljs.core.get.call(null,cmap,ch);
+if(cljs.core.truth_(temp__4124__auto___29384)){
+var replacement_29385 = temp__4124__auto___29384;
+buffer.append([cljs.core.str(replacement_29385)].join(''));
 } else {
 buffer.append(ch);
 }
 
-var G__1319926 = (index__$1 + (1));
-index__$1 = G__1319926;
+var G__29386 = (index__$1 + (1));
+index__$1 = G__29386;
 continue;
 }
 break;

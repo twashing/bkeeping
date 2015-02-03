@@ -6,7 +6,7 @@
             [sablono.core :as html :refer-macros [html]]
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
-            [bkeeping :as bg]
+            [util :as ul]
             [account :as act]))
 
 
@@ -17,16 +17,16 @@
       (om/transact! epart
                     (fn [x]
                       (let [resultF (assoc x :amount 2605 )]
-                        (bg/console-log (str "... resultF[" resultF "]"))
+                        (ul/console-log (str "... resultF[" resultF "]"))
                         resultF)))))
   (defn ^:export three []
     (om/transact! entry
                   (fn [x]
                     (let [resultF (assoc x :content [] )]
-                      (bg/console-log (str "... resultF[" resultF "]"))
+                      (ul/console-log (str "... resultF[" resultF "]"))
                       resultF))))
   (defn ^:export four []
-    (bg/console-log (str "... entry[" @entry "]"))))
+    (ul/console-log (str "... entry[" @entry "]"))))
 
 (defn parttype-from-selectedindex [idx]
   (get {0 :debit
@@ -40,7 +40,7 @@
 
 (defn entry-part-view [parent-owner [idx entry-part] owner]
 
-  (bg/console-log (str "entry-part-view... idx[" idx "] <==> entry[" entry-part "]"))
+  (ul/console-log (str "entry-part-view... idx[" idx "] <==> entry[" entry-part "]"))
   (reify
 
     om/IInitState
@@ -82,17 +82,17 @@
          [:div {:id "entry-part-cancel"
                 :noink true
                 :raised true
-                :on-click bg/transitionEntriesBackward} "cancel"]
+                :on-click ul/transitionEntriesBackward} "cancel"]
          [:div {:id "entry-part-save"
                 :noink true
                 :raised true
                 :on-click (fn [e]
 
-                            (bg/transitionEntriesBackward)
+                            (ul/transitionEntriesBackward)
 
                             (let [pamount (om/get-state owner :amount)
-                                  _ (bg/console-log "sanity 1... " idx)
-                                  _ (bg/console-log "sanity 2... " (js/parseFloat pamount))]
+                                  _ (ul/console-log "sanity 1... " idx)
+                                  _ (ul/console-log "sanity 2... " (js/parseFloat pamount))]
 
                               (swap! state2 (fn [inp]
                                               (update-in inp [:content idx] assoc :amount (js/parseFloat pamount)))))
@@ -111,20 +111,20 @@
                                                             ;;:account (natype entry-type-mappings)
                                                             )]
 
-                                              (bg/console-log (str "... resultF[" resultF "]"))
+                                              (ul/console-log (str "... resultF[" resultF "]"))
                                               resultF)))
                             )}
           "save"]]]))))
 
 
 (defn handle-currency-change [e owner state]
-  (bg/console-log (str "handle-currency-change / e[" e "] owner[" owner "] state[" state "]")))
+  (ul/console-log (str "handle-currency-change / e[" e "] owner[" owner "] state[" state "]")))
 
 (defn generate-entry-part-row [full owner]
 
   (let [[idx ech] full
         part-click-handler (fn [e]
-                             (bg/transitionEntriesForward)
+                             (ul/transitionEntriesForward)
                              (om/root (partial entry-part-view owner)
                                       full
                                       {:target (. js/document (getElementById "entry-part-section"))}))]
@@ -156,7 +156,7 @@
 
     om/IRenderState
     (render-state [this state]
-      (bg/console-log (str "Entry - IRenderState... state[" @state2 "]"))
+      (ul/console-log (str "Entry - IRenderState... state[" @state2 "]"))
 
       (html
        [:div {:id "entry-details-pane" :slide-from-right true}
@@ -199,12 +199,12 @@
          [:div {:id "entry-details-cancel"
                 :noink true
                 :raised true
-                :on-click bg/transitionEntriesBackward} "cancel"]
+                :on-click ul/transitionEntriesBackward} "cancel"]
          [:div {:id "entry-details-save"
                 :noink true
                 :raised true
                 :on-click (fn [e]
-                            (bg/transitionEntriesBackward)
+                            (ul/transitionEntriesBackward)
                             (om/transact! entry
                                           (fn [x]
                                             @state2)))}
@@ -220,7 +220,7 @@
                     :flex true
                     :on-click (fn [e]
                                 (one ech)
-                                (bg/transitionEntriesForward)
+                                (ul/transitionEntriesForward)
                                 (om/root entry-view
                                          ech
                                          {:target (. js/document (getElementById "entry-section"))}))}
