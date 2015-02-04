@@ -14,19 +14,19 @@ goog.require('util');
 goog.require('account');
 goog.require('om.core');
 goog.require('cljs.reader');
-var map__27913_27914 = taoensso.sente.make_channel_socket_BANG_.call(null,"/chsk",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"auto","auto",-566279492)], null));
-var map__27913_27915__$1 = ((cljs.core.seq_QMARK_.call(null,map__27913_27914))?cljs.core.apply.call(null,cljs.core.hash_map,map__27913_27914):map__27913_27914);
-var state_27916 = cljs.core.get.call(null,map__27913_27915__$1,new cljs.core.Keyword(null,"state","state",-1988618099));
-var send_fn_27917 = cljs.core.get.call(null,map__27913_27915__$1,new cljs.core.Keyword(null,"send-fn","send-fn",351002041));
-var ch_recv_27918 = cljs.core.get.call(null,map__27913_27915__$1,new cljs.core.Keyword(null,"ch-recv","ch-recv",-990916861));
-var chsk_27919 = cljs.core.get.call(null,map__27913_27915__$1,new cljs.core.Keyword(null,"chsk","chsk",-863703081));
-landing.chsk = chsk_27919;
+var map__66836_66837 = taoensso.sente.make_channel_socket_BANG_.call(null,"/chsk",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"auto","auto",-566279492)], null));
+var map__66836_66838__$1 = ((cljs.core.seq_QMARK_.call(null,map__66836_66837))?cljs.core.apply.call(null,cljs.core.hash_map,map__66836_66837):map__66836_66837);
+var state_66839 = cljs.core.get.call(null,map__66836_66838__$1,new cljs.core.Keyword(null,"state","state",-1988618099));
+var send_fn_66840 = cljs.core.get.call(null,map__66836_66838__$1,new cljs.core.Keyword(null,"send-fn","send-fn",351002041));
+var ch_recv_66841 = cljs.core.get.call(null,map__66836_66838__$1,new cljs.core.Keyword(null,"ch-recv","ch-recv",-990916861));
+var chsk_66842 = cljs.core.get.call(null,map__66836_66838__$1,new cljs.core.Keyword(null,"chsk","chsk",-863703081));
+landing.chsk = chsk_66842;
 
-landing.ch_chsk = ch_recv_27918;
+landing.ch_chsk = ch_recv_66841;
 
-landing.chsk_send_BANG_ = send_fn_27917;
+landing.chsk_send_BANG_ = send_fn_66840;
 
-landing.chsk_state = state_27916;
+landing.chsk_state = state_66839;
 landing.event_msg_handler = (function (){var method_table__4519__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
 var prefer_table__4520__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
 var method_cache__4521__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
@@ -34,38 +34,38 @@ var cached_hierarchy__4522__auto__ = cljs.core.atom.call(null,cljs.core.Persiste
 var hierarchy__4523__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
 return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"landing","event-msg-handler"),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__4523__auto__,method_table__4519__auto__,prefer_table__4520__auto__,method_cache__4521__auto__,cached_hierarchy__4522__auto__));
 })();
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("server","default","server/default",-612784709),(function (p__27920){
-var map__27921 = p__27920;
-var map__27921__$1 = ((cljs.core.seq_QMARK_.call(null,map__27921))?cljs.core.apply.call(null,cljs.core.hash_map,map__27921):map__27921);
-var ev_msg = map__27921__$1;
-var event = cljs.core.get.call(null,map__27921__$1,new cljs.core.Keyword(null,"event","event",301435442));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("server","default","server/default",-612784709),(function (p__66843){
+var map__66844 = p__66843;
+var map__66844__$1 = ((cljs.core.seq_QMARK_.call(null,map__66844))?cljs.core.apply.call(null,cljs.core.hash_map,map__66844):map__66844);
+var ev_msg = map__66844__$1;
+var event = cljs.core.get.call(null,map__66844__$1,new cljs.core.Keyword(null,"event","event",301435442));
 return util.console_log.call(null,[cljs.core.str("default event: "),cljs.core.str(event)].join(''));
 }));
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","state","chsk/state",-1991397620),(function (p__27922){
-var map__27923 = p__27922;
-var map__27923__$1 = ((cljs.core.seq_QMARK_.call(null,map__27923))?cljs.core.apply.call(null,cljs.core.hash_map,map__27923):map__27923);
-var ev_msg = map__27923__$1;
-var _QMARK_data = cljs.core.get.call(null,map__27923__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","state","chsk/state",-1991397620),(function (p__66845){
+var map__66846 = p__66845;
+var map__66846__$1 = ((cljs.core.seq_QMARK_.call(null,map__66846))?cljs.core.apply.call(null,cljs.core.hash_map,map__66846):map__66846);
+var ev_msg = map__66846__$1;
+var _QMARK_data = cljs.core.get.call(null,map__66846__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
 if(cljs.core._EQ_.call(null,_QMARK_data,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"first-open?","first-open?",396686530),true], null))){
 return util.console_log.call(null,"Channel socket successfully established!");
 } else {
 return util.console_log.call(null,[cljs.core.str("Channel socket state change: "),cljs.core.str(_QMARK_data)].join(''));
 }
 }));
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","recv","chsk/recv",561097091),(function (p__27924){
-var map__27925 = p__27924;
-var map__27925__$1 = ((cljs.core.seq_QMARK_.call(null,map__27925))?cljs.core.apply.call(null,cljs.core.hash_map,map__27925):map__27925);
-var ev_msg = map__27925__$1;
-var _QMARK_data = cljs.core.get.call(null,map__27925__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","recv","chsk/recv",561097091),(function (p__66847){
+var map__66848 = p__66847;
+var map__66848__$1 = ((cljs.core.seq_QMARK_.call(null,map__66848))?cljs.core.apply.call(null,cljs.core.hash_map,map__66848):map__66848);
+var ev_msg = map__66848__$1;
+var _QMARK_data = cljs.core.get.call(null,map__66848__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
 return util.console_log.call(null,[cljs.core.str("Push event from server: "),cljs.core.str(_QMARK_data)].join(''));
 }));
-landing.event_msg_handler_STAR_ = (function event_msg_handler_STAR_(p__27926){
-var map__27928 = p__27926;
-var map__27928__$1 = ((cljs.core.seq_QMARK_.call(null,map__27928))?cljs.core.apply.call(null,cljs.core.hash_map,map__27928):map__27928);
-var ev_msg = map__27928__$1;
-var event = cljs.core.get.call(null,map__27928__$1,new cljs.core.Keyword(null,"event","event",301435442));
-var _QMARK_data = cljs.core.get.call(null,map__27928__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
-var id = cljs.core.get.call(null,map__27928__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
+landing.event_msg_handler_STAR_ = (function event_msg_handler_STAR_(p__66849){
+var map__66851 = p__66849;
+var map__66851__$1 = ((cljs.core.seq_QMARK_.call(null,map__66851))?cljs.core.apply.call(null,cljs.core.hash_map,map__66851):map__66851);
+var ev_msg = map__66851__$1;
+var event = cljs.core.get.call(null,map__66851__$1,new cljs.core.Keyword(null,"event","event",301435442));
+var _QMARK_data = cljs.core.get.call(null,map__66851__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+var id = cljs.core.get.call(null,map__66851__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
 util.console_log.call(null,[cljs.core.str("Event: "),cljs.core.str(event)].join(''));
 
 return landing.event_msg_handler.call(null,ev_msg);

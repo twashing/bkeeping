@@ -118,15 +118,19 @@
 
     (POST "/verify-assertion" [:as req]
 
+          (timbre/debug (str "/verify-assertion req[" req "]"))
           (let [session (:session req)
 
-                audience (str (if (env :host) (env :host) "http://localhost")
-                              ":3000")
+                audience (get (:headers req) "origin")
+
+                _ (timbre/debug (str "... 1: " (:headers req)))
+                _ (timbre/debug (str "... audience: " audience))
+
                 body (read-string (slurp (:body req)))
                 assertion (:assertion body)
                 response (client/post "https://verifier.login.persona.org/verify"
                                       {:form-params {:assertion assertion
-                                                     :audience "http://172.28.128.4:3000"}})
+                                                     :audience audience}})
                 parsed-body (chesr/parse-string (-> response :body))
                 response-status (parsed-body "status")
                 response-email (parsed-body "email")
@@ -204,11 +208,12 @@
 
             (do
 
-              (timbre/debug "")
-              (timbre/debug (str "uri... " uri))
-              (timbre/debug (str "1... " end-time))
-              (timbre/debug (str "2... " (current-time)))
-              (timbre/debug (str "3... " (and end-time (< end-time (current-time)))))
+              #_(comment
+                (timbre/debug "")
+                (timbre/debug (str "uri... " uri))
+                (timbre/debug (str "1... " end-time))
+                (timbre/debug (str "2... " (current-time)))
+                (timbre/debug (str "3... " (and end-time (< end-time (current-time))))))
 
               (if (and end-time (< end-time (current-time)))
 

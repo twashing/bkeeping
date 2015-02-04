@@ -29,8 +29,8 @@ return om_tools.dom.camel_case.call(null,attr);
 * Converts aliased attributes
 */
 om_tools.dom.opt_key_alias = (function opt_key_alias(opt){
-var G__22900 = (((opt instanceof cljs.core.Keyword))?opt.fqn:null);
-switch (G__22900) {
+var G__68304 = (((opt instanceof cljs.core.Keyword))?opt.fqn:null);
+switch (G__68304) {
 case "for":
 return new cljs.core.Keyword(null,"htmlFor","htmlFor",-1050291720);
 
@@ -68,10 +68,10 @@ return opt_val;
 */
 om_tools.dom.format_opts = (function format_opts(opts){
 if(cljs.core.map_QMARK_.call(null,opts)){
-return cljs.core.clj__GT_js.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p__22904){
-var vec__22905 = p__22904;
-var k = cljs.core.nth.call(null,vec__22905,(0),null);
-var v = cljs.core.nth.call(null,vec__22905,(1),null);
+return cljs.core.clj__GT_js.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p__68308){
+var vec__68309 = p__68308;
+var k = cljs.core.nth.call(null,vec__68309,(0),null);
+var v = cljs.core.nth.call(null,vec__68309,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [om_tools.dom.format_opt_key.call(null,k),om_tools.dom.format_opt_val.call(null,v)], null);
 }),opts)));
 } else {
@@ -110,9 +110,9 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 }
 });
 om_tools.dom.element = (function element(ctor,opts,children){
-var vec__22907 = om_tools.dom.element_args.call(null,opts,children);
-var opts__$1 = cljs.core.nth.call(null,vec__22907,(0),null);
-var children__$1 = cljs.core.nth.call(null,vec__22907,(1),null);
+var vec__68311 = om_tools.dom.element_args.call(null,opts,children);
+var opts__$1 = cljs.core.nth.call(null,vec__68311,(0),null);
+var children__$1 = cljs.core.nth.call(null,vec__68311,(1),null);
 return cljs.core.apply.call(null,ctor,cljs.core.flatten.call(null,cljs.core.cons.call(null,opts__$1,children__$1)));
 });
 om_tools.dom.class_set = (function class_set(m){
