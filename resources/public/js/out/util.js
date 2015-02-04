@@ -1,12 +1,13 @@
 // Compiled by ClojureScript 0.0-2505
 goog.provide('util');
 goog.require('cljs.core');
+goog.require('goog.dom');
 cljs.core.enable_console_print_BANG_.call(null);
 util.console_log = (function console_log(message){
 return console.log(message);
 });
 util.transitionAccounts = (function transitionAccounts(directionFn){
-var as = gdom.getElement.call(null,"accounts");
+var as = goog.dom.getElement("accounts");
 return as.selected = directionFn.call(null,as.selected,(1));
 });
 goog.exportSymbol('util.transitionAccounts', util.transitionAccounts);
@@ -19,7 +20,7 @@ return util.transitionAccounts.call(null,cljs.core._);
 });
 goog.exportSymbol('util.transitionAccountsBackward', util.transitionAccountsBackward);
 util.transitionEntries = (function transitionEntries(directionFn){
-var es = gdom.getElement.call(null,"entries");
+var es = goog.dom.getElement("entries");
 return es.selected = directionFn.call(null,es.selected,(1));
 });
 goog.exportSymbol('util.transitionEntries', util.transitionEntries);

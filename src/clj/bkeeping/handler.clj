@@ -16,6 +16,7 @@
             [taoensso.sente :as sente]
             [org.httpkit.server :as hkit]
             [overtone.at-at :as atat]
+            [adi.core :as adi]
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]))
 
@@ -47,9 +48,25 @@
   (let [session (:session ring-req)
         uid     (:uid     session)]
 
-    (timbre/debug (str "default event: " event))
+    (timbre/trace (str "default event: " event))
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
+
+(defmethod event-msg-handler :load-group
+  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
+  (let [session (:session ring-req)
+        uid     (:uid     session)]
+
+    (timbre/debug (str "load-group event: " event))
+    (let [ds #spy/d (-> bkell/system :spittoon :db)
+          gname #spy/d (-> session :response-withuser :uresult first :system :groups first :name)
+          group-tree-raw #spy/d (adi/select ds
+                                     {:group {:name gname}}
+                                     :pull {:group {:books {:accounts :checked
+                                                            :journals {:entries {:content :checked}}}}})
+          group-tree-pruned #spy/d (-> group-tree-raw first :group)]
+
+      (?reply-fn group-tree-pruned))))
 
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))

@@ -1,4 +1,5 @@
-(ns util)
+(ns util
+  (:require [goog.dom :as gdom]))
 
 (enable-console-print!)
 
@@ -69,3 +70,20 @@
                                     {:type :debit
                                      :amount 1600
                                      :account "widgets"}]}]}]})
+
+(comment
+
+  (require '[adi.core :as adi] '[clojure.pprint :as pp])
+
+  (def gname "group-twashing@gmail.com")
+
+  (adi/select ds {:group {:name gname}}
+              :pull {:group {:books {:accounts :checked
+                                     :journals {:entries {:content :checked}}}}})
+
+  (adi/select ds {:group
+                  {:name gname
+                   :books {:accounts '_
+                           :journals '_}}})
+
+  )

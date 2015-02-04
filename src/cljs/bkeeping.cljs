@@ -1,6 +1,5 @@
 (ns bkeeping
   (:require [goog.events :as events]
-            [goog.dom :as gdom]
             [util :as ul])
   (:import [goog.net XhrIo]
            goog.net.EventType

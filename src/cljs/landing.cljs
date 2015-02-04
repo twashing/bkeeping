@@ -58,8 +58,15 @@
 (def user-state (atom nil))
 (def app-state (atom (ul/app-test-data)))
 
-(defn ^:export sendMessage [msg]
-  (chsk-send! [:client/default msg]))
+(defn ^:export sendMessageRaw [msg-withkey]
+  (chsk-send! msg-withkey))
+
+(defn ^:export sendMessageDefault [msg]
+  (sendMessageRaw [:client/default msg]))
+
+(defn ^:export loadGroup []
+  (sendMessageRaw [:client/load-group "fubar"]))
+
 
 (defn ^:export printUserState []
   (ul/console-log (str "groupname[" (:groupname @user-state) "] / username[" (:username @user-state) "]")))
