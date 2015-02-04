@@ -106,7 +106,7 @@
   (chsk-send! [:client/default msg]))
 
 (defn ^:export printUserState []
-  (ul/console-log @user-state))
+  (ul/console-log (str "groupname[" (:groupname @user-state) "] / username[" (:username @user-state) "]")))
 
 (defn ^:export printAppState []
   (ul/console-log @app-state))
@@ -131,20 +131,16 @@
      :on-complete (partial bg/basicHandler
                            (fn [e xhr]
 
-                             ;; Map data is returned as a flattened list of entry vectors
-                             ;; So A) needs to be converted to B)
-                             ;; A) "[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]"
-                             ;; B) "[[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]]"
-                             (let [data (.getResponseText xhr)
-                                   response (str "[" data "]")
-                                   response-edn  (reader/read-string response)
-                                   responseF (reduce #(assoc %1 (first %2) (second %2)) {} response-edn) ]
+                             (let [data (.getResponseeText xhr)
+                                   responseF  (reader/read-string data)
+
+                                   groupname (-> responseF :system :groups first :name)
+                                   username (-> responseF :system :groups first :users first :username)]
 
                                ;; set the user data into the namespace
                                (swap! user-state (fn [inp]
-                                                   {:groupname (-> responseF first :system :groups first :name)
-                                                    :username (-> responseF first :system :groups
-                                                                  first :users first :username)
+                                                   {:groupname groupname
+                                                    :username username
                                                     :source responseF}))
 
                                ;; run the landing page
