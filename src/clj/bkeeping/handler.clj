@@ -251,9 +251,9 @@
 
 (defn start-http-server! []
   (stop-http-server!)
-  (let [s   (hkit/run-server app {:ip "172.28.128.4"
+  (let [s   (hkit/run-server app {:ip "172.28.128.3"
                                   :port 3000})
-        uri (format "http://172.28.128.4:%s/" (:local-port (meta s)))]
+        uri (format "http://172.28.128.3:%s/" (:local-port (meta s)))]
     (reset! http-server_ s)
     (timbre/debug "Http-kit server is running at `%s`" uri)
     http-server_))

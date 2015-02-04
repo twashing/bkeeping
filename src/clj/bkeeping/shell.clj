@@ -35,7 +35,7 @@
   ([config]
 
    (bk/start {:bkell {}
-              :spittoon {:env (environment-mode (config/load-edn "config.edn"))
+              :spittoon {:env (environment-mode file-config)
                          :recreate? false}})
 
    (alter-var-root #'system (constantly (hco/start (hco/system topology config))))))

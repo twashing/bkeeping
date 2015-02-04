@@ -30,6 +30,8 @@
 
   :repl-options {:init-ns bkeeping.shell}
 
+  :jvm-opts ^:replace ["-Xmx1g" "-server"]
+
   :plugins [[lein-ring "0.8.13"]
             [lein-cljsbuild "1.0.3"]]
 

@@ -12,7 +12,6 @@
   AppCanvas
   Circle
   Checkbox  
-  DatePicker
   DialogWindow
   Dialog
   DropDownIcon
