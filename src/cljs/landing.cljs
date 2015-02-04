@@ -1,5 +1,6 @@
 (ns landing
-  (:require [cljs.core.async :as async :refer (<! >! put! chan)]
+  (:require [cljs.reader :as reader]
+            [cljs.core.async :as async :refer (<! >! put! chan)]
             [taoensso.sente  :as sente :refer (cb-success?)]
             [goog.dom :as gdom]
             [om.core :as om :include-macros true]
@@ -7,6 +8,7 @@
             [sablono.core :as html :refer-macros [html]]
             [om-material-ui.core :as mui :include-macros true]
             [clojure.set :as set]
+            [bkeeping :as bg]
             [account :as act]
             [entry :as ent]
             [util :as ul])
@@ -121,13 +123,29 @@
            {:target (. js/document (getElementById "entries-section"))}))
 
 
-#_(js/setTimeout (fn []
+(ul/ready
+ (fn [inp]
+   (bg/edn-xhr
+    {:method :get
+     :url "/user-data"
+     :on-complete (partial bg/basicHandler
+                           (fn [e xhr]
 
-                 (om/root act/accounts-view
-                          app-state
-                          {:target (. js/document (getElementById "accounts-section"))})
+                             ;; Map data is returned as a flattened list of entry vectors
+                             ;; So A) needs to be converted to B)
+                             ;; A) "[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]"
+                             ;; B) "[[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]]"
+                             (let [data (.getResponseText xhr)
+                                   response (str "[" data "]")
+                                   response-edn  (reader/read-string response)
+                                   responseF (reduce #(assoc %1 (first %2) (second %2)) {} response-edn) ]
 
-                 (om/root ent/entries-view
-                          app-state
-                          {:target (. js/document (getElementById "entries-section"))}))
-               2000)
+                               ;; set the user data into the namespace
+                               (swap! user-state (fn [inp]
+                                                   {:groupname (-> responseF first :system :groups first :name)
+                                                    :username (-> responseF first :system :groups
+                                                                  first :users first :username)
+                                                    :source responseF}))
+
+                               ;; run the landing page
+                               (main))))})))

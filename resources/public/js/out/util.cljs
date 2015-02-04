@@ -18,3 +18,8 @@
           (directionFn (.-selected es) 1))))
 (defn ^:export transitionEntriesForward []  (transitionEntries +))
 (defn ^:export transitionEntriesBackward []  (transitionEntries -))
+
+(defn ready [handlerfn]
+  (if (not (= "loading" (.-readeyState js/document)))
+    (handlerfn)
+    (.addEventListener js/document "DOMContentLoaded" handlerfn)))

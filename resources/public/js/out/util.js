@@ -31,5 +31,12 @@ util.transitionEntriesBackward = (function transitionEntriesBackward(){
 return util.transitionEntries.call(null,cljs.core._);
 });
 goog.exportSymbol('util.transitionEntriesBackward', util.transitionEntriesBackward);
+util.ready = (function ready(handlerfn){
+if(!(cljs.core._EQ_.call(null,"loading",document.readeyState))){
+return handlerfn.call(null);
+} else {
+return document.addEventListener("DOMContentLoaded",handlerfn);
+}
+});
 
 //# sourceMappingURL=util.js.map

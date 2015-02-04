@@ -19,28 +19,7 @@
     :data {:assertion assertion}
     :on-complete (partial bg/basicHandler
                           (fn [e xhr]
-
-                            ;; Map data is returned as a flattened list of entry vectors
-                            ;; So A) needs to be converted to B)
-                            ;; A) "[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]"
-                            ;; B) "[[:orig-content-encoding nil][:trace-redirects \"https://verifier.login.persona.org/verify\"]]"
-                            (let [data (.getResponseText xhr)
-                                  response (str "[" data "]")
-                                  response-edn  (reader/read-string response)
-                                  responseF (reduce #(assoc %1 (first %2) (second %2)) {} response-edn) ]
-
-                              (bg/edn-xhr
-                               {:method :get
-                                :url "/landing"
-                                :on-complete (fn [e xhr]
-
-                                               (let [result (.getResponseText xhr)]
-                                                 (swap! ln/user-state (fn [inp]
-                                                                        {:groupname (-> result first :system :groups first :name)
-                                                                         :username (-> result first :system :groups
-                                                                                       first :users first :username)
-                                                                           :source result}))
-                                                 (ln/main)))})))) }))
+                            (set! (.-location js/window) "/landing") )) }))
 
 (defn signoutUser []
   (ul/console-log "signoutUser CALLED")

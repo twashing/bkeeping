@@ -110,6 +110,12 @@
          (-> (ring-resp/response (slurp (io/resource "public/landing.html")))
              (ring-resp/content-type "text/html")))
 
+    (GET "/user-data" [:as req]
+
+         (timbre/debug (str "/user-data req[" req "]"))
+         (-> (ring-resp/response (-> req :session :response-withuser :uresult))
+             (ring-resp/content-type "application/edn")))
+
     (POST "/verify-assertion" [:as req]
 
           (let [session (:session req)
@@ -133,7 +139,8 @@
                 (let [uresult (add-user-ifnil response-email)
                       response-withuser (assoc response :uresult uresult)]
                   (-> (ring-resp/response response-withuser)
-                      (ring-resp/content-type "application/edn"))))
+                      (ring-resp/content-type "application/edn")
+                      (assoc :session (assoc session :response-withuser response-withuser)))))
               (-> (ring-resp/response (str {:body {:status response-status}}))
                   (ring-resp/status 401)
                   (ring-resp/content-type "application/edn")))))
