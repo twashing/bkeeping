@@ -22,7 +22,7 @@ util.console_log.call(null,"signoutUser CALLED");
 return bkeeping.edn_xhr.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"method","method",55703592),new cljs.core.Keyword(null,"get","get",1683182755),new cljs.core.Keyword(null,"url","url",276297046),"/signout",new cljs.core.Keyword(null,"on-complete","on-complete",-1531183971),cljs.core.constantly.call(null,(1))], null));
 });
 index.onClickHandler = (function onClickHandler(){
-var currentUser = "twashing@gmail.com";
+var currentUser = "";
 var navigatorId = navigator.id;
 util.console_log.call(null,"Signin CLICKED");
 

@@ -131,7 +131,7 @@
      :on-complete (partial bg/basicHandler
                            (fn [e xhr]
 
-                             (let [data (.getResponseeText xhr)
+                             (let [data (.getResponseText xhr)
                                    responseF  (reader/read-string data)
 
                                    groupname (-> responseF :system :groups first :name)

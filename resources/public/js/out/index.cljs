@@ -30,7 +30,7 @@
     :on-complete (constantly 1)}))
 
 (defn onClickHandler []
-  (let [currentUser "twashing@gmail.com"
+  (let [currentUser ""
         navigatorId js/navigator.id]
 
     (ul/console-log "Signin CLICKED")
