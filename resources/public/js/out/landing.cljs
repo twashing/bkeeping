@@ -55,20 +55,26 @@
 (start-router!)
 
 
-(def user-state (atom nil))
-(def app-state (atom (ul/app-test-data)))
-
-(defn ^:export sendMessageRaw [msg-withkey]
+(defn ^:export sendMessageWithHandler [msg-withkey handlefn]
   (chsk-send! msg-withkey
               10000
-              (fn [cb-reply]
-                (ul/console-log (str "Callback reply: " cb-reply)))))
+              handlefn))
+
+(defn ^:export sendMessageRaw [msg-withkey handlefn]
+  (sendMessageWithHandler msg-withkey
+                          (fn [cb-reply]
+                            (ul/console-log (str "Callback reply: " cb-reply)))))
 
 (defn ^:export sendMessageDefault [msg]
   (sendMessageRaw [:client/default msg]))
 
+
+(def user-state (atom nil))
+(def app-state (atom nil))
+
+
 (defn ^:export loadGroup []
-  (sendMessageRaw [:client/load-group "fubar"]))
+  (sendMessageRaw [:client/load-group ""]))
 
 
 (defn ^:export printUserState []
@@ -80,13 +86,20 @@
 
 (defn main []
 
-  (om/root act/accounts-view
-           app-state
-           {:target (. js/document (getElementById "accounts-section"))})
+  (sendMessageWithHandler [:client/load-group ""]
+                          (fn [msg]
 
-  (om/root ent/entries-view
-           app-state
-           {:target (. js/document (getElementById "entries-section"))}))
+                            (let [msgF (-> msg :books first)]
+
+                              (swap! app-state (fn [e] msgF))
+
+                              (om/root act/accounts-view
+                                       app-state
+                                       {:target (. js/document (getElementById "accounts-section"))})
+
+                              (om/root ent/entries-view
+                                       app-state
+                                       {:target (. js/document (getElementById "entries-section"))})))))
 
 
 (ul/ready

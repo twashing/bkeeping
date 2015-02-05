@@ -8,7 +8,6 @@ goog.require('util');
 goog.require('landing');
 goog.require('goog.events');
 goog.require('goog.net.XhrIo');
-goog.require('cljs.reader');
 index.verifyAssertion = (function verifyAssertion(assertion){
 util.console_log.call(null,[cljs.core.str("verifyAssertion CALLED / assertion: "),cljs.core.str(assertion)].join(''));
 

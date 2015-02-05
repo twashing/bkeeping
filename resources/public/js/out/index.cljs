@@ -1,6 +1,5 @@
 (ns index
-  (:require [cljs.reader :as reader]
-            [goog.events :as events]
+  (:require [goog.events :as events]
             [goog.dom :as gdom]
             [bkeeping :as bg]
             [landing :as ln]

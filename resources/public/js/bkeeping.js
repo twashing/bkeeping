@@ -26,4 +26,4 @@ goog.addDependency("../taoensso/encore.js", ['taoensso.encore'], ['goog.net.XhrI
 goog.addDependency("../taoensso/sente.js", ['taoensso.sente'], ['cljs.core', 'taoensso.sente.interfaces', 'cljs.core.async', 'clojure.string', 'taoensso.encore']);
 goog.addDependency("../bkeeping.js", ['bkeeping'], ['goog.net.XhrIo', 'cljs.core', 'goog.events.EventType', 'util', 'goog.events']);
 goog.addDependency("../landing.js", ['landing'], ['om_material_ui.core', 'bkeeping', 'goog.dom', 'cljs.core', 'om.dom', 'cljs.core.async', 'sablono.core', 'clojure.set', 'util', 'taoensso.sente', 'om.core', 'account', 'cljs.reader', 'entry']);
-goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'cljs.core', 'landing', 'goog.events.EventType', 'util', 'cljs.reader', 'goog.events']);
+goog.addDependency("../index.js", ['index'], ['bkeeping', 'goog.dom', 'goog.net.XhrIo', 'cljs.core', 'landing', 'goog.events.EventType', 'util', 'goog.events']);
