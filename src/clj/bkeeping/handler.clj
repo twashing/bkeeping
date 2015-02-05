@@ -48,19 +48,19 @@
   (let [session (:session ring-req)
         uid     (:uid     session)]
 
-    (timbre/trace (str "default event: " event))
+    (timbre/debug (str "default event: " event))
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
-(defmethod event-msg-handler :load-group
+(defmethod event-msg-handler :client/load-group
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
   (let [session (:session ring-req)
         uid     (:uid     session)]
 
     (timbre/debug (str "load-group event: " event))
-    (let [ds #spy/d (-> bkell/system :spittoon :db)
-          gname #spy/d (-> session :response-withuser :uresult first :system :groups first :name)
-          group-tree-raw #spy/d (adi/select ds
+    (let [ds (-> bkell/system :spittoon :db)
+          gname (-> session :response-withuser :uresult first :system :groups first :name)
+          group-tree-raw (adi/select ds
                                      {:group {:name gname}}
                                      :pull {:group {:books {:accounts :checked
                                                             :journals {:entries {:content :checked}}}}})
