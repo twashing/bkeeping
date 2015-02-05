@@ -59,7 +59,10 @@
 (def app-state (atom (ul/app-test-data)))
 
 (defn ^:export sendMessageRaw [msg-withkey]
-  (chsk-send! msg-withkey))
+  (chsk-send! msg-withkey
+              5000
+              (fn [cb-reply]
+                (ul/Console-Log (Str "Callback reply: " cb-reply)))))
 
 (defn ^:export sendMessageDefault [msg]
   (sendMessageRaw [:client/default msg]))
