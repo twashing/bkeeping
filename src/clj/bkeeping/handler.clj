@@ -1,24 +1,25 @@
 (ns bkeeping.handler
-  (:require [clojure.java.io :as io]
+  (:require [adi.core :as adi]
+            [bkell.bkell :as bkell]
+            [bkell.domain.user :as bku]
+            [cheshire.core :as chesr]
+            [clj-http.client :as client]
+            [clojure.java.io :as io]
+            [clojure.walk :as walk]
             [compojure.core :refer :all]
-            [compojure.route :as route]
             [compojure.handler :as handler]
-            [ring.middleware.session :as session]
-            [ring.middleware.session.cookie :refer :all]
-            [ring.util.response :as ring-resp]
-            [ring.middleware.session-timeout :as timeout]
-            [slingshot.slingshot :refer [throw+ try+]]
-            [taoensso.timbre :as timbre]
+            [compojure.route :as route]
             [environ.core :refer [env]]
             [noisesmith.groundhog :as gh]
-            [clj-http.client :as client]
-            [cheshire.core :as chesr]
-            [taoensso.sente :as sente]
             [org.httpkit.server :as hkit]
             [overtone.at-at :as atat]
-            [adi.core :as adi]
-            [bkell.bkell :as bkell]
-            [bkell.domain.user :as bku]))
+            [ring.middleware.session :as session]
+            [ring.middleware.session.cookie :refer :all]
+            [ring.middleware.session-timeout :as timeout]
+            [ring.util.response :as ring-resp]
+            [slingshot.slingshot :refer [throw+ try+]]
+            [taoensso.sente :as sente]
+            [taoensso.timbre :as timbre]))
 
 ;; SENTE
 (let [{:keys [ch-recv send-fn ajax-post-fn ajax-get-or-ws-handshake-fn
@@ -57,14 +58,18 @@
   (let [session (:session ring-req)
         uid     (:uid     session)]
 
-    (timbre/debug (str "load-group event: " event))
+    (timbre/debug (str "load-group event: " ev-msg))
     (let [ds (-> bkell/system :spittoon :db)
           gname (-> session :response-withuser :uresult first :system :groups first :name)
           group-tree-raw (adi/select ds
                                      {:group {:name gname}}
                                      :pull {:group {:books {:accounts :checked
                                                             :journals {:entries {:content :checked}}}}})
-          group-tree-pruned #spy/d (-> group-tree-raw first :group)]
+          group-tree-transformed (walk/postwalk #(if (set? %)
+                                                   (into [] %)
+                                                   %)
+                                                group-tree-raw)
+          group-tree-pruned #spy/d (-> group-tree-transformed first :group)]
 
       (?reply-fn group-tree-pruned))))
 

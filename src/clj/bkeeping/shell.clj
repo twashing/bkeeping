@@ -47,3 +47,17 @@
 (defn reset []
   (stop)
   (start))
+
+(comment
+
+  (def one {:name "group-twashing@gmail.com",
+            :books
+            #{{:name "main",
+               :accounts
+               #{{:type :revenue, :counterWeight :credit, :name "revenue"}
+                 {:type :liability, :counterWeight :credit, :name "debt"}
+                 {:type :asset, :counterWeight :debit, :name "cash"}
+                 {:type :expense, :counterWeight :debit, :name "expense"}},
+               :journals #{{:name "generalledger"}}}}}
+
+    ))

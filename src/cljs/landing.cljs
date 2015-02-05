@@ -60,9 +60,9 @@
 
 (defn ^:export sendMessageRaw [msg-withkey]
   (chsk-send! msg-withkey
-              5000
+              10000
               (fn [cb-reply]
-                (ul/Console-Log (Str "Callback reply: " cb-reply)))))
+                (ul/console-log (str "Callback reply: " cb-reply)))))
 
 (defn ^:export sendMessageDefault [msg]
   (sendMessageRaw [:client/default msg]))
