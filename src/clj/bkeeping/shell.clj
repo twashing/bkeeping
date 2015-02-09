@@ -1,5 +1,6 @@
 (ns bkeeping.shell
   (:require [alembic.still]
+            [clojure.pprint :as pp]
             [taoensso.timbre :as timbre]
             [hara.component :as hco]
             [bkell.bkell :as bk]

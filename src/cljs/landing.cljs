@@ -95,7 +95,12 @@
 
                               (om/root act/accounts-view
                                        app-state
-                                       {:target (. js/document (getElementById "accounts-section"))})
+                                       {:target (. js/document (getElementById "accounts-section"))
+                                        :tx-listen
+                                        (fn [{:keys [path new-value new-state] :as tx-data} root-cursor]
+
+                                          (ul/console-log "tx-listen called")
+                                          (sendMessageRaw [:client/update-account tx-data]))})
 
                               (om/root ent/entries-view
                                        app-state

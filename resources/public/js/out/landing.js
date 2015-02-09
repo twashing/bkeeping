@@ -14,19 +14,19 @@ goog.require('util');
 goog.require('account');
 goog.require('om.core');
 goog.require('cljs.reader');
-var map__27967_27968 = taoensso.sente.make_channel_socket_BANG_.call(null,"/chsk",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"auto","auto",-566279492)], null));
-var map__27967_27969__$1 = ((cljs.core.seq_QMARK_.call(null,map__27967_27968))?cljs.core.apply.call(null,cljs.core.hash_map,map__27967_27968):map__27967_27968);
-var state_27970 = cljs.core.get.call(null,map__27967_27969__$1,new cljs.core.Keyword(null,"state","state",-1988618099));
-var send_fn_27971 = cljs.core.get.call(null,map__27967_27969__$1,new cljs.core.Keyword(null,"send-fn","send-fn",351002041));
-var ch_recv_27972 = cljs.core.get.call(null,map__27967_27969__$1,new cljs.core.Keyword(null,"ch-recv","ch-recv",-990916861));
-var chsk_27973 = cljs.core.get.call(null,map__27967_27969__$1,new cljs.core.Keyword(null,"chsk","chsk",-863703081));
-landing.chsk = chsk_27973;
+var map__125441_125442 = taoensso.sente.make_channel_socket_BANG_.call(null,"/chsk",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"auto","auto",-566279492)], null));
+var map__125441_125443__$1 = ((cljs.core.seq_QMARK_.call(null,map__125441_125442))?cljs.core.apply.call(null,cljs.core.hash_map,map__125441_125442):map__125441_125442);
+var state_125444 = cljs.core.get.call(null,map__125441_125443__$1,new cljs.core.Keyword(null,"state","state",-1988618099));
+var send_fn_125445 = cljs.core.get.call(null,map__125441_125443__$1,new cljs.core.Keyword(null,"send-fn","send-fn",351002041));
+var ch_recv_125446 = cljs.core.get.call(null,map__125441_125443__$1,new cljs.core.Keyword(null,"ch-recv","ch-recv",-990916861));
+var chsk_125447 = cljs.core.get.call(null,map__125441_125443__$1,new cljs.core.Keyword(null,"chsk","chsk",-863703081));
+landing.chsk = chsk_125447;
 
-landing.ch_chsk = ch_recv_27972;
+landing.ch_chsk = ch_recv_125446;
 
-landing.chsk_send_BANG_ = send_fn_27971;
+landing.chsk_send_BANG_ = send_fn_125445;
 
-landing.chsk_state = state_27970;
+landing.chsk_state = state_125444;
 landing.event_msg_handler = (function (){var method_table__4519__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
 var prefer_table__4520__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
 var method_cache__4521__auto__ = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
@@ -34,38 +34,38 @@ var cached_hierarchy__4522__auto__ = cljs.core.atom.call(null,cljs.core.Persiste
 var hierarchy__4523__auto__ = cljs.core.get.call(null,cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),cljs.core.get_global_hierarchy.call(null));
 return (new cljs.core.MultiFn(cljs.core.symbol.call(null,"landing","event-msg-handler"),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__4523__auto__,method_table__4519__auto__,prefer_table__4520__auto__,method_cache__4521__auto__,cached_hierarchy__4522__auto__));
 })();
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("server","default","server/default",-612784709),(function (p__27974){
-var map__27975 = p__27974;
-var map__27975__$1 = ((cljs.core.seq_QMARK_.call(null,map__27975))?cljs.core.apply.call(null,cljs.core.hash_map,map__27975):map__27975);
-var ev_msg = map__27975__$1;
-var event = cljs.core.get.call(null,map__27975__$1,new cljs.core.Keyword(null,"event","event",301435442));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("server","default","server/default",-612784709),(function (p__125448){
+var map__125449 = p__125448;
+var map__125449__$1 = ((cljs.core.seq_QMARK_.call(null,map__125449))?cljs.core.apply.call(null,cljs.core.hash_map,map__125449):map__125449);
+var ev_msg = map__125449__$1;
+var event = cljs.core.get.call(null,map__125449__$1,new cljs.core.Keyword(null,"event","event",301435442));
 return util.console_log.call(null,[cljs.core.str("default event: "),cljs.core.str(event)].join(''));
 }));
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","state","chsk/state",-1991397620),(function (p__27976){
-var map__27977 = p__27976;
-var map__27977__$1 = ((cljs.core.seq_QMARK_.call(null,map__27977))?cljs.core.apply.call(null,cljs.core.hash_map,map__27977):map__27977);
-var ev_msg = map__27977__$1;
-var _QMARK_data = cljs.core.get.call(null,map__27977__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","state","chsk/state",-1991397620),(function (p__125450){
+var map__125451 = p__125450;
+var map__125451__$1 = ((cljs.core.seq_QMARK_.call(null,map__125451))?cljs.core.apply.call(null,cljs.core.hash_map,map__125451):map__125451);
+var ev_msg = map__125451__$1;
+var _QMARK_data = cljs.core.get.call(null,map__125451__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
 if(cljs.core._EQ_.call(null,_QMARK_data,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"first-open?","first-open?",396686530),true], null))){
 return util.console_log.call(null,"Channel socket successfully established!");
 } else {
 return util.console_log.call(null,[cljs.core.str("Channel socket state change: "),cljs.core.str(_QMARK_data)].join(''));
 }
 }));
-cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","recv","chsk/recv",561097091),(function (p__27978){
-var map__27979 = p__27978;
-var map__27979__$1 = ((cljs.core.seq_QMARK_.call(null,map__27979))?cljs.core.apply.call(null,cljs.core.hash_map,map__27979):map__27979);
-var ev_msg = map__27979__$1;
-var _QMARK_data = cljs.core.get.call(null,map__27979__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+cljs.core._add_method.call(null,landing.event_msg_handler,new cljs.core.Keyword("chsk","recv","chsk/recv",561097091),(function (p__125452){
+var map__125453 = p__125452;
+var map__125453__$1 = ((cljs.core.seq_QMARK_.call(null,map__125453))?cljs.core.apply.call(null,cljs.core.hash_map,map__125453):map__125453);
+var ev_msg = map__125453__$1;
+var _QMARK_data = cljs.core.get.call(null,map__125453__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
 return util.console_log.call(null,[cljs.core.str("Push event from server: "),cljs.core.str(_QMARK_data)].join(''));
 }));
-landing.event_msg_handler_STAR_ = (function event_msg_handler_STAR_(p__27980){
-var map__27982 = p__27980;
-var map__27982__$1 = ((cljs.core.seq_QMARK_.call(null,map__27982))?cljs.core.apply.call(null,cljs.core.hash_map,map__27982):map__27982);
-var ev_msg = map__27982__$1;
-var event = cljs.core.get.call(null,map__27982__$1,new cljs.core.Keyword(null,"event","event",301435442));
-var _QMARK_data = cljs.core.get.call(null,map__27982__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
-var id = cljs.core.get.call(null,map__27982__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
+landing.event_msg_handler_STAR_ = (function event_msg_handler_STAR_(p__125454){
+var map__125456 = p__125454;
+var map__125456__$1 = ((cljs.core.seq_QMARK_.call(null,map__125456))?cljs.core.apply.call(null,cljs.core.hash_map,map__125456):map__125456);
+var ev_msg = map__125456__$1;
+var event = cljs.core.get.call(null,map__125456__$1,new cljs.core.Keyword(null,"event","event",301435442));
+var _QMARK_data = cljs.core.get.call(null,map__125456__$1,new cljs.core.Keyword(null,"?data","?data",-9471433));
+var id = cljs.core.get.call(null,map__125456__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
 util.console_log.call(null,[cljs.core.str("Event: "),cljs.core.str(event)].join(''));
 
 return landing.event_msg_handler.call(null,ev_msg);
@@ -123,7 +123,19 @@ return msgF;
 });})(msgF))
 );
 
-om.core.root.call(null,account.accounts_view,landing.app_state,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("accounts-section")], null));
+om.core.root.call(null,account.accounts_view,landing.app_state,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("accounts-section"),new cljs.core.Keyword(null,"tx-listen","tx-listen",119130367),((function (msgF){
+return (function (p__125459,root_cursor){
+var map__125460 = p__125459;
+var map__125460__$1 = ((cljs.core.seq_QMARK_.call(null,map__125460))?cljs.core.apply.call(null,cljs.core.hash_map,map__125460):map__125460);
+var tx_data = map__125460__$1;
+var new_state = cljs.core.get.call(null,map__125460__$1,new cljs.core.Keyword(null,"new-state","new-state",-490349212));
+var new_value = cljs.core.get.call(null,map__125460__$1,new cljs.core.Keyword(null,"new-value","new-value",1087038368));
+var path = cljs.core.get.call(null,map__125460__$1,new cljs.core.Keyword(null,"path","path",-188191168));
+util.console_log.call(null,"tx-listen called");
+
+return landing.sendMessageRaw.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("client","update-account","client/update-account",-1596305741),tx_data], null));
+});})(msgF))
+], null));
 
 return om.core.root.call(null,entry.entries_view,landing.app_state,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"target","target",253001721),document.getElementById("entries-section")], null));
 }));

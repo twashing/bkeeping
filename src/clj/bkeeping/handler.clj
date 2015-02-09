@@ -2,10 +2,12 @@
   (:require [adi.core :as adi]
             [bkell.bkell :as bkell]
             [bkell.domain.user :as bku]
+            [bkell.domain.account :as bka]
             [cheshire.core :as chesr]
             [clj-http.client :as client]
             [clojure.java.io :as io]
             [clojure.walk :as walk]
+            [clojure.pprint :as pp]
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -49,7 +51,7 @@
   (let [session (:session ring-req)
         uid     (:uid     session)]
 
-    (timbre/debug (str "default event: " event))
+    (timbre/debug (str "default event: " (with-out-str (pp/pprint event))))
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
@@ -63,15 +65,29 @@
           gname (-> session :response-withuser :uresult first :system :groups first :name)
           group-tree-raw (adi/select ds
                                      {:group {:name gname}}
+                                     :ids
                                      :pull {:group {:books {:accounts :checked
                                                             :journals {:entries {:content :checked}}}}})
           group-tree-transformed (walk/postwalk #(if (set? %)
                                                    (into [] %)
                                                    %)
                                                 group-tree-raw)
-          group-tree-pruned #spy/d (-> group-tree-transformed first :group)]
+          group-tree-pruned (-> group-tree-transformed first :group)]
 
       (?reply-fn group-tree-pruned))))
+
+(defmethod event-msg-handler :client/update-account
+  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
+  (let [session (:session ring-req)
+        uid     (:uid     session)]
+
+    (timbre/debug (str "update-account event: " (with-out-str (pp/pprint event))))
+    (let [ds (-> bkell/system :spittoon :db)
+          gname (-> session :response-withuser :uresult first :system :groups first :name)]
+
+      (bka/update-account ds gname
+                          (-> ?data :old-value :name)
+                          (dissoc (:new-value ?data) :+ :counterWeight)))))
 
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))

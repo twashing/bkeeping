@@ -4,8 +4,8 @@ goog.require('cljs.core');
 goog.require('sablono.util');
 goog.require('clojure.string');
 
-sablono.interpreter.IInterpreter = (function (){var obj26219 = {};
-return obj26219;
+sablono.interpreter.IInterpreter = (function (){var obj130242 = {};
+return obj130242;
 })();
 
 sablono.interpreter.interpret = (function interpret(this$){
@@ -86,10 +86,10 @@ return attrs__$1;
 * Render an element vector as a HTML element.
 */
 sablono.interpreter.element = (function element(element__$1){
-var vec__26221 = sablono.util.normalize_element.call(null,element__$1);
-var tag = cljs.core.nth.call(null,vec__26221,(0),null);
-var attrs = cljs.core.nth.call(null,vec__26221,(1),null);
-var content = cljs.core.nth.call(null,vec__26221,(2),null);
+var vec__130244 = sablono.util.normalize_element.call(null,element__$1);
+var tag = cljs.core.nth.call(null,vec__130244,(0),null);
+var attrs = cljs.core.nth.call(null,vec__130244,(1),null);
+var content = cljs.core.nth.call(null,vec__130244,(2),null);
 var f = sablono.interpreter.dom_fn.call(null,tag);
 var js_attrs = sablono.interpreter.attributes.call(null,attrs);
 if((cljs.core.sequential_QMARK_.call(null,content)) && (cljs.core._EQ_.call(null,(1),cljs.core.count.call(null,content)))){
